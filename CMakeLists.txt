@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.19)
+project(PK_Matrix_Calculator)
+
+set(CMAKE_CXX_STANDARD 20)
+
+add_executable(PK_Matrix_Calculator main.cpp GeneralMatrixPackage/GeneralMatrix.h GeneralMatrixPackage/constructors.cpp GeneralMatrixPackage/methods.cpp DiagonalMatrixPackage/constructors.cpp DiagonalMatrixPackage/methods.cpp DiagonalMatrixPackage/DiagonalMatrix.h)
