@@ -13,6 +13,7 @@ namespace generalMatrixPackage {
    */
   template<typename M>
   class GeneralMatrix {
+    protected:
       unsigned int mtrxWidth{0}, mtrxHeight{0};
       M** mtrx{nullptr};
       void allocateMemory();

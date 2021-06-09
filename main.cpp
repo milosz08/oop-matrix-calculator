@@ -15,6 +15,7 @@ int main() {
 
   DiagonalMatrix<int> m2{s};
   m2.insertDiagElms();
+  m2.printMtrx();
 
   return 0;
 }

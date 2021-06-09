@@ -6,8 +6,8 @@ namespace diagonalMatrixPackage {
   template<typename M>
   class DiagonalMatrix : public generalMatrixPackage::GeneralMatrix<M> {
     protected:
-      unsigned int mtrxSize;
-      M* diagElms{nullptr};
+      unsigned int diagElm{0};
+      M* diagTab{nullptr};
     public:
       DiagonalMatrix();
       DiagonalMatrix(unsigned int&);

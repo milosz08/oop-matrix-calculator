@@ -1,23 +1,24 @@
 #include <iostream>
 #include "DiagonalMatrix.h"
+#include "../GeneralMatrixPackage/GeneralMatrix.h"
 
 using namespace diagonalMatrixPackage;
+using namespace generalMatrixPackage;
 
 template<class M>
-DiagonalMatrix<M>::DiagonalMatrix() {
-  std::cout << "Konstruktor z klasy DiagonalMatrix\n";
-}
+DiagonalMatrix<M>::DiagonalMatrix() = default;
 
 template<class M>
-DiagonalMatrix<M>::DiagonalMatrix(unsigned int& size) : mtrxSize{size} {
-  this->diagElms = new M[this->mtrxSize];
+DiagonalMatrix<M>::DiagonalMatrix(unsigned int& size) : diagElm{size} {
+  this->diagTab = new M[this->diagElm];
+  GeneralMatrix<M>::allocateMemory();
 }
 
 
 
 template<class M>
 DiagonalMatrix<M>::~DiagonalMatrix() {
-  delete[] this->diagElms;
+  delete[] this->diagTab;
 }
 
 template class diagonalMatrixPackage::DiagonalMatrix<int>;
