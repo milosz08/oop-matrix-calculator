@@ -3,6 +3,10 @@
 
 using namespace generalMatrixPackage;
 
+/**
+ * Konstruktor bezargumentowy wykorzystywany jedynie przy dziedziczeniu.
+ * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
+ */
 template<class M>
 GeneralMatrix<M>::GeneralMatrix() = default;
 

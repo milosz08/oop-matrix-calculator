@@ -22,10 +22,10 @@ namespace generalMatrixPackage {
       unsigned int mtrxSignLength(const M&);
 
     public:
-      GeneralMatrix(); //konstruktor bezargumentowy (dziedziczenie, klasa bazowa)
-      GeneralMatrix(unsigned int&, unsigned int&); //sygnatura dla prostokątnej
-      GeneralMatrix(unsigned int&); //sygnatura dla kwadratowej
-      GeneralMatrix(const GeneralMatrix&); //konstruktor kopiujący
+      GeneralMatrix();
+      GeneralMatrix(unsigned int&, unsigned int&); /** Sygnatura konstr. macierzy prostokątnej */
+      GeneralMatrix(unsigned int&); /** Sygnatura konstr. macierzy kwadratowej */
+      GeneralMatrix(const GeneralMatrix&); /** Sygnatura konstr. kopiującego */
 
       void mtrxTypeAndSizeInfo();
       void insertMtrx();

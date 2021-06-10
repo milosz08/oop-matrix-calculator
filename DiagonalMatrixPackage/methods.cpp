@@ -22,7 +22,7 @@ void DiagonalMatrix<M>::insertDiagElms() {
     try {
       error = false;
       std::cout << "\nWpisz tutaj" << (!repeatMess ? "" : " ponownie") << " elemety macierzy diagonalnej (po spacji):\n";
-      for(unsigned int i = 0; i < this->diagElm; i++) {
+      for(unsigned int i = 0; i < this->diagElms; i++) {
         std::cin >> this->diagTab[i];
       }
       if(std::cin.fail()) {
@@ -44,7 +44,7 @@ void DiagonalMatrix<M>::insertDiagElms() {
  * @fn generateDiagMtrx(bool identityMtrx)
  * @brief Metoda wprowadzająca do konkretnych komórek macierzy konkretne znaki. Jeśli parametr
  * indentityMtrx jest ustawiony na "true", generuje macierz diagonalną na podstawie znaków tablicy
- * dynamicznej diagTab[]. Jeśli jest ustawiony na "false", generuje macierz osobliwą.
+ * dynamicznej diagTab[]. Jeśli jest ustawiony na "false", generuje macierz jednostkową.
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
  * @param identityMtrx - przełącznik pomiędzy macierzą diagonalną a osobliwą (osobliwa -> true)
  */
