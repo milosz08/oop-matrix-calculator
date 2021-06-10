@@ -7,14 +7,16 @@ using namespace diagonalMatrixPackage; //package dla klasy pochodnej (macierz di
 
 int main() {
 
-  unsigned int w = 3, h = 3, s = 3;
+  unsigned int w = 6, h = 6, s = 6;
   //GeneralMatrix<double> m1{w, h};
   //m1.mtrxTypeAndSizeInfo();
   //m1.insertMtrx();
   //m1.printMtrx();
 
-  DiagonalMatrix<int> m2{s};
+  DiagonalMatrix<double> m2{w, h};
   m2.insertDiagElms();
+  m2.generateDiagMtrx(false);
+  //m2.insertMtrx();
   m2.printMtrx();
 
   return 0;

@@ -43,14 +43,16 @@ void GeneralMatrix<M>::allocateMemory() {
  * @fn insertData()
  * @brief Metoda umożliwiająca wprowadzenie przez użytkownika elementów macierzy do wcześniej
  * stworzonej dwuwymiarowej tablicy dynamicznej. Metoda posiada walidację strumienia wejścia
- * pod kątem wprowadzanych znaków do macierzy. Jeśli znak nie jest liczbą/cyfrą program daje
- * wyrzuca błąd i daje możliwość ponownego wpisania macierzy.
+ * pod kątem wprowadzanych znaków do macierzy. Jeśli znak nie jest zgody z typem zmiennej
+ * we wzorcu "M" program wyrzuca błąd i daje możliwość ponownego wpisania macierzy.
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
- * @param throw - kod błędu -1 (niedozwolone znaki ASCII)
+ * @param throw - błąd logiczny (niedozwolone znaki ASCII)
  */
 template<class M>
 void GeneralMatrix<M>::insertMtrx() {
   bool error, repeatMess = false;
+  std::cout << "\nAby przejsc dalej, podaj kolejne elementy macierzy.\n";
+  std::cout << "Uwaga! Jesli podasz wiecej elementow, zostana one przeze mnie zignorowane.\n";
   do {
     try {
       error = false;

@@ -9,14 +9,15 @@ namespace diagonalMatrixPackage {
       unsigned int diagElm{0};
       M* diagTab{nullptr};
     public:
-      DiagonalMatrix();
-      DiagonalMatrix(unsigned int&);
+      DiagonalMatrix(); /** Sygnatura dla konstruktora bezargumentowego (dziedziczenie, klasa pochodna -> bazowa) */
+      DiagonalMatrix(unsigned int&, unsigned int&); /** Sygnatura dla konstruktora bazowego */
+      DiagonalMatrix(const DiagonalMatrix&); /** Sygnatura dla konstruktora kopiującego */
 
       void insertDiagElms();
+      void generateDiagMtrx(bool);
 
       ~DiagonalMatrix();
   };
 }
-
 
 #endif

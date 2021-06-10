@@ -4,7 +4,7 @@
 using namespace generalMatrixPackage;
 
 template<class M>
-GeneralMatrix<M>::GeneralMatrix() {}
+GeneralMatrix<M>::GeneralMatrix() = default;
 
 /**
  * @fn GeneralMatrix(unsigned int& w, unsigned int& h)
@@ -32,7 +32,8 @@ GeneralMatrix<M>::GeneralMatrix(unsigned int & size) : mtrxWidth{size}, mtrxHeig
 }
 
 /**
- * Konstruktor kopiujący (używany głównie przy kopiowaniu wartości przy przeciążeniach operatorów)
+ * @fn GeneralMatrix(const GeneralMatrix& mtrxCopy)
+ * Konstruktor kopiujący (używany głównie przy kopiowaniu macierzy podczas wykonywania operacji)
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
  * @param mtrxCopy - kopia obiektu przekazywana przez referencję
  */
@@ -48,8 +49,8 @@ GeneralMatrix<M>::GeneralMatrix(const GeneralMatrix& mtrxCopy)
 /**
  * @fn ~GeneralMatrix()
  * @brief Destruktor pełniący rolę odśmiecacza pamięci (manualny Garbage Collector).
- * Usuwa tablice dynamiczne reprezentujące wiersze macierzy oraz tablicę
- * wskaźników reprezentującą ilość wierszy w macierzy.
+ * Usuwa tablice dynamiczne reprezentujące wiersze macierzy oraz tablicę wskaźników
+ * które wskazują na w/w tablice dynamiczne reprezentującą ilość wierszy w macierzy.
  */
 template<class M>
 GeneralMatrix<M>::~GeneralMatrix() {
