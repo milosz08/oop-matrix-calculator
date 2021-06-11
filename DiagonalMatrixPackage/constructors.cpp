@@ -1,8 +1,9 @@
 #include <iostream>
 #include "DiagonalMatrix.h"
-#include "../GeneralMatrixPackage/GeneralMatrix.h"
+#include "../MatrixAbstractPackage/MatrixAbstract.h"
 
 using namespace diagonalMatrixPackage;
+using namespace matrixAbstractPackage;
 
 /**
  * Konstruktor bezargumentowy wykorzystywany jedynie przy dziedziczeniu.
@@ -22,8 +23,9 @@ DiagonalMatrix<M>::DiagonalMatrix() = default;
  * @param h - wysokość macierzy (ilośc wierszy)
  */
 template<class M>
-DiagonalMatrix<M>::DiagonalMatrix(unsigned int& s) : generalMatrixPackage::GeneralMatrix<M>{s, s}, diagElms{s} {
-  this->diagTab = new M[this->diagElms];
+DiagonalMatrix<M>::DiagonalMatrix(unsigned int& s) : MatrixAbstract<M>{s, s} {
+  this->diagTab = new M[this->mtrxWidth];
+  mtrxTypeAndSizeInfo();
 }
 
 /**

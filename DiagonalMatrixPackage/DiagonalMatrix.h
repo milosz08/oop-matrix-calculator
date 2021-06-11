@@ -1,6 +1,6 @@
 #ifndef PK_MATRIX_CALCULATOR_DIAGONALMATRIX_H
 #define PK_MATRIX_CALCULATOR_DIAGONALMATRIX_H
-#include "../GeneralMatrixPackage/GeneralMatrix.h"
+#include "../MatrixAbstractPackage/MatrixAbstract.h"
 
 namespace diagonalMatrixPackage {
   /**
@@ -16,10 +16,10 @@ namespace diagonalMatrixPackage {
    * kolumn/wierszy macierzy przechowująca elementy macierzy diagonalnej
    */
   template<typename M>
-  class DiagonalMatrix : public generalMatrixPackage::GeneralMatrix<M> {
-    protected:
-      unsigned int diagElms{0};
+  class DiagonalMatrix : public matrixAbstractPackage::MatrixAbstract<M> {
+    private:
       M* diagTab{nullptr};
+
     public:
       DiagonalMatrix();
       DiagonalMatrix(unsigned int&); /** Sygnatura konstr. bazowego */
@@ -29,6 +29,9 @@ namespace diagonalMatrixPackage {
       void generateDiagMtrx(bool);
 
       ~DiagonalMatrix();
+
+    private:
+      virtual void mtrxTypeAndSizeInfo();
   };
 }
 

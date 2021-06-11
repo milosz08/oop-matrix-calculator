@@ -1,7 +1,9 @@
 #include <iostream>
 #include "GeneralMatrix.h"
+#include "../MatrixAbstractPackage/MatrixAbstract.h"
 
 using namespace generalMatrixPackage;
+using namespace matrixAbstractPackage;
 
 /**
  * Konstruktor bezargumentowy wykorzystywany jedynie przy dziedziczeniu.
@@ -19,8 +21,8 @@ GeneralMatrix<M>::GeneralMatrix() = default;
  * @param h - wysokość macierzy (ilośc wierszy)
  */
 template<class M>
-GeneralMatrix<M>::GeneralMatrix(unsigned int& w, unsigned int& h) : mtrxWidth{w}, mtrxHeight{h} {
-  allocateMemory();
+GeneralMatrix<M>::GeneralMatrix(unsigned int& w, unsigned int& h) : MatrixAbstract<M>{w, h} {
+  mtrxTypeAndSizeInfo();
 }
 
 /**
@@ -28,11 +30,11 @@ GeneralMatrix<M>::GeneralMatrix(unsigned int& w, unsigned int& h) : mtrxWidth{w}
  * @brief Konstruktor jednoargumentowy przypisany wywoływaniu funkcji alokującej pamięć
  * dla macierzy kwadratowej (o takich samych wymiarach).
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
- * @param size - wysokość oraz szerokość macierzy (ilośc kolumn oraz ilość wierszy)
+ * @param s - wysokość oraz szerokość macierzy (ilośc kolumn oraz ilość wierszy)
  */
 template<class M>
-GeneralMatrix<M>::GeneralMatrix(unsigned int & size) : mtrxWidth{size}, mtrxHeight{size} {
-  allocateMemory();
+GeneralMatrix<M>::GeneralMatrix(unsigned int & s) : MatrixAbstract<M>{s, s} {
+  mtrxTypeAndSizeInfo();
 }
 
 /**
@@ -42,13 +44,7 @@ GeneralMatrix<M>::GeneralMatrix(unsigned int & size) : mtrxWidth{size}, mtrxHeig
  * @param mtrxCopy - kopia obiektu przekazywana przez referencję
  */
 template<class M>
-GeneralMatrix<M>::GeneralMatrix(const GeneralMatrix& mtrxCopy)
-: mtrxWidth{mtrxCopy.mtrxWidth}, mtrxHeight{mtrxCopy.mtrxHeight} {
-  this->mtrx = new M* [mtrxCopy.mtrxHeight];
-  for(unsigned int i = 0; i < mtrxCopy.mtrxHeight; i++) {
-    this->mtrx[i] = new M [mtrxCopy.mtrxWidth];
-  }
-}
+GeneralMatrix<M>::GeneralMatrix(const GeneralMatrix& mtrxCopy) : MatrixAbstract<M>{mtrxCopy} {}
 
 /**
  * @fn ~GeneralMatrix()
@@ -57,12 +53,7 @@ GeneralMatrix<M>::GeneralMatrix(const GeneralMatrix& mtrxCopy)
  * które wskazują na w/w tablice dynamiczne reprezentującą ilość wierszy w macierzy.
  */
 template<class M>
-GeneralMatrix<M>::~GeneralMatrix() {
-  for(unsigned int i = 0; i < this->mtrxHeight; i++) {
-    delete[] this->mtrx[i];
-  }
-  delete[] this->mtrx;
-}
+GeneralMatrix<M>::~GeneralMatrix() = default;
 
 template class generalMatrixPackage::GeneralMatrix<int>;
 template class generalMatrixPackage::GeneralMatrix<double>;

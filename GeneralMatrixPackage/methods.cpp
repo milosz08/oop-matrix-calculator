@@ -14,29 +14,14 @@ using namespace generalMatrixPackage;
  */
 template<class M>
 void GeneralMatrix<M>::mtrxTypeAndSizeInfo() {
-  std::cout << "\nZapisalem nastepujace wymiary macierzy\n";
+  std::cout << "\nZapisalem nastepujace wymiary macierzy ";
   if(this->mtrxWidth == this->mtrxHeight) {
-    std::cout << "kwadratowej ";
+    std::cout << "kwadratowej";
   } else {
-    std::cout << "prostokatnej ";
+    std::cout << "prostokatnej";
   }
-  std::cout << this->mtrxWidth << " x " << this->mtrxHeight;
+  std::cout << "\no wymiarach: " << this->mtrxWidth << " x " << this->mtrxHeight;
   std::cout << ", posiadajacej liczbe " << this->mtrxWidth * this->mtrxHeight << " komorek.\n";
-}
-
-/**
- * @fn allocateMemory()
- * @brief Metoda alokująca dynamicznie pamięć w formie tablicy wskaźników typu M (int/double)
- * o wielkości równej ilości wierszy oraz tworząca dynamiczne tablice (ich ilość jest
- * zależna od ilości wierszy) o wielkości równej ilości kolumn w macierzy.
- * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
- */
-template<class M>
-void GeneralMatrix<M>::allocateMemory() {
-  this->mtrx = new M* [this->mtrxHeight];
-  for(unsigned int i = 0; i < this->mtrxHeight; i++) {
-    this->mtrx[i] = new M [this->mtrxWidth];
-  }
 }
 
 /**
@@ -74,26 +59,6 @@ void GeneralMatrix<M>::insertMtrx() {
       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
   } while(error);
-}
-
-/**
- * @fn pringMtrx()
- * @brief Metoda drukująca na ekran zawartość macierzy na podstawie
- * wartości zapisanych w dwuwymiarowej tablicy dynamicznej.
- * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
- * @param mtrxHeight - reprezentanta ilości wierszy macierzy
- * @param mtrxWidth - reprezentanta ilości kolumn macierzy
- */
-template<class M>
-void GeneralMatrix<M>::printMtrx() {
-  std::cout << "\nZapisalem nastepujaca macierz ";
-  std::cout << (this->mtrxHeight == this->mtrxWidth ? "kwadratowa:\n" : "prostokatna:\n");
-  for(unsigned int i = 0; i < this->mtrxHeight; i++) {
-    for(unsigned int j = 0; j < this->mtrxWidth; j++) {
-      std::cout << this->mtrx[i][j] << "\t";
-    }
-    std::cout << "\n";
-  }
 }
 
 template class generalMatrixPackage::GeneralMatrix<int>;

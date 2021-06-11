@@ -1,23 +1,25 @@
 #include <iostream>
+#include "MatrixAbstractPackage/MatrixAbstract.h"
 #include "GeneralMatrixPackage/GeneralMatrix.h"
 #include "DiagonalMatrixPackage/DiagonalMatrix.h"
 
-using namespace generalMatrixPackage; //package dla klasy bazowej macierzy
+using namespace matrixAbstractPackage; //package dla klasy wirtualnej (bazowej) macierzy
+using namespace generalMatrixPackage; //package dla klasy pochodnej (macierz standardowa)
 using namespace diagonalMatrixPackage; //package dla klasy pochodnej (macierz diagonalna)
+
 
 int main() {
 
-  unsigned int w = 6, h = 6, s = 12;
-  //GeneralMatrix<double> m1{w, h};
-  //m1.mtrxTypeAndSizeInfo();
-  //m1.insertMtrx();
-  //m1.printMtrx();
+  unsigned int w = 2, h = 2;
+  GeneralMatrix<double> m1{w, h};
+  m1.insertMtrx();
+  m1.printMatrix();
 
-  DiagonalMatrix<double> m2{s};
-  m2.insertDiagElms();
-  m2.generateDiagMtrx(false);
+  //DiagonalMatrix<double> m2{w};
+  //m2.insertDiagElms();
+  //m2.generateDiagMtrx(false);
   //m2.insertMtrx();
-  m2.printMtrx();
+  //m2.printMatrix();
 
   return 0;
 }
