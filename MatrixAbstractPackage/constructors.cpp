@@ -5,7 +5,7 @@ using namespace matrixAbstractPackage;
 
 /**
  * @fn GeneralMatrix()
- * Konstruktor bezargumentowy.
+ * @brief Konstruktor bezargumentowy.
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
  */
 template<class M>
@@ -36,7 +36,7 @@ MatrixAbstract<M>::MatrixAbstract(unsigned int& s) : mtrxWidth{s}, mtrxHeight{s}
 
 /**
  * @fn MatrixAbstract(const MatrixAbstract& c)
- * Konstruktor kopiujący. Rozwiązuje problem alokacji pamięci przy
+ * @brief Konstruktor kopiujący. Rozwiązuje problem alokacji pamięci przy
  * domyślnym konstruktorze kopiującym (ustawia inne adresy pamięci).
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
  * @param c - kopia obiektu przekazywana przez referencję

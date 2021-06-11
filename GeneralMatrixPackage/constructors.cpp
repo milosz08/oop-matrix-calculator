@@ -7,7 +7,7 @@ using namespace matrixAbstractPackage;
 
 /**
  * @fn GeneralMatrix()
- * Konstruktor bezargumentowy.
+ * @brief Konstruktor bezargumentowy.
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
  */
 template<class M>
@@ -40,12 +40,12 @@ GeneralMatrix<M>::GeneralMatrix(unsigned int & s) : MatrixAbstract<M>{s, s} {
 
 /**
  * @fn GeneralMatrix(const GeneralMatrix& mtrxCopy)
- * Konstruktor kopiujący. Wywołuje konstruktor z klasy abstrakcyjnej, który kopiuje zawartość objektu.
+ * @brief Konstruktor kopiujący. Wywołuje konstruktor z klasy abstrakcyjnej, który kopiuje zawartość objektu.
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
  * @param mtrxCopy - kopia obiektu przekazywana przez referencję
  */
 template<class M>
-GeneralMatrix<M>::GeneralMatrix(const GeneralMatrix& mtrxCopy) : MatrixAbstract<M>{mtrxCopy} {}
+GeneralMatrix<M>::GeneralMatrix(const GeneralMatrix<M>& mtrxCopy) : MatrixAbstract<M>{mtrxCopy} {}
 
 /**
  * @fn ~GeneralMatrix()

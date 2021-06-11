@@ -6,7 +6,8 @@ using namespace diagonalMatrixPackage;
 using namespace matrixAbstractPackage;
 
 /**
- * Konstruktor bezargumentowy wykorzystywany jedynie przy dziedziczeniu.
+ * @fn DiagonalMatrix()
+ * @brief Konstruktor bezargumentowy wykorzystywany jedynie przy dziedziczeniu.
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
  */
 template<class M>

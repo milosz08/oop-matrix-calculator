@@ -12,16 +12,17 @@ namespace generalMatrixPackage {
    * konstruktor bezargumentowy potrzebny do dziedziczenia).
    * Klasa posiada desktruktor pełniący rolę odśmiecacza pamięci.
    * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
-   * @classFields mtrxWidth, mtrxHeight - wymiary macierzy
-   * @param mtrx - tablica wskaźników reprezentująca ilość wierszy w macierzy
    */
-  template<typename M>
+  template<class M> class GeneralMatrix;
+  template<class M> GeneralMatrix<M> operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
+
+  template<class M>
   class GeneralMatrix : public matrixAbstractPackage::MatrixAbstract<M> {
     public:
-      GeneralMatrix();
-      GeneralMatrix(unsigned int&, unsigned int&); /** Sygnatura konstr. macierzy prostokątnej */
-      GeneralMatrix(unsigned int&); /** Sygnatura konstr. macierzy kwadratowej */
-      GeneralMatrix(const GeneralMatrix&); /** Sygnatura konstr. kopiującego */
+      explicit GeneralMatrix();
+      explicit GeneralMatrix(unsigned int&, unsigned int&); /** Sygnatura konstr. macierzy prostokątnej */
+      explicit GeneralMatrix(unsigned int&); /** Sygnatura konstr. macierzy kwadratowej */
+      GeneralMatrix(const GeneralMatrix<M>&); /** Sygnatura konstr. kopiującego */
 
       void insertMtrx();
 
@@ -29,7 +30,12 @@ namespace generalMatrixPackage {
 
     private:
       virtual void mtrxTypeAndSizeInfo();
-  };
-}
 
+    public:
+      friend GeneralMatrix<M> operator+ <>(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
+  };
+
+  /** Dyrektywa dodająca definicje przeciążeń szablonów operatorów dla obiektów klasy */
+  #include "../AdditionalFiles/genMtrxTemplOperators.inl"
+}
 #endif

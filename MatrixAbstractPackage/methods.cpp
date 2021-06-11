@@ -23,13 +23,14 @@ void MatrixAbstract<M>::allocateMemory() {
  * @brief Metoda drukująca na ekran zawartość macierzy na podstawie
  * wartości zapisanych w dwuwymiarowej tablicy dynamicznej.
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
- * @param mtrxHeight - reprezentanta ilości wierszy macierzy
- * @param mtrxWidth - reprezentanta ilości kolumn macierzy
+ * @param textMess - jeśli "true" drukuje komunikat, jeśli "false" drukuje jednynie macierz
  */
 template<class M>
-void MatrixAbstract<M>::printMtrx() {
-  std::cout << "\nZapisalem nastepujaca macierz ";
-  std::cout << (this->mtrxHeight == this->mtrxWidth ? "kwadratowa:\n" : "prostokatna:\n");
+void MatrixAbstract<M>::printMtrx(bool textMess) const {
+  if(textMess) {
+    std::cout << "\nZapisalem nastepujaca macierz ";
+    std::cout << (this->mtrxHeight == this->mtrxWidth ? "kwadratowa:\n" : "prostokatna:\n");
+  }
   for(unsigned int i = 0; i < this->mtrxHeight; i++) {
     for(unsigned int j = 0; j < this->mtrxWidth; j++) {
       std::cout << this->mtrx[i][j] << "\t";

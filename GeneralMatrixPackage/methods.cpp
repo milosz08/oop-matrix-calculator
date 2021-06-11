@@ -1,6 +1,5 @@
 #include <iostream>
 #include <limits>
-#include <string>
 #include <iomanip>
 #include "GeneralMatrix.h"
 

@@ -16,17 +16,18 @@ namespace matrixAbstractPackage {
     protected:
       unsigned int mtrxWidth{0}, mtrxHeight{0};
       M** mtrx{nullptr};
+
     public:
-      MatrixAbstract();
-      MatrixAbstract(unsigned int&, unsigned int&);
-      MatrixAbstract(unsigned int&);
-      MatrixAbstract(const MatrixAbstract&);
+      explicit MatrixAbstract();
+      explicit MatrixAbstract(unsigned int&, unsigned int&);
+      explicit MatrixAbstract(unsigned int&);
+      explicit MatrixAbstract(const MatrixAbstract&);
 
-      virtual void printMtrx(); //metoda wirtualna - drukowanie macierzy
-      virtual void allocateMemory(); //metoda wirtualna - alokacja pamięci
-      virtual void mtrxTypeAndSizeInfo() = 0; //metoda czysto wirtualna - wypisywanie wiadomosci
+      virtual void printMtrx(bool) const; /** metoda wirtualna - drukowanie macierzy */
+      virtual void allocateMemory(); /** metoda wirtualna - alokacja pamięci */
+      virtual void mtrxTypeAndSizeInfo() = 0; /** metoda czysto wirtualna - wypisywanie wiadomosci */
 
-      virtual ~MatrixAbstract(); //wirtualny destruktor (wywołuje pozostałe destruktory)
+      virtual ~MatrixAbstract();
   };
 }
 
