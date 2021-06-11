@@ -14,11 +14,14 @@ int main() {
   m1.insertMtrx();
   m1.printMtrx(true);
 
-  GeneralMatrix<double> m2{w, h};
-  m2.insertMtrx();
-  m2.printMtrx(true);
+  //GeneralMatrix<double> m2{w, h};
+  //m2.insertMtrx();
+  //m2.printMtrx(true);
 
-  GeneralMatrix<double> m3 = m1 + m2;
+  double scalar = m1.scalarValuePush();
+
+
+  GeneralMatrix<double> m3 = m1 * scalar;
   //m3.printMtrx();
 
 

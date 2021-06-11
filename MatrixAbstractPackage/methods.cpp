@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 #include "MatrixAbstract.h"
 
 using namespace matrixAbstractPackage;
@@ -37,6 +38,39 @@ void MatrixAbstract<M>::printMtrx(bool textMess) const {
     }
     std::cout << "\n";
   }
+}
+
+/**
+ * @fn scalarValuePush()
+ * @brief Wprowadzanie przez użytkownika wartości skalara. Metoda posiada walidację pod kątem
+ * strumienia wejścia. Jeśli zostaną podane nieprawidłowe wartości, program wyświetli błąd i
+ * umożliwi ponowne wpisanie wartości skalara przez użytkownika.
+ * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
+ * @return - wartość skalara zapisaną w polu klasy.
+ */
+template<class M>
+double MatrixAbstract<M>::scalarValuePush() {
+  bool error, repeatMess = false;
+  std::cout << "\nAby przejsc dalej, podaj wartosc skalara, przez ktora chcesz przemnozyc macierz.\n";
+  std::cout << "Uwaga! Jesli podasz wiecej elementow (po spacji), zostana one przeze mnie zignorowane!\n";
+  do {
+    try {
+      error = false;
+      std::cout << "\nWpisz tutaj" << (!repeatMess ? "" : " ponownie") << " wartosc skalara:\n";
+      std::cin >> this->scalarVal;
+      if(std::cin.fail()) {
+        throw std::logic_error("badScalarValue");
+      }
+    }
+    catch(std::logic_error&) {
+      std::cout << "\nUwaga! Wartosc skalarna zawiera nieprawidlowe znaki!\n";
+      std::cout << "Aby kontyuowac wprowadz ponownie wartosc skalara.\n";
+      error = repeatMess = true;
+      std::cin.clear();
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+  } while(error);
+  return this->scalarVal;
 }
 
 template class matrixAbstractPackage::MatrixAbstract<int>;

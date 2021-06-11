@@ -15,6 +15,8 @@ namespace generalMatrixPackage {
    */
   template<class M> class GeneralMatrix;
   template<class M> GeneralMatrix<M> operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
+  template<class M> GeneralMatrix<M> operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
+  template<class M> GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrx, double& scalar);
 
   template<class M>
   class GeneralMatrix : public matrixAbstractPackage::MatrixAbstract<M> {
@@ -33,9 +35,11 @@ namespace generalMatrixPackage {
 
     public:
       friend GeneralMatrix<M> operator+ <>(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
+      friend GeneralMatrix<M> operator- <>(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
+      friend GeneralMatrix<M> operator* <>(const GeneralMatrix<M>& mtrx, double& scalar);
   };
 
   /** Dyrektywa dodająca definicje przeciążeń szablonów operatorów dla obiektów klasy */
-  #include "../AdditionalFiles/genMtrxTemplOperators.inl"
+  #include "../OverloadOperators/genMtrxTemplOperators.inl"
 }
 #endif
