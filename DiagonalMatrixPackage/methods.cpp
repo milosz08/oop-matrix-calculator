@@ -5,11 +5,10 @@
 
 using namespace diagonalMatrixPackage;
 
-
 /**
  * @fn mtrxTypeAndSizeInfo()
  * @brief Metoda informująca użytkownika jakiej wielkości oraz ilu elementowa
- * macierz została zapisana.
+ * macierz diagonalna została zapisana.
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
  */
 template<class M>
@@ -61,7 +60,7 @@ void DiagonalMatrix<M>::insertDiagElms() {
  * indentityMtrx jest ustawiony na "true", generuje macierz diagonalną na podstawie znaków tablicy
  * dynamicznej diagTab[]. Jeśli jest ustawiony na "false", generuje macierz jednostkową.
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
- * @param identityMtrx - przełącznik pomiędzy macierzą diagonalną a osobliwą (osobliwa -> true)
+ * @param identityMtrx - przełącznik pomiędzy macierzą diagonalną a jednostkową (jednostkowa -> true)
  */
 template<class M>
 void DiagonalMatrix<M>::generateDiagMtrx(bool identityMtrx) {

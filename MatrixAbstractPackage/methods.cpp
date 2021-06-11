@@ -27,7 +27,7 @@ void MatrixAbstract<M>::allocateMemory() {
  * @param mtrxWidth - reprezentanta ilości kolumn macierzy
  */
 template<class M>
-void MatrixAbstract<M>::printMatrix() {
+void MatrixAbstract<M>::printMtrx() {
   std::cout << "\nZapisalem nastepujaca macierz ";
   std::cout << (this->mtrxHeight == this->mtrxWidth ? "kwadratowa:\n" : "prostokatna:\n");
   for(unsigned int i = 0; i < this->mtrxHeight; i++) {

@@ -6,7 +6,8 @@ using namespace generalMatrixPackage;
 using namespace matrixAbstractPackage;
 
 /**
- * Konstruktor bezargumentowy wykorzystywany jedynie przy dziedziczeniu.
+ * @fn GeneralMatrix()
+ * Konstruktor bezargumentowy.
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
  */
 template<class M>
@@ -14,8 +15,8 @@ GeneralMatrix<M>::GeneralMatrix() = default;
 
 /**
  * @fn GeneralMatrix(unsigned int& w, unsigned int& h)
- * @brief Konstruktor dwuargumentowy przypisany wywoływaniu funkcji alokującej pamięć
- * dla macierzy prostokątnej (o różnych wymiarach).
+ * @brief Konstruktor dwuargumentowy. Wywoływany dla macierzy prostokątnych. Wywołuje
+ * konstruktor z klasy abstrakcyjnej oraz wyświetla informacje na temat wprowadzanej macierzy.
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
  * @param w - szerokość macierzy (ilość kolumn)
  * @param h - wysokość macierzy (ilośc wierszy)
@@ -26,9 +27,9 @@ GeneralMatrix<M>::GeneralMatrix(unsigned int& w, unsigned int& h) : MatrixAbstra
 }
 
 /**
- * @fn GeneralMatrix(unsigned int & size)
- * @brief Konstruktor jednoargumentowy przypisany wywoływaniu funkcji alokującej pamięć
- * dla macierzy kwadratowej (o takich samych wymiarach).
+ * @fn GeneralMatrix(unsigned int & s)
+ * @brief Konstruktor jednoargumentowy. Wywoływany dla macierzy kwadratowych. Wywołuje
+ * konstruktor z klasy abstrakcyjnej oraz wyświetla informacje na temat wprowadzanej macierzy.
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
  * @param s - wysokość oraz szerokość macierzy (ilośc kolumn oraz ilość wierszy)
  */
@@ -39,7 +40,7 @@ GeneralMatrix<M>::GeneralMatrix(unsigned int & s) : MatrixAbstract<M>{s, s} {
 
 /**
  * @fn GeneralMatrix(const GeneralMatrix& mtrxCopy)
- * Konstruktor kopiujący (używany głównie przy kopiowaniu macierzy podczas wykonywania operacji)
+ * Konstruktor kopiujący. Wywołuje konstruktor z klasy abstrakcyjnej, który kopiuje zawartość objektu.
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
  * @param mtrxCopy - kopia obiektu przekazywana przez referencję
  */
@@ -48,9 +49,8 @@ GeneralMatrix<M>::GeneralMatrix(const GeneralMatrix& mtrxCopy) : MatrixAbstract<
 
 /**
  * @fn ~GeneralMatrix()
- * @brief Destruktor pełniący rolę odśmiecacza pamięci (manualny Garbage Collector).
- * Usuwa tablice dynamiczne reprezentujące wiersze macierzy oraz tablicę wskaźników
- * które wskazują na w/w tablice dynamiczne reprezentującą ilość wierszy w macierzy.
+ * @brief Destruktor domyślny. Rolę odśmiecania pamięci
+ * przejmuje destruktor z klasy abstrakcyjnej.
  */
 template<class M>
 GeneralMatrix<M>::~GeneralMatrix() = default;

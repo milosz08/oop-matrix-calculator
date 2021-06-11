@@ -15,9 +15,8 @@ DiagonalMatrix<M>::DiagonalMatrix() = default;
 /**
  * @fn GeneralMatrix(unsigned int& w, unsigned int& h)
  * @brief Konstruktor jednoargumentowy alokujący pamięć dla tablicy dynamicznej przechowującej
- * elementy przekątnej macierzy diagonalnej. W liście inicializacyjnej przypisuje on konstruktorowi
- * klasy bazowej wartości przekazywane przez referencję (s -> s^2 - max elementów macierzy),
- * jako jednoczesną szerokość i wysokość macierzy diagonalnej (macierz kwadratowa).
+ * elementy przekątnej macierzy diagonalnej. W liście inicjalizacyjnej wywołanie konstruktora z
+ * klasy abstrakcyjnej z wpisaniem do niej wartości ze zmiennej z (rozmiar macierzy)
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
  * @param w - szerokość macierzy (ilość kolumn)
  * @param h - wysokość macierzy (ilośc wierszy)

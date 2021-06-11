@@ -25,9 +25,9 @@ void GeneralMatrix<M>::mtrxTypeAndSizeInfo() {
 }
 
 /**
- * @fn insertData()
- * @brief Metoda umożliwiająca wprowadzenie przez użytkownika elementów macierzy do wcześniej
- * stworzonej dwuwymiarowej tablicy dynamicznej. Metoda posiada walidację strumienia wejścia
+ * @fn insertMtrx()
+ * @brief Metoda umożliwiająca wprowadzenie przez użytkownika elementów macierzy do dwuwymiarowej
+ * tablicy dynamicznej stworzonej w klasie abstrakcyjnej. Metoda posiada walidację strumienia wejścia
  * pod kątem wprowadzanych znaków do macierzy. Jeśli znak nie jest zgody z typem zmiennej
  * we wzorcu "M" program wyrzuca błąd i daje możliwość ponownego wpisania macierzy.
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)

@@ -5,6 +5,7 @@
 namespace generalMatrixPackage {
   /**
    * @class GeneralMatrix
+   * @inherit MatrixAbstract
    * @brief Klasa na podstawie której tworzona jest macierz kwadratowa lub prostokątna.
    * Posiada 4 konstruktory, z których jeden odpowiada za stworzenie macierzy kwadratowej
    * drugi macierzy prostokątnej a pozostałe pełnią funkcje pomocnicze (kopiowanie instancji,
