@@ -39,7 +39,7 @@ namespace generalMatrixPackage {
       friend GeneralMatrix<M> operator* <>(const GeneralMatrix<M>& mtrx, double& scalar);
   };
 
-  /** Dyrektywa dodająca definicje przeciążeń szablonów operatorów dla obiektów klasy */
+  /** Dyrektywa dodająca definicje przeciążeń szablonów operatorów */
   #include "../OverloadOperators/genMtrxTemplOperators.inl"
 }
 #endif

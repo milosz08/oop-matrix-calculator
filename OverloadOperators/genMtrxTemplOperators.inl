@@ -68,11 +68,13 @@ GeneralMatrix<M> operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>
 }
 
 /**
- *
- * @tparam M
- * @param mtrx
+ * @overload Operator Mnożenia
+ * @brief Przeciążenie operatora "*" (mnożenia) pod kątem przemnożenia wszystkich
+ * elementów macierzy przez wartość skalarną.
+ * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
+ * @param mtrx - macierz, której elementy będą mnożone przez wartość skalara
  * @param scalar - wartość scalarna wprowadzana przez użytkownika
- * @return
+ * @return - macierz wynikowa (obiekt) po przemnożeniu przez skalar
  */
 template<class M>
 GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrx, double& scalar) {
