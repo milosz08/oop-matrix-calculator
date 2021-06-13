@@ -2,10 +2,10 @@
 #include "GeneralMatrix.h"
 #include "../MatrixAbstractPackage/MatrixAbstract.h"
 
-using namespace generalMatrixPackage;
-using namespace matrixAbstractPackage;
+using namespace generalMatrixPackage; /** Przestrzeń nazw z klasy GeneralMatrix */
+using namespace matrixAbstractPackage; /** Przestrzeń nazw z klas abstrakcyjnej */
 
-/**
+/*!
  * @fn GeneralMatrix()
  * @brief Konstruktor bezargumentowy.
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
@@ -13,7 +13,7 @@ using namespace matrixAbstractPackage;
 template<class M>
 GeneralMatrix<M>::GeneralMatrix() = default;
 
-/**
+/*!
  * @fn GeneralMatrix(unsigned int& w, unsigned int& h)
  * @brief Konstruktor dwuargumentowy. Wywoływany dla macierzy prostokątnych. Wywołuje
  * konstruktor z klasy abstrakcyjnej oraz wyświetla informacje na temat wprowadzanej macierzy.
@@ -26,7 +26,7 @@ GeneralMatrix<M>::GeneralMatrix(unsigned int& w, unsigned int& h) : MatrixAbstra
   mtrxTypeAndSizeInfo();
 }
 
-/**
+/*!
  * @fn GeneralMatrix(unsigned int & s)
  * @brief Konstruktor jednoargumentowy. Wywoływany dla macierzy kwadratowych. Wywołuje
  * konstruktor z klasy abstrakcyjnej oraz wyświetla informacje na temat wprowadzanej macierzy.
@@ -38,7 +38,7 @@ GeneralMatrix<M>::GeneralMatrix(unsigned int & s) : MatrixAbstract<M>{s, s} {
   mtrxTypeAndSizeInfo();
 }
 
-/**
+/*!
  * @fn GeneralMatrix(const GeneralMatrix& mtrxCopy)
  * @brief Konstruktor kopiujący. Wywołuje konstruktor z klasy abstrakcyjnej, który kopiuje zawartość objektu.
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
@@ -47,7 +47,7 @@ GeneralMatrix<M>::GeneralMatrix(unsigned int & s) : MatrixAbstract<M>{s, s} {
 template<class M>
 GeneralMatrix<M>::GeneralMatrix(const GeneralMatrix<M>& mtrxCopy) : MatrixAbstract<M>{mtrxCopy} {}
 
-/**
+/*!
  * @fn ~GeneralMatrix()
  * @brief Destruktor domyślny. Rolę odśmiecania pamięci
  * przejmuje destruktor z klasy abstrakcyjnej.

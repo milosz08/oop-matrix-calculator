@@ -28,7 +28,7 @@ GeneralMatrix<M> operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>
     }
   }
   catch(std::logic_error& e) {
-    std::cout << "\nError! Blad logiczny, kod bledu:" << e.what() << "!\n";
+    std::cout << "\nError! Blad logiczny, kod bledu: " << e.what() << "!\n";
     std::cout << "Dodanie do siebie dwoch macierzy roznych rozmiarow nie jest mozliwe!\n";
   }
   return mtrxAdd;
@@ -61,7 +61,7 @@ GeneralMatrix<M> operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>
     }
   }
   catch(std::logic_error& e) {
-    std::cout << "\nError! Blad logiczny, kod bledu:" << e.what() << "!\n";
+    std::cout << "\nError! Blad logiczny, kod bledu: " << e.what() << "!\n";
     std::cout << "Odjecie od siebie dwoch macierzy roznych rozmiarow nie jest mozliwe!\n";
   }
   return mtrxSubt;
@@ -84,7 +84,7 @@ GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>
     if(mtrxF.mtrxWidth != mtrxS.mtrxHeight || mtrxS.mtrxWidth != mtrxF.mtrxHeight) {
       throw std::logic_error("badMtrxsSize");
     } else {
-      unsigned int sum;
+      unsigned int sum{0};
       for(unsigned int i = 0; i < mtrxF.mtrxHeight; i++) { /** Iteracje przez wiersze pierwszej macierzy */
         for(unsigned int j = 0; j < mtrxS.mtrxWidth; j++) { /** Iteracje przez kolumny drugiej macierzy */
           sum = 0;
@@ -100,7 +100,7 @@ GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>
     }
   }
   catch(std::logic_error& e) {
-    std::cout << "\nError! Blad logiczny, kod bledu:" << e.what() << "!\n";
+    std::cout << "\nError! Blad logiczny, kod bledu: " << e.what() << "!\n";
     std::cout << "Pomnozenie przez siebie macierzy, ktorych pierwsza z nich nie ma tyle samo wierszy\n";
     std::cout << "co druga kolumn (i na odwrot) nie jest mozliwe !\n";
   }

@@ -2,7 +2,7 @@
 #define PK_MATRIX_CALCULATOR_MATRIXABSTRACT_H
 
 namespace matrixAbstractPackage {
-  /**
+  /*!
    * @class MatrixAbstract
    * @brief Klasa abstrakcyjna. Posiada konstruktory: bezargumentowy, dla macierzy
    * prostokątnych, dla macierzy kwadratowych oraz konstruktor kopiujący.
@@ -17,9 +17,9 @@ namespace matrixAbstractPackage {
   class MatrixAbstract {
     public:
       explicit MatrixAbstract();
-      explicit MatrixAbstract(unsigned int&, unsigned int&);
-      explicit MatrixAbstract(unsigned int&);
-      explicit MatrixAbstract(const MatrixAbstract&);
+      explicit MatrixAbstract(unsigned int&, unsigned int&); /** Sygnatura konstr. dla macierzy prostokątnych */
+      explicit MatrixAbstract(unsigned int&); /** Sygnatura konstr. dla macierzy kwadratowych */
+      explicit MatrixAbstract(const MatrixAbstract&); /** Sygnatura konstr. kopiującego */
 
       virtual void printMtrx(bool) const; /** Metoda wirtualna - drukowanie macierzy */
       virtual void allocateMemory(); /** Metoda wirtualna - alokacja pamięci */

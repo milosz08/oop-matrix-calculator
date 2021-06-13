@@ -3,7 +3,7 @@
 #include "../MatrixAbstractPackage/MatrixAbstract.h"
 
 namespace generalMatrixPackage {
-  /**
+  /*!
    * @class GeneralMatrix
    * @inherit MatrixAbstract
    * @brief Klasa na podstawie której tworzona jest macierz kwadratowa lub prostokątna.
@@ -30,7 +30,7 @@ namespace generalMatrixPackage {
       void insertMtrx();
       GeneralMatrix<M> transposeGenMtrx(const GeneralMatrix<M>&); /** Transponowanie macierzy */
       GeneralMatrix<M> coupledGenMtrx(const GeneralMatrix<M>&); /** Macierz sprzężona */
-      GeneralMatrix<M> determinantGenMtrx(const GeneralMatrix<M>&); /** Wyznacznik (kwadratowe) n-tego stopnia */
+      double determinantGenMtrx(const GeneralMatrix<M>&); /** Wyznacznik (kwadratowe) n-tego stopnia */
 
       ~GeneralMatrix();
 

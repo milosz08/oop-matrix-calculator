@@ -56,7 +56,7 @@ void MatrixAbstract<M>::printMtrx(bool textMess) const {
  */
 template<class M>
 double MatrixAbstract<M>::scalarValuePush() {
-  bool error, repeatMess = false;
+  bool error{false}, repeatMess{false};
   std::cout << "\nAby przejsc dalej, podaj wartosc skalara, przez ktora chcesz przemnozyc macierz.\n";
   std::cout << "Uwaga! Jesli podasz wiecej elementow (po spacji), zostana one przeze mnie zignorowane!\n";
   do {
@@ -68,8 +68,9 @@ double MatrixAbstract<M>::scalarValuePush() {
         throw std::logic_error("badScalarValue");
       }
     }
-    catch(std::logic_error&) {
-      std::cout << "\nUwaga! Wartosc skalarna zawiera nieprawidlowe znaki!\n";
+    catch(std::logic_error& e) {
+      std::cout << "\nError! Blad logiczny, kod bledu: " << e.what() << "!\n";
+      std::cout << "Wartosc skalarna zawiera nieprawidlowe znaki!\n";
       std::cout << "Aby kontyuowac wprowadz ponownie wartosc skalara.\n";
       error = repeatMess = true;
       std::cin.clear();
