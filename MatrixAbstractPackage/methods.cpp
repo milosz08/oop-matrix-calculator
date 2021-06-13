@@ -1,5 +1,3 @@
-#include <iostream>
-#include <limits>
 #include "MatrixAbstract.h"
 
 using namespace matrixAbstractPackage;
@@ -29,17 +27,17 @@ void MatrixAbstract<M>::allocateMemory() {
 template<class M>
 void MatrixAbstract<M>::printMtrx(bool textMess) const {
   if(textMess) {
-    std::cout << "\n  Zapisalem nastepujaca macierz ";
+    std::cout << "\n Zapisalem nastepujaca macierz ";
     std::cout << (this->mtrxHeight == this->mtrxWidth ? "kwadratowa:\n" : "prostokatna:\n");
   }
   for(unsigned int i = 0; i < this->mtrxHeight; i++) {
     for(unsigned int j = 0; j < this->mtrxWidth; j++) {
       if(j == 0) {
-        std::cout << "  [\t";
+        std::cout << " [";
       }
-      std::cout << this->mtrx[i][j] << "\t";
+      std::cout << this->mtrx[i][j] << "    ";
       if(j == this->mtrxWidth - 1) {
-        std::cout << "\t]";
+        std::cout << "]";
       }
     }
     std::cout << "\n";
@@ -78,6 +76,20 @@ double MatrixAbstract<M>::scalarValuePush() {
     }
   } while(error);
   return this->scalarVal;
+}
+
+/*!
+ * @fn finalMathInfo(const std::list<std::string>& mess)
+ * @brief Metoda wirtualna wyświetlająca zawartość tekstową podaną w argumencie/argumentach funkcji
+ * Metoda korzysta z iteratorów, które wyświetlają całą zawartość kontenera "list".
+ * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
+ * @param mess - kontener "list", przechowujący listę wiadomości, jakie mają się wyświetlić w konsoli
+ */
+template<class M>
+void MatrixAbstract<M>::finalMathInfo(const std::list<std::string>& mess) {
+  for(auto pos = mess.begin(); pos != mess.end(); pos++) {
+    std::cout << *pos << "\n";
+  }
 }
 
 template class matrixAbstractPackage::MatrixAbstract<int>;

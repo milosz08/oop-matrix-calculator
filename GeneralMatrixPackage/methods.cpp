@@ -1,10 +1,13 @@
 #include <iostream>
 #include <limits>
 #include <iomanip>
-#include <vector>
+#include <string>
 #include "GeneralMatrix.h"
+#include "../MatrixAbstractPackage/MatrixAbstract.h"
+#include "../Interface/Auxiliary Functions/auxiliaryFunc.h"
 
 using namespace generalMatrixPackage;
+using namespace matrixAbstractPackage;
 
 /**
  * @fn mtrxTypeAndSizeInfo()
@@ -70,11 +73,11 @@ void GeneralMatrix<M>::insertMtrx() {
  * @return - macierz wynikowa (obiekt) po transponacji
  */
 template<class M>
-GeneralMatrix<M> GeneralMatrix<M>::transposeGenMtrx(const GeneralMatrix<M>& mtrx) {
-  GeneralMatrix<M> mtrxTrans = GeneralMatrix<M>{mtrx}; /** Kopiowanie macierzy */
-  for(unsigned int i = 0; i < mtrx.mtrxHeight; i++) {
-    for(unsigned int j = 0; j < mtrx.mtrxWidth; j++) {
-      mtrxTrans.mtrx[i][j] = mtrx.mtrx[j][i];
+GeneralMatrix<M> GeneralMatrix<M>::transposeGenMtrx() {
+  GeneralMatrix<M> mtrxTrans = GeneralMatrix<M>{*this}; /** Kopiowanie macierzy */
+  for(unsigned int i = 0; i < this->mtrxHeight; i++) {
+    for(unsigned int j = 0; j < this->mtrxWidth; j++) {
+      mtrxTrans.mtrx[i][j] = this->mtrx[j][i];
     }
   }
   std::cout << "\nWlasnie dokonałem transponacji wprowadzonej przez Ciebie macierzy.\n";
@@ -91,14 +94,14 @@ GeneralMatrix<M> GeneralMatrix<M>::transposeGenMtrx(const GeneralMatrix<M>& mtrx
  * @return - macierz sprzężona (obiekt)
  */
 template<class M>
-GeneralMatrix<M> GeneralMatrix<M>::coupledGenMtrx(const GeneralMatrix<M>& mtrx) {
-  GeneralMatrix<M> mtrxCoup = GeneralMatrix<M>{mtrx}; /** Kopiowanie macierzy */
-  for(unsigned int i = 0; i < mtrx.mtrxHeight; i++) {
-    for(unsigned int j = 0; j < mtrx.mtrxWidth; j++) {
-      mtrxCoup.mtrx[i][j] = mtrx.mtrx[i][j] * -1;
+GeneralMatrix<M> GeneralMatrix<M>::coupledGenMtrx() {
+  GeneralMatrix<M> mtrxCoup = GeneralMatrix<M>{*this}; /** Kopiowanie macierzy */
+  for(unsigned int i = 0; i < this->mtrxHeight; i++) {
+    for(unsigned int j = 0; j < this->mtrxWidth; j++) {
+      mtrxCoup.mtrx[i][j] = this->mtrx[i][j] * -1;
     }
   }
-  std::cout << "\nWlasnie dokonałem operacji sprzezenia na wprowadzonej przez ciebie macierzy.\n";
+  std::cout << "\nWlasnie dokonałem operacji sprzezenia na wprowadzonej przez Ciebie macierzy.\n";
   std::cout << "Po dokonaniu operacji sprzezenia macierzy pierwotnej powstala macierz potomna:\n";
   mtrxCoup.printMtrx(false);
   return mtrxCoup;
@@ -111,35 +114,20 @@ GeneralMatrix<M> GeneralMatrix<M>::coupledGenMtrx(const GeneralMatrix<M>& mtrx) 
  * @return
  */
 template<class M>
-double GeneralMatrix<M>::determinantGenMtrx(const GeneralMatrix<M>& mtrx) {
+double GeneralMatrix<M>::determinantGenMtrx() {
   double detMtrx{0}; /** Wyznacznik */
   try {
-    if(mtrx.mtrxWidth != mtrx.mtrxHeight) { /** Tylko dla macierzy kwadratowych */
+    if(this->mtrxWidth != this->mtrxHeight) { /** Tylko dla macierzy kwadratowych */
       throw std::logic_error("badMtrxSize");
     } else {
-      if(mtrx.mtrxWidth == 1 || mtrx.mtrxHeight == 1) { /** Macierz 1x1 (skalar) */
-        detMtrx = mtrx.mtrx[0][0];
-        return detMtrx;
-      } else if(mtrx.mtrxWidth == 2 || mtrx.mtrxHeight == 2) { /** Macierz 2x2 */
-        M first{0}, second{0};
-        M decrArr[2]; /** Tablica wyników mnożenia wartości po przekątnych */
-        for(unsigned int i = 0; i < mtrx.mtrxHeight; i++) {
-          for(unsigned int j = 0; j < mtrx.mtrxWidth; j++) {
-            if(i == j) { /** Elementy po przekątnej diagonalnej */
-              if(i == 0 && i == 0) { first = mtrx.mtrx[i][j]; }
-                else { second = mtrx.mtrx[i][j]; }
-              decrArr[0] = first * second;
-              first = second = 0;
-            } else { /** Elementy po drugiej przekątnej */
-              if(i == 0 && j == 1) { first = mtrx.mtrx[i][j]; }
-                else { second = mtrx.mtrx[i][j]; }
-              decrArr[1] = first * second;
-              first = second = 0;
-            }
-          }
-        }
-        detMtrx = decrArr[0] - decrArr[1];
-        return detMtrx;
+      if(this->mtrxWidth == 1 || this->mtrxHeight == 1) { /** Macierz 1x1 (skalar) */
+        detMtrx = this->mtrx[0][0];
+      } else if(this->mtrxWidth == 2 || this->mtrxHeight == 2) { /** Macierz 2x2 */
+        M elmA = this->mtrx[0][0];
+        M elmB = this->mtrx[0][1];
+        M elmC = this->mtrx[1][0];
+        M elmD = this->mtrx[1][1];
+        detMtrx = elmA * elmD - elmB * elmC;
       } else { /** Macierz n-tego stopnia */
 
       }
@@ -150,6 +138,15 @@ double GeneralMatrix<M>::determinantGenMtrx(const GeneralMatrix<M>& mtrx) {
     std::cout << "Nie mozna obliczyc wyznaczniku macierzy, ktorej liczba kolumn\n";
     std::cout << "nie jest taka sama jak liczba wierszy (i na odwrot)!\n";
   }
+  MatrixAbstract<M>::finalMathInfo({
+    "\n Wlasnie obliczylem wyznacznik wprowadzonej przez Ciebie macierzy.\n",
+    " Wyznacznik wprowadzonej macierzy wynosi:\n",
+  });
+
+  this->printMtrx(false);
+
+  std::cout << "\n  " << detMtrx << "\n";
+
   return detMtrx;
 }
 

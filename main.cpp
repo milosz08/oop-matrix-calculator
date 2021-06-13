@@ -28,12 +28,14 @@ int main() {
  // std::system("pause");
   //std::system("cls");
 
-  unsigned int w = 4, h = 4;
+  unsigned int w = 2, h = 2;
 
 
   GeneralMatrix<double> m1{w, h};
   m1.insertMtrx();
   m1.printMtrx(true);
+
+  std::cout << m1.determinantGenMtrx() << "\n";
 
   //std::cout << m1 << std::endl;
 

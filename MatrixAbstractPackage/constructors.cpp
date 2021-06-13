@@ -1,4 +1,3 @@
-#include <iostream>
 #include "MatrixAbstract.h"
 
 using namespace matrixAbstractPackage;

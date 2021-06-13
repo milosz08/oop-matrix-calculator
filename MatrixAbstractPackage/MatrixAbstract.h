@@ -1,5 +1,9 @@
 #ifndef PK_MATRIX_CALCULATOR_MATRIXABSTRACT_H
 #define PK_MATRIX_CALCULATOR_MATRIXABSTRACT_H
+#include <iostream>
+#include <list>
+#include <string>
+#include <limits>
 
 namespace matrixAbstractPackage {
   /*!
@@ -24,7 +28,9 @@ namespace matrixAbstractPackage {
       virtual void printMtrx(bool) const; /** Metoda wirtualna - drukowanie macierzy */
       virtual void allocateMemory(); /** Metoda wirtualna - alokacja pamięci */
       virtual double scalarValuePush(); /** Metoda wirtualna - wprowadzanie wartości scalar */
+
       virtual void mtrxTypeAndSizeInfo() = 0; /** Metoda czysto wirtualna - wypisywanie wiadomosci */
+      virtual void finalMathInfo(const std::list<std::string>&);
 
       virtual ~MatrixAbstract(); /** Wirtualny destruktor wywołujący destruktory z klas pochodnych */
 

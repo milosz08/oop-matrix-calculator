@@ -28,9 +28,9 @@ namespace generalMatrixPackage {
       GeneralMatrix(const GeneralMatrix<M>&); /** Sygnatura konstr. kopiującego */
 
       void insertMtrx();
-      GeneralMatrix<M> transposeGenMtrx(const GeneralMatrix<M>&); /** Transponowanie macierzy */
-      GeneralMatrix<M> coupledGenMtrx(const GeneralMatrix<M>&); /** Macierz sprzężona */
-      double determinantGenMtrx(const GeneralMatrix<M>&); /** Wyznacznik (kwadratowe) n-tego stopnia */
+      GeneralMatrix<M> transposeGenMtrx(); /** Transponowanie macierzy */
+      GeneralMatrix<M> coupledGenMtrx(); /** Macierz sprzężona */
+      double determinantGenMtrx(); /** Wyznacznik (kwadratowe) n-tego stopnia */
 
       ~GeneralMatrix();
 
