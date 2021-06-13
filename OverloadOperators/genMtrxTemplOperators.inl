@@ -11,7 +11,7 @@
  * @return - macierz wynikowa (obiekt) po dodaniu
  */
 template<class M>
-GeneralMatrix<M> operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS) {
+GeneralMatrix<M>& operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS) {
   GeneralMatrix<M> mtrxAdd = GeneralMatrix<M>{mtrxF}; /** Kopiowanie macierzy */
   try {
     if(mtrxF.mtrxWidth != mtrxS.mtrxWidth && mtrxF.mtrxHeight != mtrxS.mtrxHeight) {
@@ -44,7 +44,7 @@ GeneralMatrix<M> operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>
  * @return - macierz wynikowa (obiekt) po odjęciu
  */
 template<class M>
-GeneralMatrix<M> operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS) {
+GeneralMatrix<M>& operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS) {
   GeneralMatrix<M> mtrxSubt = GeneralMatrix<M>{mtrxF}; /** Kopiowanie macierzy */
   try {
     if(mtrxF.mtrxWidth != mtrxS.mtrxWidth && mtrxF.mtrxHeight != mtrxS.mtrxHeight) {
@@ -78,7 +78,7 @@ GeneralMatrix<M> operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>
  * @return - macierz wynikowa (obiekt) po monożeniu przez siebie dwóch macierzy
  */
 template<class M>
-GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS) {
+GeneralMatrix<M>& operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS) {
   GeneralMatrix<M> mtrxMult = GeneralMatrix<M>{mtrxF}; /** Kopiowanie macierzy */
   try {
     if(mtrxF.mtrxWidth != mtrxS.mtrxHeight || mtrxS.mtrxWidth != mtrxF.mtrxHeight) {
@@ -117,7 +117,7 @@ GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>
  * @return - macierz wynikowa (obiekt) po przemnożeniu przez skalar
  */
 template<class M>
-GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrx, double& scalar) {
+GeneralMatrix<M>& operator*(const GeneralMatrix<M>& mtrx, const double& scalar) {
   GeneralMatrix<M> mtrxScalar = GeneralMatrix<M>{mtrx}; /** Kopiowanie macierzy */
   for(unsigned int i = 0; i < mtrx.mtrxHeight; i++) {
     for(unsigned int j = 0; j < mtrx.mtrxWidth; j++) {

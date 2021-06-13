@@ -14,10 +14,10 @@ namespace generalMatrixPackage {
    * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
    */
   template<class M> class GeneralMatrix;
-  template<class M> GeneralMatrix<M> operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
-  template<class M> GeneralMatrix<M> operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
-  template<class M> GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
-  template<class M> GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrx, double& scalar);
+  template<class M> GeneralMatrix<M>& operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
+  template<class M> GeneralMatrix<M>& operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
+  template<class M> GeneralMatrix<M>& operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
+  template<class M> GeneralMatrix<M>& operator*(const GeneralMatrix<M>& mtrx, const double& scalar);
 
   template<class M>
   class GeneralMatrix : public matrixAbstractPackage::MatrixAbstract<M> {
@@ -30,7 +30,7 @@ namespace generalMatrixPackage {
       void insertMtrx();
       GeneralMatrix<M> transposeGenMtrx(); /** Transponowanie macierzy */
       GeneralMatrix<M> coupledGenMtrx(); /** Macierz sprzężona */
-      double determinantGenMtrx(); /** Wyznacznik (kwadratowe) n-tego stopnia */
+      double determinantGenMtrx(); /** Wyznacznik (tylko macierze kwadratowe) n-tego stopnia */
 
       ~GeneralMatrix();
 
@@ -38,10 +38,10 @@ namespace generalMatrixPackage {
       virtual void mtrxTypeAndSizeInfo(); /** Metoda z klasy abstrakcyjnej */
 
     public:
-      friend GeneralMatrix<M> operator+ <>(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
-      friend GeneralMatrix<M> operator- <>(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
-      friend GeneralMatrix<M> operator* <>(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
-      friend GeneralMatrix<M> operator* <>(const GeneralMatrix<M>& mtrx, double& scalar);
+      friend GeneralMatrix<M>& operator+ <>(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
+      friend GeneralMatrix<M>& operator- <>(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
+      friend GeneralMatrix<M>& operator* <>(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
+      friend GeneralMatrix<M>& operator* <>(const GeneralMatrix<M>& mtrx, const double& scalar);
   };
 
   /** Dyrektywa dodająca definicje przeciążeń szablonów operatorów */

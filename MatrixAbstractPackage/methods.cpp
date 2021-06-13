@@ -17,30 +17,60 @@ void MatrixAbstract<M>::allocateMemory() {
   }
 }
 
+template<class M>
+unsigned int MatrixAbstract<M>::findMaxLength(unsigned int& col) const {
+  std::string str{""};
+  unsigned int freeSpace{2}; /** Ilość spacji między kolumnami macierzy */
+  std::vector<unsigned int>allLength;
+  for(unsigned int i = 0; i < this->mtrxHeight; i++) {
+    str = std::to_string(this->mtrx[i][col]);
+    str.erase(str.find_last_not_of('0') + 1, std::string::npos);
+    str.erase(str.find_last_not_of('.') + 1, std::string::npos);
+    allLength.push_back(str.length());
+  }
+  return *max_element(allLength.begin(), allLength.end()) + freeSpace;
+}
+
+template<class M>
+unsigned int MatrixAbstract<M>::lengthOfElm(M& cell) const {
+  std::string elmLength{""};
+  elmLength = std::to_string(cell);
+  elmLength.erase(elmLength.find_last_not_of('0') + 1, std::string::npos);
+  elmLength.erase(elmLength.find_last_not_of(',') + 1, std::string::npos);
+  return elmLength.length();
+}
+
 /**
  * @fn pringMtrx()
  * @brief Metoda drukująca na ekran zawartość macierzy na podstawie
  * wartości zapisanych w dwuwymiarowej tablicy dynamicznej.
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
  * @param textMess - jeśli "true" drukuje komunikat, jeśli "false" drukuje jednynie macierz
+ * @param clBrck - generowany nawias zamykający macierz (zmienia się w przypadku wyznacznika)
  */
 template<class M>
-void MatrixAbstract<M>::printMtrx(bool textMess) const {
+void MatrixAbstract<M>::printMtrx(bool textMess, const char clBrck) const {
+  unsigned int spaces{0}; /** Przerwa pomiędzy kolejnymi kolumnami */
   if(textMess) {
     std::cout << "\n Zapisalem nastepujaca macierz ";
     std::cout << (this->mtrxHeight == this->mtrxWidth ? "kwadratowa:\n" : "prostokatna:\n");
   }
   for(unsigned int i = 0; i < this->mtrxHeight; i++) {
     for(unsigned int j = 0; j < this->mtrxWidth; j++) {
-      if(j == 0) {
-        std::cout << " [";
+      if(j == 0) { /** Jeśli jest to 1 kolumna macierzy */
+        std::cout << " " << clBrck << " ";
       }
-      std::cout << this->mtrx[i][j] << "    ";
-      if(j == this->mtrxWidth - 1) {
-        std::cout << "]";
+      std::cout << this->mtrx[i][j];
+      if(j == this->mtrxWidth - 1) { /** Jeśli jest to ostatnia kolumna macierzy */
+        spaces = 1;
+      } else {
+        spaces = findMaxLength(j) - lengthOfElm(this->mtrx[i][j]);
+      }
+      for(unsigned int k = 0; k < spaces; k++) {
+        std::cout << " ";
       }
     }
-    std::cout << "\n";
+    std::cout << clBrck << "\n";
   }
 }
 

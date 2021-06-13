@@ -35,7 +35,7 @@ int main() {
   m1.insertMtrx();
   m1.printMtrx(true);
 
-  std::cout << m1.determinantGenMtrx() << "\n";
+  //std::cout << m1.determinantGenMtrx() << "\n";
 
   //std::cout << m1 << std::endl;
 
