@@ -50,14 +50,80 @@ void GeneralMatrix<M>::insertMtrx() {
         throw std::logic_error("nAllAsciiChars");
       }
     }
-    catch(std::logic_error&) {
-      std::cout << "\nUwaga! W wprowadzanej przez ciebie macierzy znalazlem niedozwolone wartosci!\n";
+    catch(std::logic_error& e) {
+      std::cout << "\nError! Blad logiczny, kod bledu:" << e.what() << "!\n";
+      std::cout << "W wprowadzanej przez ciebie macierzy znalazlem niedozwolone wartosci!\n";
       std::cout << "Aby kontyuowac wprowadz ponownie swoja macierz.\n";
       error = repeatMess = true;
       std::cin.clear();
       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
   } while(error);
+}
+
+/**
+ * @fn transposeMtrx(const GeneralMatrix<M>& mtrx)
+ * @brief Metoda wykonująca operację tranponowania macierzy.
+ * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
+ * @param mtrx - macierz, która zostanie podjęta transponacji
+ * @return - macierz wynikowa (obiekt) po transponacji
+ */
+template<class M>
+GeneralMatrix<M> GeneralMatrix<M>::transposeGenMtrx(const GeneralMatrix<M>& mtrx) {
+  GeneralMatrix<M> mtrxTrans = GeneralMatrix<M>{mtrx}; /** Kopiowanie macierzy */
+  for(unsigned int i = 0; i < mtrx.mtrxHeight; i++) {
+    for(unsigned int j = 0; j < mtrx.mtrxWidth; j++) {
+      mtrxTrans.mtrx[i][j] = mtrx.mtrx[j][i];
+    }
+  }
+  std::cout << "\nWlasnie dokonałem transponacji wprowadzonej przez Ciebie macierzy.\n";
+  std::cout << "Po dokonaniu transponacji macierzy pierwotnej powstala macierz potomna:\n";
+  mtrxTrans.printMtrx(false);
+  return mtrxTrans;
+}
+
+/**
+ * @fn coupledGenMtrx(const GeneralMatrix<M>& mtrx)
+ * @brief Metoda tworząca macierz sprzężoną na podstawie macierzy pierwotnej.
+ * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
+ * @param mtrx - macierz, której każda wartość otrzyma odpowiadającej jej wartość sprzężoną
+ * @return - macierz sprzężona (obiekt)
+ */
+template<class M>
+GeneralMatrix<M> GeneralMatrix<M>::coupledGenMtrx(const GeneralMatrix<M>& mtrx) {
+  GeneralMatrix<M> mtrxCoup = GeneralMatrix<M>{mtrx}; /** Kopiowanie macierzy */
+  for(unsigned int i = 0; i < mtrx.mtrxHeight; i++) {
+    for(unsigned int j = 0; j < mtrx.mtrxWidth; j++) {
+      mtrxCoup.mtrx[i][j] = mtrx.mtrx[i][j] * -1;
+    }
+  }
+  std::cout << "\nWlasnie dokonałem operacji sprzezenia na wprowadzonej przez ciebie macierzy.\n";
+  std::cout << "Po dokonaniu operacji sprzezenia macierzy pierwotnej powstala macierz potomna:\n";
+  mtrxCoup.printMtrx(false);
+  return mtrxCoup;
+}
+
+/**
+ *
+ * @tparam M
+ * @param mtrx
+ * @return
+ */
+template<class M>
+GeneralMatrix<M> GeneralMatrix<M>::determinantGenMtrx(const GeneralMatrix<M>& mtrx) {
+  GeneralMatrix<M> mtrxDet = GeneralMatrix<M>{mtrx}; /** Kopiowanie macierzy */
+  try {
+    if(mtrx.mtrxWidth != mtrx.mtrxHeight) {
+      throw std::logic_error("badMtrxsSize");
+    } else {
+      //
+    }
+  }
+  catch(std::logic_error& e) {
+    std::cout << "\nError! Blad logiczny, " << e.what() << " !\n";
+  }
+
+  return mtrxDet;
 }
 
 template class generalMatrixPackage::GeneralMatrix<int>;

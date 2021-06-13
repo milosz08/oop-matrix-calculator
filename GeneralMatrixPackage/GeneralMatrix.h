@@ -16,6 +16,7 @@ namespace generalMatrixPackage {
   template<class M> class GeneralMatrix;
   template<class M> GeneralMatrix<M> operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
   template<class M> GeneralMatrix<M> operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
+  template<class M> GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
   template<class M> GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrx, double& scalar);
 
   template<class M>
@@ -27,15 +28,19 @@ namespace generalMatrixPackage {
       GeneralMatrix(const GeneralMatrix<M>&); /** Sygnatura konstr. kopiującego */
 
       void insertMtrx();
+      GeneralMatrix<M> transposeGenMtrx(const GeneralMatrix<M>&); /** Transponowanie macierzy */
+      GeneralMatrix<M> coupledGenMtrx(const GeneralMatrix<M>&); /** Macierz sprzężona */
+      GeneralMatrix<M> determinantGenMtrx(const GeneralMatrix<M>&); /** Wyznacznik (kwadratowe) n-tego stopnia */
 
       ~GeneralMatrix();
 
     private:
-      virtual void mtrxTypeAndSizeInfo();
+      virtual void mtrxTypeAndSizeInfo(); /** Metoda z klasy abstrakcyjnej */
 
     public:
       friend GeneralMatrix<M> operator+ <>(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
       friend GeneralMatrix<M> operator- <>(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
+      friend GeneralMatrix<M> operator* <>(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
       friend GeneralMatrix<M> operator* <>(const GeneralMatrix<M>& mtrx, double& scalar);
   };
 

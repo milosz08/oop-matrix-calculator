@@ -15,23 +15,23 @@ namespace matrixAbstractPackage {
    */
   template<typename M>
   class MatrixAbstract {
-    protected:
-      unsigned int mtrxWidth{0}, mtrxHeight{0};
-      double scalarVal{0};
-      M** mtrx{nullptr};
-
     public:
       explicit MatrixAbstract();
       explicit MatrixAbstract(unsigned int&, unsigned int&);
       explicit MatrixAbstract(unsigned int&);
       explicit MatrixAbstract(const MatrixAbstract&);
 
-      virtual void printMtrx(bool) const; /** metoda wirtualna - drukowanie macierzy */
-      virtual void allocateMemory(); /** metoda wirtualna - alokacja pamięci */
-      virtual double scalarValuePush(); /** metoda wirtualna - wprowadzanie wartości scalar */
-      virtual void mtrxTypeAndSizeInfo() = 0; /** metoda czysto wirtualna - wypisywanie wiadomosci */
+      virtual void printMtrx(bool) const; /** Metoda wirtualna - drukowanie macierzy */
+      virtual void allocateMemory(); /** Metoda wirtualna - alokacja pamięci */
+      virtual double scalarValuePush(); /** Metoda wirtualna - wprowadzanie wartości scalar */
+      virtual void mtrxTypeAndSizeInfo() = 0; /** Metoda czysto wirtualna - wypisywanie wiadomosci */
 
-      virtual ~MatrixAbstract();
+      virtual ~MatrixAbstract(); /** Wirtualny destruktor wywołujący destruktory z klas pochodnych */
+
+    protected:
+      unsigned int mtrxWidth{0}, mtrxHeight{0}; /** Wymiary macierzy */
+      double scalarVal{0}; /** Wartość skalara */
+      M** mtrx{nullptr}; /** Tablica wskaźników typu M reprezentująca komórki macierzy */
   };
 }
 

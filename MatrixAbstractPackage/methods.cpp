@@ -29,12 +29,18 @@ void MatrixAbstract<M>::allocateMemory() {
 template<class M>
 void MatrixAbstract<M>::printMtrx(bool textMess) const {
   if(textMess) {
-    std::cout << "\nZapisalem nastepujaca macierz ";
+    std::cout << "\n  Zapisalem nastepujaca macierz ";
     std::cout << (this->mtrxHeight == this->mtrxWidth ? "kwadratowa:\n" : "prostokatna:\n");
   }
   for(unsigned int i = 0; i < this->mtrxHeight; i++) {
     for(unsigned int j = 0; j < this->mtrxWidth; j++) {
+      if(j == 0) {
+        std::cout << "  [\t";
+      }
       std::cout << this->mtrx[i][j] << "\t";
+      if(j == this->mtrxWidth - 1) {
+        std::cout << "\t]";
+      }
     }
     std::cout << "\n";
   }
