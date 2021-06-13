@@ -17,6 +17,14 @@ void MatrixAbstract<M>::allocateMemory() {
   }
 }
 
+/*!
+ * @fn findMaxLength(unsigned int& col)
+ * @inherit Metoda tylko na potrzeby metod wirtualnych klasy abstrakcyjnej! Metoda niedziedziczona!
+ * @brief Wyznaczenie, odszukanie i zwrócenie najdłużego ciągu liczbowego w jednej kolumnie macierzy.
+ * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
+ * @param col - aktualnie obsługiwana kolumna (indeks)
+ * @return - najdłuższy ciąg liczbowy w n kolumnie (wartość n = param col)
+ */
 template<class M>
 unsigned int MatrixAbstract<M>::findMaxLength(unsigned int& col) const {
   std::string str{""};
@@ -25,12 +33,20 @@ unsigned int MatrixAbstract<M>::findMaxLength(unsigned int& col) const {
   for(unsigned int i = 0; i < this->mtrxHeight; i++) {
     str = std::to_string(this->mtrx[i][col]);
     str.erase(str.find_last_not_of('0') + 1, std::string::npos);
-    str.erase(str.find_last_not_of('.') + 1, std::string::npos);
+    str.erase(str.find_last_not_of(',') + 1, std::string::npos);
     allLength.push_back(str.length());
   }
   return *max_element(allLength.begin(), allLength.end()) + freeSpace;
 }
 
+/*!
+ * @fn lengthOfElm(M& cell)
+ * @brief Metoda tylko na potrzeby metod wirtualnych klasy abstrakcyjnej! Metoda niedziedziczona!
+ * Wyznaczanie i zwrócenie długości wartości liczbowej typu "unsigned int" w pojedynczej komórce macierzy.
+ * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
+ * @param cell - wartość typu M przekazywana do komórki przez referencję
+ * @return - długość wartości pobieranej ze zmiennej "cell" typu M przez referencję
+ */
 template<class M>
 unsigned int MatrixAbstract<M>::lengthOfElm(M& cell) const {
   std::string elmLength{""};
@@ -46,31 +62,31 @@ unsigned int MatrixAbstract<M>::lengthOfElm(M& cell) const {
  * wartości zapisanych w dwuwymiarowej tablicy dynamicznej.
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
  * @param textMess - jeśli "true" drukuje komunikat, jeśli "false" drukuje jednynie macierz
- * @param clBrck - generowany nawias zamykający macierz (zmienia się w przypadku wyznacznika)
+ * @param sharpBrc - jeśli "true" drukuje "[]", jeśli false drukuje "|".
  */
 template<class M>
-void MatrixAbstract<M>::printMtrx(bool textMess, const char clBrck) const {
+void MatrixAbstract<M>::printMtrx(const bool textMess, const bool sharpBrc) const {
   unsigned int spaces{0}; /** Przerwa pomiędzy kolejnymi kolumnami */
   if(textMess) {
-    std::cout << "\n Zapisalem nastepujaca macierz ";
+    std::cout << "\n  Zapisalem nastepujaca macierz ";
     std::cout << (this->mtrxHeight == this->mtrxWidth ? "kwadratowa:\n" : "prostokatna:\n");
   }
   for(unsigned int i = 0; i < this->mtrxHeight; i++) {
     for(unsigned int j = 0; j < this->mtrxWidth; j++) {
       if(j == 0) { /** Jeśli jest to 1 kolumna macierzy */
-        std::cout << " " << clBrck << " ";
+        std::cout << (sharpBrc ? "  [ " : "  | ");
       }
       std::cout << this->mtrx[i][j];
       if(j == this->mtrxWidth - 1) { /** Jeśli jest to ostatnia kolumna macierzy */
-        spaces = 1;
-      } else {
+        spaces = findMaxLength(j) - lengthOfElm(this->mtrx[i][j]) - 2;
+      } else { /** Pozostałe kolumny macierzy */
         spaces = findMaxLength(j) - lengthOfElm(this->mtrx[i][j]);
       }
       for(unsigned int k = 0; k < spaces; k++) {
         std::cout << " ";
       }
     }
-    std::cout << clBrck << "\n";
+    std::cout << (sharpBrc ? " ]" : " |") << "\n";
   }
 }
 

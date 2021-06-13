@@ -1,6 +1,11 @@
 #ifndef PK_MATRIX_CALCULATOR_GENERALMATRIX_H
 #define PK_MATRIX_CALCULATOR_GENERALMATRIX_H
 #include "../MatrixAbstractPackage/MatrixAbstract.h"
+#include <iostream>
+#include <limits>
+#include <iomanip>
+#include <string>
+#include <windows.h>
 
 namespace generalMatrixPackage {
   /*!

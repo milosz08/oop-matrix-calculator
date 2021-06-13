@@ -1,7 +1,3 @@
-#include <iostream>
-#include <limits>
-#include <iomanip>
-#include <string>
 #include "GeneralMatrix.h"
 #include "../MatrixAbstractPackage/MatrixAbstract.h"
 #include "../Interface/Auxiliary Functions/auxiliaryFunc.h"
@@ -39,11 +35,26 @@ void GeneralMatrix<M>::mtrxTypeAndSizeInfo() {
 template<class M>
 void GeneralMatrix<M>::insertMtrx() {
   bool error, repeatMess = false;
+  HANDLE hOut;
+  hOut = GetStdHandle( STD_OUTPUT_HANDLE );
   std::cout << "\nAby przejsc dalej, podaj kolejne elementy macierzy.\n";
-  std::cout << "Uwaga! Jesli podasz wiecej elementow, zostana one przeze mnie zignorowane.\n";
+  SetConsoleTextAttribute( hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY );
+  std::cout << "Uwaga! \n";
+
+  matrixFinalInfo("UWAGA!", {
+    "Jesli podasz wiecej elementow, zostana one przeze mnie zignorowane."
+  });
+
+  SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+  std::cout << "\n=========================================== INFO ===========================================\n";
+  std::cout << " Macierz mozesz wpisac zarowno w formie jednoliniowej poziomej lub pionowej tablicy\n";
+  std::cout << " lub w wygodnej formie wizualnej macierzy (kolejne elementy nalezy wypisywac po spacji\n";
+  std::cout << " a w przechodzeniu do nowego wiersza nalezy uzyc klawisza \"enter\").\n";
+  std::cout << "============================================================================================\n";
   do {
     try {
       error = false;
+      SetConsoleTextAttribute( hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED );
       std::cout << "\nWpisz " << (!repeatMess ? "" : "ponownie ") << "swoja macierz:\n";
       for(unsigned int i = 0; i < this->mtrxHeight; i++) {
         for(unsigned int j = 0; j < this->mtrxWidth; j++) {
@@ -56,8 +67,10 @@ void GeneralMatrix<M>::insertMtrx() {
     }
     catch(std::logic_error& e) {
       std::cout << "\nError! Blad logiczny, kod bledu:" << e.what() << "!\n";
-      std::cout << "W wprowadzanej przez ciebie macierzy znalazlem niedozwolone wartosci!\n";
-      std::cout << "Aby kontyuowac wprowadz ponownie swoja macierz.\n";
+      MatrixAbstract<M>::finalMathInfo({
+        "W wprowadzanej przez ciebie macierzy znalazlem niedozwolone wartosci!\n",
+        "Aby kontyuowac wprowadz ponownie swoja macierz.\n"
+      });
       error = repeatMess = true;
       std::cin.clear();
       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -80,9 +93,11 @@ GeneralMatrix<M> GeneralMatrix<M>::transposeGenMtrx() {
       mtrxTrans.mtrx[i][j] = this->mtrx[j][i];
     }
   }
-  std::cout << "\nWlasnie dokonałem transponacji wprowadzonej przez Ciebie macierzy.\n";
-  std::cout << "Po dokonaniu transponacji macierzy pierwotnej powstala macierz potomna:\n";
-  mtrxTrans.printMtrx(false);
+  MatrixAbstract<M>::finalMathInfo({
+    "\nWlasnie dokonałem transponacji wprowadzonej przez Ciebie macierzy.\n",
+    "Po dokonaniu transponacji macierzy pierwotnej powstala macierz potomna:\n"
+  });
+  mtrxTrans.printMtrx(false, true);
   return mtrxTrans;
 }
 
@@ -101,9 +116,11 @@ GeneralMatrix<M> GeneralMatrix<M>::coupledGenMtrx() {
       mtrxCoup.mtrx[i][j] = this->mtrx[i][j] * -1;
     }
   }
-  std::cout << "\nWlasnie dokonałem operacji sprzezenia na wprowadzonej przez Ciebie macierzy.\n";
-  std::cout << "Po dokonaniu operacji sprzezenia macierzy pierwotnej powstala macierz potomna:\n";
-  mtrxCoup.printMtrx(false);
+  MatrixAbstract<M>::finalMathInfo({
+    "\nWlasnie dokonałem operacji sprzezenia na wprowadzonej przez Ciebie macierzy.\n",
+    "Po dokonaniu operacji sprzezenia macierzy pierwotnej powstala macierz potomna:\n"
+  });
+  mtrxCoup.printMtrx(false, true);
   return mtrxCoup;
 }
 
@@ -134,16 +151,16 @@ double GeneralMatrix<M>::determinantGenMtrx() {
     }
   }
   catch(std::logic_error& e) {
-    std::cout << "\nError! Blad logiczny, " << e.what() << " !\n";
-    std::cout << "Nie mozna obliczyc wyznaczniku macierzy, ktorej liczba kolumn\n";
-    std::cout << "nie jest taka sama jak liczba wierszy (i na odwrot)!\n";
+    std::cout << "\n  Error! Blad logiczny, " << e.what() << " !\n";
+    std::cout << "  Nie mozna obliczyc wyznaczniku macierzy, ktorej liczba kolumn\n";
+    std::cout << "  nie jest taka sama jak liczba wierszy (i na odwrot)!\n";
   }
   MatrixAbstract<M>::finalMathInfo({
-    "\n Wlasnie obliczylem wyznacznik wprowadzonej przez Ciebie macierzy.\n",
-    " Wyznacznik wprowadzonej macierzy wynosi:\n",
+    "\nWlasnie obliczylem wyznacznik wprowadzonej przez Ciebie macierzy.\n",
+    "Wyznacznik wprowadzonej macierzy wynosi:\n",
   });
 
-  this->printMtrx(false);
+  //this->printMtrx(false, true);
 
   std::cout << "\n  " << detMtrx << "\n";
 

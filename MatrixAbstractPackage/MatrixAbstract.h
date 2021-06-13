@@ -26,9 +26,9 @@ namespace matrixAbstractPackage {
       explicit MatrixAbstract(unsigned int&); /** Sygnatura konstr. dla macierzy kwadratowych */
       explicit MatrixAbstract(const MatrixAbstract&); /** Sygnatura konstr. kopiującego */
 
-      virtual void printMtrx(bool, const char) const; /** Metoda wirtualna - drukowanie macierzy */
-      virtual void allocateMemory(); /** Metoda wirtualna - alokacja pamięci */
-      virtual double scalarValuePush(); /** Metoda wirtualna - wprowadzanie wartości scalar */
+      virtual void printMtrx(const bool, const bool) const; /** Metoda wirtualna - drukowanie macierzy */
+      void allocateMemory(); /** Alokacja pamięci */
+      double scalarValuePush(); /** Wprowadzanie wartości skalara */
 
       virtual void mtrxTypeAndSizeInfo() = 0; /** Metoda czysto wirtualna - wypisywanie wiadomosci */
       virtual void finalMathInfo(const std::list<std::string>&);
@@ -36,8 +36,8 @@ namespace matrixAbstractPackage {
       virtual ~MatrixAbstract(); /** Wirtualny destruktor wywołujący destruktory z klas pochodnych */
 
     private: /** Metody prywatne; dostępne tylko na użytek metod klasy abstrakcyjnej */
-      virtual unsigned int findMaxLength(unsigned int&) const;
-      virtual unsigned int lengthOfElm(M&) const;
+      unsigned int findMaxLength(unsigned int&) const;
+      unsigned int lengthOfElm(M&) const;
 
     protected:
       unsigned int mtrxWidth{0}, mtrxHeight{0}; /** Wymiary macierzy */

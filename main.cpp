@@ -33,9 +33,11 @@ int main() {
 
   GeneralMatrix<double> m1{w, h};
   m1.insertMtrx();
-  m1.printMtrx(true);
+  m1.printMtrx(true, true);
 
-  //std::cout << m1.determinantGenMtrx() << "\n";
+  //std::cout <<  << "\n";
+
+  m1.determinantGenMtrx();
 
   //std::cout << m1 << std::endl;
 
