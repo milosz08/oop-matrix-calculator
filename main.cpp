@@ -1,22 +1,15 @@
 #include <iostream>
-#include <string>
-#include <stdlib.h>
-#include <windows.h>
-#include "MatrixAbstractPackage/MatrixAbstract.h"
-#include "GeneralMatrixPackage/GeneralMatrix.h"
-#include "DiagonalMatrixPackage/DiagonalMatrix.h"
-
-using namespace matrixAbstractPackage; /** package klasy wirtualnej (bazowej) macierzy */
-using namespace generalMatrixPackage; /** package klasy pochodnej (macierz standardowa) */
-using namespace diagonalMatrixPackage; /** package klasy pochodnej (macierz diagonalna) */
-
+#include "Interface/interfaceFunc.h"
 
 int main() {
-  std::setlocale(LC_ALL, "polish");
-  unsigned int test;
+  //std::setlocale(LC_ALL, "polish");
 
-  HANDLE hOut;
-  hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+  startPrg();
+
+  //unsigned int test;
+
+  //HANDLE hOut;
+  //hOut = GetStdHandle(STD_OUTPUT_HANDLE);
 
   //SetConsoleTextAttribute( hOut, BACKGROUND_GREEN | BACKGROUND_BLUE | BACKGROUND_RED );
   //std::cout << "\n  ====================================================================\n";
@@ -28,16 +21,16 @@ int main() {
  // std::system("pause");
   //std::system("cls");
 
-  unsigned int w = 2, h = 2;
+  //unsigned int w = 2, h = 2;
 
 
-  GeneralMatrix<double> m1{w, h};
-  m1.insertMtrx();
-  m1.printMtrx(true, true);
+  //GeneralMatrix<double> m1{w, h};
+  //m1.insertMtrx();
+  //m1.printMtrx(true, true);
 
   //std::cout <<  << "\n";
 
-  m1.determinantGenMtrx();
+  //m1.determinantGenMtrx();
 
   //std::cout << m1 << std::endl;
 

@@ -18,16 +18,16 @@ void genInfoBlock(std::string header, std::initializer_list<std::string> mess) {
   }
   /** Generacja nagłówka */
   std::cout << "\n";
-  for(unsigned int i = 0; i < maxLength / 2; i++) { std::cout << "+"; }
+  for(unsigned int i = 0; i < 5; i++) { std::cout << "+"; }
   std::cout << " " << header << " ";
-  for(unsigned int i = 0; i < maxLength / 2; i++) { std::cout << "+"; }
+  for(unsigned int i = 0; i < maxLength - 5; i++) { std::cout << "+"; }
   std::cout << "\n";
   /** Generacja głównego kontentu tekstowego */
   for(auto pos = mess.begin(); pos != mess.end(); pos++) {
     std::cout << " " << *pos << "\n";
   }
   /** Generowanie stopki */
-  for(unsigned int i = 0; i < maxLength + headerLength - 1; i++) { std::cout << "+"; }
+  for(unsigned int i = 0; i < maxLength + headerLength; i++) { std::cout << "+"; }
   std::cout << "\n";
 }
 
