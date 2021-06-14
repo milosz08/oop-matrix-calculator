@@ -38,8 +38,8 @@ void genInfoBlock(std::string header, std::vector<std::string> mess) {
  * @brief Funkcja interfejsu generująca asynchroniczny licznik błędu, zliczający od
  * n czasu do zera, gdzie n to skończona liczba całkowita (licznik zlicza z prędkością 700ms).
  */
-void errorSequentialMess(int n) {
-  std::cout << "\nPonawianie za: ";
+void sequentialMess(int n, std::string mess) {
+  std::cout << "\n" << mess << ": ";
   for(int i = n; i >= 0; i--) {
     std::cout << i;
     Sleep(700);

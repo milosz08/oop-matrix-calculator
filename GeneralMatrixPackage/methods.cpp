@@ -77,7 +77,7 @@ void GeneralMatrix<M>::insertMtrx() {
       });
 
       SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-      errorSequentialMess(5);
+      sequentialMess(5, "Ponawianie za");
 
       std::system("cls");
       error = repeatMess = true;

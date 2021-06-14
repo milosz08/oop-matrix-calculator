@@ -15,8 +15,8 @@ using namespace generalMatrixPackage; /** package klasy pochodnej (macierz stand
 using namespace diagonalMatrixPackage; /** package klasy pochodnej (macierz diagonalna) */
 
 
-unsigned int mainMenu();
-
+void mainMenu();
+void chooseTypeOfMatrix();
 
 void startPrg();
 

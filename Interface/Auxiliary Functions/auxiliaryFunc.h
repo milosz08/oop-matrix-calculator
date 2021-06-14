@@ -8,6 +8,6 @@
 #include <synchapi.h>
 
 void genInfoBlock(std::string header, std::vector<std::string> mess);
-void errorSequentialMess(int);
+void sequentialMess(int, std::string mess);
 
 #endif
