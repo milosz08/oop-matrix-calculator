@@ -22,9 +22,7 @@ GeneralMatrix<M>::GeneralMatrix() = default;
  * @param h - wysokość macierzy (ilośc wierszy)
  */
 template<class M>
-GeneralMatrix<M>::GeneralMatrix(unsigned int& w, unsigned int& h) : MatrixAbstract<M>{w, h} {
-  mtrxTypeAndSizeInfo();
-}
+GeneralMatrix<M>::GeneralMatrix(unsigned int& w, unsigned int& h) : MatrixAbstract<M>{w, h} {}
 
 /*!
  * @fn GeneralMatrix(unsigned int & s)
@@ -34,9 +32,7 @@ GeneralMatrix<M>::GeneralMatrix(unsigned int& w, unsigned int& h) : MatrixAbstra
  * @param s - wysokość oraz szerokość macierzy (ilośc kolumn oraz ilość wierszy)
  */
 template<class M>
-GeneralMatrix<M>::GeneralMatrix(unsigned int & s) : MatrixAbstract<M>{s, s} {
-  mtrxTypeAndSizeInfo();
-}
+GeneralMatrix<M>::GeneralMatrix(unsigned int & s) : MatrixAbstract<M>{s, s} {}
 
 /*!
  * @fn GeneralMatrix(const GeneralMatrix& mtrxCopy)

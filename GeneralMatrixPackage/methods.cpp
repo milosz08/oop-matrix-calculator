@@ -37,24 +37,26 @@ void GeneralMatrix<M>::insertMtrx() {
   bool error, repeatMess = false;
   HANDLE hOut;
   hOut = GetStdHandle( STD_OUTPUT_HANDLE );
-  std::cout << "\nAby przejsc dalej, podaj kolejne elementy macierzy.\n";
-  SetConsoleTextAttribute( hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY );
-  std::cout << "Uwaga! \n";
-
-  matrixFinalInfo("UWAGA!", {
-    "Jesli podasz wiecej elementow, zostana one przeze mnie zignorowane."
-  });
-
-  SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-  std::cout << "\n=========================================== INFO ===========================================\n";
-  std::cout << " Macierz mozesz wpisac zarowno w formie jednoliniowej poziomej lub pionowej tablicy\n";
-  std::cout << " lub w wygodnej formie wizualnej macierzy (kolejne elementy nalezy wypisywac po spacji\n";
-  std::cout << " a w przechodzeniu do nowego wiersza nalezy uzyc klawisza \"enter\").\n";
-  std::cout << "============================================================================================\n";
   do {
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+    mtrxTypeAndSizeInfo();
+    std::cout << "\nAby przejsc dalej, podaj kolejne elementy macierzy.\n";
+
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
+    genInfoBlock("UWAGA!", {
+      "Jesli podasz wiecej elementow, zostana one przeze mnie zignorowane."
+    });
+
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+    genInfoBlock("INFO", {
+      "Macierz mozesz wpisac zarowno w formie jednoliniowej poziomej lub pionowej tablicy",
+      "lub w wygodnej formie wizualnej macierzy (kolejne elementy nalezy wypisywac po spacji",
+      "a w przechodzeniu do nowego wiersza nalezy uzyc klawisza \"enter\")."
+    });
+
     try {
       error = false;
-      SetConsoleTextAttribute( hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED );
+      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
       std::cout << "\nWpisz " << (!repeatMess ? "" : "ponownie ") << "swoja macierz:\n";
       for(unsigned int i = 0; i < this->mtrxHeight; i++) {
         for(unsigned int j = 0; j < this->mtrxWidth; j++) {
@@ -63,14 +65,21 @@ void GeneralMatrix<M>::insertMtrx() {
       }
       if(std::cin.fail()) {
         throw std::logic_error("nAllAsciiChars");
+      } else {
+        std::system("cls");
       }
     }
     catch(std::logic_error& e) {
-      std::cout << "\nError! Blad logiczny, kod bledu:" << e.what() << "!\n";
-      MatrixAbstract<M>::finalMathInfo({
-        "W wprowadzanej przez ciebie macierzy znalazlem niedozwolone wartosci!\n",
-        "Aby kontyuowac wprowadz ponownie swoja macierz.\n"
+      SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);
+      genInfoBlock("ERROR!", {
+        "W wprowadzanej przez ciebie macierzy znalazlem niedozwolone wartosci!",
+        "Aby kontyuowac wprowadz ponownie swoja macierz."
       });
+
+      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+      errorSequentialMess(5);
+
+      std::system("cls");
       error = repeatMess = true;
       std::cin.clear();
       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -155,6 +164,9 @@ double GeneralMatrix<M>::determinantGenMtrx() {
     std::cout << "  Nie mozna obliczyc wyznaczniku macierzy, ktorej liczba kolumn\n";
     std::cout << "  nie jest taka sama jak liczba wierszy (i na odwrot)!\n";
   }
+
+
+
   MatrixAbstract<M>::finalMathInfo({
     "\nWlasnie obliczylem wyznacznik wprowadzonej przez Ciebie macierzy.\n",
     "Wyznacznik wprowadzonej macierzy wynosi:\n",

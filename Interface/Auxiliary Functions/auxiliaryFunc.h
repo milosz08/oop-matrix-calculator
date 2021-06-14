@@ -5,7 +5,9 @@
 #include <vector>
 #include <initializer_list>
 #include <windows.h>
+#include <synchapi.h>
 
-void matrixFinalInfo(std::string header, std::initializer_list<std::string> mess);
+void genInfoBlock(std::string header, std::initializer_list<std::string> mess);
+void errorSequentialMess(int);
 
 #endif
