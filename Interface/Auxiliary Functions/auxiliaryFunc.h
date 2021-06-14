@@ -9,5 +9,6 @@
 
 void genInfoBlock(std::string header, std::vector<std::string> mess);
 void sequentialMess(int, std::string mess);
+void errorMess();
 
 #endif

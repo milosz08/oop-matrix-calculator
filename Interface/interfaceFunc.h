@@ -16,7 +16,12 @@ using namespace diagonalMatrixPackage; /** package klasy pochodnej (macierz diag
 
 
 void mainMenu();
-void chooseTypeOfMatrix();
+void initialiseObjects();
+
+unsigned int chooseTypeOfMatrix();
+unsigned int chooseTypeOfNumbers();
+
+
 
 void startPrg();
 

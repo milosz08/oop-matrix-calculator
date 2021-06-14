@@ -46,3 +46,21 @@ void sequentialMess(int n, std::string mess) {
     std::cout << "\b";
   }
 }
+
+
+void errorMess() {
+  HANDLE hOut;
+  hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+
+  SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);
+  genInfoBlock("ERROR!", {
+          "Wybrana przez Ciebie opcja menu nie istnieje!"
+  });
+
+  std::cin.clear();
+  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+  SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+  sequentialMess(5, "Ponawianie za");
+  std::system("cls");
+}

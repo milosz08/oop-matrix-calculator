@@ -1,10 +1,12 @@
 #include "interfaceFunc.h"
+#include "Auxiliary Functions/auxiliaryFunc.h"
 
 void mainMenu() {
-  unsigned int choice{0}, retChoice{0};
+  unsigned int choice{0};
   bool error{false};
   HANDLE hOut;
-  hOut = GetStdHandle( STD_OUTPUT_HANDLE );
+  hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+  std::system("cls");
 
   do {
     error = false;
@@ -38,50 +40,92 @@ void mainMenu() {
       "2. Chce zakonczyc dzialanie programu.",
     });
 
-    try {
-      std::cout << "\nTwoj wybor: ";
-      std::cin >> choice;
-      switch(choice) {
-        case 1: { std::system("cls"); break; }
-        case 2: {
-          sequentialMess(5, "Program zakonczy dzialanie za");
-          std::cout << "\nDziekuje za skorzystanie z kalkulatora macierzy. Program zakonczyl dzialanie.\n";
-          abort();
-        }
-        default: { throw std::runtime_error("notExistValue"); break; }
+    std::cout << "\nTwoj wybor: ";
+    std::cin >> choice;
+    switch(choice) {
+      case 1: { std::system("cls"); break; }
+      case 2: {
+        sequentialMess(5, "Program zakonczy dzialanie za");
+        std::cout << "\nDziekuje za skorzystanie z kalkulatora macierzy. Program zakonczyl dzialanie.\n";
+        exit(0);
       }
-    }
-    catch(std::runtime_error) {
-      SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);
-      genInfoBlock("ERROR!", {
-        "Wybrana przez Ciebie opcja menu nie istnieje!"
-      });
-
-      error = true;
-      std::cin.clear();
-      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
-      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-      sequentialMess(5, "Ponawianie za");
-      std::system("cls");
+      default: {
+        error = true;
+        errorMess();
+        break;
+      }
     }
   } while(error);
 }
 
-void chooseTypeOfMatrix() {
+unsigned int chooseTypeOfMatrix() {
+  unsigned int choice{0};
+  bool error{false};
+  std::system("cls");
+
+  do {
+    error = false;
+
+    genInfoBlock("TYP MACIERZY", {
+      "Wybierz, na jakim typie macierzy chcesz przeprowadzac operacje:",
+      "1. Chce przeprowadzac operacje na zwyklej macierzy prostokatnej.",
+      "2. Chce przeprowadzac operacje na zwyklej macierzy kwadratowej.",
+      "3. Chce przeprowadzac operacje na kwadratowej macierzy diagonalnej."
+    });
+
+    std::cout << "\nTwoj wybor: ";
+    std::cin >> choice;
+    if(choice != 1 && choice != 2 && choice != 3) {
+      error = true;
+      errorMess();
+    } else { return choice; }
+  } while(error);
+}
+
+unsigned int chooseTypeOfNumbers() {
+  unsigned int choice{0};
+  bool error{false};
   HANDLE hOut;
   hOut = GetStdHandle( STD_OUTPUT_HANDLE );
+  std::system("cls");
 
-  genInfoBlock("TYP MACIERZY", {
-    "Wybierz, na jakim typie macierzy chcesz przeprowadzac operacje:",
-    "1. Chce przeprowadzac operacje na macierzy prostokatnej.",
-    "2. Chce przeprowadzac operacje na macierzy kwadratowej."
-  });
+  do {
+    error = false;
+
+    genInfoBlock("WARTOSCI LICZBOWE MACIERZY", {
+      "Wybierz, na jakim typie wartosci macierzy chcesz przeprowadzac operacje:",
+      "1. Chce przeprowadzac operacje tylko i wylacznie na liczbach staloprzecinkowych.",
+      "2. Chce przeprowadzac operacje na liczbach staloprzecinkowych i zmiennoprzecinkowych.",
+    });
+
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
+    genInfoBlock("UWAGA!", {
+      "Jesli wybierzesz tylko liczby staloprzecinkowe, proba zapelnienia macierzy liczbami",
+      "zmiennoprzecinkowymi zakonczy sie bledem. Preferowany typ to macierz obslugujaca zarowno",
+      "liczby zmiennoprzecinkowe jak i staloprzecinkowe.",
+    });
+
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+    std::cout << "\nTwoj wybor: ";
+    std::cin >> choice;
+    if(choice != 1 && choice != 2) {
+      error = true;
+      errorMess();
+    } else { return choice; }
+  } while(error);
+}
+
+
+void initialiseObjects() {
+  unsigned int mtrxType = chooseTypeOfMatrix(); /** typ macierzy (kwadratowa/prostokątna/diagonalna) */
+  unsigned int mtrxValType = chooseTypeOfNumbers(); /** typ wartości przekazywany we wzorcu (int/double) */
+
 }
 
 
 
 void startPrg() {
   mainMenu();
-  chooseTypeOfMatrix();
+  initialiseObjects();
+
 }
