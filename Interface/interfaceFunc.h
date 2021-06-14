@@ -9,6 +9,7 @@
 #include <string>
 #include <stdlib.h>
 #include <windows.h>
+#include <winnt.h>
 
 using namespace matrixAbstractPackage; /** package klasy wirtualnej (bazowej) macierzy */
 using namespace generalMatrixPackage; /** package klasy pochodnej (macierz standardowa) */
@@ -16,13 +17,10 @@ using namespace diagonalMatrixPackage; /** package klasy pochodnej (macierz diag
 
 
 void mainMenu();
-void initialiseObjects();
-
+unsigned int* setMtrxSize();
+void initMtrxObj();
 unsigned int chooseTypeOfMatrix();
 unsigned int chooseTypeOfNumbers();
-
-
-
 void startPrg();
 
 #endif

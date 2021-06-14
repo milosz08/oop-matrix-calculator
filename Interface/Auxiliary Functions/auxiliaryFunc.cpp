@@ -48,14 +48,12 @@ void sequentialMess(int n, std::string mess) {
 }
 
 
-void errorMess() {
+void errorMess(std::string mess) {
   HANDLE hOut;
   hOut = GetStdHandle(STD_OUTPUT_HANDLE);
 
   SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);
-  genInfoBlock("ERROR!", {
-          "Wybrana przez Ciebie opcja menu nie istnieje!"
-  });
+  genInfoBlock("ERROR!", { mess });
 
   std::cin.clear();
   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -77,7 +75,7 @@ std::string saveMtrxInfo(unsigned int& type, unsigned int& val) {
       output = "Macierz diagonalna "; break;
     }
   }
-  output += "mozliwa do zapelnienia\n";
+  output += "mozliwa do zapelnienia";
   switch(val) {
     case 1: { /** val 1 = jedynie wartości stałoprzecinkowe */
       output += " jedynie wartosciami staloprzecinkowymi."; break;

@@ -8,7 +8,7 @@
 
 void genInfoBlock(std::string header, std::vector<std::string> mess);
 void sequentialMess(int, std::string mess);
-void errorMess();
+void errorMess(std::string mess);
 std::string saveMtrxInfo(unsigned int& type, unsigned int& val);
 
 #endif
