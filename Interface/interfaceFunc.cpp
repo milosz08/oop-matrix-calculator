@@ -66,7 +66,7 @@ unsigned int chooseTypeOfMatrix() {
   do {
     error = false;
 
-    genInfoBlock("TYP MACIERZY", {
+    genInfoBlock("ETAP 1", {
       "Wybierz, na jakim typie macierzy chcesz przeprowadzac operacje:",
       "1. Chce przeprowadzac operacje na zwyklej macierzy prostokatnej.",
       "2. Chce przeprowadzac operacje na zwyklej macierzy kwadratowej.",
@@ -78,8 +78,9 @@ unsigned int chooseTypeOfMatrix() {
     if(choice != 1 && choice != 2 && choice != 3) {
       error = true;
       errorMess();
-    } else { return choice; }
+    }
   } while(error);
+  return choice;
 }
 
 unsigned int chooseTypeOfNumbers() {
@@ -92,7 +93,7 @@ unsigned int chooseTypeOfNumbers() {
   do {
     error = false;
 
-    genInfoBlock("WARTOSCI LICZBOWE MACIERZY", {
+    genInfoBlock("ETAP 2", {
       "Wybierz, na jakim typie wartosci macierzy chcesz przeprowadzac operacje:",
       "1. Chce przeprowadzac operacje tylko i wylacznie na liczbach staloprzecinkowych.",
       "2. Chce przeprowadzac operacje na liczbach staloprzecinkowych i zmiennoprzecinkowych.",
@@ -111,14 +112,24 @@ unsigned int chooseTypeOfNumbers() {
     if(choice != 1 && choice != 2) {
       error = true;
       errorMess();
-    } else { return choice; }
+    }
   } while(error);
+  return choice;
 }
 
 
 void initialiseObjects() {
+  HANDLE hOut;
+  hOut = GetStdHandle( STD_OUTPUT_HANDLE );
+
   unsigned int mtrxType = chooseTypeOfMatrix(); /** typ macierzy (kwadratowa/prostokątna/diagonalna) */
   unsigned int mtrxValType = chooseTypeOfNumbers(); /** typ wartości przekazywany we wzorcu (int/double) */
+
+  SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
+  genInfoBlock("POWODZENIE!", {
+    "Zapisalem nastepujace parametry:",
+    saveMtrxInfo(mtrxType, mtrxValType), /** Informacja, jakiego typu macierz została wybrana */
+  });
 
 }
 

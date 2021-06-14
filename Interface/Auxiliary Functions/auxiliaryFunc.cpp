@@ -64,3 +64,26 @@ void errorMess() {
   sequentialMess(5, "Ponawianie za");
   std::system("cls");
 }
+
+
+std::string saveMtrxInfo(unsigned int& type, unsigned int& val) {
+  std::string output{""};
+  switch(type) {
+    case 1: { /** type 1 = macierz prostokątna */
+      output = "Macierz prostokatna "; break;
+    } case 2: { /** type 2 = macierz kwadratowa */
+      output = "Macierz kwadratowa "; break;
+    } case 3: { /** type 3 = macierz diagonalna */
+      output = "Macierz diagonalna "; break;
+    }
+  }
+  output += "mozliwa do zapelnienia\n";
+  switch(val) {
+    case 1: { /** val 1 = jedynie wartości stałoprzecinkowe */
+      output += " jedynie wartosciami staloprzecinkowymi."; break;
+    } case 2: { /** val 1 = wartości stałoprzecinkowe oraz zmiennoprzecinkowe */
+      output += " zarowno wartosciami staloprzecinkowymi jak i zmiennoprzecinkowymi."; break;
+    }
+  }
+  return output;
+}

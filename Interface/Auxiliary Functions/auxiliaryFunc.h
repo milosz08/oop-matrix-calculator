@@ -3,12 +3,12 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <initializer_list>
 #include <windows.h>
 #include <synchapi.h>
 
 void genInfoBlock(std::string header, std::vector<std::string> mess);
 void sequentialMess(int, std::string mess);
 void errorMess();
+std::string saveMtrxInfo(unsigned int& type, unsigned int& val);
 
 #endif
