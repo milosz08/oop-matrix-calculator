@@ -1,6 +1,7 @@
 #include "interfaceFunc.h"
 
-void mainMenu() {
+unsigned int mainMenu() {
+  unsigned int choice{0};
   HANDLE hOut;
   hOut = GetStdHandle( STD_OUTPUT_HANDLE );
 
@@ -25,22 +26,25 @@ void mainMenu() {
     "* Mnozenie macierzy przez wartosc skalarna.",
     "* Transponowanie macierzy.",
   });
+
+  SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+  genInfoBlock("MENU POCZATKOWE", {
+    "Aby zainicjalizowac program, wybierz jedna opcje z ponizszego menu:",
+    "1. Chce przesc do glownego menu wyboru operacji.",
+    "2. Chce zakonczyc działanie programu.",
+  });
+
+  std::cout << "\nTwoj wybor: ";
+  std::cin >> choice;
+  return choice;
+}
+
+unsigned int checkInput(unsigned int& choice) {
+
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 void startPrg() {
-  mainMenu();
+  int initChoice = mainMenu();
+
 }

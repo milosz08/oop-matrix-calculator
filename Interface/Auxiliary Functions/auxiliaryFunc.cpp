@@ -1,20 +1,22 @@
 #include "auxiliaryFunc.h"
 
 /*!
- * @fn genInfoBlock(std::string header, std::initializer_list<std::string> mess)
+ * @fn genInfoBlock(std::string header, std::vector<std::string> mess)
  * @brief Funkcja interfejsu generująca wiadomości na podstawie tytułu (header) oraz stringów
- * w liście inicjalizacyjnej. Funkcja ta przyjmuje jeden argument nagłówka oraz n-elementów treści.
+ * w wektorze. Funkcja ta przyjmuje jeden argument nagłówka oraz n-elementów treści.
  * @param header - nagłówek (string)
  * @param mess - treść (każdy string umieszczony w nawiasach klamrowych, oddzielone przecinkiem)
  */
-void genInfoBlock(std::string header, std::initializer_list<std::string> mess) {
+void genInfoBlock(std::string header, std::vector<std::string> mess) {
   unsigned int headerLength = header.length() + 2;
-  /** Długość najdłuższego stringa + 4 */
-  unsigned int maxLength = (*std::max_element(mess.begin(), mess.end())).length() - headerLength;
+  /** Długość najdłuższego stringa */
+  unsigned int maxLength = std::max_element(mess.begin(), mess.end(), [](const auto& a, const auto& b){
+    return a.size() < b.size();
+  })->length() - headerLength - 2;
   if(maxLength % 2 == 0) { /** Jeśli długość jest parzysta */
-    maxLength = maxLength + 5;
+    maxLength += 5;
   } else {
-    maxLength = maxLength + 4;
+    maxLength += 4;
   }
   /** Generacja nagłówka */
   std::cout << "\n";

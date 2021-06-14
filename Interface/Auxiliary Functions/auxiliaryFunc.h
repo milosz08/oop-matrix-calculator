@@ -7,7 +7,7 @@
 #include <windows.h>
 #include <synchapi.h>
 
-void genInfoBlock(std::string header, std::initializer_list<std::string> mess);
+void genInfoBlock(std::string header, std::vector<std::string> mess);
 void errorSequentialMess(int);
 
 #endif
