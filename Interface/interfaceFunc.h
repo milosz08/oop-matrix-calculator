@@ -15,12 +15,13 @@ using namespace matrixAbstractPackage; /** package klasy wirtualnej (bazowej) ma
 using namespace generalMatrixPackage; /** package klasy pochodnej (macierz standardowa) */
 using namespace diagonalMatrixPackage; /** package klasy pochodnej (macierz diagonalna) */
 
-
-void mainMenu();
-unsigned int* setMtrxSize();
-void initMtrxObj();
-unsigned int chooseTypeOfMatrix();
-unsigned int chooseTypeOfNumbers();
+void mainMenu(HANDLE& hOut);
+unsigned int* setMtrxSize(HANDLE& hOut, unsigned int& mtrxType, unsigned int& mtrxValType);
+template<typename T> void mathGenrMatrix(GeneralMatrix<T>& obj, HANDLE& hOut);
+template<typename T> void mathDiagMatrix(DiagonalMatrix<T>& obj, HANDLE& hOut);
+unsigned int mathMtrxSquareMenu(HANDLE& hOut);
+unsigned int mathMtrxRectglMenu(HANDLE& hOut);
+void initMtrxObj(HANDLE& hOut);
 void startPrg();
 
 #endif

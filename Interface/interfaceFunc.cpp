@@ -8,13 +8,12 @@
 void mainMenu(HANDLE& hOut) {
   unsigned int choice{0};
   bool error{false};
-  std::system("cls"); /** czyszczenie konsoli */
   do {
     error = false;
     /** Kolor żółty */
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
     std::cout << "\n#####################################################\n";
-    std::cout << "###############  KALKULATOR MACIERZY  ###############\n";
+    std::cout << "################ KALKULATOR MACIERZY ################\n";
     std::cout << "#####################################################\n";
     /** Kolor biały - reset (wartość domyślna) */
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
@@ -57,79 +56,7 @@ void mainMenu(HANDLE& hOut) {
       }
     }
   } while(error);
-}
-
-/*!
- *
- * @param hOut
- * @return
- */
-unsigned int chooseTypeOfMatrix(HANDLE& hOut) {
-  unsigned int choice{0};
-  bool error{false};
   std::system("cls"); /** czyszczenie konsoli */
-  do {
-    error = false;
-
-    genInfoBlock("ETAP 1", {
-      "Wybierz, na jakim typie macierzy chcesz przeprowadzac operacje:",
-      "1. Chce przeprowadzac operacje na zwyklej macierzy prostokatnej.",
-      "2. Chce przeprowadzac operacje na zwyklej macierzy kwadratowej.",
-      "3. Chce przeprowadzac operacje na kwadratowej macierzy diagonalnej."
-    });
-    /** Kolor cyjanowy */
-    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-    genInfoBlock("INFO", {
-      "Macierz diagonalna to macierz, ktora poza swoja glowna przekatna (diagonalna)",
-      "posiada wartosci zerowe. Na przekatnej diagonalnej znajda sie podane przez Ciebie wartosci."
-    });
-    /** Kolor biały - reset (wartość domyślna) */
-    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-    std::cout << "\nTwoj wybor: ";
-    std::cin >> choice;
-    if(choice != 1 && choice != 2 && choice != 3) {
-      error = true;
-      errorMess("Wybrana przez Ciebie opcja menu nie istnieje!");
-    }
-  } while(error);
-  return choice;
-}
-
-/*!
- *
- * @param hOut
- * @return
- */
-unsigned int chooseTypeOfNumbers(HANDLE& hOut) {
-  unsigned int choice{0};
-  bool error{false};
-  std::system("cls"); /** czyszczenie konsoli */
-  do {
-    error = false;
-
-    genInfoBlock("ETAP 2", {
-      "Wybierz, na jakim typie wartosci macierzy chcesz przeprowadzac operacje:",
-      "1. Chce przeprowadzac operacje tylko i wylacznie na liczbach staloprzecinkowych.",
-      "2. Chce przeprowadzac operacje na liczbach staloprzecinkowych i zmiennoprzecinkowych.",
-    });
-    /** Kolor żółty */
-    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
-    genInfoBlock("UWAGA!", {
-      "Jesli wybierzesz tylko liczby staloprzecinkowe, proba zapelnienia macierzy liczbami",
-      "zmiennoprzecinkowymi zakonczy sie bledem. Preferowany typ to macierz obslugujaca zarowno",
-      "liczby zmiennoprzecinkowe jak i staloprzecinkowe.",
-    });
-    /** Kolor biały - reset (wartość domyślna) */
-    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-    std::cout << "\nTwoj wybor: ";
-    std::cin >> choice;
-    if(choice != 1 && choice != 2) {
-      error = true;
-      errorMess("Wybrana przez Ciebie opcja menu nie istnieje!");
-    }
-  } while(error);
-  std::system("cls");
-  return choice;
 }
 
 /*!
@@ -144,14 +71,10 @@ unsigned int* setMtrxSize(HANDLE& hOut, unsigned int& mtrxType, unsigned int& mt
   bool error{false};
   do {
     error = false;
-    /** Kolor cyjanowy */
-    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-    genInfoBlock("POWODZENIE!", {
-      "Zapisalem nastepujace parametry:",
-      saveMtrxInfo(mtrxType, mtrxValType), /** Informacja, jakiego typu macierz została wybrana */
-    });
-    /** Kolor biały - reset (wartość domyślna) */
-    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+
+    std::cout << "\nZapisalem nastepujace parametry:\n";
+    std::cout << saveMtrxInfo(mtrxType, mtrxValType) << "\n";
+
     genInfoBlock("ETAP 3", {
       "Podaj wielkosc macierzy (w formacie ilosc kolumn x ilosc wierszy) dla macierzy",
       "prostokatnych. Dla macierzy kwadratowych oraz diagonalnych podaj jedynie jeden wymiar.",
@@ -172,14 +95,89 @@ unsigned int* setMtrxSize(HANDLE& hOut, unsigned int& mtrxType, unsigned int& mt
       std::cout << "liczbe wierszy i kolumn (w formacie k x w) po spacji: ";
       std::cin >> mtrxSizes[0] >> mtrxSizes[1]; /** Wprowadzenie ilości kolumn i wierszy */
     }
-    if(mtrxSizes[0] != 0 || mtrxSizes[1] != 0 || !std::cin.fail()) {
-      //for(unsigned int i = 0; i < 2; i++) std::cout << mtrxSizes[i];
-    } else {
+    if(!(mtrxSizes[0] != 0 || mtrxSizes[1] != 0 || !std::cin.fail())) {
       error = true;
       errorMess("Podany zostal bledny wymiar macierzy (niedozwolony znak lub liczba 0)!");
     }
   } while (error);
+  std::system("cls"); /** czyszczenie konsoli */
   return mtrxSizes;
+}
+
+/*!
+ *
+ * @param hOut
+ * @return
+ */
+unsigned int mathMtrxSquareMenu(HANDLE& hOut) {
+  bool error{false};
+  unsigned int choice{0};
+  do {
+    error = false;
+    /** Kolor cyjanowy */
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+    genInfoBlock("ETAP 4", {
+      "Wybierz dzialanie, jakie chcesz wykonac na macierzy:",
+      "1. Chce wprowadzic druga macierz w celu wykonania operacji arytmetycznych.",
+      "2. Chce pomnozyc macierz przez wartosc skalara.",
+      "3. Chce wyznaczyc macierz sprzezona z wprowadzonej macierzy.",
+      "4. Chce wyznaczyc macierz transponowana z wprowadzonej macierzy.",
+      "5. Chce obliczyc wyznacznik z wprowadzonej macierzy.",
+      "6. Chce obliczyc macierz odwrotna z wprowadzonej macierzy."
+    });
+    /** Kolor biały - reset (wartość domyślna) */
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+    std::cout << "\nTwoj wybor: ";
+    std::cin >> choice;
+    if(std::cin.fail() || choice < 1 || choice > 6) {
+      error = true;
+      errorMess("Wybrana przez Ciebie opcja menu nie istnieje!");
+    }
+  } while(error);
+  return choice;
+}
+
+/*!
+ *
+ * @param hOut
+ * @return
+ */
+unsigned int mathMtrxRectglMenu(HANDLE& hOut) {
+  bool error{false};
+  unsigned int choice{0};
+  do {
+
+  } while(error);
+  return choice;
+}
+
+/*!
+ *
+ * @tparam T
+ * @param obj
+ * @param hOut
+ */
+template<typename T>
+void mathGenrMatrix(GeneralMatrix<T>& obj, HANDLE& hOut) {
+  unsigned int choice{0};
+
+  obj.insertMtrx();
+  obj.printMtrx(true, true);
+
+  if(obj.get_Cols() == obj.get_Rows()) { /** Macierz kwadratowa */
+    choice = mathMtrxSquareMenu(hOut);
+  } else { /** Macierz prostokątna */
+    choice = mathMtrxRectglMenu(hOut);
+  }
+
+
+
+}
+
+template<typename T>
+void mathDiagMatrix(DiagonalMatrix<T>& obj, HANDLE& hOut) {
+  obj.insertMtrx();
+  obj.printMtrx(true, true);
 }
 
 /*!
@@ -190,8 +188,43 @@ void initMtrxObj(HANDLE& hOut) {
   unsigned int mtrxType = chooseTypeOfMatrix(hOut); /** typ macierzy (kwadratowa/prostokątna/diagonalna) */
   unsigned int mtrxValType = chooseTypeOfNumbers(hOut); /** typ wartości przekazywany we wzorcu (int/double) */
   /** Przechowalnia ilości wierszy i/lub kolumn */
-  unsigned int* sizeOfMatrix = setMtrxSize(hOut, mtrxType, mtrxValType);
+  unsigned int* sizeMtrx = setMtrxSize(hOut, mtrxType, mtrxValType);
 
+  switch(mtrxType) {
+    case 1: { /** Macierze prostokątne */
+      if(mtrxValType == 1) {
+        GeneralMatrix<int> mRectInt{sizeMtrx[0], sizeMtrx[1]};
+        mathGenrMatrix(mRectInt, hOut);
+      } else {
+        GeneralMatrix<double> mRectDbl{sizeMtrx[0], sizeMtrx[1]};
+        mathGenrMatrix(mRectDbl, hOut);
+      }
+      break;
+    } default: { /** Macierze kwadratowe (zwykła / diagonalna) */
+      switch(mtrxType) {
+        case 2: { /** Macierz kwadratowa zwykła */
+          if(mtrxValType == 1) {
+            GeneralMatrix<int> mSqrInt{sizeMtrx[0]};
+            mathGenrMatrix(mSqrInt, hOut);
+          } else {
+            GeneralMatrix<double> mSqrDbl{sizeMtrx[0]};
+            mathGenrMatrix(mSqrDbl, hOut);
+          }
+          break;
+        } case 3: { /** Macierz diagonalna */
+          if(mtrxValType == 1) {
+            DiagonalMatrix<int> mDiagInt{sizeMtrx[0]};
+            mathDiagMatrix(mDiagInt, hOut);
+          } else {
+            DiagonalMatrix<double> mDiagDbl{sizeMtrx[0]};
+            mathDiagMatrix(mDiagDbl, hOut);
+          }
+          break;
+        }
+      }
+      break;
+    }
+  }
 }
 
 /*!

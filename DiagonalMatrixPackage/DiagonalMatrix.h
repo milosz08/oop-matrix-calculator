@@ -24,7 +24,7 @@ namespace diagonalMatrixPackage {
       DiagonalMatrix(unsigned int&); /** Sygnatura konstr. bazowego */
       DiagonalMatrix(const DiagonalMatrix&); /** Sygnatura konstr. kopiującego */
 
-      void insertDiagElms();
+      virtual void insertMtrx();
       void generateDiagMtrx(bool);
 
       ~DiagonalMatrix();

@@ -47,7 +47,10 @@ void sequentialMess(int n, std::string mess) {
   }
 }
 
-
+/*!
+ *
+ * @param mess
+ */
 void errorMess(std::string mess) {
   HANDLE hOut;
   hOut = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -63,7 +66,12 @@ void errorMess(std::string mess) {
   std::system("cls");
 }
 
-
+/*!
+ *
+ * @param type
+ * @param val
+ * @return
+ */
 std::string saveMtrxInfo(unsigned int& type, unsigned int& val) {
   std::string output{""};
   switch(type) {
@@ -75,13 +83,85 @@ std::string saveMtrxInfo(unsigned int& type, unsigned int& val) {
       output = "Macierz diagonalna "; break;
     }
   }
-  output += "mozliwa do zapelnienia";
+  output += "mozliwa do zapelnienia\n";
   switch(val) {
     case 1: { /** val 1 = jedynie wartości stałoprzecinkowe */
-      output += " jedynie wartosciami staloprzecinkowymi."; break;
+      output += "jedynie wartosciami staloprzecinkowymi."; break;
     } case 2: { /** val 1 = wartości stałoprzecinkowe oraz zmiennoprzecinkowe */
-      output += " zarowno wartosciami staloprzecinkowymi jak i zmiennoprzecinkowymi."; break;
+      output += "zarowno wartosciami stalo oraz zmiennoprzecinkowymi."; break;
     }
   }
   return output;
+}
+
+/*!
+ *
+ * @param hOut
+ * @return
+ */
+unsigned int chooseTypeOfMatrix(HANDLE& hOut) {
+  unsigned int choice{0};
+  bool error{false};
+  do {
+    error = false;
+
+    genInfoBlock("ETAP 1", {
+      "Wybierz, na jakim typie macierzy chcesz przeprowadzac operacje:",
+      "1. Chce przeprowadzac operacje na zwyklej macierzy prostokatnej.",
+      "2. Chce przeprowadzac operacje na zwyklej macierzy kwadratowej.",
+      "3. Chce przeprowadzac operacje na kwadratowej macierzy diagonalnej."
+    });
+    /** Kolor cyjanowy */
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+    genInfoBlock("INFO", {
+      "Macierz diagonalna to macierz, ktora poza swoja glowna przekatna (diagonalna)",
+      "posiada wartosci zerowe. Na przekatnej diagonalnej znajda sie podane przez Ciebie wartosci."
+    });
+    /** Kolor biały - reset (wartość domyślna) */
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+    std::cout << "\nTwoj wybor: ";
+    std::cin >> choice;
+    if(choice != 1 && choice != 2 && choice != 3) {
+      error = true;
+      errorMess("Wybrana przez Ciebie opcja menu nie istnieje!");
+    }
+  } while(error);
+  std::system("cls"); /** czyszczenie konsoli */
+  return choice;
+}
+
+/*!
+ *
+ * @param hOut
+ * @return
+ */
+unsigned int chooseTypeOfNumbers(HANDLE& hOut) {
+  unsigned int choice{0};
+  bool error{false};
+  do {
+    error = false;
+
+    genInfoBlock("ETAP 2", {
+      "Wybierz, na jakim typie wartosci macierzy chcesz przeprowadzac operacje:",
+      "1. Chce przeprowadzac operacje tylko i wylacznie na liczbach staloprzecinkowych.",
+      "2. Chce przeprowadzac operacje na liczbach staloprzecinkowych i zmiennoprzecinkowych.",
+    });
+    /** Kolor żółty */
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
+    genInfoBlock("UWAGA!", {
+      "Jesli wybierzesz tylko liczby staloprzecinkowe, proba zapelnienia macierzy liczbami",
+      "zmiennoprzecinkowymi zakonczy sie bledem. Preferowany typ to macierz obslugujaca zarowno",
+      "liczby zmiennoprzecinkowe jak i staloprzecinkowe.",
+    });
+    /** Kolor biały - reset (wartość domyślna) */
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+    std::cout << "\nTwoj wybor: ";
+    std::cin >> choice;
+    if(choice != 1 && choice != 2) {
+      error = true;
+      errorMess("Wybrana przez Ciebie opcja menu nie istnieje!");
+    }
+  } while(error);
+  std::system("cls"); /** czyszczenie konsoli */
+  return choice;
 }

@@ -31,6 +31,7 @@ namespace matrixAbstractPackage {
       double scalarValuePush(); /** Wprowadzanie wartości skalara */
 
       virtual void mtrxTypeAndSizeInfo() = 0; /** Metoda czysto wirtualna - wypisywanie wiadomosci */
+      virtual void insertMtrx() = 0; /** Metoda czysto wirtualna - wprowadzanie macierzy */
       virtual void finalMathInfo(const std::list<std::string>&);
 
       virtual ~MatrixAbstract(); /** Wirtualny destruktor wywołujący destruktory z klas pochodnych */
@@ -38,6 +39,10 @@ namespace matrixAbstractPackage {
     private: /** Metody prywatne; dostępne tylko na użytek metod klasy abstrakcyjnej */
       unsigned int findMaxLength(unsigned int&) const;
       unsigned int lengthOfElm(M&) const;
+
+    public: /** Gettery */
+      unsigned int get_Cols() const;
+      unsigned int get_Rows() const;
 
     protected:
       unsigned int mtrxWidth{0}, mtrxHeight{0}; /** Wymiary macierzy */

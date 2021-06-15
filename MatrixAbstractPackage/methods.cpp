@@ -1,4 +1,5 @@
 #include "MatrixAbstract.h"
+#include "../Interface/Auxiliary Functions/auxiliaryFunc.h"
 
 using namespace matrixAbstractPackage;
 
@@ -33,7 +34,7 @@ unsigned int MatrixAbstract<M>::findMaxLength(unsigned int& col) const {
   for(unsigned int i = 0; i < this->mtrxHeight; i++) {
     str = std::to_string(this->mtrx[i][col]);
     str.erase(str.find_last_not_of('0') + 1, std::string::npos);
-    str.erase(str.find_last_not_of(',') + 1, std::string::npos);
+    str.erase(str.find_last_not_of('.') + 1, std::string::npos);
     allLength.push_back(str.length());
   }
   return *max_element(allLength.begin(), allLength.end()) + freeSpace;
@@ -52,7 +53,7 @@ unsigned int MatrixAbstract<M>::lengthOfElm(M& cell) const {
   std::string elmLength{""};
   elmLength = std::to_string(cell);
   elmLength.erase(elmLength.find_last_not_of('0') + 1, std::string::npos);
-  elmLength.erase(elmLength.find_last_not_of(',') + 1, std::string::npos);
+  elmLength.erase(elmLength.find_last_not_of('.') + 1, std::string::npos);
   return elmLength.length();
 }
 
@@ -66,10 +67,19 @@ unsigned int MatrixAbstract<M>::lengthOfElm(M& cell) const {
  */
 template<class M>
 void MatrixAbstract<M>::printMtrx(const bool textMess, const bool sharpBrc) const {
+  HANDLE hOut; /** Obsługa kolorów w konsoli CMD */
+  hOut = GetStdHandle(STD_OUTPUT_HANDLE);
   unsigned int spaces{0}; /** Przerwa pomiędzy kolejnymi kolumnami */
   if(textMess) {
-    std::cout << "\n  Zapisalem nastepujaca macierz ";
-    std::cout << (this->mtrxHeight == this->mtrxWidth ? "kwadratowa:\n" : "prostokatna:\n");
+    /** Kolor cyjanowy */
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+    genInfoBlock("POWODZENIE!", {
+      "Z wprowadzonych przez Ciebie parametrow udalo mi sie wygenerowac macierz!",
+    });
+    /** Kolor biały - reset (wartość domyślna) */
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+    std::cout << "\nZapisalem nastepujaca macierz ";
+    std::cout << (this->mtrxHeight == this->mtrxWidth ? "kwadratowa:\n\n" : "prostokatna:\n\n");
   }
   for(unsigned int i = 0; i < this->mtrxHeight; i++) {
     for(unsigned int j = 0; j < this->mtrxWidth; j++) {
@@ -125,18 +135,20 @@ double MatrixAbstract<M>::scalarValuePush() {
 }
 
 /*!
- * @fn finalMathInfo(const std::list<std::string>& mess)
- * @brief Metoda wirtualna wyświetlająca zawartość tekstową podaną w argumencie/argumentach funkcji
- * Metoda korzysta z iteratorów, które wyświetlają całą zawartość kontenera "list".
- * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
- * @param mess - kontener "list", przechowujący listę wiadomości, jakie mają się wyświetlić w konsoli
+ *
+ * @tparam M
+ * @return
  */
-template<class M>
-void MatrixAbstract<M>::finalMathInfo(const std::list<std::string>& mess) {
-  for(auto pos = mess.begin(); pos != mess.end(); pos++) {
-    std::cout << *pos << "\n";
-  }
-}
+template<typename M>
+unsigned int MatrixAbstract<M>::get_Cols() const { return this->mtrxWidth; }
+
+/*!
+ *
+ * @tparam M
+ * @return
+ */
+template<typename M>
+unsigned int MatrixAbstract<M>::get_Rows() const { return this->mtrxHeight; }
 
 template class matrixAbstractPackage::MatrixAbstract<int>;
 template class matrixAbstractPackage::MatrixAbstract<double>;

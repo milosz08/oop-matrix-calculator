@@ -32,7 +32,7 @@ namespace generalMatrixPackage {
       explicit GeneralMatrix(unsigned int&); /** Sygnatura konstr. macierzy kwadratowej */
       GeneralMatrix(const GeneralMatrix<M>&); /** Sygnatura konstr. kopiującego */
 
-      void insertMtrx();
+      virtual void insertMtrx(); /** Wstawianie wartości w kom macierzy */
       GeneralMatrix<M> transposeGenMtrx(); /** Transponowanie macierzy */
       GeneralMatrix<M> coupledGenMtrx(); /** Macierz sprzężona */
       double determinantGenMtrx(); /** Wyznacznik (tylko macierze kwadratowe) n-tego stopnia */

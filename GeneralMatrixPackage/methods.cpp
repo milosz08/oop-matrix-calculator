@@ -43,12 +43,12 @@ void GeneralMatrix<M>::insertMtrx() {
     std::cout << "\nAby przejsc dalej, podaj kolejne elementy macierzy.\n";
 
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
-    genInfoBlock(" UWAGA! ", {
+    genInfoBlock("UWAGA!", {
       "Jesli podasz wiecej elementow, zostana one przeze mnie zignorowane."
     });
 
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-    genInfoBlock(" INFO ", {
+    genInfoBlock("INFO", {
       "Macierz mozesz wpisac zarowno w formie jednoliniowej poziomej lub pionowej tablicy",
       "lub w wygodnej formie wizualnej macierzy (kolejne elementy nalezy wypisywac po spacji",
       "a w przechodzeniu do nowego wiersza nalezy uzyc klawisza \"enter\")."
@@ -71,7 +71,7 @@ void GeneralMatrix<M>::insertMtrx() {
     }
     catch(std::logic_error& e) {
       SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);
-      genInfoBlock(" ERROR! ", {
+      genInfoBlock("ERROR!", {
         "W wprowadzanej przez ciebie macierzy znalazlem niedozwolone wartosci!",
         "Aby kontyuowac wprowadz ponownie swoja macierz."
       });
