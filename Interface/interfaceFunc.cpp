@@ -146,7 +146,7 @@ unsigned int mathGenrMatrix(MatrixAbstract<T>* obj, HANDLE& hOut) {
     std::cout << "\n";
     genInfoBlock("ETAP 4", strArr);
 
-    ///** Kolor biały - reset (wartość domyślna) */
+    /** Kolor biały - reset (wartość domyślna) */
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
 
     std::cout << "\nTwoj wybor: ";
@@ -156,8 +156,30 @@ unsigned int mathGenrMatrix(MatrixAbstract<T>* obj, HANDLE& hOut) {
       errorMess("Wybrana przez Ciebie opcja menu nie istnieje!");
     }
   } while(error);
-  std::system("cls");
+  std::system("cls"); /** czyszczenie konsoli */
   return choice;
+}
+
+template<typename T>
+unsigned int createMtrxObject(unsigned int* sizeMtrx, HANDLE& hOut, unsigned int& mtrxType) {
+  unsigned int chooseMtrxMath{0}; /** Wybór przez użytkownika operacji matematycznej na macierzy */
+  MatrixAbstract<T>* ptr{nullptr}; /** Wzkaźnik wskazujący na obiekt klasy abstrakcyjną typu T */
+
+  if(mtrxType == 1) {
+    GeneralMatrix<T> rectObj{sizeMtrx[0], sizeMtrx[1]};
+    ptr = &rectObj;
+    chooseMtrxMath = mathGenrMatrix(ptr, hOut);
+  } else if(mtrxType == 2) {
+    GeneralMatrix<T> sqrObj{sizeMtrx[0]};
+    ptr = &sqrObj;
+    chooseMtrxMath = mathGenrMatrix(ptr, hOut);
+  } else if(mtrxType == 3) {
+    DiagonalMatrix<T> diagObj{sizeMtrx[0]};
+    ptr = &diagObj;
+    chooseMtrxMath = mathGenrMatrix(ptr, hOut);
+  }
+
+  return chooseMtrxMath;
 }
 
 /*!
@@ -171,54 +193,20 @@ unsigned int initMtrxObj(HANDLE& hOut) {
   unsigned int* sizeMtrx = setMtrxSize(hOut, mtrxType, mtrxValType);
   unsigned int chooseMtrxMath{0}; /** Wybór przez użytkownika operacji matematycznej na macierzy */
 
-  MatrixAbstract<int>* ptrAbstIntObj; /** Wzkaźnik na klase abstrakcyjną z parametrem typy int */
-  MatrixAbstract<double>* ptrAbstDblObj; /** Wzkaźnik na klase abstrakcyjną z parametrem typy double */
-
-  switch(mtrxType) {
-    case 1: { /** Macierze prostokątne */
-      if(mtrxValType == 1) {
-        GeneralMatrix<int> mRectInt{sizeMtrx[0], sizeMtrx[1]};
-        ptrAbstIntObj = &mRectInt;
-        chooseMtrxMath = mathGenrMatrix(ptrAbstIntObj, hOut);
-      } else {
-        GeneralMatrix<double> mRectDbl{sizeMtrx[0], sizeMtrx[1]};
-        ptrAbstDblObj = &mRectDbl;
-        chooseMtrxMath = mathGenrMatrix(ptrAbstDblObj, hOut);
-      }
-      break;
-    } default: { /** Macierze kwadratowe (zwykła / diagonalna) */
-      switch(mtrxType) {
-        case 2: { /** Macierz kwadratowa zwykła */
-          if(mtrxValType == 1) {
-            GeneralMatrix<int> mSqrInt{sizeMtrx[0]};
-            ptrAbstIntObj = &mSqrInt;
-            chooseMtrxMath = mathGenrMatrix(ptrAbstIntObj, hOut);
-          } else {
-            GeneralMatrix<double> mRectDbl{sizeMtrx[0]};
-            ptrAbstDblObj = &mRectDbl;
-            chooseMtrxMath = mathGenrMatrix(ptrAbstDblObj, hOut);
-          }
-          break;
-        } case 3: { /** Macierz diagonalna */
-          if(mtrxValType == 1) {
-            DiagonalMatrix<int> mDiagInt{sizeMtrx[0]};
-            ptrAbstIntObj = &mDiagInt;
-            chooseMtrxMath = mathGenrMatrix(ptrAbstIntObj, hOut);
-          } else {
-            DiagonalMatrix<double> mDiagDbl{sizeMtrx[0]};
-            ptrAbstDblObj = &mDiagDbl;
-            chooseMtrxMath = mathGenrMatrix(ptrAbstDblObj, hOut);
-          }
-          break;
-        }
-      }
-      break;
-    }
+  if(mtrxValType == 1) { /** Macierz tylko znaki stałoprzecinkowe */
+    chooseMtrxMath = createMtrxObject<int>(sizeMtrx, hOut, mtrxType);
+  } else { /** Macierz znaki zmienno i stałoprzecinkowe */
+    chooseMtrxMath = createMtrxObject<double>(sizeMtrx, hOut, mtrxType);
   }
-  delete ptrAbstIntObj; /** Wywóz śmieci tak o xD */
-  delete ptrAbstDblObj;
+
   return chooseMtrxMath;
 }
+
+void mtrxMathInit(HANDLE& hOut) {
+  unsigned int choose = initMtrxObj(hOut);
+  std::cout << choose << "\n";
+}
+
 
 /*!
  *
@@ -228,6 +216,6 @@ void startPrg() {
   hOut = GetStdHandle(STD_OUTPUT_HANDLE);
 
   mainMenu(hOut);
-  initMtrxObj(hOut);
+  mtrxMathInit(hOut);
 
 }

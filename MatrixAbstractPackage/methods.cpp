@@ -32,10 +32,7 @@ unsigned int MatrixAbstract<M>::findMaxLength(unsigned int& col) const {
   unsigned int freeSpace{2}; /** Ilość spacji między kolumnami macierzy */
   std::vector<unsigned int>allLength;
   for(unsigned int i = 0; i < this->mtrxHeight; i++) {
-    str = std::to_string(this->mtrx[i][col]);
-    str.erase(str.find_last_not_of('0') + 1, std::string::npos);
-    str.erase(str.find_last_not_of('.') + 1, std::string::npos);
-    allLength.push_back(str.length());
+    allLength.push_back(lengthOfElm(this->mtrx[i][col]));
   }
   return *max_element(allLength.begin(), allLength.end()) + freeSpace;
 }

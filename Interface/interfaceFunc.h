@@ -16,10 +16,16 @@ using namespace matrixAbstractPackage; /** package klasy wirtualnej (bazowej) ma
 using namespace generalMatrixPackage; /** package klasy pochodnej (macierz standardowa) */
 using namespace diagonalMatrixPackage; /** package klasy pochodnej (macierz diagonalna) */
 
-void mainMenu(HANDLE& hOut);
-unsigned int* setMtrxSize(HANDLE& hOut, unsigned int& mtrxType, unsigned int& mtrxValType);
-template<typename T> unsigned int mathGenrMatrix(MatrixAbstract<T>* obj, HANDLE& hOut);
-unsigned int initMtrxObj(HANDLE& hOut);
 void startPrg();
+void mainMenu(HANDLE& hOut);
+void matrixMathInit(HANDLE& hOut);
+unsigned int initMtrxObj(HANDLE& hOut);
+unsigned int* setMtrxSize(HANDLE& hOut, unsigned int& mtrxType, unsigned int& mtrxValType);
+template<typename T>
+unsigned int mathGenrMatrix(MatrixAbstract<T>* obj, HANDLE& hOut);
+template<typename T>
+unsigned int createMtrxObject(unsigned int* sizeMtrx, HANDLE& hOut, unsigned int& mtrxType);
+
+
 
 #endif
