@@ -38,7 +38,6 @@ void GeneralMatrix<M>::insertMtrx() {
   HANDLE hOut;
   hOut = GetStdHandle( STD_OUTPUT_HANDLE );
   do {
-    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
     mtrxTypeAndSizeInfo();
     std::cout << "\nAby przejsc dalej, podaj kolejne elementy macierzy.\n";
 
@@ -63,19 +62,17 @@ void GeneralMatrix<M>::insertMtrx() {
           std::cin >> this->mtrx[i][j];
         }
       }
-      if(std::cin.fail()) {
-        throw std::logic_error("nAllAsciiChars");
-      } else {
-        std::system("cls");
-      }
+      if(std::cin.fail()) { throw std::logic_error("nAllAsciiChars"); }
+        else { std::system("cls"); }
     }
     catch(std::logic_error& e) {
+      /** Kolor czerwony */
       SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);
       genInfoBlock("ERROR!", {
         "W wprowadzanej przez ciebie macierzy znalazlem niedozwolone wartosci!",
         "Aby kontyuowac wprowadz ponownie swoja macierz."
       });
-
+      /** Kolor biały - reset (wartość domyślna) */
       SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
       sequentialMess(5, "Ponawianie za");
 
@@ -102,10 +99,10 @@ GeneralMatrix<M> GeneralMatrix<M>::transposeGenMtrx() {
       mtrxTrans.mtrx[i][j] = this->mtrx[j][i];
     }
   }
-  MatrixAbstract<M>::finalMathInfo({
-    "\nWlasnie dokonałem transponacji wprowadzonej przez Ciebie macierzy.\n",
-    "Po dokonaniu transponacji macierzy pierwotnej powstala macierz potomna:\n"
-  });
+  //MatrixAbstract<M>::finalMathInfo({
+  //  "\nWlasnie dokonałem transponacji wprowadzonej przez Ciebie macierzy.\n",
+  //  "Po dokonaniu transponacji macierzy pierwotnej powstala macierz potomna:\n"
+  //});
   mtrxTrans.printMtrx(false, true);
   return mtrxTrans;
 }
@@ -125,10 +122,10 @@ GeneralMatrix<M> GeneralMatrix<M>::coupledGenMtrx() {
       mtrxCoup.mtrx[i][j] = this->mtrx[i][j] * -1;
     }
   }
-  MatrixAbstract<M>::finalMathInfo({
-    "\nWlasnie dokonałem operacji sprzezenia na wprowadzonej przez Ciebie macierzy.\n",
-    "Po dokonaniu operacji sprzezenia macierzy pierwotnej powstala macierz potomna:\n"
-  });
+  //MatrixAbstract<M>::finalMathInfo({
+  //  "\nWlasnie dokonałem operacji sprzezenia na wprowadzonej przez Ciebie macierzy.\n",
+  //  "Po dokonaniu operacji sprzezenia macierzy pierwotnej powstala macierz potomna:\n"
+  //});
   mtrxCoup.printMtrx(false, true);
   return mtrxCoup;
 }
@@ -167,10 +164,10 @@ double GeneralMatrix<M>::determinantGenMtrx() {
 
 
 
-  MatrixAbstract<M>::finalMathInfo({
-    "\nWlasnie obliczylem wyznacznik wprowadzonej przez Ciebie macierzy.\n",
-    "Wyznacznik wprowadzonej macierzy wynosi:\n",
-  });
+  //MatrixAbstract<M>::finalMathInfo({
+  //  "\nWlasnie obliczylem wyznacznik wprowadzonej przez Ciebie macierzy.\n",
+  //  "Wyznacznik wprowadzonej macierzy wynosi:\n",
+  //});
 
   //this->printMtrx(false, true);
 

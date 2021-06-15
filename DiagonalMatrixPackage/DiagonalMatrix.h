@@ -1,6 +1,10 @@
 #ifndef PK_MATRIX_CALCULATOR_DIAGONALMATRIX_H
 #define PK_MATRIX_CALCULATOR_DIAGONALMATRIX_H
 #include "../MatrixAbstractPackage/MatrixAbstract.h"
+#include "../GeneralMatrixPackage/GeneralMatrix.h"
+#include "../Interface/Auxiliary Functions/auxiliaryFunc.h"
+#include <iostream>
+#include <limits>
 
 namespace diagonalMatrixPackage {
   /**
@@ -25,12 +29,12 @@ namespace diagonalMatrixPackage {
       DiagonalMatrix(const DiagonalMatrix&); /** Sygnatura konstr. kopiującego */
 
       virtual void insertMtrx();
-      void generateDiagMtrx(bool);
 
       ~DiagonalMatrix();
 
     private:
       virtual void mtrxTypeAndSizeInfo();
+      void generateDiagMtrx(bool);
   };
 }
 

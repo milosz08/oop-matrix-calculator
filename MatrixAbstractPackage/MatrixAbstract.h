@@ -32,7 +32,6 @@ namespace matrixAbstractPackage {
 
       virtual void mtrxTypeAndSizeInfo() = 0; /** Metoda czysto wirtualna - wypisywanie wiadomosci */
       virtual void insertMtrx() = 0; /** Metoda czysto wirtualna - wprowadzanie macierzy */
-      virtual void finalMathInfo(const std::list<std::string>&);
 
       virtual ~MatrixAbstract(); /** Wirtualny destruktor wywołujący destruktory z klas pochodnych */
 

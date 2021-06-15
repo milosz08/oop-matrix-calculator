@@ -25,7 +25,6 @@ DiagonalMatrix<M>::DiagonalMatrix() = default;
 template<class M>
 DiagonalMatrix<M>::DiagonalMatrix(unsigned int& s) : MatrixAbstract<M>{s, s} {
   this->diagTab = new M[this->mtrxWidth];
-  mtrxTypeAndSizeInfo();
 }
 
 /**

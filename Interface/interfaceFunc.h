@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <winnt.h>
+#include <array>
 
 using namespace matrixAbstractPackage; /** package klasy wirtualnej (bazowej) macierzy */
 using namespace generalMatrixPackage; /** package klasy pochodnej (macierz standardowa) */
@@ -17,11 +18,8 @@ using namespace diagonalMatrixPackage; /** package klasy pochodnej (macierz diag
 
 void mainMenu(HANDLE& hOut);
 unsigned int* setMtrxSize(HANDLE& hOut, unsigned int& mtrxType, unsigned int& mtrxValType);
-template<typename T> void mathGenrMatrix(GeneralMatrix<T>& obj, HANDLE& hOut);
-template<typename T> void mathDiagMatrix(DiagonalMatrix<T>& obj, HANDLE& hOut);
-unsigned int mathMtrxSquareMenu(HANDLE& hOut);
-unsigned int mathMtrxRectglMenu(HANDLE& hOut);
-void initMtrxObj(HANDLE& hOut);
+template<typename T> unsigned int mathGenrMatrix(MatrixAbstract<T>* obj, HANDLE& hOut);
+unsigned int initMtrxObj(HANDLE& hOut);
 void startPrg();
 
 #endif

@@ -106,98 +106,84 @@ unsigned int* setMtrxSize(HANDLE& hOut, unsigned int& mtrxType, unsigned int& mt
 
 /*!
  *
- * @param hOut
- * @return
- */
-unsigned int mathMtrxSquareMenu(HANDLE& hOut) {
-  bool error{false};
-  unsigned int choice{0};
-  do {
-    error = false;
-    /** Kolor cyjanowy */
-    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-    genInfoBlock("ETAP 4", {
-      "Wybierz dzialanie, jakie chcesz wykonac na macierzy:",
-      "1. Chce wprowadzic druga macierz w celu wykonania operacji arytmetycznych.",
-      "2. Chce pomnozyc macierz przez wartosc skalara.",
-      "3. Chce wyznaczyc macierz sprzezona z wprowadzonej macierzy.",
-      "4. Chce wyznaczyc macierz transponowana z wprowadzonej macierzy.",
-      "5. Chce obliczyc wyznacznik z wprowadzonej macierzy.",
-      "6. Chce obliczyc macierz odwrotna z wprowadzonej macierzy."
-    });
-    /** Kolor biały - reset (wartość domyślna) */
-    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-    std::cout << "\nTwoj wybor: ";
-    std::cin >> choice;
-    if(std::cin.fail() || choice < 1 || choice > 6) {
-      error = true;
-      errorMess("Wybrana przez Ciebie opcja menu nie istnieje!");
-    }
-  } while(error);
-  return choice;
-}
-
-/*!
- *
- * @param hOut
- * @return
- */
-unsigned int mathMtrxRectglMenu(HANDLE& hOut) {
-  bool error{false};
-  unsigned int choice{0};
-  do {
-
-  } while(error);
-  return choice;
-}
-
-/*!
- *
  * @tparam T
  * @param obj
  * @param hOut
  */
 template<typename T>
-void mathGenrMatrix(GeneralMatrix<T>& obj, HANDLE& hOut) {
+unsigned int mathGenrMatrix(MatrixAbstract<T>* obj, HANDLE& hOut) {
   unsigned int choice{0};
+  std::vector<std::string>strArr; /** Tablica przechowująca zawartość menu do wydrukowania */
+  bool error{false};
 
-  obj.insertMtrx();
-  obj.printMtrx(true, true);
+  obj->insertMtrx(); /** Wprowadzanie macierzy */
+  do {
+    error = false;
+    obj->printMtrx(true, true); /** Drukowanie macierzy */
 
-  if(obj.get_Cols() == obj.get_Rows()) { /** Macierz kwadratowa */
-    choice = mathMtrxSquareMenu(hOut);
-  } else { /** Macierz prostokątna */
-    choice = mathMtrxRectglMenu(hOut);
-  }
+    if(obj->get_Cols() == obj->get_Rows()) { /** Macierz kwadratowa */
+      strArr = {
+        "Wybierz dzialanie, jakie chcesz wykonac na macierzy:",
+        "1. Chce wprowadzic druga macierz w celu wykonania operacji arytmetycznych.",
+        "2. Chce pomnozyc macierz przez wartosc skalara.",
+        "3. Chce wyznaczyc macierz sprzezona z wprowadzonej macierzy.",
+        "4. Chce wyznaczyc macierz transponowana z wprowadzonej macierzy.",
+        "5. Chce obliczyc wyznacznik z wprowadzonej macierzy.",
+        "6. Chce obliczyc macierz odwrotna z wprowadzonej macierzy."
+      };
+    } else { /** Macierz prostokątna */
+      strArr = {
+        "Wybierz dzialanie, jakie chcesz wykonac na macierzy:",
+        "1. Chce wprowadzic druga macierz w celu wykonania operacji arytmetycznych.",
+        "2. Chce pomnozyc macierz przez wartosc skalara.",
+        "3. Chce wyznaczyc macierz sprzezona z wprowadzonej macierzy.",
+        "4. Chce wyznaczyc macierz transponowana z wprowadzonej macierzy.",
+      };
+    }
 
+    /** Kolor cyjanowy */
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+    std::cout << "\n";
+    genInfoBlock("ETAP 4", strArr);
 
+    ///** Kolor biały - reset (wartość domyślna) */
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
 
-}
-
-template<typename T>
-void mathDiagMatrix(DiagonalMatrix<T>& obj, HANDLE& hOut) {
-  obj.insertMtrx();
-  obj.printMtrx(true, true);
+    std::cout << "\nTwoj wybor: ";
+    std::cin >> choice;
+    if(std::cin.fail() || choice < 1 || choice > strArr.size() - 1) {
+      error = true;
+      errorMess("Wybrana przez Ciebie opcja menu nie istnieje!");
+    }
+  } while(error);
+  std::system("cls");
+  return choice;
 }
 
 /*!
  *
  * @param hOut
  */
-void initMtrxObj(HANDLE& hOut) {
+unsigned int initMtrxObj(HANDLE& hOut) {
   unsigned int mtrxType = chooseTypeOfMatrix(hOut); /** typ macierzy (kwadratowa/prostokątna/diagonalna) */
   unsigned int mtrxValType = chooseTypeOfNumbers(hOut); /** typ wartości przekazywany we wzorcu (int/double) */
   /** Przechowalnia ilości wierszy i/lub kolumn */
   unsigned int* sizeMtrx = setMtrxSize(hOut, mtrxType, mtrxValType);
+  unsigned int chooseMtrxMath{0}; /** Wybór przez użytkownika operacji matematycznej na macierzy */
+
+  MatrixAbstract<int>* ptrAbstIntObj; /** Wzkaźnik na klase abstrakcyjną z parametrem typy int */
+  MatrixAbstract<double>* ptrAbstDblObj; /** Wzkaźnik na klase abstrakcyjną z parametrem typy double */
 
   switch(mtrxType) {
     case 1: { /** Macierze prostokątne */
       if(mtrxValType == 1) {
         GeneralMatrix<int> mRectInt{sizeMtrx[0], sizeMtrx[1]};
-        mathGenrMatrix(mRectInt, hOut);
+        ptrAbstIntObj = &mRectInt;
+        chooseMtrxMath = mathGenrMatrix(ptrAbstIntObj, hOut);
       } else {
         GeneralMatrix<double> mRectDbl{sizeMtrx[0], sizeMtrx[1]};
-        mathGenrMatrix(mRectDbl, hOut);
+        ptrAbstDblObj = &mRectDbl;
+        chooseMtrxMath = mathGenrMatrix(ptrAbstDblObj, hOut);
       }
       break;
     } default: { /** Macierze kwadratowe (zwykła / diagonalna) */
@@ -205,19 +191,23 @@ void initMtrxObj(HANDLE& hOut) {
         case 2: { /** Macierz kwadratowa zwykła */
           if(mtrxValType == 1) {
             GeneralMatrix<int> mSqrInt{sizeMtrx[0]};
-            mathGenrMatrix(mSqrInt, hOut);
+            ptrAbstIntObj = &mSqrInt;
+            chooseMtrxMath = mathGenrMatrix(ptrAbstIntObj, hOut);
           } else {
-            GeneralMatrix<double> mSqrDbl{sizeMtrx[0]};
-            mathGenrMatrix(mSqrDbl, hOut);
+            GeneralMatrix<double> mRectDbl{sizeMtrx[0]};
+            ptrAbstDblObj = &mRectDbl;
+            chooseMtrxMath = mathGenrMatrix(ptrAbstDblObj, hOut);
           }
           break;
         } case 3: { /** Macierz diagonalna */
           if(mtrxValType == 1) {
             DiagonalMatrix<int> mDiagInt{sizeMtrx[0]};
-            mathDiagMatrix(mDiagInt, hOut);
+            ptrAbstIntObj = &mDiagInt;
+            chooseMtrxMath = mathGenrMatrix(ptrAbstIntObj, hOut);
           } else {
             DiagonalMatrix<double> mDiagDbl{sizeMtrx[0]};
-            mathDiagMatrix(mDiagDbl, hOut);
+            ptrAbstDblObj = &mDiagDbl;
+            chooseMtrxMath = mathGenrMatrix(ptrAbstDblObj, hOut);
           }
           break;
         }
@@ -225,6 +215,9 @@ void initMtrxObj(HANDLE& hOut) {
       break;
     }
   }
+  delete ptrAbstIntObj; /** Wywóz śmieci tak o xD */
+  delete ptrAbstDblObj;
+  return chooseMtrxMath;
 }
 
 /*!

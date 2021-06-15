@@ -1,7 +1,4 @@
-#include <iostream>
-#include <limits>
 #include "DiagonalMatrix.h"
-#include "../GeneralMatrixPackage/GeneralMatrix.h"
 
 using namespace diagonalMatrixPackage;
 
@@ -30,23 +27,44 @@ void DiagonalMatrix<M>::mtrxTypeAndSizeInfo() {
 template<class M>
 void DiagonalMatrix<M>::insertMtrx() {
   bool error, repeatMess = false;
-  std::cout << "\nAby przejsc dalej, podaj kolejne elementy macierzy diagonalnej.\n";
-  std::cout << "Uwaga! Jesli podasz wiecej elementow, zostana one przeze mnie zignorowane.\n";
+  HANDLE hOut;
+  hOut = GetStdHandle( STD_OUTPUT_HANDLE );
   do {
+    mtrxTypeAndSizeInfo();
+    std::cout << "\nAby przejsc dalej, podaj kolejne elementy macierzy diagonalnej.\n";
+    /** Kolor żółty */
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
+    genInfoBlock("UWAGA!", {
+      "Jesli podasz wiecej elementow, zostana one przeze mnie zignorowane."
+    });
+
     try {
       error = false;
-      std::cout << "\nWpisz tutaj" << (!repeatMess ? "" : " ponownie") << " elemety macierzy diagonalnej (po spacji):\n";
+      /** Kolor biały - reset (wartość domyślna) */
+      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+      std::cout << "\nWpisz ponizej" << (!repeatMess ? "" : " ponownie");
+      std::cout << " elemety macierzy diagonalnej (po spacji):\n";
       for(unsigned int i = 0; i < this->mtrxWidth; i++) {
         std::cin >> this->diagTab[i];
       }
-      if(std::cin.fail()) {
-        throw std::logic_error("badInputValue");
-      }
+      if(std::cin.fail()) { throw std::logic_error("badInputValue"); }
+        else {
+          generateDiagMtrx(false);
+          std::system("cls");
+        }
     }
     catch(std::logic_error&) {
-      std::cout << "\nUwaga! W wprowadzonych przez ciebie elementach macierzy\n";
-      std::cout << "diagonalnej wykrylem niedozwolone wartosci!\n";
-      std::cout << "\nAby kontyuowac wprowadz ponownie wartosci macierzy diagonalnej (po przekatnej).\n";
+      /** Kolor czerwony */
+      SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);
+      genInfoBlock("ERROR!", {
+        "W wprowadzanej przez ciebie macierzy znalazlem niedozwolone wartosci!",
+        "Aby kontyuowac wprowadz ponownie swoja macierz."
+      });
+      /** Kolor biały - reset (wartość domyślna) */
+      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+      sequentialMess(5, "Ponawianie za");
+
+      std::system("cls");
       error = repeatMess = true;
       std::cin.clear();
       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -57,8 +75,8 @@ void DiagonalMatrix<M>::insertMtrx() {
 /**
  * @fn generateDiagMtrx(bool identityMtrx)
  * @brief Metoda wprowadzająca do konkretnych komórek macierzy konkretne znaki. Jeśli parametr
- * indentityMtrx jest ustawiony na "true", generuje macierz diagonalną na podstawie znaków tablicy
- * dynamicznej diagTab[]. Jeśli jest ustawiony na "false", generuje macierz jednostkową.
+ * indentityMtrx jest ustawiony na "false", generuje macierz diagonalną na podstawie znaków tablicy
+ * dynamicznej diagTab[]. Jeśli jest ustawiony na "true", generuje macierz jednostkową.
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
  * @param identityMtrx - przełącznik pomiędzy macierzą diagonalną a jednostkową (jednostkowa -> true)
  */
@@ -66,11 +84,8 @@ template<class M>
 void DiagonalMatrix<M>::generateDiagMtrx(bool identityMtrx) {
   for(unsigned int i = 0; i < this->mtrxHeight; i++) {
     for(unsigned int j = 0; j < this->mtrxWidth; j++) {
-      if(i == j) {
-        (!identityMtrx ? this->mtrx[i][j] = this->diagTab[j] : this->mtrx[i][j] = 1);
-      } else {
-        this->mtrx[i][j] = 0;
-      }
+      if(i == j) { (!identityMtrx ? this->mtrx[i][j] = this->diagTab[j] : this->mtrx[i][j] = 1); }
+        else { this->mtrx[i][j] = 0; }
     }
   }
 }
