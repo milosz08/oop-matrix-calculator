@@ -26,7 +26,7 @@ unsigned int mathGenrMatrix(MatrixAbstract<T>* obj, HANDLE& hOut);
 template<typename T>
 void createMtrxObject(unsigned int* sizeMtrx, HANDLE& hOut, unsigned int& mtrxType);
 template<typename T>
-void mtrxMathInit(unsigned int& choose, MatrixAbstract<T>* obj, HANDLE& hOut);
+void onlyOneMtrxMath(unsigned int& choose, MatrixAbstract<T>* obj, HANDLE& hOut);
 
 
 

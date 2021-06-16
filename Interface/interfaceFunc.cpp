@@ -166,36 +166,49 @@ void createMtrxObject(unsigned int* sizeMtrx, HANDLE& hOut, unsigned int& mtrxTy
   MatrixAbstract<T>* ptr{nullptr}; /** Wzkaźnik wskazujący na obiekt klasy abstrakcyjną typu T */
 
   switch(mtrxType) {
-    case 1: { //macierze prostokątne
+    case 1: { /** macierze prostokątne */
       GeneralMatrix<T> rectObj{sizeMtrx[0], sizeMtrx[1]};
       ptr = &rectObj;
       chooseMtrxMath = mathGenrMatrix(ptr, hOut);
-      //mtrxMathInit(chooseMtrxMath, ptr, hOut);
+      switch(chooseMtrxMath) {
+        case 1: { /** Wprowadzanie drugiej macierzy */
+
+          break;
+        } default: { /** Operacje na jednej macierzy */
+          onlyOneMtrxMath(chooseMtrxMath, ptr, hOut);
+          break;
+        }
+      }
       break;
-    } case 2: { //macierze kwadratowe
+    } case 2: { /** macierze kwadratowe */
       GeneralMatrix<T> sqrObj{sizeMtrx[0]};
       ptr = &sqrObj;
       chooseMtrxMath = mathGenrMatrix(ptr, hOut);
+      switch(chooseMtrxMath) {
+        case 1: { /** Wprowadzanie drugiej macierzy */
+
+          break;
+        } default: { /** Operacje na jednej macierzy */
+          onlyOneMtrxMath(chooseMtrxMath, ptr, hOut);
+          break;
+        }
+      }
       break;
-    } case 3: { //macierze diagonalne
+    } case 3: { /** macierze diagonalne */
       DiagonalMatrix<T> diagObj{sizeMtrx[0]};
       ptr = &diagObj;
       chooseMtrxMath = mathGenrMatrix(ptr, hOut);
+      switch(chooseMtrxMath) {
+        case 1: { /** Wprowadzanie drugiej macierzy */
+
+          break;
+        } default: { /** Operacje na jednej macierzy */
+          onlyOneMtrxMath(chooseMtrxMath, ptr, hOut);
+          break;
+        }
+      }
       break;
     }
-  }
-
-  if(mtrxType == 1) {
-
-    if(chooseMtrxMath != 1) {
-
-    } else {
-
-    }
-  } else if(mtrxType == 2) {
-
-  } else if(mtrxType == 3) {
-
   }
 }
 
@@ -224,29 +237,22 @@ void initMtrxObj(HANDLE& hOut) {
  * @param hOut
  */
 template<typename T>
-void mtrxMathInit(unsigned int& choose, MatrixAbstract<T>* obj, HANDLE& hOut) {
+void onlyOneMtrxMath(unsigned int& choose, MatrixAbstract<T>* obj, HANDLE& hOut) {
   switch(choose) {
-    case 1: { /** Wprowadzanie drugiej macierzy */
-      initMtrxObj(hOut);
-
-
+    case 2: { /** Mnożenie macierzy przez skalar */
       std::cout << "to jest wybor 1\n";
-      obj->printMtrx(true, true);
-      break;
-    } case 2: { /** Mnożenie macierzy przez skalar */
-      std::cout << "to jest wybor 2\n";
       break;
     } case 3: { /** Macierz sprzężona */
-      std::cout << "to jest wybor 3\n";
+      std::cout << "to jest wybor 2\n";
       break;
     } case 4: { /** Macierz transponowana */
-      std::cout << "to jest wybor 4\n";
+      std::cout << "to jest wybor 3\n";
       break;
     } case 5: { /** Wyznacznik z macierzy (tylko kwadratowe) */
-      std::cout << "to jest wybor 5\n";
+      std::cout << "to jest wybor 4\n";
       break;
     } case 6: { /** Macierz odwrotna (tylko kwadratowe) */
-      std::cout << "to jest wybor 6\n";
+      std::cout << "to jest wybor 5\n";
       break;
     }
   }
