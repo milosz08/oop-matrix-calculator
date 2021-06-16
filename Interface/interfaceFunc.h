@@ -19,12 +19,14 @@ using namespace diagonalMatrixPackage; /** package klasy pochodnej (macierz diag
 void startPrg();
 void mainMenu(HANDLE& hOut);
 void matrixMathInit(HANDLE& hOut);
-unsigned int initMtrxObj(HANDLE& hOut);
+void initMtrxObj(HANDLE& hOut);
 unsigned int* setMtrxSize(HANDLE& hOut, unsigned int& mtrxType, unsigned int& mtrxValType);
 template<typename T>
 unsigned int mathGenrMatrix(MatrixAbstract<T>* obj, HANDLE& hOut);
 template<typename T>
-unsigned int createMtrxObject(unsigned int* sizeMtrx, HANDLE& hOut, unsigned int& mtrxType);
+void createMtrxObject(unsigned int* sizeMtrx, HANDLE& hOut, unsigned int& mtrxType);
+template<typename T>
+void mtrxMathInit(unsigned int& choose, MatrixAbstract<T>* obj, HANDLE& hOut);
 
 
 

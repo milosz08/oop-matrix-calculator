@@ -161,50 +161,95 @@ unsigned int mathGenrMatrix(MatrixAbstract<T>* obj, HANDLE& hOut) {
 }
 
 template<typename T>
-unsigned int createMtrxObject(unsigned int* sizeMtrx, HANDLE& hOut, unsigned int& mtrxType) {
+void createMtrxObject(unsigned int* sizeMtrx, HANDLE& hOut, unsigned int& mtrxType) {
   unsigned int chooseMtrxMath{0}; /** Wybór przez użytkownika operacji matematycznej na macierzy */
   MatrixAbstract<T>* ptr{nullptr}; /** Wzkaźnik wskazujący na obiekt klasy abstrakcyjną typu T */
 
-  if(mtrxType == 1) {
-    GeneralMatrix<T> rectObj{sizeMtrx[0], sizeMtrx[1]};
-    ptr = &rectObj;
-    chooseMtrxMath = mathGenrMatrix(ptr, hOut);
-  } else if(mtrxType == 2) {
-    GeneralMatrix<T> sqrObj{sizeMtrx[0]};
-    ptr = &sqrObj;
-    chooseMtrxMath = mathGenrMatrix(ptr, hOut);
-  } else if(mtrxType == 3) {
-    DiagonalMatrix<T> diagObj{sizeMtrx[0]};
-    ptr = &diagObj;
-    chooseMtrxMath = mathGenrMatrix(ptr, hOut);
+  switch(mtrxType) {
+    case 1: { //macierze prostokątne
+      GeneralMatrix<T> rectObj{sizeMtrx[0], sizeMtrx[1]};
+      ptr = &rectObj;
+      chooseMtrxMath = mathGenrMatrix(ptr, hOut);
+      //mtrxMathInit(chooseMtrxMath, ptr, hOut);
+      break;
+    } case 2: { //macierze kwadratowe
+      GeneralMatrix<T> sqrObj{sizeMtrx[0]};
+      ptr = &sqrObj;
+      chooseMtrxMath = mathGenrMatrix(ptr, hOut);
+      break;
+    } case 3: { //macierze diagonalne
+      DiagonalMatrix<T> diagObj{sizeMtrx[0]};
+      ptr = &diagObj;
+      chooseMtrxMath = mathGenrMatrix(ptr, hOut);
+      break;
+    }
   }
 
-  return chooseMtrxMath;
+  if(mtrxType == 1) {
+
+    if(chooseMtrxMath != 1) {
+
+    } else {
+
+    }
+  } else if(mtrxType == 2) {
+
+  } else if(mtrxType == 3) {
+
+  }
 }
 
 /*!
  *
  * @param hOut
  */
-unsigned int initMtrxObj(HANDLE& hOut) {
+void initMtrxObj(HANDLE& hOut) {
   unsigned int mtrxType = chooseTypeOfMatrix(hOut); /** typ macierzy (kwadratowa/prostokątna/diagonalna) */
   unsigned int mtrxValType = chooseTypeOfNumbers(hOut); /** typ wartości przekazywany we wzorcu (int/double) */
   /** Przechowalnia ilości wierszy i/lub kolumn */
   unsigned int* sizeMtrx = setMtrxSize(hOut, mtrxType, mtrxValType);
-  unsigned int chooseMtrxMath{0}; /** Wybór przez użytkownika operacji matematycznej na macierzy */
 
   if(mtrxValType == 1) { /** Macierz tylko znaki stałoprzecinkowe */
-    chooseMtrxMath = createMtrxObject<int>(sizeMtrx, hOut, mtrxType);
+    createMtrxObject<int>(sizeMtrx, hOut, mtrxType);
   } else { /** Macierz znaki zmienno i stałoprzecinkowe */
-    chooseMtrxMath = createMtrxObject<double>(sizeMtrx, hOut, mtrxType);
+    createMtrxObject<double>(sizeMtrx, hOut, mtrxType);
   }
-
-  return chooseMtrxMath;
 }
 
-void mtrxMathInit(HANDLE& hOut) {
-  unsigned int choose = initMtrxObj(hOut);
-  std::cout << choose << "\n";
+/*!
+ *
+ * @tparam T
+ * @param choose
+ * @param obj
+ * @param hOut
+ */
+template<typename T>
+void mtrxMathInit(unsigned int& choose, MatrixAbstract<T>* obj, HANDLE& hOut) {
+  switch(choose) {
+    case 1: { /** Wprowadzanie drugiej macierzy */
+      initMtrxObj(hOut);
+
+
+      std::cout << "to jest wybor 1\n";
+      obj->printMtrx(true, true);
+      break;
+    } case 2: { /** Mnożenie macierzy przez skalar */
+      std::cout << "to jest wybor 2\n";
+      break;
+    } case 3: { /** Macierz sprzężona */
+      std::cout << "to jest wybor 3\n";
+      break;
+    } case 4: { /** Macierz transponowana */
+      std::cout << "to jest wybor 4\n";
+      break;
+    } case 5: { /** Wyznacznik z macierzy (tylko kwadratowe) */
+      std::cout << "to jest wybor 5\n";
+      break;
+    } case 6: { /** Macierz odwrotna (tylko kwadratowe) */
+      std::cout << "to jest wybor 6\n";
+      break;
+    }
+  }
 }
 
 
@@ -216,6 +261,5 @@ void startPrg() {
   hOut = GetStdHandle(STD_OUTPUT_HANDLE);
 
   mainMenu(hOut);
-  mtrxMathInit(hOut);
-
+  initMtrxObj(hOut);
 }
