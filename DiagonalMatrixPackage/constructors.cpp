@@ -27,6 +27,9 @@ DiagonalMatrix<M>::DiagonalMatrix(unsigned int& s) : MatrixAbstract<M>{s, s} {
   this->diagTab = new M[this->mtrxWidth];
 }
 
+template<class M>
+DiagonalMatrix<M>::DiagonalMatrix(const DiagonalMatrix<M>& mtrxCopy) : MatrixAbstract<M>{mtrxCopy} {}
+
 /**
  * @fn ~GeneralMatrix()
  * @brief Destruktor pełniący rolę odśmiecacza pamięci (manualny Garbage Collector).

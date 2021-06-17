@@ -90,5 +90,12 @@ void DiagonalMatrix<M>::generateDiagMtrx(bool identityMtrx) {
   }
 }
 
+template<class M>
+DiagonalMatrix<M> DiagonalMatrix<M>::coupledMtrx() const {
+  DiagonalMatrix<M> mtrxCoup = DiagonalMatrix<M>{*this}; /** Kopiowanie macierzy */
+  std::cout << "to jest test\n";
+  return mtrxCoup;
+}
+
 template class diagonalMatrixPackage::DiagonalMatrix<int>;
 template class diagonalMatrixPackage::DiagonalMatrix<double>;

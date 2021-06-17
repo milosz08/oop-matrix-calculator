@@ -20,21 +20,23 @@ namespace diagonalMatrixPackage {
    */
   template<typename M>
   class DiagonalMatrix : public matrixAbstractPackage::MatrixAbstract<M> {
-    private:
-      M* diagTab{nullptr};
+  private:
+    M* diagTab{nullptr};
 
-    public:
-      DiagonalMatrix();
-      DiagonalMatrix(unsigned int&); /** Sygnatura konstr. bazowego */
-      DiagonalMatrix(const DiagonalMatrix&); /** Sygnatura konstr. kopiującego */
+  public:
+    DiagonalMatrix();
+    DiagonalMatrix(unsigned int&); /** Sygnatura konstr. bazowego */
+    DiagonalMatrix(const DiagonalMatrix&); /** Sygnatura konstr. kopiującego */
 
-      virtual void insertMtrx();
+    DiagonalMatrix<M> coupledMtrx() const; /** Macierz sprzężona */
 
-      ~DiagonalMatrix();
+    virtual void insertMtrx();
 
-    private:
-      virtual void mtrxTypeAndSizeInfo();
-      void generateDiagMtrx(bool);
+    ~DiagonalMatrix();
+
+  private:
+    virtual void mtrxTypeAndSizeInfo();
+    void generateDiagMtrx(bool);
   };
 }
 

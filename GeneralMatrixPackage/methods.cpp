@@ -40,7 +40,7 @@ void GeneralMatrix<M>::insertMtrx() {
   do {
     mtrxTypeAndSizeInfo();
     std::cout << "\nAby przejsc dalej, podaj kolejne elementy macierzy.\n";
-
+    /** Kolor żółty */
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
     genInfoBlock("UWAGA!", {
       "Jesli podasz wiecej elementow, zostana one przeze mnie zignorowane."
@@ -55,6 +55,7 @@ void GeneralMatrix<M>::insertMtrx() {
 
     try {
       error = false;
+      /** Kolor biały - reset (wartość domyślna) */
       SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
       std::cout << "\nWpisz " << (!repeatMess ? "" : "ponownie ") << "swoja macierz:\n";
       for(unsigned int i = 0; i < this->mtrxHeight; i++) {
@@ -63,7 +64,7 @@ void GeneralMatrix<M>::insertMtrx() {
         }
       }
       if(std::cin.fail()) { throw std::logic_error("nAllAsciiChars"); }
-        else { std::system("cls"); }
+      else { std::system("cls"); }
     }
     catch(std::logic_error& e) {
       /** Kolor czerwony */
@@ -115,18 +116,13 @@ GeneralMatrix<M> GeneralMatrix<M>::transposeGenMtrx() {
  * @return - macierz sprzężona (obiekt)
  */
 template<class M>
-GeneralMatrix<M> GeneralMatrix<M>::coupledGenMtrx() {
+GeneralMatrix<M> GeneralMatrix<M>::coupledMtrx() {
   GeneralMatrix<M> mtrxCoup = GeneralMatrix<M>{*this}; /** Kopiowanie macierzy */
   for(unsigned int i = 0; i < this->mtrxHeight; i++) {
     for(unsigned int j = 0; j < this->mtrxWidth; j++) {
       mtrxCoup.mtrx[i][j] = this->mtrx[i][j] * -1;
     }
   }
-  //MatrixAbstract<M>::finalMathInfo({
-  //  "\nWlasnie dokonałem operacji sprzezenia na wprowadzonej przez Ciebie macierzy.\n",
-  //  "Po dokonaniu operacji sprzezenia macierzy pierwotnej powstala macierz potomna:\n"
-  //});
-  mtrxCoup.printMtrx(false, true);
   return mtrxCoup;
 }
 

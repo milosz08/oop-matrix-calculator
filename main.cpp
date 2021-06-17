@@ -6,6 +6,8 @@ int main() {
 
   startPrg();
 
+
+
   //unsigned int test;
 
   //HANDLE hOut;
@@ -18,7 +20,7 @@ int main() {
   //SetConsoleTextAttribute(hOut, FOREGROUND_GREEN);
   //std::cout << "Aby przejsc dalej, wybierz opcje!\n";
 
- // std::system("pause");
+  // std::system("pause");
   //std::system("cls");
 
   //unsigned int w = 2, h = 2;
@@ -42,7 +44,7 @@ int main() {
 
   //GeneralMatrix<double> m2{w, h};
   //m2.insertMtrx();
-  //m2.printMtrx(true);
+  //m2.printMtrx(true, true);
 
 
 
@@ -50,7 +52,7 @@ int main() {
 
 
   //GeneralMatrix<double> m3 = m1 * m2;
-  //m3.printMtrx(true);
+  //m3.printMtrx(true, true);
 
   //DiagonalMatrix<double> m2{w};
   //m2.insertDiagElms();

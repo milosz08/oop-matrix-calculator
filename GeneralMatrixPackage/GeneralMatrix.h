@@ -22,31 +22,31 @@ namespace generalMatrixPackage {
   template<class M> GeneralMatrix<M>& operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
   template<class M> GeneralMatrix<M>& operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
   template<class M> GeneralMatrix<M>& operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
-  template<class M> GeneralMatrix<M>& operator*(const GeneralMatrix<M>& mtrx, const double& scalar);
+  template<class M> GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrx, const double& scalar);
 
   template<class M>
   class GeneralMatrix : public matrixAbstractPackage::MatrixAbstract<M> {
-    public:
-      explicit GeneralMatrix();
-      explicit GeneralMatrix(unsigned int&, unsigned int&); /** Sygnatura konstr. macierzy prostokątnej */
-      explicit GeneralMatrix(unsigned int&); /** Sygnatura konstr. macierzy kwadratowej */
-      GeneralMatrix(const GeneralMatrix<M>&); /** Sygnatura konstr. kopiującego */
+  public:
+    explicit GeneralMatrix();
+    explicit GeneralMatrix(unsigned int&, unsigned int&); /** Sygnatura konstr. macierzy prostokątnej */
+    explicit GeneralMatrix(unsigned int&); /** Sygnatura konstr. macierzy kwadratowej */
+    GeneralMatrix(const GeneralMatrix<M>&); /** Sygnatura konstr. kopiującego */
 
-      virtual void insertMtrx(); /** Wstawianie wartości w kom macierzy */
-      GeneralMatrix<M> transposeGenMtrx(); /** Transponowanie macierzy */
-      GeneralMatrix<M> coupledGenMtrx(); /** Macierz sprzężona */
-      double determinantGenMtrx(); /** Wyznacznik (tylko macierze kwadratowe) n-tego stopnia */
+    virtual void insertMtrx(); /** Wstawianie wartości w kom macierzy */
+    GeneralMatrix<M> transposeGenMtrx(); /** Transponowanie macierzy */
+    GeneralMatrix<M> coupledMtrx(); /** Macierz sprzężona */
+    double determinantGenMtrx(); /** Wyznacznik (tylko macierze kwadratowe) n-tego stopnia */
 
-      ~GeneralMatrix();
+    ~GeneralMatrix();
 
-    private:
-      virtual void mtrxTypeAndSizeInfo(); /** Metoda z klasy abstrakcyjnej */
+  private:
+    virtual void mtrxTypeAndSizeInfo(); /** Metoda z klasy abstrakcyjnej */
 
-    public:
-      friend GeneralMatrix<M>& operator+ <>(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
-      friend GeneralMatrix<M>& operator- <>(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
-      friend GeneralMatrix<M>& operator* <>(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
-      friend GeneralMatrix<M>& operator* <>(const GeneralMatrix<M>& mtrx, const double& scalar);
+  public:
+    friend GeneralMatrix<M>& operator+ <>(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
+    friend GeneralMatrix<M>& operator- <>(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
+    friend GeneralMatrix<M>& operator* <>(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
+    friend GeneralMatrix<M> operator* <>(const GeneralMatrix<M>& mtrx, const double& scalar);
   };
 
   /** Dyrektywa dodająca definicje przeciążeń szablonów operatorów */

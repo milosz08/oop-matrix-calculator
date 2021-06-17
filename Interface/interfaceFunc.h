@@ -25,8 +25,10 @@ template<typename T>
 unsigned int mathGenrMatrix(MatrixAbstract<T>* obj, HANDLE& hOut);
 template<typename T>
 void createMtrxObject(unsigned int* sizeMtrx, HANDLE& hOut, unsigned int& mtrxType);
-template<typename T>
-void onlyOneMtrxMath(unsigned int& choose, MatrixAbstract<T>* obj, HANDLE& hOut);
+template<class M, typename T>
+void onlyOneMtrxMath(unsigned int& choose, MatrixAbstract<T>* ptr, M& obj, HANDLE& hOut);
+template<class M, typename T>
+void onlyOneMtrxMathInfo(MatrixAbstract<T>* ptr, M outObj, HANDLE& hOut, std::vector<std::string>infMess);
 
 
 

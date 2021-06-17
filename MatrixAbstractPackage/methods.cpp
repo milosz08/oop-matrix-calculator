@@ -106,23 +106,37 @@ void MatrixAbstract<M>::printMtrx(const bool textMess, const bool sharpBrc) cons
  * @return - wartość skalara zapisaną w polu klasy.
  */
 template<class M>
-double MatrixAbstract<M>::scalarValuePush() {
+double MatrixAbstract<M>::scalarValuePush(HANDLE& hOut) {
   bool error{false}, repeatMess{false};
-  std::cout << "\nAby przejsc dalej, podaj wartosc skalara, przez ktora chcesz przemnozyc macierz.\n";
-  std::cout << "Uwaga! Jesli podasz wiecej elementow (po spacji), zostana one przeze mnie zignorowane!\n";
   do {
+    std::cout << "\nAby przejsc dalej, podaj wartosc skalara, przez ktora chcesz przemnozyc macierz.\n";
+    /** Kolor żółty */
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
+    genInfoBlock("UWAGA!", {
+      "Jesli podasz wiecej elementow, zostana one przeze mnie zignorowane."
+    });
     try {
       error = false;
-      std::cout << "\nWpisz tutaj" << (!repeatMess ? "" : " ponownie") << " wartosc skalara:\n";
+      /** Kolor biały - reset (wartość domyślna) */
+      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+      std::cout << "\nWpisz tutaj" << (!repeatMess ? "" : " ponownie") << " wartosc skalara: ";
       std::cin >> this->scalarVal;
       if(std::cin.fail()) {
         throw std::logic_error("badScalarValue");
       }
     }
     catch(std::logic_error& e) {
-      std::cout << "\nError! Blad logiczny, kod bledu: " << e.what() << "!\n";
-      std::cout << "Wartosc skalarna zawiera nieprawidlowe znaki!\n";
-      std::cout << "Aby kontyuowac wprowadz ponownie wartosc skalara.\n";
+      /** Kolor czerwony */
+      SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);
+      genInfoBlock("ERROR!", {
+        "W wprowadzanej przez ciebie wartosci skalara znalazlem niedozwolone wartosci!",
+        "Aby kontyuowac wprowadz ponownie swoja wartosc skalara."
+      });
+      /** Kolor biały - reset (wartość domyślna) */
+      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+      sequentialMess(5, "Ponawianie za");
+
+      std::system("cls");
       error = repeatMess = true;
       std::cin.clear();
       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');

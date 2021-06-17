@@ -35,9 +35,9 @@ void mainMenu(HANDLE& hOut) {
     /** Kolor biały - reset (wartość domyślna) */
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
     genInfoBlock("MENU POCZATKOWE", {
-      "Aby zainicjalizowac program, wybierz jedna opcje z ponizszego menu:",
-      "1. Chce przesc do glownego menu wyboru operacji.",
-      "2. Chce zakonczyc dzialanie programu.",
+    "Aby zainicjalizowac program, wybierz jedna opcje z ponizszego menu:",
+    "1. Chce przesc do glownego menu wyboru operacji.",
+    "2. Chce zakonczyc dzialanie programu.",
     });
 
     std::cout << "\nTwoj wybor: ";
@@ -160,6 +160,11 @@ unsigned int mathGenrMatrix(MatrixAbstract<T>* obj, HANDLE& hOut) {
   return choice;
 }
 
+
+
+
+
+
 template<typename T>
 void createMtrxObject(unsigned int* sizeMtrx, HANDLE& hOut, unsigned int& mtrxType) {
   unsigned int chooseMtrxMath{0}; /** Wybór przez użytkownika operacji matematycznej na macierzy */
@@ -170,43 +175,19 @@ void createMtrxObject(unsigned int* sizeMtrx, HANDLE& hOut, unsigned int& mtrxTy
       GeneralMatrix<T> rectObj{sizeMtrx[0], sizeMtrx[1]};
       ptr = &rectObj;
       chooseMtrxMath = mathGenrMatrix(ptr, hOut);
-      switch(chooseMtrxMath) {
-        case 1: { /** Wprowadzanie drugiej macierzy */
-
-          break;
-        } default: { /** Operacje na jednej macierzy */
-          onlyOneMtrxMath(chooseMtrxMath, ptr, hOut);
-          break;
-        }
-      }
+      onlyOneMtrxMath<GeneralMatrix<T>, T>(chooseMtrxMath, ptr, rectObj, hOut);
       break;
     } case 2: { /** macierze kwadratowe */
       GeneralMatrix<T> sqrObj{sizeMtrx[0]};
       ptr = &sqrObj;
       chooseMtrxMath = mathGenrMatrix(ptr, hOut);
-      switch(chooseMtrxMath) {
-        case 1: { /** Wprowadzanie drugiej macierzy */
-
-          break;
-        } default: { /** Operacje na jednej macierzy */
-          onlyOneMtrxMath(chooseMtrxMath, ptr, hOut);
-          break;
-        }
-      }
+      onlyOneMtrxMath<GeneralMatrix<T>, T>(chooseMtrxMath, ptr, sqrObj, hOut);
       break;
     } case 3: { /** macierze diagonalne */
       DiagonalMatrix<T> diagObj{sizeMtrx[0]};
       ptr = &diagObj;
       chooseMtrxMath = mathGenrMatrix(ptr, hOut);
-      switch(chooseMtrxMath) {
-        case 1: { /** Wprowadzanie drugiej macierzy */
-
-          break;
-        } default: { /** Operacje na jednej macierzy */
-          onlyOneMtrxMath(chooseMtrxMath, ptr, hOut);
-          break;
-        }
-      }
+      onlyOneMtrxMath<DiagonalMatrix<T>, T>(chooseMtrxMath, ptr, diagObj, hOut);
       break;
     }
   }
@@ -231,30 +212,78 @@ void initMtrxObj(HANDLE& hOut) {
 
 /*!
  *
+ * @tparam M
+ * @tparam T
+ * @param ptr
+ * @param outObj
+ * @param hOut
+ * @param infMess
+ */
+template<class M, typename T>
+void onlyOneMtrxMathInfo(MatrixAbstract<T>* ptr, M outObj, HANDLE& hOut, std::vector<std::string>infMess) {
+  std::system("cls"); /** Czyszczenie konsoli przed wypisaniem podsumowania */
+  /** Kolor cyjanowy */
+  SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+  genInfoBlock("INFO", { infMess[0],
+    "Ponizej wyswietlam macierz pierwotna i macierz wynikowa."
+  }); /** Przekazuje zawartość wektora z tekstem */
+  /** Kolor biały - reset (wartość domyślna) */
+  SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+  std::cout << "\nMacierz pierwotna:\n\n";
+  ptr->printMtrx(false, true); /** Drukuje macierz pierwotną na podstawie wskaźnika */
+  std::cout << "\n" << infMess[1] <<"\n";
+  std::cout << "dala nastepujaca macierz wynikowa:\n\n";
+  outObj.printMtrx(false, true);
+}
+
+/*!
+ *
+ * @tparam M
  * @tparam T
  * @param choose
  * @param obj
  * @param hOut
  */
-template<typename T>
-void onlyOneMtrxMath(unsigned int& choose, MatrixAbstract<T>* obj, HANDLE& hOut) {
-  switch(choose) {
-    case 2: { /** Mnożenie macierzy przez skalar */
-      std::cout << "to jest wybor 1\n";
-      break;
-    } case 3: { /** Macierz sprzężona */
-      std::cout << "to jest wybor 2\n";
-      break;
-    } case 4: { /** Macierz transponowana */
-      std::cout << "to jest wybor 3\n";
-      break;
-    } case 5: { /** Wyznacznik z macierzy (tylko kwadratowe) */
-      std::cout << "to jest wybor 4\n";
-      break;
-    } case 6: { /** Macierz odwrotna (tylko kwadratowe) */
-      std::cout << "to jest wybor 5\n";
-      break;
+template<class M, typename T>
+void onlyOneMtrxMath(unsigned int& choose, MatrixAbstract<T>* ptr, M& obj, HANDLE& hOut) {
+  try {
+    switch(choose) {
+      case 1: {
+
+        std::cout << "to jest wybor 1\n";
+        break;
+      } case 2: { /** Mnożenie macierzy przez skalar */
+        //T scalar = ptr->scalarValuePush(hOut);
+        //M afterScl = obj * scalar;
+        //onlyOneMtrxMathInfo<M, T>(ptr, afterScl, hOut, {
+        //  "Pomnozenie macierzy przez skalar przebieglo pomyslnie!",
+        //  "pomnozona przez wartosc skalara"
+        //});
+        break;
+      } case 3: { /** Macierz sprzężona */
+        M afterCpl = obj.coupledMtrx();
+        onlyOneMtrxMathInfo<M, T>(ptr, afterCpl, hOut, {
+          "Wykonanie operacji sprzezenia macierzy przebieglo pomyslnie!",
+          "w wyniku operacji sprzezenia (odwrocenia znaku)"
+        });
+        break;
+      } case 4: { /** Macierz transponowana */
+        //M afterTrsp = obj.transposeGenMtrx()
+
+
+        std::cout << "to jest wybor 4\n";
+        break;
+      } case 5: { /** Wyznacznik z macierzy (tylko kwadratowe) */
+        std::cout << "to jest wybor 5\n";
+        break;
+      } case 6: { /** Macierz odwrotna (tylko kwadratowe) */
+        std::cout << "to jest wybor 6\n";
+        break;
+      }
     }
+  }
+  catch(std::runtime_error& e) {
+
   }
 }
 

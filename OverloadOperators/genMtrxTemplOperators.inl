@@ -12,7 +12,7 @@
  */
 template<class M>
 GeneralMatrix<M>& operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS) {
-  GeneralMatrix<M> mtrxAdd = GeneralMatrix<M>{mtrxF}; /** Kopiowanie macierzy */
+  GeneralMatrix<M> mtrxAdd = GeneralMatrix<M>{mtrxF};
   try {
     if(mtrxF.mtrxWidth != mtrxS.mtrxWidth && mtrxF.mtrxHeight != mtrxS.mtrxHeight) {
       throw std::logic_error("badMtrxsSize");
@@ -45,7 +45,7 @@ GeneralMatrix<M>& operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M
  */
 template<class M>
 GeneralMatrix<M>& operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS) {
-  GeneralMatrix<M> mtrxSubt = GeneralMatrix<M>{mtrxF}; /** Kopiowanie macierzy */
+  GeneralMatrix<M> mtrxSubt = GeneralMatrix<M>{mtrxF};
   try {
     if(mtrxF.mtrxWidth != mtrxS.mtrxWidth && mtrxF.mtrxHeight != mtrxS.mtrxHeight) {
       throw std::logic_error("badMtrxsSize");
@@ -79,16 +79,16 @@ GeneralMatrix<M>& operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M
  */
 template<class M>
 GeneralMatrix<M>& operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS) {
-  GeneralMatrix<M> mtrxMult = GeneralMatrix<M>{mtrxF}; /** Kopiowanie macierzy */
+  GeneralMatrix<M> mtrxMult = GeneralMatrix<M>{mtrxF};
   try {
     if(mtrxF.mtrxWidth != mtrxS.mtrxHeight || mtrxS.mtrxWidth != mtrxF.mtrxHeight) {
       throw std::logic_error("badMtrxsSize");
     } else {
       unsigned int sum{0};
-      for(unsigned int i = 0; i < mtrxF.mtrxHeight; i++) { /** Iteracje przez wiersze pierwszej macierzy */
-        for(unsigned int j = 0; j < mtrxS.mtrxWidth; j++) { /** Iteracje przez kolumny drugiej macierzy */
+      for(unsigned int i = 0; i < mtrxF.mtrxHeight; i++) {
+        for(unsigned int j = 0; j < mtrxS.mtrxWidth; j++) {
           sum = 0;
-          for(unsigned int k = 0; k < mtrxF.mtrxWidth; k++) { /** Iteracje przez kolumny drugiej macierzy */
+          for(unsigned int k = 0; k < mtrxF.mtrxWidth; k++) {
             sum += mtrxF.mtrx[i][k] * mtrxS.mtrx[k][j];
             mtrxMult.mtrx[i][j] = sum;
           }
@@ -96,7 +96,7 @@ GeneralMatrix<M>& operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M
       }
       std::cout << "\nWlasnie przemnozylem przez siebie dwie podane przez Ciebie macierze.\n";
       std::cout << "Z pomnozonych przez siebie macierzy powstala macierz potomna:\n";
-      mtrxMult.printMtrx(false);
+      mtrxMult.printMtrx(false, true);
     }
   }
   catch(std::logic_error& e) {
@@ -117,15 +117,12 @@ GeneralMatrix<M>& operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M
  * @return - macierz wynikowa (obiekt) po przemnożeniu przez skalar
  */
 template<class M>
-GeneralMatrix<M>& operator*(const GeneralMatrix<M>& mtrx, const double& scalar) {
-  GeneralMatrix<M> mtrxScalar = GeneralMatrix<M>{mtrx}; /** Kopiowanie macierzy */
+GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrx, const double& scalar) {
+  GeneralMatrix<M> mtrxScalar = GeneralMatrix<M>{mtrx};
   for(unsigned int i = 0; i < mtrx.mtrxHeight; i++) {
     for(unsigned int j = 0; j < mtrx.mtrxWidth; j++) {
       mtrxScalar.mtrx[i][j] = mtrx.mtrx[i][j] * scalar;
     }
   }
-  std::cout << "\nWlasnie pomnozylem podana przez Ciebie macierz przez wartosc scalara.\n";
-  std::cout << "Z przemnozenia macierzy przez skalar powstala macierz potomna:\n";
-  mtrxScalar.printMtrx(false);
   return mtrxScalar;
 }
