@@ -47,11 +47,12 @@ void DiagonalMatrix<M>::insertMtrx() {
       for(unsigned int i = 0; i < this->mtrxWidth; i++) {
         std::cin >> this->diagTab[i];
       }
-      if(std::cin.fail()) { throw std::logic_error("badInputValue"); }
-        else {
-          generateDiagMtrx(false);
-          std::system("cls");
-        }
+      if(std::cin.fail()) {
+        throw std::logic_error("badInputValue");
+      } else {
+        generateDiagMtrx(false);
+        std::system("cls");
+      }
     }
     catch(std::logic_error&) {
       /** Kolor czerwony */
@@ -84,18 +85,70 @@ template<class M>
 void DiagonalMatrix<M>::generateDiagMtrx(bool identityMtrx) {
   for(unsigned int i = 0; i < this->mtrxHeight; i++) {
     for(unsigned int j = 0; j < this->mtrxWidth; j++) {
-      if(i == j) { (!identityMtrx ? this->mtrx[i][j] = this->diagTab[j] : this->mtrx[i][j] = 1); }
-        else { this->mtrx[i][j] = 0; }
+      if(i == j) {
+        (!identityMtrx ? this->mtrx[i][j] = this->diagTab[j] : this->mtrx[i][j] = 1);
+      } else {
+        this->mtrx[i][j] = 0;
+      }
     }
   }
 }
 
+/*!
+ *
+ * @tparam M
+ * @return
+ */
 template<class M>
-DiagonalMatrix<M> DiagonalMatrix<M>::coupledMtrx() const {
+DiagonalMatrix<M> DiagonalMatrix<M>::coupledMtrx() {
   DiagonalMatrix<M> mtrxCoup = DiagonalMatrix<M>{*this}; /** Kopiowanie macierzy */
-  std::cout << "to jest test\n";
+  for(unsigned int i = 0; i < this->mtrxHeight; i++) {
+    for(unsigned int j = 0; j < this->mtrxWidth; j++) {
+      if(i == j) {
+        mtrxCoup.mtrx[i][j] = this->diagTab[j] * -1;
+      } else {
+        mtrxCoup.mtrx[i][j] = 0;
+      }
+    }
+  }
   return mtrxCoup;
 }
 
-template class diagonalMatrixPackage::DiagonalMatrix<int>;
+
+template<class M>
+DiagonalMatrix<M> DiagonalMatrix<M>::transposeMtrx() {
+  DiagonalMatrix<M> mtrxCoup = DiagonalMatrix<M>{*this}; /** Kopiowanie macierzy */
+  for(unsigned int i = 0; i < this->mtrxHeight; i++) {
+    for(unsigned int j = 0; j < this->mtrxWidth; j++) {
+      if(i == j) {
+        mtrxCoup.mtrx[i][j] = this->diagTab[i];
+      } else {
+        mtrxCoup.mtrx[i][j] = 0;
+      }
+    }
+  }
+  return mtrxCoup;
+}
+
+template<class M>
+M DiagonalMatrix<M>::determinantMtrx(HANDLE& hOut) {
+  M mtrxDet{1}; /** Końcowy wyznacznik (int/double) */
+  try {
+    if(this->mtrxWidth != this->mtrxHeight) { /** Jeśli macierz nie jest kwadratowa */
+      throw std::logic_error("badMtrxSize");
+    } else {
+      for(unsigned int i = 0; i < this->mtrxHeight; i++) {
+        mtrxDet *= this->diagTab[i];
+      }
+    }
+  }
+  catch(std::logic_error) {
+
+  }
+  return mtrxDet;
+}
+
+
+
+template class diagonalMatrixPackage::DiagonalMatrix<short int>;
 template class diagonalMatrixPackage::DiagonalMatrix<double>;

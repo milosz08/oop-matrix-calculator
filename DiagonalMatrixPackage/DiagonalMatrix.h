@@ -18,26 +18,42 @@ namespace diagonalMatrixPackage {
    * @param diagTab - tablica dynamiczna o ilości elementów równej liczbie
    * kolumn/wierszy macierzy przechowująca elementy macierzy diagonalnej
    */
+  template<class M> class DiagonalMatrix;
+  //template<class M> DiagonalMatrix<M>& operator+(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
+  //template<class M> DiagonalMatrix<M>& operator-(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
+  //template<class M> DiagonalMatrix<M>& operator*(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
+  template<class M> DiagonalMatrix<M> operator*(const DiagonalMatrix<M>& mtrx, const double& scalar);
+
   template<typename M>
   class DiagonalMatrix : public matrixAbstractPackage::MatrixAbstract<M> {
-  private:
-    M* diagTab{nullptr};
+    public:
+      DiagonalMatrix();
+      DiagonalMatrix(unsigned short int&); /** Sygnatura konstr. bazowego */
+      DiagonalMatrix(const DiagonalMatrix&); /** Sygnatura konstr. kopiującego */
 
-  public:
-    DiagonalMatrix();
-    DiagonalMatrix(unsigned int&); /** Sygnatura konstr. bazowego */
-    DiagonalMatrix(const DiagonalMatrix&); /** Sygnatura konstr. kopiującego */
+      DiagonalMatrix<M> coupledMtrx(); /** Macierz sprzężona */
+      DiagonalMatrix<M> transposeMtrx(); /** Transponowanie macierzy */
+      M determinantMtrx(HANDLE& hOut);
+      virtual void insertMtrx();
 
-    DiagonalMatrix<M> coupledMtrx() const; /** Macierz sprzężona */
-
-    virtual void insertMtrx();
-
-    ~DiagonalMatrix();
+      ~DiagonalMatrix();
 
   private:
     virtual void mtrxTypeAndSizeInfo();
-    void generateDiagMtrx(bool);
+    void generateDiagMtrx(bool identityMtrx);
+
+  public:
+    //friend DiagonalMatrix<M>& operator+ <>(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
+    //friend DiagonalMatrix<M>& operator- <>(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
+    //friend DiagonalMatrix<M>& operator* <>(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
+    friend DiagonalMatrix<M> operator* <>(const DiagonalMatrix<M>& mtrx, const double& scalar);
+
+  private:
+    M* diagTab{nullptr};
   };
+
+  /** Dyrektywa dodająca definicje przeciążeń szablonów operatorów */
+  #include "../OverloadOperators/diagMtrxTemplOperators.inl"
 }
 
 #endif

@@ -43,8 +43,9 @@ void mainMenu(HANDLE& hOut) {
     std::cout << "\nTwoj wybor: ";
     std::cin >> choice;
     switch(choice) {
-      case 1: { std::system("cls"); break; }
-      case 2: {
+      case 1: {
+        std::system("cls"); break;
+      } case 2: {
         sequentialMess(5, "Program zakonczy dzialanie za");
         std::cout << "\nDziekuje za skorzystanie z kalkulatora macierzy. Program zakonczyl dzialanie.\n";
         exit(0);
@@ -66,8 +67,8 @@ void mainMenu(HANDLE& hOut) {
  * @param mtrxValType
  * @return
  */
-unsigned int* setMtrxSize(HANDLE& hOut, unsigned int& mtrxType, unsigned int& mtrxValType) {
-  static unsigned int mtrxSizes[2] = {0,0}; /** dla 1 elementu ilość kolumn, dla 2 elementu ilośc wierszy */
+unsigned short int* setMtrxSize(HANDLE& hOut, unsigned int& mtrxType, unsigned int& mtrxValType) {
+  static unsigned short int mtrxSizes[2] = {0,0}; /** dla 1 elementu ilość kolumn, dla 2 elementu ilośc wierszy */
   bool error{false};
   do {
     error = false;
@@ -166,7 +167,7 @@ unsigned int mathGenrMatrix(MatrixAbstract<T>* obj, HANDLE& hOut) {
 
 
 template<typename T>
-void createMtrxObject(unsigned int* sizeMtrx, HANDLE& hOut, unsigned int& mtrxType) {
+void createMtrxObject(unsigned short int* sizeMtrx, HANDLE& hOut, unsigned int& mtrxType) {
   unsigned int chooseMtrxMath{0}; /** Wybór przez użytkownika operacji matematycznej na macierzy */
   MatrixAbstract<T>* ptr{nullptr}; /** Wzkaźnik wskazujący na obiekt klasy abstrakcyjną typu T */
 
@@ -201,10 +202,10 @@ void initMtrxObj(HANDLE& hOut) {
   unsigned int mtrxType = chooseTypeOfMatrix(hOut); /** typ macierzy (kwadratowa/prostokątna/diagonalna) */
   unsigned int mtrxValType = chooseTypeOfNumbers(hOut); /** typ wartości przekazywany we wzorcu (int/double) */
   /** Przechowalnia ilości wierszy i/lub kolumn */
-  unsigned int* sizeMtrx = setMtrxSize(hOut, mtrxType, mtrxValType);
+  unsigned short int* sizeMtrx = setMtrxSize(hOut, mtrxType, mtrxValType);
 
   if(mtrxValType == 1) { /** Macierz tylko znaki stałoprzecinkowe */
-    createMtrxObject<int>(sizeMtrx, hOut, mtrxType);
+    createMtrxObject<short int>(sizeMtrx, hOut, mtrxType);
   } else { /** Macierz znaki zmienno i stałoprzecinkowe */
     createMtrxObject<double>(sizeMtrx, hOut, mtrxType);
   }
@@ -220,13 +221,13 @@ void initMtrxObj(HANDLE& hOut) {
  * @param infMess
  */
 template<class M, typename T>
-void onlyOneMtrxMathInfo(MatrixAbstract<T>* ptr, M outObj, HANDLE& hOut, std::vector<std::string>infMess) {
+void onlyOneMtrxMathInfo(MatrixAbstract<T>* ptr, M& outObj, HANDLE& hOut, std::vector<std::string>infMess) {
   std::system("cls"); /** Czyszczenie konsoli przed wypisaniem podsumowania */
   /** Kolor cyjanowy */
   SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
   genInfoBlock("INFO", { infMess[0],
     "Ponizej wyswietlam macierz pierwotna i macierz wynikowa."
-  }); /** Przekazuje zawartość wektora z tekstem */
+  });
   /** Kolor biały - reset (wartość domyślna) */
   SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
   std::cout << "\nMacierz pierwotna:\n\n";
@@ -253,12 +254,12 @@ void onlyOneMtrxMath(unsigned int& choose, MatrixAbstract<T>* ptr, M& obj, HANDL
         std::cout << "to jest wybor 1\n";
         break;
       } case 2: { /** Mnożenie macierzy przez skalar */
-        //T scalar = ptr->scalarValuePush(hOut);
-        //M afterScl = obj * scalar;
-        //onlyOneMtrxMathInfo<M, T>(ptr, afterScl, hOut, {
-        //  "Pomnozenie macierzy przez skalar przebieglo pomyslnie!",
-        //  "pomnozona przez wartosc skalara"
-        //});
+        T scalar = ptr->scalarValuePush(hOut);
+        M afterScl = obj * scalar;
+        onlyOneMtrxMathInfo<M, T>(ptr, afterScl, hOut, {
+          "Pomnozenie macierzy przez skalar przebieglo pomyslnie!",
+          "pomnozona przez wartosc skalara"
+        });
         break;
       } case 3: { /** Macierz sprzężona */
         M afterCpl = obj.coupledMtrx();
@@ -268,12 +269,15 @@ void onlyOneMtrxMath(unsigned int& choose, MatrixAbstract<T>* ptr, M& obj, HANDL
         });
         break;
       } case 4: { /** Macierz transponowana */
-        //M afterTrsp = obj.transposeGenMtrx()
-
-
-        std::cout << "to jest wybor 4\n";
+        M afterTrsp = obj.transposeMtrx();
+        onlyOneMtrxMathInfo<M, T>(ptr, afterTrsp, hOut, {
+          "Wykonanie operacji transpozycji macierzy przebieglo pomyslnie!",
+          "w wyniku operacji transpozycji (zamiana wierszy/kolumn na kolumny/wiersze)"
+        });
         break;
       } case 5: { /** Wyznacznik z macierzy (tylko kwadratowe) */
+        std::cout << obj.determinantMtrx(hOut) << "\n";
+
         std::cout << "to jest wybor 5\n";
         break;
       } case 6: { /** Macierz odwrotna (tylko kwadratowe) */

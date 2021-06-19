@@ -11,7 +11,7 @@
  * @return - macierz wynikowa (obiekt) po dodaniu
  */
 template<class M>
-GeneralMatrix<M>& operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS) {
+GeneralMatrix<M> operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS) {
   GeneralMatrix<M> mtrxAdd = GeneralMatrix<M>{mtrxF};
   try {
     if(mtrxF.mtrxWidth != mtrxS.mtrxWidth && mtrxF.mtrxHeight != mtrxS.mtrxHeight) {
@@ -44,7 +44,7 @@ GeneralMatrix<M>& operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M
  * @return - macierz wynikowa (obiekt) po odjęciu
  */
 template<class M>
-GeneralMatrix<M>& operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS) {
+GeneralMatrix<M> operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS) {
   GeneralMatrix<M> mtrxSubt = GeneralMatrix<M>{mtrxF};
   try {
     if(mtrxF.mtrxWidth != mtrxS.mtrxWidth && mtrxF.mtrxHeight != mtrxS.mtrxHeight) {
@@ -78,7 +78,7 @@ GeneralMatrix<M>& operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M
  * @return - macierz wynikowa (obiekt) po monożeniu przez siebie dwóch macierzy
  */
 template<class M>
-GeneralMatrix<M>& operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS) {
+GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS) {
   GeneralMatrix<M> mtrxMult = GeneralMatrix<M>{mtrxF};
   try {
     if(mtrxF.mtrxWidth != mtrxS.mtrxHeight || mtrxS.mtrxWidth != mtrxF.mtrxHeight) {
@@ -125,4 +125,41 @@ GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrx, const double& scalar) {
     }
   }
   return mtrxScalar;
+}
+
+/*!
+ *
+ * @tparam M
+ * @param mtrxS
+ * @param nextRow
+ * @param colCount
+ * @param mtrx
+ * @return
+ */
+template<typename M>
+M detRecursion(unsigned short int mtrxS, unsigned short int nextRow, unsigned short int* colCount, M** mtrx) {
+  M recDet{0}; /** Obliczony wyznacznik */
+  unsigned short int* colRecCount{nullptr}; /** indeksy kolumn przekazywane w rekurencji */
+  unsigned short int mtrxElm{0};
+  signed char sign{1};
+
+  if(mtrxS == 1) { /** Jeśli wielkość macierzy potomnej 1 to zakończ rekurencję */
+    return mtrx[nextRow][colCount[0]];
+  } else {
+    colRecCount = new unsigned short int[mtrxS - 1]; /** Macierz potomna pomniejszona o 1 */
+
+    for(unsigned int i = 0; i < mtrxS; i++) {
+      mtrxElm = 0; /** Ustawianie pierwotnej pozycji obsługiwanego elementu */
+      for(unsigned int j = 0; j < mtrxS - 1; j++) {
+        if(mtrxElm == i) { /** Jeśli element jest taki sam, pomiń */
+          mtrxElm++;
+        }
+        colRecCount[j] = colCount[mtrxElm++];
+      }
+      recDet += sign * mtrx[nextRow][colCount[i]] * detRecursion<M>(mtrxS - 1, nextRow + 1, colRecCount, mtrx);
+      sign *= -1; /** Odwrócenie znaku */
+    }
+    delete [] colRecCount; /** Odśmiecanie pamięci */
+  }
+  return recDet;
 }

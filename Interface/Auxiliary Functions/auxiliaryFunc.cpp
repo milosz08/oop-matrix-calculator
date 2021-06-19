@@ -9,7 +9,7 @@
  */
 void genInfoBlock(std::string header, std::vector<std::string> mess) {
   unsigned int headerLength = header.length() + 2;
-  /** Długość najdłuższego stringa */
+  /** Długość najdłuższego stringa (wykorzystane iteratory i wyrażenie lambda) */
   unsigned int maxLength = std::max_element(mess.begin(), mess.end(), [](const auto& a, const auto& b){
     return a.size() < b.size();
   })->length() - headerLength - 2;
@@ -121,7 +121,7 @@ unsigned int chooseTypeOfMatrix(HANDLE& hOut) {
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
     std::cout << "\nTwoj wybor: ";
     std::cin >> choice;
-    if(choice != 1 && choice != 2 && choice != 3) {
+    if((choice < 1 || choice > 3) || std::cin.fail()) {
       error = true;
       errorMess("Wybrana przez Ciebie opcja menu nie istnieje!");
     }
@@ -157,7 +157,7 @@ unsigned int chooseTypeOfNumbers(HANDLE& hOut) {
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
     std::cout << "\nTwoj wybor: ";
     std::cin >> choice;
-    if(choice != 1 && choice != 2) {
+    if((choice != 1 && choice != 2) || std::cin.fail()) {
       error = true;
       errorMess("Wybrana przez Ciebie opcja menu nie istnieje!");
     }

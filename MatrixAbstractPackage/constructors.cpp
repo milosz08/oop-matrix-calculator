@@ -18,7 +18,7 @@ MatrixAbstract<M>::MatrixAbstract() = default;
  * @param h - wysokość macierzy (ilośc wierszy)
  */
 template<class M>
-MatrixAbstract<M>::MatrixAbstract(unsigned int& w, unsigned int& h) : mtrxWidth{w}, mtrxHeight{h} {
+MatrixAbstract<M>::MatrixAbstract(unsigned short int& w, unsigned short int& h) : mtrxWidth{w}, mtrxHeight{h} {
   allocateMemory();
 }
 
@@ -29,7 +29,7 @@ MatrixAbstract<M>::MatrixAbstract(unsigned int& w, unsigned int& h) : mtrxWidth{
  * @param s - wysokość oraz szerokość macierzy (ilośc kolumn oraz ilość wierszy)
  */
 template<class M>
-MatrixAbstract<M>::MatrixAbstract(unsigned int& s) : mtrxWidth{s}, mtrxHeight{s} {
+MatrixAbstract<M>::MatrixAbstract(unsigned short int& s) : mtrxWidth{s}, mtrxHeight{s} {
   allocateMemory();
 }
 
@@ -61,5 +61,5 @@ MatrixAbstract<M>::~MatrixAbstract() {
   delete[] this->mtrx;
 }
 
-template class matrixAbstractPackage::MatrixAbstract<int>;
+template class matrixAbstractPackage::MatrixAbstract<short int>;
 template class matrixAbstractPackage::MatrixAbstract<double>;

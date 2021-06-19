@@ -151,7 +151,7 @@ double MatrixAbstract<M>::scalarValuePush(HANDLE& hOut) {
  * @return
  */
 template<typename M>
-unsigned int MatrixAbstract<M>::get_Cols() const { return this->mtrxWidth; }
+unsigned short int MatrixAbstract<M>::get_Cols() const { return this->mtrxWidth; }
 
 /*!
  *
@@ -159,7 +159,7 @@ unsigned int MatrixAbstract<M>::get_Cols() const { return this->mtrxWidth; }
  * @return
  */
 template<typename M>
-unsigned int MatrixAbstract<M>::get_Rows() const { return this->mtrxHeight; }
+unsigned short int MatrixAbstract<M>::get_Rows() const { return this->mtrxHeight; }
 
-template class matrixAbstractPackage::MatrixAbstract<int>;
+template class matrixAbstractPackage::MatrixAbstract<short int>;
 template class matrixAbstractPackage::MatrixAbstract<double>;

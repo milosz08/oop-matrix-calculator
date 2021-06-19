@@ -63,8 +63,11 @@ void GeneralMatrix<M>::insertMtrx() {
           std::cin >> this->mtrx[i][j];
         }
       }
-      if(std::cin.fail()) { throw std::logic_error("nAllAsciiChars"); }
-      else { std::system("cls"); }
+      if(std::cin.fail()) {
+        throw std::logic_error("nAllAsciiChars");
+      } else {
+        std::system("cls");
+      }
     }
     catch(std::logic_error& e) {
       /** Kolor czerwony */
@@ -93,7 +96,7 @@ void GeneralMatrix<M>::insertMtrx() {
  * @return - macierz wynikowa (obiekt) po transponacji
  */
 template<class M>
-GeneralMatrix<M> GeneralMatrix<M>::transposeGenMtrx() {
+GeneralMatrix<M> GeneralMatrix<M>::transposeMtrx() {
   GeneralMatrix<M> mtrxTrans = GeneralMatrix<M>{*this}; /** Kopiowanie macierzy */
   for(unsigned int i = 0; i < this->mtrxHeight; i++) {
     for(unsigned int j = 0; j < this->mtrxWidth; j++) {
@@ -128,49 +131,27 @@ GeneralMatrix<M> GeneralMatrix<M>::coupledMtrx() {
 
 /**
  *
- * @tparam M
- * @param mtrx
  * @return
  */
 template<class M>
-double GeneralMatrix<M>::determinantGenMtrx() {
-  double detMtrx{0}; /** Wyznacznik */
+M GeneralMatrix<M>::determinantMtrx(HANDLE& hOut) {
+  M mtrxDet{0}; /** Końcowy wyznacznik (int/double) */
   try {
-    if(this->mtrxWidth != this->mtrxHeight) { /** Tylko dla macierzy kwadratowych */
+    if(this->mtrxWidth != this->mtrxHeight) {
       throw std::logic_error("badMtrxSize");
     } else {
-      if(this->mtrxWidth == 1 || this->mtrxHeight == 1) { /** Macierz 1x1 (skalar) */
-        detMtrx = this->mtrx[0][0];
-      } else if(this->mtrxWidth == 2 || this->mtrxHeight == 2) { /** Macierz 2x2 */
-        M elmA = this->mtrx[0][0];
-        M elmB = this->mtrx[0][1];
-        M elmC = this->mtrx[1][0];
-        M elmD = this->mtrx[1][1];
-        detMtrx = elmA * elmD - elmB * elmC;
-      } else { /** Macierz n-tego stopnia */
-
+      colsCount = new unsigned short int[this->mtrxWidth];
+      for(unsigned int i = 0; i < this->mtrxWidth; i++) {
+        colsCount[i] = i;
       }
+      mtrxDet = detRecursion<M>(this->mtrxWidth, 0, colsCount, this->mtrx);
     }
   }
-  catch(std::logic_error& e) {
-    std::cout << "\n  Error! Blad logiczny, " << e.what() << " !\n";
-    std::cout << "  Nie mozna obliczyc wyznaczniku macierzy, ktorej liczba kolumn\n";
-    std::cout << "  nie jest taka sama jak liczba wierszy (i na odwrot)!\n";
+  catch(std::logic_error) {
+
   }
-
-
-
-  //MatrixAbstract<M>::finalMathInfo({
-  //  "\nWlasnie obliczylem wyznacznik wprowadzonej przez Ciebie macierzy.\n",
-  //  "Wyznacznik wprowadzonej macierzy wynosi:\n",
-  //});
-
-  //this->printMtrx(false, true);
-
-  std::cout << "\n  " << detMtrx << "\n";
-
-  return detMtrx;
+  return mtrxDet;
 }
 
-template class generalMatrixPackage::GeneralMatrix<int>;
+template class generalMatrixPackage::GeneralMatrix<short int>;
 template class generalMatrixPackage::GeneralMatrix<double>;

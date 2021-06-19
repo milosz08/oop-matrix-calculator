@@ -22,7 +22,7 @@ GeneralMatrix<M>::GeneralMatrix() = default;
  * @param h - wysokość macierzy (ilośc wierszy)
  */
 template<class M>
-GeneralMatrix<M>::GeneralMatrix(unsigned int& w, unsigned int& h) : MatrixAbstract<M>{w, h} {}
+GeneralMatrix<M>::GeneralMatrix(unsigned short int& w, unsigned short int& h) : MatrixAbstract<M>{w, h} {}
 
 /*!
  * @fn GeneralMatrix(unsigned int & s)
@@ -32,7 +32,7 @@ GeneralMatrix<M>::GeneralMatrix(unsigned int& w, unsigned int& h) : MatrixAbstra
  * @param s - wysokość oraz szerokość macierzy (ilośc kolumn oraz ilość wierszy)
  */
 template<class M>
-GeneralMatrix<M>::GeneralMatrix(unsigned int & s) : MatrixAbstract<M>{s, s} {}
+GeneralMatrix<M>::GeneralMatrix(unsigned short int & s) : MatrixAbstract<M>{s, s} {}
 
 /*!
  * @fn GeneralMatrix(const GeneralMatrix& mtrxCopy)
@@ -49,7 +49,9 @@ GeneralMatrix<M>::GeneralMatrix(const GeneralMatrix<M>& mtrxCopy) : MatrixAbstra
  * przejmuje destruktor z klasy abstrakcyjnej.
  */
 template<class M>
-GeneralMatrix<M>::~GeneralMatrix() = default;
+GeneralMatrix<M>::~GeneralMatrix() {
+  delete [] colsCount;
+};
 
-template class generalMatrixPackage::GeneralMatrix<int>;
+template class generalMatrixPackage::GeneralMatrix<short int>;
 template class generalMatrixPackage::GeneralMatrix<double>;

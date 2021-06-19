@@ -23,7 +23,7 @@ int main() {
   // std::system("pause");
   //std::system("cls");
 
-  //unsigned int w = 2, h = 2;
+  //unsigned int w = 5, h = 5;
 
 
   //GeneralMatrix<double> m1{w, h};
@@ -32,9 +32,7 @@ int main() {
 
   //std::cout <<  << "\n";
 
-  //m1.determinantGenMtrx();
-
-  //std::cout << m1 << std::endl;
+  //std::cout << m1.determinantMtrx() << std::endl;
 
   //GeneralMatrix<double> m3 = (m1);
 

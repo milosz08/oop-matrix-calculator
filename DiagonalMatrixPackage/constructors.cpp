@@ -23,9 +23,10 @@ DiagonalMatrix<M>::DiagonalMatrix() = default;
  * @param h - wysokość macierzy (ilośc wierszy)
  */
 template<class M>
-DiagonalMatrix<M>::DiagonalMatrix(unsigned int& s) : MatrixAbstract<M>{s, s} {
+DiagonalMatrix<M>::DiagonalMatrix(unsigned short int& s) : MatrixAbstract<M>{s, s} {
   this->diagTab = new M[this->mtrxWidth];
 }
+
 
 template<class M>
 DiagonalMatrix<M>::DiagonalMatrix(const DiagonalMatrix<M>& mtrxCopy) : MatrixAbstract<M>{mtrxCopy} {}
@@ -40,5 +41,5 @@ DiagonalMatrix<M>::~DiagonalMatrix() {
   delete[] this->diagTab;
 }
 
-template class diagonalMatrixPackage::DiagonalMatrix<int>;
+template class diagonalMatrixPackage::DiagonalMatrix<short int>;
 template class diagonalMatrixPackage::DiagonalMatrix<double>;

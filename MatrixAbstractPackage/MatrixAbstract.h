@@ -23,8 +23,8 @@ namespace matrixAbstractPackage {
   class MatrixAbstract {
   public:
     explicit MatrixAbstract();
-    explicit MatrixAbstract(unsigned int&, unsigned int&); /** Sygnatura konstr. dla macierzy prostokątnych */
-    explicit MatrixAbstract(unsigned int&); /** Sygnatura konstr. dla macierzy kwadratowych */
+    explicit MatrixAbstract(unsigned short int&, unsigned short int&); /** Sygnatura konstr. dla macierzy prostokątnych */
+    explicit MatrixAbstract(unsigned short int&); /** Sygnatura konstr. dla macierzy kwadratowych */
     explicit MatrixAbstract(const MatrixAbstract&); /** Sygnatura konstr. kopiującego */
 
     virtual void printMtrx(const bool, const bool) const; /** Metoda wirtualna - drukowanie macierzy */
@@ -41,11 +41,11 @@ namespace matrixAbstractPackage {
     unsigned int lengthOfElm(M&) const;
 
   public: /** Gettery */
-    unsigned int get_Cols() const;
-    unsigned int get_Rows() const;
+    unsigned short int get_Cols() const;
+    unsigned short int get_Rows() const;
 
   protected:
-    unsigned int mtrxWidth{0}, mtrxHeight{0}; /** Wymiary macierzy */
+    unsigned short int mtrxWidth{0}, mtrxHeight{0}; /** Wymiary macierzy */
     double scalarVal{0}; /** Wartość skalara */
     M** mtrx{nullptr}; /** Tablica wskaźników typu M reprezentująca komórki macierzy */
   };
