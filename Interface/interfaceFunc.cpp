@@ -18,36 +18,36 @@ void mainMenu(HANDLE& hOut) {
     /** Kolor biały - reset (wartość domyślna) */
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
     genInfoBlock("AUTOR", {
-      "Napisane w C++ z uzyciem mechanizmow obiektowosci przez Milosz Gilga.",
-      "Programowanie Komputerow, Wydzial Elektryczny, Politechnika Slaska, Gliwice.",
+      "Napisane w C++ z użyciem mechanizmów obiektowosci przez Milosz Gilga.",
+      "Programowanie Komputerów, Wydział Elektryczny, Politechnika Ślaska, Gliwice.",
       "(c) 2021 by Milosz Gilga (github.com/Milosz08)."
     });
     /** Kolor cyjanowy */
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
     genInfoBlock("WSPIERANE OPERACJE", {
       "* Obliczanie wyznacznika macierzy 1, 2 oraz n-elementowej (tylko macierze kwadratowe).",
-      "* Obliczanie macierzy odwrotnej wzgledem macierzy pierwotnej (tylko macierze kwadratowe).",
-      "* Obliczanie macierzy sprzezonej wzgledem macierzy pierwotnej.",
-      "* Podstawowe dzialania arytmetyczne (dodawanie, odejmowanie, mnozenie).",
-      "* Mnozenie macierzy przez wartosc skalarna.",
+      "* Obliczanie macierzy odwrotnej względem macierzy pierwotnej (tylko macierze kwadratowe).",
+      "* Obliczanie macierzy sprzężonej względem macierzy pierwotnej.",
+      "* Podstawowe działania arytmetyczne (dodawanie, odejmowanie, mnożenie).",
+      "* Mnożenie macierzy przez wartość skalarną.",
       "* Transponowanie macierzy.",
     });
     /** Kolor biały - reset (wartość domyślna) */
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
     genInfoBlock("MENU POCZATKOWE", {
-    "Aby zainicjalizowac program, wybierz jedna opcje z ponizszego menu:",
-    "1. Chce przesc do glownego menu wyboru operacji.",
-    "2. Chce zakonczyc dzialanie programu.",
+    "Aby zainicjalizowac program, wybierz jedną opcje z poniższego menu:",
+    "1. Chcę prześć do głownego menu wyboru operacji.",
+    "2. Chcę zakonczyć działanie programu.",
     });
 
-    std::cout << "\nTwoj wybor: ";
+    std::cout << "\nTwój wybór: ";
     std::cin >> choice;
     switch(choice) {
       case 1: {
         std::system("cls"); break;
       } case 2: {
-        sequentialMess(5, "Program zakonczy dzialanie za");
-        std::cout << "\nDziekuje za skorzystanie z kalkulatora macierzy. Program zakonczyl dzialanie.\n";
+        sequentialMess(5, "Program zakończy działanie za");
+        std::cout << "\nDziękuje za skorzystanie z kalkulatora macierzy. Program zakonczył działanie.\n";
         exit(0);
       }
       default: {
@@ -73,18 +73,18 @@ unsigned short int* setMtrxSize(HANDLE& hOut, unsigned int& mtrxType, unsigned i
   do {
     error = false;
 
-    std::cout << "\nZapisalem nastepujace parametry:\n";
+    std::cout << "\nZapisałem następujace parametry:\n";
     std::cout << saveMtrxInfo(mtrxType, mtrxValType) << "\n";
 
     genInfoBlock("ETAP 3", {
-      "Podaj wielkosc macierzy (w formacie ilosc kolumn x ilosc wierszy) dla macierzy",
-      "prostokatnych. Dla macierzy kwadratowych oraz diagonalnych podaj jedynie jeden wymiar.",
+      "Podaj wielkość macierzy (w formacie ilość kolumn x ilosc wierszy) dla macierzy",
+      "prostokątnych. Dla macierzy kwadratowych oraz diagonalnych podaj jedynie jeden wymiar.",
     });
     /** Kolor żółty */
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
     genInfoBlock("UWAGA!", {
-      "Jesli podasz wiecej elementow, zostana one przeze mnie zignorowane.",
-      "W tym polu mozesz podac jedynie liczby calkowite rozne od zera."
+      "Jeśli podasz wiecej elementów, zostaną one przeze mnie zignorowane.",
+      "W tym polu możesz podać jedynie liczby całkowite różne od zera."
     });
     /** Kolor biały - reset (wartość domyślna) */
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
@@ -93,12 +93,12 @@ unsigned short int* setMtrxSize(HANDLE& hOut, unsigned int& mtrxType, unsigned i
       std::cout << "wielkosc macierzy (tylko jeden wymiar): ";
       std::cin >> mtrxSizes[0]; /** Wprowadzenie ilości wierszy/kolumn */
     } else {
-      std::cout << "liczbe wierszy i kolumn (w formacie k x w) po spacji: ";
+      std::cout << "liczbę wierszy i kolumn (w formacie k x w) po spacji: ";
       std::cin >> mtrxSizes[0] >> mtrxSizes[1]; /** Wprowadzenie ilości kolumn i wierszy */
     }
     if(!(mtrxSizes[0] != 0 || mtrxSizes[1] != 0 || !std::cin.fail())) {
       error = true;
-      errorMess("Podany zostal bledny wymiar macierzy (niedozwolony znak lub liczba 0)!");
+      errorMess("Podany został błedny wymiar macierzy (niedozwolony znak lub liczba 0)!");
     }
   } while (error);
   std::system("cls"); /** czyszczenie konsoli */
@@ -124,21 +124,21 @@ unsigned int mathGenrMatrix(MatrixAbstract<T>* obj, HANDLE& hOut) {
 
     if(obj->get_Cols() == obj->get_Rows()) { /** Macierz kwadratowa */
       strArr = {
-        "Wybierz dzialanie, jakie chcesz wykonac na macierzy:",
-        "1. Chce wprowadzic druga macierz w celu wykonania operacji arytmetycznych.",
-        "2. Chce pomnozyc macierz przez wartosc skalara.",
-        "3. Chce wyznaczyc macierz sprzezona z wprowadzonej macierzy.",
-        "4. Chce wyznaczyc macierz transponowana z wprowadzonej macierzy.",
-        "5. Chce obliczyc wyznacznik z wprowadzonej macierzy.",
-        "6. Chce obliczyc macierz odwrotna z wprowadzonej macierzy."
+        "Wybierz działanie, jakie chcesz wykonać na macierzy:",
+        "1. Chcę wprowadzić drugą macierz w celu wykonania operacji arytmetycznych.",
+        "2. Chcę pomnożyć macierz przez wartość skalarną.",
+        "3. Chcę wyznaczyć macierz sprzężoną z wprowadzonej macierzy.",
+        "4. Chcę wyznaczyć macierz transponowaną z wprowadzonej macierzy.",
+        "5. Chcę obliczyć wyznacznik z wprowadzonej macierzy.",
+        "6. Chcę obliczyć macierz odwrotna z wprowadzonej macierzy."
       };
     } else { /** Macierz prostokątna */
       strArr = {
-        "Wybierz dzialanie, jakie chcesz wykonac na macierzy:",
-        "1. Chce wprowadzic druga macierz w celu wykonania operacji arytmetycznych.",
-        "2. Chce pomnozyc macierz przez wartosc skalara.",
-        "3. Chce wyznaczyc macierz sprzezona z wprowadzonej macierzy.",
-        "4. Chce wyznaczyc macierz transponowana z wprowadzonej macierzy.",
+        "Wybierz działanie, jakie chcesz wykonać na macierzy:",
+        "1. Chcę wprowadzić drugą macierz w celu wykonania operacji arytmetycznych.",
+        "2. Chcę pomnozyć macierz przez wartość skalarną.",
+        "3. Chcę wyznaczyć macierz sprzężoną z wprowadzonej macierzy.",
+        "4. Chcę wyznaczyć macierz transponowaną z wprowadzonej macierzy.",
       };
     }
 
@@ -150,7 +150,7 @@ unsigned int mathGenrMatrix(MatrixAbstract<T>* obj, HANDLE& hOut) {
     /** Kolor biały - reset (wartość domyślna) */
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
 
-    std::cout << "\nTwoj wybor: ";
+    std::cout << "\nTwój wybór: ";
     std::cin >> choice;
     if(std::cin.fail() || choice < 1 || choice > strArr.size() - 1) {
       error = true;
@@ -169,26 +169,35 @@ unsigned int mathGenrMatrix(MatrixAbstract<T>* obj, HANDLE& hOut) {
 template<typename T>
 void createMtrxObject(unsigned short int* sizeMtrx, HANDLE& hOut, unsigned int& mtrxType) {
   unsigned int chooseMtrxMath{0}; /** Wybór przez użytkownika operacji matematycznej na macierzy */
-  MatrixAbstract<T>* ptr{nullptr}; /** Wzkaźnik wskazujący na obiekt klasy abstrakcyjną typu T */
+  MatrixAbstract<T>* ptr{nullptr}; /** Wzkaźnik wskazujący na obiekt typu T */
 
   switch(mtrxType) {
     case 1: { /** macierze prostokątne */
+
       GeneralMatrix<T> rectObj{sizeMtrx[0], sizeMtrx[1]};
       ptr = &rectObj;
+
       chooseMtrxMath = mathGenrMatrix(ptr, hOut);
       onlyOneMtrxMath<GeneralMatrix<T>, GeneralMatrix<double>, T>(chooseMtrxMath, ptr, rectObj, hOut);
+
       break;
     } case 2: { /** macierze kwadratowe */
+
       GeneralMatrix<T> sqrObj{sizeMtrx[0]};
       ptr = &sqrObj;
+
       chooseMtrxMath = mathGenrMatrix(ptr, hOut);
       onlyOneMtrxMath<GeneralMatrix<T>, GeneralMatrix<double>, T>(chooseMtrxMath, ptr, sqrObj, hOut);
+
       break;
     } case 3: { /** macierze diagonalne */
+
       DiagonalMatrix<T> diagObj{sizeMtrx[0]};
       ptr = &diagObj;
+
       chooseMtrxMath = mathGenrMatrix(ptr, hOut);
       onlyOneMtrxMath<DiagonalMatrix<T>, DiagonalMatrix<double>, T>(chooseMtrxMath, ptr, diagObj, hOut);
+
       break;
     }
   }
@@ -226,14 +235,14 @@ void onlyOneMtrxMathInfo(MatrixAbstract<T>* ptr, M& outObj, HANDLE& hOut, std::v
   /** Kolor cyjanowy */
   SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
   genInfoBlock("INFO", { infMess[0],
-    "Ponizej wyswietlam macierz pierwotna i macierz wynikowa."
+    "Poniżej wyświetlam macierz pierwotną i macierz wynikową."
   });
   /** Kolor biały - reset (wartość domyślna) */
   SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
   std::cout << "\nMacierz pierwotna:\n\n";
   ptr->printMtrx(false, true, false); /** Drukuje macierz pierwotną na podstawie wskaźnika */
   std::cout << "\n" << infMess[1] <<"\n";
-  std::cout << "dala nastepujaca macierz wynikowa:\n\n";
+  std::cout << "dała nastepujacą macierz wynikową:\n\n";
   outObj.printMtrx(false, true, false);
 }
 
@@ -260,8 +269,8 @@ void onlyOneMtrxMath(unsigned int& choose, MatrixAbstract<T>* ptr, M& obj, HANDL
         M afterScl = obj * scalar;
 
         onlyOneMtrxMathInfo<M, T>(ptr, afterScl, hOut, {
-          "Pomnozenie macierzy przez skalar przebieglo pomyslnie!",
-          "pomnozona przez wartosc skalara"
+          "Pomnożenie macierzy przez skalar przebiegło pomyślnie!",
+          "pomnożona przez wartość skalarną"
         });
 
         break;
@@ -270,8 +279,8 @@ void onlyOneMtrxMath(unsigned int& choose, MatrixAbstract<T>* ptr, M& obj, HANDL
         M afterCpl = obj.coupledMtrx();
 
         onlyOneMtrxMathInfo<M, T>(ptr, afterCpl, hOut, {
-          "Wykonanie operacji sprzezenia macierzy przebieglo pomyslnie!",
-          "w wyniku operacji sprzezenia (odwrocenia znaku)"
+          "Wykonanie operacji sprzężenia macierzy przebiegło pomyślnie!",
+          "w wyniku operacji sprzeżenia (odwrócenia znaku)"
         });
 
         break;
@@ -280,7 +289,7 @@ void onlyOneMtrxMath(unsigned int& choose, MatrixAbstract<T>* ptr, M& obj, HANDL
         M afterTrsp = obj.transposeMtrx();
 
         onlyOneMtrxMathInfo<M, T>(ptr, afterTrsp, hOut, {
-          "Wykonanie operacji transpozycji macierzy przebieglo pomyslnie!",
+          "Wykonanie operacji transpozycji macierzy przebiegło pomyślnie!",
           "w wyniku operacji transpozycji (zamiana wierszy/kolumn na kolumny/wiersze)"
         });
 
@@ -293,7 +302,7 @@ void onlyOneMtrxMath(unsigned int& choose, MatrixAbstract<T>* ptr, M& obj, HANDL
         /** Kolor cyjanowy */
         SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
         genInfoBlock("INFO", {
-          "Ponizej wyswietlam macierz pierwotna i wyznaczony",
+          "Poniżej wyświetlam macierz pierwotną i wyznaczony",
           "przeze mnie wyznacznik tej macierzy."
         });
 
@@ -303,7 +312,7 @@ void onlyOneMtrxMath(unsigned int& choose, MatrixAbstract<T>* ptr, M& obj, HANDL
         std::cout << "\nZ macierzy pierwotnej (A):\n\n";
         ptr->printMtrx(false, false, false); /** Drukuje macierz pierwotną z obiektu na podstawie wskaźnika */
 
-        std::cout << "\nwyznaczylem nastepujacy wyznacznik (determinant):\n\n";
+        std::cout << "\nwyznaczyłem następujacy wyznacznik (determinant):\n\n";
         std::cout.precision(3); /** Zaokrąglenie wyniku do 3 miejsc po przecinku */
         std::cout << "  det(A): " << std::fixed << detOfMtrx << "\n";
 
@@ -317,8 +326,8 @@ void onlyOneMtrxMath(unsigned int& choose, MatrixAbstract<T>* ptr, M& obj, HANDL
         /** Kolor cyjanowy */
         SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
         genInfoBlock("INFO", {
-          "Wykonanie operacji wyznaczenia macierzy odwrotnej przebieglo pomyslnie!",
-          "Ponizej wyswietlam macierz pierwotna i macierz wynikowa."
+          "Wykonanie operacji wyznaczenia macierzy odwrotnej przebiegło pomyslnie!",
+          "Poniżej wyswietlam macierz pierwotną i macierz wynikową."
         });
 
         /** Kolor biały - reset (wartość domyślna) */
@@ -326,7 +335,7 @@ void onlyOneMtrxMath(unsigned int& choose, MatrixAbstract<T>* ptr, M& obj, HANDL
         std::cout << "\nMacierz pierwotna:\n\n";
         ptr->printMtrx(false, true, false); /** Drukuje macierz pierwotną z obiektu na podstawie wskaźnika */
 
-        std::cout << "\npo dokonaniu operacji odwrocenia\ndala nastepujaca macierz wynikowa:\n\n";
+        std::cout << "\npo dokonaniu operacji odwrócenia\ndała następujacą macierz wynikową:\n\n";
         std::cout.precision(6);
         std::cout << std::fixed;
         afterInvr.printMtrx(false, true, true);

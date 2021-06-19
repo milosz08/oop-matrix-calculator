@@ -10,9 +10,9 @@ using namespace diagonalMatrixPackage;
  */
 template<class M>
 void DiagonalMatrix<M>::mtrxTypeAndSizeInfo() {
-  std::cout << "\nZapisalem nastepujace wymiary macierzy diagonalnej\n";
+  std::cout << "\nZapisałem następujące informacje na temat macierzy diagonalnej\n";
   std::cout << "o wymiarach: " << this->mtrxWidth << " x " << this->mtrxHeight;
-  std::cout << ", posiadajacej liczbe " << this->mtrxWidth * this->mtrxHeight << " komorek.\n";
+  std::cout << ", posiadającej liczbę " << this->mtrxWidth * this->mtrxHeight << " komórek.\n";
 }
 
 /**
@@ -31,18 +31,18 @@ void DiagonalMatrix<M>::insertMtrx() {
   hOut = GetStdHandle( STD_OUTPUT_HANDLE );
   do {
     mtrxTypeAndSizeInfo();
-    std::cout << "\nAby przejsc dalej, podaj kolejne elementy macierzy diagonalnej.\n";
+    std::cout << "\nAby przejść dalej, podaj kolejne elementy macierzy diagonalnej.\n";
     /** Kolor żółty */
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
     genInfoBlock("UWAGA!", {
-      "Jesli podasz wiecej elementow, zostana one przeze mnie zignorowane."
+      "Jeśli podasz więcej elementow, zostaną one przeze mnie zignorowane."
     });
 
     try {
       error = false;
       /** Kolor biały - reset (wartość domyślna) */
       SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-      std::cout << "\nWpisz ponizej" << (!repeatMess ? "" : " ponownie");
+      std::cout << "\nWpisz poniżej" << (!repeatMess ? "" : " ponownie");
       std::cout << " elemety macierzy diagonalnej (po spacji):\n";
       for(unsigned int i = 0; i < this->mtrxWidth; i++) {
         std::cin >> this->diagTab[i];
@@ -58,8 +58,8 @@ void DiagonalMatrix<M>::insertMtrx() {
       /** Kolor czerwony */
       SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);
       genInfoBlock("ERROR!", {
-        "W wprowadzanej przez ciebie macierzy znalazlem niedozwolone wartosci!",
-        "Aby kontyuowac wprowadz ponownie swoja macierz."
+        "W wprowadzanej przez Ciebie macierzy znalazłem niedozwolone wartości!",
+        "Aby kontyuować wprowadź ponownie swoją macierz."
       });
       /** Kolor biały - reset (wartość domyślna) */
       SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
@@ -178,7 +178,7 @@ DiagonalMatrix<double> DiagonalMatrix<M>::inverseMtrx() {
 
 
 template<class M>
-M* DiagonalMatrix<M>::get_DiagTab() { return this->diagTab; }
+M* DiagonalMatrix<M>::get_DiagTab() const { return this->diagTab; }
 
 
 template class diagonalMatrixPackage::DiagonalMatrix<short int>;

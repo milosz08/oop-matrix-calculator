@@ -13,14 +13,14 @@ using namespace matrixAbstractPackage;
  */
 template<class M>
 void GeneralMatrix<M>::mtrxTypeAndSizeInfo() {
-  std::cout << "\nZapisalem nastepujace wymiary macierzy ";
+  std::cout << "\nZapisałem następujace informacje na temat macierzy ";
   if(this->mtrxWidth == this->mtrxHeight) {
     std::cout << "kwadratowej";
   } else {
-    std::cout << "prostokatnej";
+    std::cout << "prostokątnej";
   }
   std::cout << "\no wymiarach: " << this->mtrxWidth << " x " << this->mtrxHeight;
-  std::cout << ", posiadajacej liczbe " << this->mtrxWidth * this->mtrxHeight << " komorek.\n";
+  std::cout << ", posiadającej liczbę " << this->mtrxWidth * this->mtrxHeight << " komórek.\n";
 }
 
 /**
@@ -39,25 +39,25 @@ void GeneralMatrix<M>::insertMtrx() {
   hOut = GetStdHandle( STD_OUTPUT_HANDLE );
   do {
     mtrxTypeAndSizeInfo();
-    std::cout << "\nAby przejsc dalej, podaj kolejne elementy macierzy.\n";
+    std::cout << "\nAby przejść dalej, podaj kolejne elementy macierzy.\n";
     /** Kolor żółty */
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
     genInfoBlock("UWAGA!", {
-      "Jesli podasz wiecej elementow, zostana one przeze mnie zignorowane."
+      "Jeśli podasz więcej elementów, zostaną one przeze mnie zignorowane."
     });
 
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
     genInfoBlock("INFO", {
-      "Macierz mozesz wpisac zarowno w formie jednoliniowej poziomej lub pionowej tablicy",
-      "lub w wygodnej formie wizualnej macierzy (kolejne elementy nalezy wypisywac po spacji",
-      "a w przechodzeniu do nowego wiersza nalezy uzyc klawisza \"enter\")."
+      "Macierz możesz wpisać zarówno w formie jednoliniowej poziomej lub pionowej tablicy",
+      "lub w wygodnej formie wizualnej macierzy (kolejne elementy należy wypisywać po spacji",
+      "a w przechodzeniu do nowego wiersza należy uzyć klawisza \"enter\")."
     });
 
     try {
       error = false;
       /** Kolor biały - reset (wartość domyślna) */
       SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-      std::cout << "\nWpisz " << (!repeatMess ? "" : "ponownie ") << "swoja macierz:\n";
+      std::cout << "\nWpisz " << (!repeatMess ? "" : "ponownie ") << "swoją macierz:\n";
       for(unsigned int i = 0; i < this->mtrxHeight; i++) {
         for(unsigned int j = 0; j < this->mtrxWidth; j++) {
           std::cin >> this->mtrx[i][j];
@@ -73,8 +73,8 @@ void GeneralMatrix<M>::insertMtrx() {
       /** Kolor czerwony */
       SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);
       genInfoBlock("ERROR!", {
-        "W wprowadzanej przez ciebie macierzy znalazlem niedozwolone wartosci!",
-        "Aby kontyuowac wprowadz ponownie swoja macierz."
+        "W wprowadzanej przez Ciebie macierzy znalazłem niedozwolone wartości!",
+        "Aby kontyuować wprowadź ponownie swoją macierz."
       });
       /** Kolor biały - reset (wartość domyślna) */
       SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);

@@ -34,13 +34,13 @@ namespace diagonalMatrixPackage {
 
       DiagonalMatrix<M> coupledMtrx(); /** Macierz sprzężona */
       DiagonalMatrix<M> transposeMtrx(); /** Transponowanie macierzy */
-      M determinantMtrx(HANDLE& hOut);
-      DiagonalMatrix<double> inverseMtrx();
+      M determinantMtrx(HANDLE& hOut); /** Wyznacznik macierzy */
+      DiagonalMatrix<double> inverseMtrx(); /** Macierz odwrotna */
       virtual void insertMtrx();
 
       ~DiagonalMatrix();
 
-      M* get_DiagTab(); /** Getter */
+      M* get_DiagTab() const; /** Getter */
 
   private:
     virtual void mtrxTypeAndSizeInfo();

@@ -76,19 +76,19 @@ std::string saveMtrxInfo(unsigned int& type, unsigned int& val) {
   std::string output{""};
   switch(type) {
     case 1: { /** type 1 = macierz prostokątna */
-      output = "Macierz prostokatna "; break;
+      output = "Macierz prostokątna "; break;
     } case 2: { /** type 2 = macierz kwadratowa */
       output = "Macierz kwadratowa "; break;
     } case 3: { /** type 3 = macierz diagonalna */
       output = "Macierz diagonalna "; break;
     }
   }
-  output += "mozliwa do zapelnienia\n";
+  output += "możliwa do zapełnienia\n";
   switch(val) {
     case 1: { /** val 1 = jedynie wartości stałoprzecinkowe */
-      output += "jedynie wartosciami staloprzecinkowymi."; break;
+      output += "jedynie wartościami stałoprzecinkowymi."; break;
     } case 2: { /** val 1 = wartości stałoprzecinkowe oraz zmiennoprzecinkowe */
-      output += "zarowno wartosciami stalo oraz zmiennoprzecinkowymi."; break;
+      output += "zarowno wartościami stało oraz zmiennoprzecinkowymi."; break;
     }
   }
   return output;
@@ -106,20 +106,20 @@ unsigned int chooseTypeOfMatrix(HANDLE& hOut) {
     error = false;
 
     genInfoBlock("ETAP 1", {
-      "Wybierz, na jakim typie macierzy chcesz przeprowadzac operacje:",
-      "1. Chce przeprowadzac operacje na zwyklej macierzy prostokatnej.",
-      "2. Chce przeprowadzac operacje na zwyklej macierzy kwadratowej.",
-      "3. Chce przeprowadzac operacje na kwadratowej macierzy diagonalnej."
+      "Wybierz, na jakim typie macierzy chcesz przeprowadzać operacje:",
+      "1. Chcę przeprowadzać operacje na zwykłej macierzy prostokatnej.",
+      "2. Chcę przeprowadzać operacje na zwykłej macierzy kwadratowej.",
+      "3. Chcę przeprowadzać operacje na kwadratowej macierzy diagonalnej."
     });
     /** Kolor cyjanowy */
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
     genInfoBlock("INFO", {
-      "Macierz diagonalna to macierz, ktora poza swoja glowna przekatna (diagonalna)",
-      "posiada wartosci zerowe. Na przekatnej diagonalnej znajda sie podane przez Ciebie wartosci."
+      "Macierz diagonalna to macierz, która poza swoją głowna przekątną (diagonalna)",
+      "posiada wartosci zerowe. Na przekątnej diagonalnej znajdą sie podane przez Ciebie wartosci."
     });
     /** Kolor biały - reset (wartość domyślna) */
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-    std::cout << "\nTwoj wybor: ";
+    std::cout << "\nTwój wybór: ";
     std::cin >> choice;
     if((choice < 1 || choice > 3) || std::cin.fail()) {
       error = true;
@@ -142,20 +142,20 @@ unsigned int chooseTypeOfNumbers(HANDLE& hOut) {
     error = false;
 
     genInfoBlock("ETAP 2", {
-      "Wybierz, na jakim typie wartosci macierzy chcesz przeprowadzac operacje:",
-      "1. Chce przeprowadzac operacje tylko i wylacznie na liczbach staloprzecinkowych.",
-      "2. Chce przeprowadzac operacje na liczbach staloprzecinkowych i zmiennoprzecinkowych.",
+      "Wybierz, na jakim typie wartości macierzy chcesz przeprowadzać operacje:",
+      "1. Chcę przeprowadzać operacje tylko i wyłącznie na liczbach stałoprzecinkowych.",
+      "2. Chcę przeprowadzać operacje na liczbach stałoprzecinkowych i zmiennoprzecinkowych.",
     });
     /** Kolor żółty */
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
     genInfoBlock("UWAGA!", {
-      "Jesli wybierzesz tylko liczby staloprzecinkowe, proba zapelnienia macierzy liczbami",
-      "zmiennoprzecinkowymi zakonczy sie bledem. Preferowany typ to macierz obslugujaca zarowno",
-      "liczby zmiennoprzecinkowe jak i staloprzecinkowe.",
+      "Jeśli wybierzesz tylko liczby stałoprzecinkowe, próba zapełnienia macierzy liczbami",
+      "zmiennoprzecinkowymi zakończy się błedem. Preferowany typ to macierz obsługująca zarówno",
+      "liczby zmiennoprzecinkowe jak i stałoprzecinkowe.",
     });
     /** Kolor biały - reset (wartość domyślna) */
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-    std::cout << "\nTwoj wybor: ";
+    std::cout << "\nTwój wybór: ";
     std::cin >> choice;
     if((choice != 1 && choice != 2) || std::cin.fail()) {
       error = true;

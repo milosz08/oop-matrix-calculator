@@ -71,12 +71,12 @@ void MatrixAbstract<M>::printMtrx(const bool textMess, const bool sharpBrc, cons
     /** Kolor cyjanowy */
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
     genInfoBlock("POWODZENIE!", {
-      "Z wprowadzonych przez Ciebie parametrow udalo mi sie wygenerowac macierz!",
+      "Z wprowadzonych przez Ciebie parametrów udało mi sie wygenerować macierz!",
     });
     /** Kolor biały - reset (wartość domyślna) */
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-    std::cout << "\nZapisalem nastepujaca macierz ";
-    std::cout << (this->mtrxHeight == this->mtrxWidth ? "kwadratowa:\n\n" : "prostokatna:\n\n");
+    std::cout << "\nZapisałem następujacą macierz ";
+    std::cout << (this->mtrxHeight == this->mtrxWidth ? "kwadratową:\n\n" : "prostokatną:\n\n");
   }
   for(unsigned int i = 0; i < this->mtrxHeight; i++) {
     for(unsigned int j = 0; j < this->mtrxWidth; j++) {
@@ -113,17 +113,17 @@ template<class M>
 double MatrixAbstract<M>::scalarValuePush(HANDLE& hOut) {
   bool error{false}, repeatMess{false};
   do {
-    std::cout << "\nAby przejsc dalej, podaj wartosc skalara, przez ktora chcesz przemnozyc macierz.\n";
+    std::cout << "\nAby przejść dalej, podaj wartość skalarną, przez ktorą chcesz przemnożyc macierz.\n";
     /** Kolor żółty */
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
     genInfoBlock("UWAGA!", {
-      "Jesli podasz wiecej elementow, zostana one przeze mnie zignorowane."
+      "Jeśli podasz więcej elementów, zostaną one przeze mnie zignorowane."
     });
     try {
       error = false;
       /** Kolor biały - reset (wartość domyślna) */
       SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-      std::cout << "\nWpisz tutaj" << (!repeatMess ? "" : " ponownie") << " wartosc skalara: ";
+      std::cout << "\nWpisz tutaj" << (!repeatMess ? "" : " ponownie") << " wartość skalarną: ";
       std::cin >> this->scalarVal;
       if(std::cin.fail()) {
         throw std::logic_error("badScalarValue");
@@ -133,8 +133,8 @@ double MatrixAbstract<M>::scalarValuePush(HANDLE& hOut) {
       /** Kolor czerwony */
       SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);
       genInfoBlock("ERROR!", {
-        "W wprowadzanej przez ciebie wartosci skalara znalazlem niedozwolone wartosci!",
-        "Aby kontyuowac wprowadz ponownie swoja wartosc skalara."
+        "W wprowadzanej przez Ciebie wartości skalarnej znalazłem niedozwolone wartości!",
+        "Aby kontyuować wprowadź ponownie swoja wartość skalarną."
       });
       /** Kolor biały - reset (wartość domyślna) */
       SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
