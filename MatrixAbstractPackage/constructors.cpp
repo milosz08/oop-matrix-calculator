@@ -41,7 +41,7 @@ MatrixAbstract<M>::MatrixAbstract(unsigned short int& s) : mtrxWidth{s}, mtrxHei
  * @param c - kopia obiektu przekazywana przez referencję
  */
 template<class M>
-MatrixAbstract<M>::MatrixAbstract(const MatrixAbstract& c) : mtrxWidth{c.mtrxWidth}, mtrxHeight{c.mtrxHeight} {
+MatrixAbstract<M>::MatrixAbstract(const MatrixAbstract<M>& c) : mtrxWidth{c.mtrxWidth}, mtrxHeight{c.mtrxHeight} {
   this->mtrx = new M* [c.mtrxHeight];
   for(unsigned int i = 0; i < c.mtrxHeight; i++) {
     this->mtrx[i] = new M [c.mtrxWidth];

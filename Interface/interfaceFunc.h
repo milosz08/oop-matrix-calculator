@@ -21,11 +21,11 @@ void mainMenu(HANDLE& hOut);
 void matrixMathInit(HANDLE& hOut);
 void initMtrxObj(HANDLE& hOut);
 unsigned short int* setMtrxSize(HANDLE& hOut, unsigned int& mtrxType, unsigned int& mtrxValType);
-template<typename T>
+template<typename T, class Inv>
 unsigned int mathGenrMatrix(MatrixAbstract<T>* obj, HANDLE& hOut);
-template<typename T>
+template<typename T, class Inv>
 void createMtrxObject(unsigned int* sizeMtrx, HANDLE& hOut, unsigned int& mtrxType);
-template<class M, typename T>
+template<class M, class I, typename T>
 void onlyOneMtrxMath(unsigned int& choose, MatrixAbstract<T>* ptr, M& obj, HANDLE& hOut);
 template<class M, typename T>
 void onlyOneMtrxMathInfo(MatrixAbstract<T>* ptr, M& outObj, HANDLE& hOut, std::vector<std::string>infMess);

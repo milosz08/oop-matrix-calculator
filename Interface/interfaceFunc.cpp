@@ -120,7 +120,7 @@ unsigned int mathGenrMatrix(MatrixAbstract<T>* obj, HANDLE& hOut) {
   obj->insertMtrx(); /** Wprowadzanie macierzy */
   do {
     error = false;
-    obj->printMtrx(true, true); /** Drukowanie macierzy */
+    obj->printMtrx(true, true, false); /** Drukowanie macierzy */
 
     if(obj->get_Cols() == obj->get_Rows()) { /** Macierz kwadratowa */
       strArr = {
@@ -176,19 +176,19 @@ void createMtrxObject(unsigned short int* sizeMtrx, HANDLE& hOut, unsigned int& 
       GeneralMatrix<T> rectObj{sizeMtrx[0], sizeMtrx[1]};
       ptr = &rectObj;
       chooseMtrxMath = mathGenrMatrix(ptr, hOut);
-      onlyOneMtrxMath<GeneralMatrix<T>, T>(chooseMtrxMath, ptr, rectObj, hOut);
+      onlyOneMtrxMath<GeneralMatrix<T>, GeneralMatrix<double>, T>(chooseMtrxMath, ptr, rectObj, hOut);
       break;
     } case 2: { /** macierze kwadratowe */
       GeneralMatrix<T> sqrObj{sizeMtrx[0]};
       ptr = &sqrObj;
       chooseMtrxMath = mathGenrMatrix(ptr, hOut);
-      onlyOneMtrxMath<GeneralMatrix<T>, T>(chooseMtrxMath, ptr, sqrObj, hOut);
+      onlyOneMtrxMath<GeneralMatrix<T>, GeneralMatrix<double>, T>(chooseMtrxMath, ptr, sqrObj, hOut);
       break;
     } case 3: { /** macierze diagonalne */
       DiagonalMatrix<T> diagObj{sizeMtrx[0]};
       ptr = &diagObj;
       chooseMtrxMath = mathGenrMatrix(ptr, hOut);
-      onlyOneMtrxMath<DiagonalMatrix<T>, T>(chooseMtrxMath, ptr, diagObj, hOut);
+      onlyOneMtrxMath<DiagonalMatrix<T>, DiagonalMatrix<double>, T>(chooseMtrxMath, ptr, diagObj, hOut);
       break;
     }
   }
@@ -231,10 +231,10 @@ void onlyOneMtrxMathInfo(MatrixAbstract<T>* ptr, M& outObj, HANDLE& hOut, std::v
   /** Kolor biały - reset (wartość domyślna) */
   SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
   std::cout << "\nMacierz pierwotna:\n\n";
-  ptr->printMtrx(false, true); /** Drukuje macierz pierwotną na podstawie wskaźnika */
+  ptr->printMtrx(false, true, false); /** Drukuje macierz pierwotną na podstawie wskaźnika */
   std::cout << "\n" << infMess[1] <<"\n";
   std::cout << "dala nastepujaca macierz wynikowa:\n\n";
-  outObj.printMtrx(false, true);
+  outObj.printMtrx(false, true, false);
 }
 
 /*!
@@ -245,43 +245,92 @@ void onlyOneMtrxMathInfo(MatrixAbstract<T>* ptr, M& outObj, HANDLE& hOut, std::v
  * @param obj
  * @param hOut
  */
-template<class M, typename T>
+template<class M, class I, typename T>
 void onlyOneMtrxMath(unsigned int& choose, MatrixAbstract<T>* ptr, M& obj, HANDLE& hOut) {
   try {
     switch(choose) {
-      case 1: {
+      case 1: { /** Operacje arytmetyczne na dwóch macierzach */
 
         std::cout << "to jest wybor 1\n";
+
         break;
       } case 2: { /** Mnożenie macierzy przez skalar */
+
         T scalar = ptr->scalarValuePush(hOut);
         M afterScl = obj * scalar;
+
         onlyOneMtrxMathInfo<M, T>(ptr, afterScl, hOut, {
           "Pomnozenie macierzy przez skalar przebieglo pomyslnie!",
           "pomnozona przez wartosc skalara"
         });
+
         break;
       } case 3: { /** Macierz sprzężona */
+
         M afterCpl = obj.coupledMtrx();
+
         onlyOneMtrxMathInfo<M, T>(ptr, afterCpl, hOut, {
           "Wykonanie operacji sprzezenia macierzy przebieglo pomyslnie!",
           "w wyniku operacji sprzezenia (odwrocenia znaku)"
         });
+
         break;
       } case 4: { /** Macierz transponowana */
+
         M afterTrsp = obj.transposeMtrx();
+
         onlyOneMtrxMathInfo<M, T>(ptr, afterTrsp, hOut, {
           "Wykonanie operacji transpozycji macierzy przebieglo pomyslnie!",
           "w wyniku operacji transpozycji (zamiana wierszy/kolumn na kolumny/wiersze)"
         });
+
         break;
       } case 5: { /** Wyznacznik z macierzy (tylko kwadratowe) */
-        std::cout << obj.determinantMtrx(hOut) << "\n";
+        T detOfMtrx = obj.determinantMtrx(hOut);
 
-        std::cout << "to jest wybor 5\n";
+        std::system("cls"); /** Czyszczenie konsoli przed wypisaniem podsumowania */
+
+        /** Kolor cyjanowy */
+        SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+        genInfoBlock("INFO", {
+          "Ponizej wyswietlam macierz pierwotna i wyznaczony",
+          "przeze mnie wyznacznik tej macierzy."
+        });
+
+        /** Kolor biały - reset (wartość domyślna) */
+        SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+
+        std::cout << "\nZ macierzy pierwotnej (A):\n\n";
+        ptr->printMtrx(false, false, false); /** Drukuje macierz pierwotną z obiektu na podstawie wskaźnika */
+
+        std::cout << "\nwyznaczylem nastepujacy wyznacznik (determinant):\n\n";
+        std::cout.precision(3); /** Zaokrąglenie wyniku do 3 miejsc po przecinku */
+        std::cout << "  det(A): " << std::fixed << detOfMtrx << "\n";
+
         break;
       } case 6: { /** Macierz odwrotna (tylko kwadratowe) */
-        std::cout << "to jest wybor 6\n";
+
+        I afterInvr = obj.inverseMtrx();
+
+        std::system("cls"); /** Czyszczenie konsoli przed wypisaniem podsumowania */
+
+        /** Kolor cyjanowy */
+        SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+        genInfoBlock("INFO", {
+          "Wykonanie operacji wyznaczenia macierzy odwrotnej przebieglo pomyslnie!",
+          "Ponizej wyswietlam macierz pierwotna i macierz wynikowa."
+        });
+
+        /** Kolor biały - reset (wartość domyślna) */
+        SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+        std::cout << "\nMacierz pierwotna:\n\n";
+        ptr->printMtrx(false, true, false); /** Drukuje macierz pierwotną z obiektu na podstawie wskaźnika */
+
+        std::cout << "\npo dokonaniu operacji odwrocenia\ndala nastepujaca macierz wynikowa:\n\n";
+        std::cout.precision(6);
+        std::cout << std::fixed;
+        afterInvr.printMtrx(false, true, true);
+
         break;
       }
     }
@@ -296,8 +345,7 @@ void onlyOneMtrxMath(unsigned int& choose, MatrixAbstract<T>* ptr, M& obj, HANDL
  *
  */
 void startPrg() {
-  HANDLE hOut; /** Obsługa kolorów w konsoli CMD */
-  hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+  HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE); /** Obsługa kolorów w konsoli CMD */
 
   mainMenu(hOut);
   initMtrxObj(hOut);

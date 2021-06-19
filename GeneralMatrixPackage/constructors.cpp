@@ -43,6 +43,7 @@ GeneralMatrix<M>::GeneralMatrix(unsigned short int & s) : MatrixAbstract<M>{s, s
 template<class M>
 GeneralMatrix<M>::GeneralMatrix(const GeneralMatrix<M>& mtrxCopy) : MatrixAbstract<M>{mtrxCopy} {}
 
+
 /*!
  * @fn ~GeneralMatrix()
  * @brief Destruktor domyślny. Rolę odśmiecania pamięci

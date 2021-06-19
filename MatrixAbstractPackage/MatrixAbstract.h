@@ -22,12 +22,12 @@ namespace matrixAbstractPackage {
   template<typename M>
   class MatrixAbstract {
   public:
-    explicit MatrixAbstract();
-    explicit MatrixAbstract(unsigned short int&, unsigned short int&); /** Sygnatura konstr. dla macierzy prostokątnych */
-    explicit MatrixAbstract(unsigned short int&); /** Sygnatura konstr. dla macierzy kwadratowych */
-    explicit MatrixAbstract(const MatrixAbstract&); /** Sygnatura konstr. kopiującego */
+    MatrixAbstract();
+    MatrixAbstract(unsigned short int&, unsigned short int&); /** Sygnatura konstr. dla macierzy prostokątnych */
+    MatrixAbstract(unsigned short int&); /** Sygnatura konstr. dla macierzy kwadratowych */
+    MatrixAbstract(const MatrixAbstract<M>&); /** Sygnatura konstr. kopiującego */
 
-    virtual void printMtrx(const bool, const bool) const; /** Metoda wirtualna - drukowanie macierzy */
+    virtual void printMtrx(const bool, const bool, const bool) const; /** Metoda wirtualna - drukowanie macierzy */
     void allocateMemory(); /** Alokacja pamięci */
     double scalarValuePush(HANDLE& hOut); /** Wprowadzanie wartości skalara */
 
@@ -43,6 +43,7 @@ namespace matrixAbstractPackage {
   public: /** Gettery */
     unsigned short int get_Cols() const;
     unsigned short int get_Rows() const;
+    M** get_Mtrx() const;
 
   protected:
     unsigned short int mtrxWidth{0}, mtrxHeight{0}; /** Wymiary macierzy */

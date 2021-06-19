@@ -19,12 +19,12 @@ namespace generalMatrixPackage {
    * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
    */
   template<class M> class GeneralMatrix;
-  template<typename M> GeneralMatrix<M> operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
-  template<typename M> GeneralMatrix<M> operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
-  template<typename M> GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
-  template<typename M> GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrx, const double& scalar);
-
-  template<typename M> M detRecursion(unsigned short int mtrxS, unsigned short int nextRow, unsigned short int* colCount, M** mtrx);
+  template<class M> GeneralMatrix<M> operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
+  template<class M> GeneralMatrix<M> operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
+  template<class M> GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
+  template<class M> GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrx, const double& scalar);
+  template<class M>
+    M detRecursion(unsigned short int mtrxS, unsigned short int nextRow, unsigned short int* colCount, M** mtrx);
 
   template<class M>
   class GeneralMatrix : public matrixAbstractPackage::MatrixAbstract<M> {
@@ -38,6 +38,7 @@ namespace generalMatrixPackage {
     GeneralMatrix<M> transposeMtrx(); /** Transponowanie macierzy */
     GeneralMatrix<M> coupledMtrx(); /** Macierz sprzężona */
     M determinantMtrx(HANDLE& hOut); /** Wyznacznik (tylko macierze kwadratowe) n-tego stopnia */
+    GeneralMatrix<double> inverseMtrx();
 
     ~GeneralMatrix();
 

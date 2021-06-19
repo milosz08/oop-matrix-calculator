@@ -22,9 +22,10 @@ namespace diagonalMatrixPackage {
   //template<class M> DiagonalMatrix<M>& operator+(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
   //template<class M> DiagonalMatrix<M>& operator-(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
   //template<class M> DiagonalMatrix<M>& operator*(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
-  template<class M> DiagonalMatrix<M> operator*(const DiagonalMatrix<M>& mtrx, const double& scalar);
+  template<class M>
+    DiagonalMatrix<M> operator*(const DiagonalMatrix<M>& mtrx, const double& scalar);
 
-  template<typename M>
+  template<class M>
   class DiagonalMatrix : public matrixAbstractPackage::MatrixAbstract<M> {
     public:
       DiagonalMatrix();
@@ -34,9 +35,12 @@ namespace diagonalMatrixPackage {
       DiagonalMatrix<M> coupledMtrx(); /** Macierz sprzężona */
       DiagonalMatrix<M> transposeMtrx(); /** Transponowanie macierzy */
       M determinantMtrx(HANDLE& hOut);
+      DiagonalMatrix<double> inverseMtrx();
       virtual void insertMtrx();
 
       ~DiagonalMatrix();
+
+      M* get_DiagTab(); /** Getter */
 
   private:
     virtual void mtrxTypeAndSizeInfo();

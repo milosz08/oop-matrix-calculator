@@ -63,7 +63,7 @@ unsigned int MatrixAbstract<M>::lengthOfElm(M& cell) const {
  * @param sharpBrc - jeśli "true" drukuje "[]", jeśli false drukuje "|".
  */
 template<class M>
-void MatrixAbstract<M>::printMtrx(const bool textMess, const bool sharpBrc) const {
+void MatrixAbstract<M>::printMtrx(const bool textMess, const bool sharpBrc, const bool autoFreeSpaces) const {
   HANDLE hOut; /** Obsługa kolorów w konsoli CMD */
   hOut = GetStdHandle(STD_OUTPUT_HANDLE);
   unsigned int spaces{0}; /** Przerwa pomiędzy kolejnymi kolumnami */
@@ -83,14 +83,18 @@ void MatrixAbstract<M>::printMtrx(const bool textMess, const bool sharpBrc) cons
       if(j == 0) { /** Jeśli jest to 1 kolumna macierzy */
         std::cout << (sharpBrc ? "  [ " : "  | ");
       }
-      std::cout << this->mtrx[i][j];
-      if(j == this->mtrxWidth - 1) { /** Jeśli jest to ostatnia kolumna macierzy */
-        spaces = findMaxLength(j) - lengthOfElm(this->mtrx[i][j]) - 2;
-      } else { /** Pozostałe kolumny macierzy */
-        spaces = findMaxLength(j) - lengthOfElm(this->mtrx[i][j]);
-      }
-      for(unsigned int k = 0; k < spaces; k++) {
-        std::cout << " ";
+      if(!autoFreeSpaces) {
+        std::cout << this->mtrx[i][j];
+        if(j == this->mtrxWidth - 1) { /** Jeśli jest to ostatnia kolumna macierzy */
+          spaces = findMaxLength(j) - lengthOfElm(this->mtrx[i][j]) - 2;
+        } else { /** Pozostałe kolumny macierzy */
+          spaces = findMaxLength(j) - lengthOfElm(this->mtrx[i][j]);
+        }
+        for(unsigned int k = 0; k < spaces; k++) {
+          std::cout << " ";
+        }
+      } else {
+        std::cout << this->mtrx[i][j] << "\t";
       }
     }
     std::cout << (sharpBrc ? " ]" : " |") << "\n";
@@ -150,7 +154,7 @@ double MatrixAbstract<M>::scalarValuePush(HANDLE& hOut) {
  * @tparam M
  * @return
  */
-template<typename M>
+template<class M>
 unsigned short int MatrixAbstract<M>::get_Cols() const { return this->mtrxWidth; }
 
 /*!
@@ -158,8 +162,16 @@ unsigned short int MatrixAbstract<M>::get_Cols() const { return this->mtrxWidth;
  * @tparam M
  * @return
  */
-template<typename M>
+template<class M>
 unsigned short int MatrixAbstract<M>::get_Rows() const { return this->mtrxHeight; }
+
+/*!
+ *
+ * @tparam M
+ * @return
+ */
+template<class M>
+M** MatrixAbstract<M>::get_Mtrx() const { return this->mtrx; }
 
 template class matrixAbstractPackage::MatrixAbstract<short int>;
 template class matrixAbstractPackage::MatrixAbstract<double>;

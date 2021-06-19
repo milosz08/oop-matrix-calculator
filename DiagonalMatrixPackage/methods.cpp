@@ -148,6 +148,37 @@ M DiagonalMatrix<M>::determinantMtrx(HANDLE& hOut) {
   return mtrxDet;
 }
 
+template<class M>
+DiagonalMatrix<double> DiagonalMatrix<M>::inverseMtrx() {
+  HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+
+  M detCheck = this->determinantMtrx(hOut);
+
+  /** Macierz odwrotna do macierzy pierwotnej - na stałe wartość double */
+  DiagonalMatrix<double> mtrxInvrs = DiagonalMatrix<double>{this->mtrxWidth};
+
+  if(detCheck == 0) { /** Jeśli wyznacznik jest równy zero - wyjątek */
+    throw std::logic_error("badMtrxSize");
+  } else {
+
+    /** Obliczenie i przypisanie kolejnym elementom po diagonalnej wartości odwrotnej */
+    for(unsigned int i = 0; i < this->mtrxHeight; i++) {
+      mtrxInvrs.get_DiagTab()[i] = 1 / this->diagTab[i];
+      for(unsigned int j = 0; j < this->mtrxWidth; j++) {
+        if(i == j) {
+          mtrxInvrs.get_Mtrx()[i][j] = mtrxInvrs.get_DiagTab()[i];
+        } else {
+          mtrxInvrs.get_Mtrx()[i][j] = 0;
+        }
+      }
+    }
+  }
+  return mtrxInvrs;
+}
+
+
+template<class M>
+M* DiagonalMatrix<M>::get_DiagTab() { return this->diagTab; }
 
 
 template class diagonalMatrixPackage::DiagonalMatrix<short int>;

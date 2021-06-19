@@ -136,7 +136,7 @@ GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrx, const double& scalar) {
  * @param mtrx
  * @return
  */
-template<typename M>
+template<class M>
 M detRecursion(unsigned short int mtrxS, unsigned short int nextRow, unsigned short int* colCount, M** mtrx) {
   M recDet{0}; /** Obliczony wyznacznik */
   unsigned short int* colRecCount{nullptr}; /** indeksy kolumn przekazywane w rekurencji */
