@@ -51,7 +51,7 @@ void mainMenu(HANDLE& hOut) {
         exit(0);
       } default: {
         error = true;
-        errorMess("Wybrana przez Ciebie opcja menu nie istnieje!");
+        errorMess("Wybrana przez Ciebie opcja menu nie istnieje!", hOut);
         break;
       }
     }
@@ -98,7 +98,7 @@ unsigned short int* setMtrxSize(HANDLE& hOut, unsigned int& mtrxType, unsigned i
 
     if(!(mtrxSizes[0] != 0 || mtrxSizes[1] != 0 || !std::cin.fail())) {
       error = true;
-      errorMess("Podany został błedny wymiar macierzy (niedozwolony znak lub liczba 0)!");
+      errorMess("Podany został błedny wymiar macierzy (niedozwolony znak lub liczba 0)!", hOut);
     }
 
   } while (error);
@@ -118,7 +118,7 @@ unsigned int mathGenrMatrix(MatrixAbstract<T>* obj, HANDLE& hOut) {
   std::vector<std::string>strArr; /** Tablica przechowująca zawartość menu do wydrukowania */
   bool error{false};
 
-  obj->insertMtrx(); /** Wprowadzanie macierzy */
+  obj->insertMtrx(hOut); /** Wprowadzanie macierzy */
   do {
     error = false;
     obj->printMtrx(true, true, false); /** Drukowanie macierzy */
@@ -153,7 +153,7 @@ unsigned int mathGenrMatrix(MatrixAbstract<T>* obj, HANDLE& hOut) {
 
     if(std::cin.fail() || choice < 1 || choice > strArr.size() - 1) {
       error = true;
-      errorMess("Wybrana przez Ciebie opcja menu nie istnieje!");
+      errorMess("Wybrana przez Ciebie opcja menu nie istnieje!", hOut);
     }
 
   } while(error);
@@ -167,7 +167,8 @@ unsigned int mathSecondMatrix(MatrixAbstract<T>* objF, MatrixAbstract<T>* objS, 
   unsigned int choice{0};
   bool error{false};
 
-  objS->insertMtrx(); /** Wprowadzanie macierzy */
+  objS->insertMtrx(hOut); /** Wprowadzanie macierzy */
+
   do {
     error = false;
 
@@ -176,9 +177,7 @@ unsigned int mathSecondMatrix(MatrixAbstract<T>* objF, MatrixAbstract<T>* objS, 
       "Z wprowadzonych przez Ciebie parametrów wygenerowałem poniższe macierze.",
     });
 
-    /** Drukowanie macierzy */
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-
     std::cout << "\nPierwsza wprowadzona przez Ciebie macierz:\n\n";
     objF->printMtrx(false, true, false);
 
@@ -200,7 +199,7 @@ unsigned int mathSecondMatrix(MatrixAbstract<T>* objF, MatrixAbstract<T>* objS, 
 
     if(std::cin.fail() || choice < 1 || choice > 3) {
       error = true;
-      errorMess("Wybrana przez Ciebie opcja menu nie istnieje!");
+      errorMess("Wybrana przez Ciebie opcja menu nie istnieje!", hOut);
     }
 
   } while(error);
@@ -326,135 +325,127 @@ void onlyOneMtrxMathInfo(MatrixAbstract<T>* ptr, M& outObj, HANDLE& hOut, std::v
 template<class M, class I, typename T>
 void onlyOneMtrxMath(unsigned int& choose,MatrixAbstract<T>* ptr, M& obj, HANDLE& hOut,
                      unsigned int& mtrxType, unsigned int& mtrxValType) {
-  try {
-    switch(choose) {
-      case 1: { /** Operacje arytmetyczne na dwóch macierzach */
-        unsigned int chooseMath{0};
+  switch(choose) {
+    case 1: { /** Operacje arytmetyczne na dwóch macierzach */
+      unsigned int chooseMath{0};
 
-        /** Przechowalnia ilości wierszy i/lub kolumn */
-        unsigned short int* sizeMtrx = setMtrxSize(hOut, mtrxType, mtrxValType);
-        MatrixAbstract<T>* ptrS{nullptr}; /** Wzkaźnik wskazujący na obiekt typu T */
+      /** Przechowalnia ilości wierszy i/lub kolumn */
+      unsigned short int* sizeMtrx = setMtrxSize(hOut, mtrxType, mtrxValType);
+      MatrixAbstract<T>* ptrS{nullptr}; /** Wzkaźnik wskazujący na obiekt typu T */
 
-        M secondObj{sizeMtrx[0], sizeMtrx[1]};
-        ptrS = &secondObj;
+      M secondObj{sizeMtrx[0], sizeMtrx[1]};
+      ptrS = &secondObj;
 
-        chooseMath = mathSecondMatrix<T>(ptr, ptrS, hOut);
-        secondMtrxMath<M>(chooseMath, obj, secondObj, hOut);
+      chooseMath = mathSecondMatrix<T>(ptr, ptrS, hOut);
+      secondMtrxMath<M>(chooseMath, obj, secondObj, hOut);
 
-        break;
-      } case 2: { /** Mnożenie macierzy przez skalar */
-        T scalar = ptr->scalarValuePush(hOut);
-        M afterScl = obj * scalar;
+      break;
+    } case 2: { /** Mnożenie macierzy przez skalar */
+      T scalar = ptr->scalarValuePush(hOut);
+      M afterScl = obj * scalar;
 
-        onlyOneMtrxMathInfo<M, T>(ptr, afterScl, hOut, {
-          "Pomnożenie macierzy przez skalar przebiegło pomyślnie!",
-          "pomnożona przez wartość skalarną"
-        });
+      onlyOneMtrxMathInfo<M, T>(ptr, afterScl, hOut, {
+        "Pomnożenie macierzy przez skalar przebiegło pomyślnie!",
+        "pomnożona przez wartość skalarną"
+      });
 
-        break;
-      } case 3: { /** Macierz sprzężona */
-        M afterCpl = obj.coupledMtrx();
+      break;
+    } case 3: { /** Macierz sprzężona */
+      M afterCpl = obj.coupledMtrx();
 
-        onlyOneMtrxMathInfo<M, T>(ptr, afterCpl, hOut, {
-          "Wykonanie operacji sprzężenia macierzy przebiegło pomyślnie!",
-          "w wyniku operacji sprzeżenia (odwrócenia znaku)"
-        });
+      onlyOneMtrxMathInfo<M, T>(ptr, afterCpl, hOut, {
+        "Wykonanie operacji sprzężenia macierzy przebiegło pomyślnie!",
+        "w wyniku operacji sprzeżenia (odwrócenia znaku)"
+      });
 
-        break;
-      } case 4: { /** Macierz transponowana */
-        M afterTrsp = obj.transposeMtrx();
+      break;
+    } case 4: { /** Macierz transponowana */
+      M afterTrsp = obj.transposeMtrx();
 
-        onlyOneMtrxMathInfo<M, T>(ptr, afterTrsp, hOut, {
-          "Wykonanie operacji transpozycji macierzy przebiegło pomyślnie!",
-          "w wyniku operacji transpozycji (zamiana wierszy/kolumn na kolumny/wiersze)"
-        });
+      onlyOneMtrxMathInfo<M, T>(ptr, afterTrsp, hOut, {
+        "Wykonanie operacji transpozycji macierzy przebiegło pomyślnie!",
+        "w wyniku operacji transpozycji (zamiana wierszy/kolumn na kolumny/wiersze)"
+      });
 
-        break;
-      } case 5: { /** Wyznacznik z macierzy (tylko kwadratowe) */
-        T detOfMtrx = obj.determinantMtrx(hOut);
+      break;
+    } case 5: { /** Wyznacznik z macierzy (tylko kwadratowe) */
+      T detOfMtrx = obj.determinantMtrx(hOut);
 
-        std::system("cls"); /** Czyszczenie konsoli przed wypisaniem podsumowania */
+      std::system("cls"); /** Czyszczenie konsoli przed wypisaniem podsumowania */
 
-        SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-        genInfoBlock("INFO", {
-          "Poniżej wyświetlam macierz pierwotną i wyznaczony",
-          "przeze mnie wyznacznik tej macierzy."
-        });
+      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+      genInfoBlock("INFO", {
+        "Poniżej wyświetlam macierz pierwotną i wyznaczony",
+        "przeze mnie wyznacznik tej macierzy."
+      });
 
-        SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
 
-        std::cout << "\nZ macierzy pierwotnej (A):\n\n";
-        ptr->printMtrx(false, false, false); /** Drukuje macierz pierwotną z obiektu na podstawie wskaźnika */
+      std::cout << "\nZ macierzy pierwotnej (A):\n\n";
+      ptr->printMtrx(false, false, false); /** Drukuje macierz pierwotną z obiektu na podstawie wskaźnika */
 
-        std::cout << "\nwyznaczyłem następujacy wyznacznik (determinant):\n\n";
-        std::cout.precision(3); /** Zaokrąglenie wyniku do 3 miejsc po przecinku */
-        std::cout << "  det(A): " << std::fixed << detOfMtrx << "\n";
+      std::cout << "\nwyznaczyłem następujacy wyznacznik (determinant):\n\n";
+      std::cout.precision(3); /** Zaokrąglenie wyniku do 3 miejsc po przecinku */
+      std::cout << "  det(A): " << std::fixed << detOfMtrx << "\n";
 
-        break;
-      } case 6: { /** Macierz odwrotna (tylko kwadratowe) */
-        I afterInvr = obj.inverseMtrx();
+      break;
+    } case 6: { /** Macierz odwrotna (tylko kwadratowe) */
+      I afterInvr = obj.inverseMtrx();
 
-        std::system("cls"); /** Czyszczenie konsoli przed wypisaniem podsumowania */
+      std::system("cls"); /** Czyszczenie konsoli przed wypisaniem podsumowania */
 
-        SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-        genInfoBlock("INFO", {
-          "Wykonanie operacji wyznaczenia macierzy odwrotnej przebiegło pomyslnie!",
-          "Poniżej wyswietlam macierz pierwotną i macierz wynikową."
-        });
+      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+      genInfoBlock("INFO", {
+        "Wykonanie operacji wyznaczenia macierzy odwrotnej przebiegło pomyslnie!",
+        "Poniżej wyswietlam macierz pierwotną i macierz wynikową."
+      });
 
-        SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
 
-        std::cout << "\nMacierz pierwotna:\n\n";
-        ptr->printMtrx(false, true, false); /** Drukuje macierz pierwotną z obiektu na podstawie wskaźnika */
+      std::cout << "\nMacierz pierwotna:\n\n";
+      ptr->printMtrx(false, true, false); /** Drukuje macierz pierwotną z obiektu na podstawie wskaźnika */
 
-        std::cout << "\npo dokonaniu operacji odwrócenia\ndała następujacą macierz wynikową:\n\n";
-        std::cout.precision(6); /** Zaokrąglenie wyniku do 6 miejsc po przecinku */
-        std::cout << std::fixed;
-        afterInvr.printMtrx(false, true, true);
+      std::cout << "\npo dokonaniu operacji odwrócenia\ndała następujacą macierz wynikową:\n\n";
+      std::cout.precision(6); /** Zaokrąglenie wyniku do 6 miejsc po przecinku */
+      std::cout << std::fixed;
+      afterInvr.printMtrx(false, true, true);
 
-        break;
-      }
+      break;
     }
-  } catch(std::runtime_error& e) {
-
   }
 }
 
 template<class M>
 void secondMtrxMath(unsigned int& choose,  M& objF, M& objS, HANDLE& hOut) {
-  try {
-    switch(choose) {
-      case 1: { /** Dodawanie macierzy */
-        M objAdd = objF + objS;
+  switch(choose) {
+    case 1: { /** Dodawanie macierzy */
+      M objAdd = objF + objS;
 
-        secondMtrxMathInfo(objF, objS, objAdd, hOut, {
-                "Dodanie do siebie dwóch macierzy pierwotnych przebiegło pomyślnie.",
-                "po dodaniu do niej drugiej macierzy pierwotnej"
-        });
+      secondMtrxMathInfo(objF, objS, objAdd, hOut, {
+        "Dodanie do siebie dwóch macierzy pierwotnych przebiegło pomyślnie.",
+        "po dodaniu do niej drugiej macierzy pierwotnej"
+      });
 
-        break;
-      } case 2: { /** Odejmowanie macierzy */
-        M objSub = objF - objS;
+      break;
+    } case 2: { /** Odejmowanie macierzy */
+      M objSub = objF - objS;
 
-        secondMtrxMathInfo(objF, objS, objSub, hOut, {
-                "Odjęcie od siebie dwóch macierzy pierwotnych przebiegło pomyślnie.",
-                "po odjęciu od niej drugiej macierzy pierwotnej"
-        });
+      secondMtrxMathInfo(objF, objS, objSub, hOut, {
+        "Odjęcie od siebie dwóch macierzy pierwotnych przebiegło pomyślnie.",
+        "po odjęciu od niej drugiej macierzy pierwotnej"
+      });
 
-        break;
-      } case 3: { /** Mnożenie macierzy */
-        M objMlt = objF * objS;
+      break;
+    } case 3: { /** Mnożenie macierzy */
+      M objMlt = objF * objS;
 
-        secondMtrxMathInfo(objF, objS, objMlt, hOut, {
-                "Pomnożenie przez siebie dwóch macierzy pierwotnych przebiegło pomyślnie.",
-                "po pomnożeniu przez nią drugiej macierzy pierwotnej"
-        });
+      secondMtrxMathInfo(objF, objS, objMlt, hOut, {
+        "Pomnożenie przez siebie dwóch macierzy pierwotnych przebiegło pomyślnie.",
+        "po pomnożeniu przez nią drugiej macierzy pierwotnej"
+      });
 
-        break;
-      }
+      break;
     }
-  } catch(std::logic_error& e) {
-    std::cerr << "Error! " << e.what() << "\n";
   }
 }
 
@@ -465,6 +456,22 @@ void secondMtrxMath(unsigned int& choose,  M& objF, M& objS, HANDLE& hOut) {
 void startPrg() {
   HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE); /** Obsługa kolorów w konsoli CMD */
 
-  mainMenu(hOut);
-  initMtrxObj(hOut);
+  try {
+
+    mainMenu(hOut);
+    initMtrxObj(hOut);
+
+  } catch(std::logic_error& e) {
+
+    SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);
+    genInfoBlock("Error!", {
+      "Błąd podczas wykonywania operacji matematycznej.", e.what(),
+      "Błąd ten skutkuje zakończeniem działania programu."
+    });
+
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+    std::cout << "\nDziękuję za skorzystanie z kalkulatora macierzy.\n";
+    sequentialMess(5, "Program zakończy działanie za");
+    std::cout << "\nProgram zakończył działanie!\n";
+  }
 }

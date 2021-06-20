@@ -15,7 +15,7 @@ GeneralMatrix<M> operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>
   GeneralMatrix<M> mtrxAdd = GeneralMatrix<M>{mtrxF};
 
   if(mtrxF.mtrxWidth != mtrxS.mtrxWidth && mtrxF.mtrxHeight != mtrxS.mtrxHeight) {
-    throw std::logic_error("badMtrxsSize");
+    throw std::logic_error("Dodawanie do siebie macierzy o różnych wielkościach jest niedozwolone!");
   } else {
     for(unsigned int i = 0; i < mtrxF.mtrxHeight; i++) {
       for(unsigned int j = 0; j < mtrxF.mtrxWidth; j++) {
@@ -40,7 +40,7 @@ GeneralMatrix<M> operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>
   GeneralMatrix<M> mtrxSubt = GeneralMatrix<M>{mtrxF};
 
   if(mtrxF.mtrxWidth != mtrxS.mtrxWidth && mtrxF.mtrxHeight != mtrxS.mtrxHeight) {
-    throw std::logic_error("badMtrxsSize");
+    throw std::logic_error("Odejmowanie od siebie macierzy o różnych wielkościach jest niedozwolone!");
   } else {
     for(unsigned int i = 0; i < mtrxF.mtrxHeight; i++) {
       for(unsigned int j = 0; j < mtrxF.mtrxWidth; j++) {
@@ -66,7 +66,7 @@ GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>
   GeneralMatrix<M> mtrxMult = GeneralMatrix<M>{mtrxF};
 
   if(mtrxF.mtrxWidth != mtrxS.mtrxHeight || mtrxS.mtrxWidth != mtrxF.mtrxHeight) {
-    throw std::logic_error("badMtrxsSize");
+    throw std::logic_error("Podane przez ciebie macierze nie spełniają zasad dot. mnożenia macierzy!");
   } else {
     unsigned int sum{0};
     for(unsigned int i = 0; i < mtrxF.mtrxHeight; i++) {

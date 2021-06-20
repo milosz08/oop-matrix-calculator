@@ -51,9 +51,7 @@ void sequentialMess(int n, std::string mess) {
  *
  * @param mess
  */
-void errorMess(std::string mess) {
-  HANDLE hOut;
-  hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+void errorMess(std::string mess, HANDLE& hOut) {
 
   SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);
   genInfoBlock("ERROR!", { mess });
@@ -123,7 +121,7 @@ unsigned int chooseTypeOfMatrix(HANDLE& hOut) {
     std::cin >> choice;
     if((choice < 1 || choice > 3) || std::cin.fail()) {
       error = true;
-      errorMess("Wybrana przez Ciebie opcja menu nie istnieje!");
+      errorMess("Wybrana przez Ciebie opcja menu nie istnieje!", hOut);
     }
   } while(error);
   std::system("cls"); /** czyszczenie konsoli */
@@ -159,7 +157,7 @@ unsigned int chooseTypeOfNumbers(HANDLE& hOut) {
     std::cin >> choice;
     if((choice != 1 && choice != 2) || std::cin.fail()) {
       error = true;
-      errorMess("Wybrana przez Ciebie opcja menu nie istnieje!");
+      errorMess("Wybrana przez Ciebie opcja menu nie istnieje!", hOut);
     }
   } while(error);
   std::system("cls"); /** czyszczenie konsoli */

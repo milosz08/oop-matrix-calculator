@@ -29,10 +29,10 @@ namespace matrixAbstractPackage {
 
     virtual void printMtrx(const bool, const bool, const bool) const; /** Metoda wirtualna - drukowanie macierzy */
     void allocateMemory(); /** Alokacja pamięci */
-    double scalarValuePush(HANDLE& hOut); /** Wprowadzanie wartości skalara */
+    double scalarValuePush(HANDLE&); /** Wprowadzanie wartości skalara */
 
     virtual void mtrxTypeAndSizeInfo() = 0; /** Metoda czysto wirtualna - wypisywanie wiadomosci */
-    virtual void insertMtrx() = 0; /** Metoda czysto wirtualna - wprowadzanie macierzy */
+    virtual void insertMtrx(HANDLE&) = 0; /** Metoda czysto wirtualna - wprowadzanie macierzy */
 
     virtual ~MatrixAbstract(); /** Wirtualny destruktor wywołujący destruktory z klas pochodnych */
 

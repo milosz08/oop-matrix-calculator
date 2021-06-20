@@ -8,7 +8,7 @@
 
 void genInfoBlock(std::string header, std::vector<std::string> mess);
 void sequentialMess(int, std::string mess);
-void errorMess(std::string mess);
+void errorMess(std::string mess, HANDLE& hOut);
 std::string saveMtrxInfo(unsigned int& type, unsigned int& val);
 unsigned int chooseTypeOfMatrix(HANDLE& hOut);
 unsigned int chooseTypeOfNumbers(HANDLE& hOut);

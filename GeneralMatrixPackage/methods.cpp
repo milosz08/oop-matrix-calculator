@@ -33,14 +33,15 @@ void GeneralMatrix<M>::mtrxTypeAndSizeInfo() {
  * @param throw - błąd logiczny (niedozwolone znaki ASCII)
  */
 template<class M>
-void GeneralMatrix<M>::insertMtrx() {
+void GeneralMatrix<M>::insertMtrx(HANDLE& hOut) {
   bool error, repeatMess = false;
-  HANDLE hOut;
-  hOut = GetStdHandle( STD_OUTPUT_HANDLE );
+
   do {
+    std::system("cls");
+
     mtrxTypeAndSizeInfo();
     std::cout << "\nAby przejść dalej, podaj kolejne elementy macierzy.\n";
-    /** Kolor żółty */
+
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
     genInfoBlock("UWAGA!", {
       "Jeśli podasz więcej elementów, zostaną one przeze mnie zignorowane."
@@ -53,39 +54,36 @@ void GeneralMatrix<M>::insertMtrx() {
       "a w przechodzeniu do nowego wiersza należy uzyć klawisza \"enter\")."
     });
 
-    try {
-      error = false;
-      /** Kolor biały - reset (wartość domyślna) */
-      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-      std::cout << "\nWpisz " << (!repeatMess ? "" : "ponownie ") << "swoją macierz:\n";
-      for(unsigned int i = 0; i < this->mtrxHeight; i++) {
-        for(unsigned int j = 0; j < this->mtrxWidth; j++) {
-          std::cin >> this->mtrx[i][j];
-        }
-      }
-      if(std::cin.fail()) {
-        throw std::logic_error("nAllAsciiChars");
-      } else {
-        std::system("cls");
+    error = false;
+
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+    std::cout << "\nWpisz " << (!repeatMess ? "" : "ponownie ") << "swoją macierz:\n";
+
+    for(unsigned int i = 0; i < this->mtrxHeight; i++) {
+      for(unsigned int j = 0; j < this->mtrxWidth; j++) {
+        std::cin >> this->mtrx[i][j];
       }
     }
-    catch(std::logic_error& e) {
-      /** Kolor czerwony */
+
+    if(std::cin.fail()) {
+
       SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);
       genInfoBlock("ERROR!", {
         "W wprowadzanej przez Ciebie macierzy znalazłem niedozwolone wartości!",
         "Aby kontyuować wprowadź ponownie swoją macierz."
       });
-      /** Kolor biały - reset (wartość domyślna) */
+
       SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
       sequentialMess(5, "Ponawianie za");
 
-      std::system("cls");
       error = repeatMess = true;
-      std::cin.clear();
+
+      std::cin.clear(); /** Czyszczenie strumienia wejścia */
       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
     }
   } while(error);
+  std::system("cls");
 }
 
 /**
@@ -133,7 +131,7 @@ M GeneralMatrix<M>::determinantMtrx(HANDLE& hOut) {
   M mtrxDet{0}; /** Końcowy wyznacznik (int/double) */
   try {
     if(this->mtrxWidth != this->mtrxHeight) {
-      throw std::logic_error("badMtrxSize");
+      throw std::logic_error("Program nie wspiera obliczania wyznacznika z macierzy prostokątnej.");
     } else {
       colsCount = new unsigned short int[this->mtrxWidth];
       for(unsigned int i = 0; i < this->mtrxWidth; i++) {
@@ -148,6 +146,7 @@ M GeneralMatrix<M>::determinantMtrx(HANDLE& hOut) {
   return mtrxDet;
 }
 
+
 template<class M>
 GeneralMatrix<double> GeneralMatrix<M>::inverseMtrx() {
   unsigned short int doubleWidth = this->mtrxWidth * 2;
@@ -160,7 +159,7 @@ GeneralMatrix<double> GeneralMatrix<M>::inverseMtrx() {
   GeneralMatrix<double> mtrxInvrs = GeneralMatrix<double>{this->mtrxWidth, this->mtrxHeight};
 
   if(this->mtrxWidth != this->mtrxHeight) { /** Jeśli macierz nie jest kwadratowa */
-    throw std::logic_error("badMtrxSize");
+    throw std::logic_error("Program nie wspiera obliczania macierzy odwrotnej z macierzy prostokątnej.");
   } else {
 
     /** Dodanie do istniejącej macierzy (A) macierzy jednostkowej (I) */

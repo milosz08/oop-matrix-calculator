@@ -25,10 +25,9 @@ void DiagonalMatrix<M>::mtrxTypeAndSizeInfo() {
  * @param throw - błąd logiczny (niedozwolone znaki ASCII)
  */
 template<class M>
-void DiagonalMatrix<M>::insertMtrx() {
+void DiagonalMatrix<M>::insertMtrx(HANDLE& hOut) {
   bool error, repeatMess = false;
-  HANDLE hOut;
-  hOut = GetStdHandle( STD_OUTPUT_HANDLE );
+
   do {
     mtrxTypeAndSizeInfo();
     std::cout << "\nAby przejść dalej, podaj kolejne elementy macierzy diagonalnej.\n";

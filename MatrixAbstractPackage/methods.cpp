@@ -68,12 +68,12 @@ void MatrixAbstract<M>::printMtrx(const bool textMess, const bool sharpBrc, cons
   hOut = GetStdHandle(STD_OUTPUT_HANDLE);
   unsigned int spaces{0}; /** Przerwa pomiędzy kolejnymi kolumnami */
   if(textMess) {
-    /** Kolor cyjanowy */
+
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
     genInfoBlock("POWODZENIE!", {
       "Z wprowadzonych przez Ciebie parametrów udało mi sie wygenerować macierz!",
     });
-    /** Kolor biały - reset (wartość domyślna) */
+
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
     std::cout << "\nZapisałem następujacą macierz ";
     std::cout << (this->mtrxHeight == this->mtrxWidth ? "kwadratową:\n\n" : "prostokatną:\n\n");
@@ -85,14 +85,17 @@ void MatrixAbstract<M>::printMtrx(const bool textMess, const bool sharpBrc, cons
       }
       if(!autoFreeSpaces) {
         std::cout << this->mtrx[i][j];
+
         if(j == this->mtrxWidth - 1) { /** Jeśli jest to ostatnia kolumna macierzy */
           spaces = findMaxLength(j) - lengthOfElm(this->mtrx[i][j]) - 2;
         } else { /** Pozostałe kolumny macierzy */
           spaces = findMaxLength(j) - lengthOfElm(this->mtrx[i][j]);
         }
+
         for(unsigned int k = 0; k < spaces; k++) {
           std::cout << " ";
         }
+
       } else {
         std::cout << this->mtrx[i][j] << "\t";
       }
@@ -114,14 +117,14 @@ double MatrixAbstract<M>::scalarValuePush(HANDLE& hOut) {
   bool error{false}, repeatMess{false};
   do {
     std::cout << "\nAby przejść dalej, podaj wartość skalarną, przez ktorą chcesz przemnożyc macierz.\n";
-    /** Kolor żółty */
+
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
     genInfoBlock("UWAGA!", {
       "Jeśli podasz więcej elementów, zostaną one przeze mnie zignorowane."
     });
     try {
       error = false;
-      /** Kolor biały - reset (wartość domyślna) */
+
       SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
       std::cout << "\nWpisz tutaj" << (!repeatMess ? "" : " ponownie") << " wartość skalarną: ";
       std::cin >> this->scalarVal;
@@ -130,13 +133,13 @@ double MatrixAbstract<M>::scalarValuePush(HANDLE& hOut) {
       }
     }
     catch(std::logic_error& e) {
-      /** Kolor czerwony */
+
       SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);
       genInfoBlock("ERROR!", {
         "W wprowadzanej przez Ciebie wartości skalarnej znalazłem niedozwolone wartości!",
         "Aby kontyuować wprowadź ponownie swoja wartość skalarną."
       });
-      /** Kolor biały - reset (wartość domyślna) */
+
       SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
       sequentialMess(5, "Ponawianie za");
 

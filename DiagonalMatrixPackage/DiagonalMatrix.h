@@ -37,7 +37,7 @@ namespace diagonalMatrixPackage {
       DiagonalMatrix<M> transposeMtrx(); /** Transponowanie macierzy */
       M determinantMtrx(HANDLE& hOut); /** Wyznacznik macierzy */
       DiagonalMatrix<double> inverseMtrx(); /** Macierz odwrotna */
-      virtual void insertMtrx();
+      virtual void insertMtrx(HANDLE&);
 
       ~DiagonalMatrix();
 
