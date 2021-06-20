@@ -22,7 +22,7 @@ void initMtrxObj(HANDLE& hOut);
 unsigned short int* setMtrxSize(HANDLE& hOut, unsigned int& mtrxType, unsigned int& mtrxValType);
 template<typename T>
 unsigned int mathGenrMatrix(MatrixAbstract<T>* obj, HANDLE& hOut);
-template<class S, typename T>
+template<typename T>
 unsigned int mathSecondMatrix(MatrixAbstract<T>* objF, MatrixAbstract<T>* objS, HANDLE& hOut) ;
 template<typename T>
 void createMtrxObject(unsigned short int* sizeMtrx, HANDLE& hOut, unsigned int& mtrxType, unsigned int& mtrxValType);

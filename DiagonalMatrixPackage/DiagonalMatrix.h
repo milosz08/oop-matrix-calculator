@@ -19,9 +19,9 @@ namespace diagonalMatrixPackage {
    * kolumn/wierszy macierzy przechowująca elementy macierzy diagonalnej
    */
   template<class M> class DiagonalMatrix;
-  //template<class M> DiagonalMatrix<M>& operator+(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
-  //template<class M> DiagonalMatrix<M>& operator-(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
-  //template<class M> DiagonalMatrix<M>& operator*(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
+  template<class M> DiagonalMatrix<M> operator+(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
+  template<class M> DiagonalMatrix<M> operator-(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
+  template<class M> DiagonalMatrix<M> operator*(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
   template<class M>
     DiagonalMatrix<M> operator*(const DiagonalMatrix<M>& mtrx, const double& scalar);
 
@@ -30,6 +30,7 @@ namespace diagonalMatrixPackage {
     public:
       DiagonalMatrix();
       DiagonalMatrix(unsigned short int&); /** Sygnatura konstr. bazowego */
+      DiagonalMatrix(unsigned short int&, unsigned short int&); /** Sygnatura konstr. bazowego */
       DiagonalMatrix(const DiagonalMatrix&); /** Sygnatura konstr. kopiującego */
 
       DiagonalMatrix<M> coupledMtrx(); /** Macierz sprzężona */
@@ -47,9 +48,9 @@ namespace diagonalMatrixPackage {
     void generateDiagMtrx(bool identityMtrx);
 
   public:
-    //friend DiagonalMatrix<M>& operator+ <>(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
-    //friend DiagonalMatrix<M>& operator- <>(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
-    //friend DiagonalMatrix<M>& operator* <>(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
+    friend DiagonalMatrix<M> operator+ <>(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
+    friend DiagonalMatrix<M> operator- <>(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
+    friend DiagonalMatrix<M> operator* <>(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
     friend DiagonalMatrix<M> operator* <>(const DiagonalMatrix<M>& mtrx, const double& scalar);
 
   private:

@@ -90,6 +90,7 @@ unsigned short int* setMtrxSize(HANDLE& hOut, unsigned int& mtrxType, unsigned i
     if(mtrxType == 2 || mtrxType == 3) {
       std::cout << "wielkosc macierzy (tylko jeden wymiar): ";
       std::cin >> mtrxSizes[0]; /** Wprowadzenie ilości wierszy/kolumn */
+      mtrxSizes[1] = mtrxSizes[0]; /** Zapełnienie 2 komórki taką samą wartością (kwadratowe) */
     } else {
       std::cout << "liczbę wierszy i kolumn (w formacie k x w) po spacji: ";
       std::cin >> mtrxSizes[0] >> mtrxSizes[1]; /** Wprowadzenie ilości kolumn i wierszy */
@@ -161,7 +162,7 @@ unsigned int mathGenrMatrix(MatrixAbstract<T>* obj, HANDLE& hOut) {
 }
 
 
-template<class S, typename T>
+template<typename T>
 unsigned int mathSecondMatrix(MatrixAbstract<T>* objF, MatrixAbstract<T>* objS, HANDLE& hOut) {
   unsigned int choice{0};
   bool error{false};
@@ -240,9 +241,9 @@ void createMtrxObject(unsigned short int* sizeMtrx, HANDLE& hOut, unsigned int& 
       ptr = &diagObj;
 
       chooseMtrxMath = mathGenrMatrix(ptr, hOut);
-      //onlyOneMtrxMath<DiagonalMatrix<T>, DiagonalMatrix<double>, T>(
-      //  chooseMtrxMath, ptr, diagObj, hOut, mtrxType, mtrxValType
-      //);
+      onlyOneMtrxMath<DiagonalMatrix<T>, DiagonalMatrix<double>, T>(
+        chooseMtrxMath, ptr, diagObj, hOut, mtrxType, mtrxValType
+      );
 
       break;
     }
@@ -268,44 +269,6 @@ void secondMtrxMathInfo(M& objF, M& objS, M& objFinal, HANDLE& hOut, std::vector
   objFinal.printMtrx(false, true, false);
 }
 
-
-template<class M>
-void secondMtrxMath(unsigned int& choose, M& objF, M& objS, HANDLE& hOut) {
-  try {
-    switch(choose) {
-      case 1: { /** Dodawanie macierzy */
-        M objAdd = objF + objS;
-
-        secondMtrxMathInfo(objF, objS, objAdd, hOut, {
-          "Dodanie do siebie dwóch macierzy pierwotnych przebiegło pomyślnie.",
-          "po dodaniu do niej drugiej macierzy pierwotnej"
-        });
-
-        break;
-      } case 2: { /** Odejmowanie macierzy */
-        M objSub = objF - objS;
-
-        secondMtrxMathInfo(objF, objS, objSub, hOut, {
-          "Odjęcie od siebie dwóch macierzy pierwotnych przebiegło pomyślnie.",
-          "po odjęciu od niej drugiej macierzy pierwotnej"
-        });
-
-        break;
-      } case 3: { /** Mnożenie macierzy */
-        M objMlt = objF * objS;
-
-        secondMtrxMathInfo(objF, objS, objMlt, hOut, {
-          "Pomnożenie przez siebie dwóch macierzy pierwotnych przebiegło pomyślnie.",
-          "po pomnożeniu przez nią drugiej macierzy pierwotnej"
-        });
-
-        break;
-      }
-    }
-  } catch(std::logic_error& e) {
-    std::cerr << "Error! " << e.what() << "\n";
-  }
-}
 /*!
  *
  * @param hOut
@@ -372,25 +335,12 @@ void onlyOneMtrxMath(unsigned int& choose,MatrixAbstract<T>* ptr, M& obj, HANDLE
         unsigned short int* sizeMtrx = setMtrxSize(hOut, mtrxType, mtrxValType);
         MatrixAbstract<T>* ptrS{nullptr}; /** Wzkaźnik wskazujący na obiekt typu T */
 
-        switch(mtrxType) {
-          case 1: {
-            GeneralMatrix<T> secondObj{sizeMtrx[0], sizeMtrx[1]};
-            ptrS = &secondObj;
+        M secondObj{sizeMtrx[0], sizeMtrx[1]};
+        ptrS = &secondObj;
 
-            chooseMath = mathSecondMatrix<GeneralMatrix<T>, T>(ptr, ptrS, hOut);
-            secondMtrxMath<M>(chooseMath, obj, secondObj, hOut);
+        chooseMath = mathSecondMatrix<T>(ptr, ptrS, hOut);
+        secondMtrxMath<M>(chooseMath, obj, secondObj, hOut);
 
-            break;
-          } case 2: {
-            M secondObj{sizeMtrx[0]};
-            ptrS = &secondObj;
-
-            chooseMath = mathSecondMatrix<M, T>(ptr, ptrS, hOut);
-            secondMtrxMath<M>(chooseMath, obj, secondObj, hOut);
-
-            break;
-          }
-        }
         break;
       } case 2: { /** Mnożenie macierzy przez skalar */
         T scalar = ptr->scalarValuePush(hOut);
@@ -467,6 +417,44 @@ void onlyOneMtrxMath(unsigned int& choose,MatrixAbstract<T>* ptr, M& obj, HANDLE
     }
   } catch(std::runtime_error& e) {
 
+  }
+}
+
+template<class M>
+void secondMtrxMath(unsigned int& choose,  M& objF, M& objS, HANDLE& hOut) {
+  try {
+    switch(choose) {
+      case 1: { /** Dodawanie macierzy */
+        M objAdd = objF + objS;
+
+        secondMtrxMathInfo(objF, objS, objAdd, hOut, {
+                "Dodanie do siebie dwóch macierzy pierwotnych przebiegło pomyślnie.",
+                "po dodaniu do niej drugiej macierzy pierwotnej"
+        });
+
+        break;
+      } case 2: { /** Odejmowanie macierzy */
+        M objSub = objF - objS;
+
+        secondMtrxMathInfo(objF, objS, objSub, hOut, {
+                "Odjęcie od siebie dwóch macierzy pierwotnych przebiegło pomyślnie.",
+                "po odjęciu od niej drugiej macierzy pierwotnej"
+        });
+
+        break;
+      } case 3: { /** Mnożenie macierzy */
+        M objMlt = objF * objS;
+
+        secondMtrxMathInfo(objF, objS, objMlt, hOut, {
+                "Pomnożenie przez siebie dwóch macierzy pierwotnych przebiegło pomyślnie.",
+                "po pomnożeniu przez nią drugiej macierzy pierwotnej"
+        });
+
+        break;
+      }
+    }
+  } catch(std::logic_error& e) {
+    std::cerr << "Error! " << e.what() << "\n";
   }
 }
 

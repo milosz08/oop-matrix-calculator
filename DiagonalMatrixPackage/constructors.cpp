@@ -27,6 +27,11 @@ DiagonalMatrix<M>::DiagonalMatrix(unsigned short int& s) : MatrixAbstract<M>{s, 
   this->diagTab = new M[this->mtrxWidth];
 }
 
+template<class M>
+DiagonalMatrix<M>::DiagonalMatrix(unsigned short int& w, unsigned short int& h) : MatrixAbstract<M>{w, w} {
+  this->diagTab = new M[this->mtrxWidth];
+}
+
 
 template<class M>
 DiagonalMatrix<M>::DiagonalMatrix(const DiagonalMatrix<M>& mtrxCopy) : MatrixAbstract<M>{mtrxCopy} {}
