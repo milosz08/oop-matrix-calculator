@@ -18,18 +18,22 @@ using namespace diagonalMatrixPackage; /** package klasy pochodnej (macierz diag
 
 void startPrg();
 void mainMenu(HANDLE& hOut);
-void matrixMathInit(HANDLE& hOut);
 void initMtrxObj(HANDLE& hOut);
 unsigned short int* setMtrxSize(HANDLE& hOut, unsigned int& mtrxType, unsigned int& mtrxValType);
-template<typename T, class Inv>
+template<typename T>
 unsigned int mathGenrMatrix(MatrixAbstract<T>* obj, HANDLE& hOut);
-template<typename T, class Inv>
-void createMtrxObject(unsigned int* sizeMtrx, HANDLE& hOut, unsigned int& mtrxType);
+template<class S, typename T>
+unsigned int mathSecondMatrix(MatrixAbstract<T>* objF, MatrixAbstract<T>* objS, HANDLE& hOut) ;
+template<typename T>
+void createMtrxObject(unsigned short int* sizeMtrx, HANDLE& hOut, unsigned int& mtrxType, unsigned int& mtrxValType);
 template<class M, class I, typename T>
-void onlyOneMtrxMath(unsigned int& choose, MatrixAbstract<T>* ptr, M& obj, HANDLE& hOut);
+void onlyOneMtrxMath(unsigned int& choose, MatrixAbstract<T>* ptr, M& obj, HANDLE& hOut, unsigned int& mtrxType, unsigned int& mtrxValType);
 template<class M, typename T>
 void onlyOneMtrxMathInfo(MatrixAbstract<T>* ptr, M& outObj, HANDLE& hOut, std::vector<std::string>infMess);
-
+template<class M>
+void secondMtrxMath(unsigned int& choose, M& objF, M& objS, HANDLE& hOut);
+template<class M>
+void secondMtrxMathInfo(M& objF, M& objS, M& objFinal, HANDLE& hOut, std::vector<std::string>infMess);
 
 
 #endif

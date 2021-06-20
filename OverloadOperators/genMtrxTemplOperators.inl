@@ -13,23 +13,15 @@
 template<class M>
 GeneralMatrix<M> operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS) {
   GeneralMatrix<M> mtrxAdd = GeneralMatrix<M>{mtrxF};
-  try {
-    if(mtrxF.mtrxWidth != mtrxS.mtrxWidth && mtrxF.mtrxHeight != mtrxS.mtrxHeight) {
-      throw std::logic_error("badMtrxsSize");
-    } else {
-      for(unsigned int i = 0; i < mtrxF.mtrxHeight; i++) {
-        for(unsigned int j = 0; j < mtrxF.mtrxWidth; j++) {
-          mtrxAdd.mtrx[i][j] = mtrxF.mtrx[i][j] + mtrxS.mtrx[i][j];
-        }
+
+  if(mtrxF.mtrxWidth != mtrxS.mtrxWidth && mtrxF.mtrxHeight != mtrxS.mtrxHeight) {
+    throw std::logic_error("badMtrxsSize");
+  } else {
+    for(unsigned int i = 0; i < mtrxF.mtrxHeight; i++) {
+      for(unsigned int j = 0; j < mtrxF.mtrxWidth; j++) {
+        mtrxAdd.mtrx[i][j] = mtrxF.mtrx[i][j] + mtrxS.mtrx[i][j];
       }
-      std::cout << "\nWlasnie dodalem do siebie dwie podane przez Ciebie macierze.\n";
-      std::cout << "Z dodanych do siebie macierzy powstala macierz potomna:\n";
-      mtrxAdd.printMtrx(false);
     }
-  }
-  catch(std::logic_error& e) {
-    std::cout << "\nError! Blad logiczny, kod bledu: " << e.what() << "!\n";
-    std::cout << "Dodanie do siebie dwoch macierzy roznych rozmiarow nie jest mozliwe!\n";
   }
   return mtrxAdd;
 }
@@ -46,23 +38,15 @@ GeneralMatrix<M> operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>
 template<class M>
 GeneralMatrix<M> operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS) {
   GeneralMatrix<M> mtrxSubt = GeneralMatrix<M>{mtrxF};
-  try {
-    if(mtrxF.mtrxWidth != mtrxS.mtrxWidth && mtrxF.mtrxHeight != mtrxS.mtrxHeight) {
-      throw std::logic_error("badMtrxsSize");
-    } else {
-      for(unsigned int i = 0; i < mtrxF.mtrxHeight; i++) {
-        for(unsigned int j = 0; j < mtrxF.mtrxWidth; j++) {
-          mtrxSubt.mtrx[i][j] = mtrxF.mtrx[i][j] - mtrxS.mtrx[i][j];
-        }
+
+  if(mtrxF.mtrxWidth != mtrxS.mtrxWidth && mtrxF.mtrxHeight != mtrxS.mtrxHeight) {
+    throw std::logic_error("badMtrxsSize");
+  } else {
+    for(unsigned int i = 0; i < mtrxF.mtrxHeight; i++) {
+      for(unsigned int j = 0; j < mtrxF.mtrxWidth; j++) {
+        mtrxSubt.mtrx[i][j] = mtrxF.mtrx[i][j] - mtrxS.mtrx[i][j];
       }
-      std::cout << "\nWlasnie odjalem od siebie dwie podane przez Ciebie macierze.\n";
-      std::cout << "Z odjetych od siebie macierzy powstala macierz potomna:\n";
-      mtrxSubt.printMtrx(false);
     }
-  }
-  catch(std::logic_error& e) {
-    std::cout << "\nError! Blad logiczny, kod bledu: " << e.what() << "!\n";
-    std::cout << "Odjecie od siebie dwoch macierzy roznych rozmiarow nie jest mozliwe!\n";
   }
   return mtrxSubt;
 }
@@ -80,29 +64,20 @@ GeneralMatrix<M> operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>
 template<class M>
 GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS) {
   GeneralMatrix<M> mtrxMult = GeneralMatrix<M>{mtrxF};
-  try {
-    if(mtrxF.mtrxWidth != mtrxS.mtrxHeight || mtrxS.mtrxWidth != mtrxF.mtrxHeight) {
-      throw std::logic_error("badMtrxsSize");
-    } else {
-      unsigned int sum{0};
-      for(unsigned int i = 0; i < mtrxF.mtrxHeight; i++) {
-        for(unsigned int j = 0; j < mtrxS.mtrxWidth; j++) {
-          sum = 0;
-          for(unsigned int k = 0; k < mtrxF.mtrxWidth; k++) {
-            sum += mtrxF.mtrx[i][k] * mtrxS.mtrx[k][j];
-            mtrxMult.mtrx[i][j] = sum;
-          }
+
+  if(mtrxF.mtrxWidth != mtrxS.mtrxHeight || mtrxS.mtrxWidth != mtrxF.mtrxHeight) {
+    throw std::logic_error("badMtrxsSize");
+  } else {
+    unsigned int sum{0};
+    for(unsigned int i = 0; i < mtrxF.mtrxHeight; i++) {
+      for(unsigned int j = 0; j < mtrxS.mtrxWidth; j++) {
+        sum = 0;
+        for(unsigned int k = 0; k < mtrxF.mtrxWidth; k++) {
+          sum += mtrxF.mtrx[i][k] * mtrxS.mtrx[k][j];
+          mtrxMult.mtrx[i][j] = sum;
         }
       }
-      std::cout << "\nWlasnie przemnozylem przez siebie dwie podane przez Ciebie macierze.\n";
-      std::cout << "Z pomnozonych przez siebie macierzy powstala macierz potomna:\n";
-      mtrxMult.printMtrx(false, true);
     }
-  }
-  catch(std::logic_error& e) {
-    std::cout << "\nError! Blad logiczny, kod bledu: " << e.what() << "!\n";
-    std::cout << "Pomnozenie przez siebie macierzy, ktorych pierwsza z nich nie ma tyle samo wierszy\n";
-    std::cout << "co druga kolumn (i na odwrot) nie jest mozliwe !\n";
   }
   return mtrxMult;
 }
