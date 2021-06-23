@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../DiagonalMatrixPackage/DiagonalMatrix.h"
+#include "../packages/diagonalMatrixPackage/DiagonalMatrix.hpp"
 
 template<class M>
 DiagonalMatrix<M> operator+(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS) {

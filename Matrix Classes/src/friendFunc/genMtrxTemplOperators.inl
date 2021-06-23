@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../GeneralMatrixPackage/GeneralMatrix.h"
+#include "../packages/generalMatrixPackage/GeneralMatrix.hpp"
 
 /*!
  * @overload Operator Dodawania
@@ -68,7 +68,7 @@ GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>
   if(mtrxF.mtrxWidth != mtrxS.mtrxHeight || mtrxS.mtrxWidth != mtrxF.mtrxHeight) {
     throw std::logic_error("Podane przez ciebie macierze nie spełniają zasad dot. mnożenia macierzy!");
   } else {
-    unsigned int sum{0};
+    M sum{0};
     for(unsigned int i = 0; i < mtrxF.mtrxHeight; i++) {
       for(unsigned int j = 0; j < mtrxS.mtrxWidth; j++) {
         sum = 0;

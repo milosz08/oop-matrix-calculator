@@ -1,8 +1,7 @@
-#ifndef PK_MATRIX_CALCULATOR_DIAGONALMATRIX_H
-#define PK_MATRIX_CALCULATOR_DIAGONALMATRIX_H
-#include "../MatrixAbstractPackage/MatrixAbstract.h"
-#include "../GeneralMatrixPackage/GeneralMatrix.h"
-#include "../Interface/Auxiliary Functions/auxiliaryFunc.h"
+#ifndef PK_MATRIX_CALCULATOR_DIAGONALMATRIX_HPP
+#define PK_MATRIX_CALCULATOR_DIAGONALMATRIX_HPP
+#include "../abstractMatrixPackage/MatrixAbstract.hpp"
+#include "../generalMatrixPackage/GeneralMatrix.hpp"
 #include <iostream>
 #include <limits>
 
@@ -22,8 +21,7 @@ namespace diagonalMatrixPackage {
   template<class M> DiagonalMatrix<M> operator+(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
   template<class M> DiagonalMatrix<M> operator-(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
   template<class M> DiagonalMatrix<M> operator*(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
-  template<class M>
-    DiagonalMatrix<M> operator*(const DiagonalMatrix<M>& mtrx, const double& scalar);
+  template<class M> DiagonalMatrix<M> operator*(const DiagonalMatrix<M>& mtrx, const double& scalar);
 
   template<class M>
   class DiagonalMatrix : public matrixAbstractPackage::MatrixAbstract<M> {
@@ -58,7 +56,7 @@ namespace diagonalMatrixPackage {
   };
 
   /** Dyrektywa dodająca definicje przeciążeń szablonów operatorów */
-  #include "../OverloadOperators/diagMtrxTemplOperators.inl"
+  #include "../../friendFunc/diagMtrxTemplOperators.inl"
 }
 
 #endif

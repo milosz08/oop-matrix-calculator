@@ -1,6 +1,6 @@
-#ifndef PK_MATRIX_CALCULATOR_GENERALMATRIX_H
-#define PK_MATRIX_CALCULATOR_GENERALMATRIX_H
-#include "../MatrixAbstractPackage/MatrixAbstract.h"
+#ifndef PK_MATRIX_CALCULATOR_GENERALMATRIX_HPP
+#define PK_MATRIX_CALCULATOR_GENERALMATRIX_HPP
+#include "../abstractMatrixPackage/MatrixAbstract.hpp"
 #include <iostream>
 #include <limits>
 #include <iomanip>
@@ -58,6 +58,6 @@ namespace generalMatrixPackage {
   };
 
   /** Dyrektywa dodająca definicje przeciążeń szablonów operatorów */
-  #include "../OverloadOperators/genMtrxTemplOperators.inl"
+  #include "../../friendFunc/genMtrxTemplOperators.inl"
 }
 #endif

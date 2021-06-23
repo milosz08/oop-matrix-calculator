@@ -1,6 +1,5 @@
-#include "GeneralMatrix.h"
-#include "../MatrixAbstractPackage/MatrixAbstract.h"
-#include "../Interface/Auxiliary Functions/auxiliaryFunc.h"
+#include "GeneralMatrix.hpp"
+#include "../abstractMatrixPackage/MatrixAbstract.hpp"
 
 using namespace generalMatrixPackage;
 using namespace matrixAbstractPackage;
@@ -43,12 +42,12 @@ void GeneralMatrix<M>::insertMtrx(HANDLE& hOut) {
     std::cout << "\nAby przejść dalej, podaj kolejne elementy macierzy.\n";
 
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
-    genInfoBlock("UWAGA!", {
+    GeneralMatrix::genInfoBlock("UWAGA!", {
       "Jeśli podasz więcej elementów, zostaną one przeze mnie zignorowane."
     });
 
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-    genInfoBlock("INFO", {
+    GeneralMatrix::genInfoBlock("INFO", {
       "Macierz możesz wpisać zarówno w formie jednoliniowej poziomej lub pionowej tablicy",
       "lub w wygodnej formie wizualnej macierzy (kolejne elementy należy wypisywać po spacji",
       "a w przechodzeniu do nowego wiersza należy uzyć klawisza \"enter\")."
@@ -68,13 +67,13 @@ void GeneralMatrix<M>::insertMtrx(HANDLE& hOut) {
     if(std::cin.fail()) {
 
       SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);
-      genInfoBlock("ERROR!", {
+      GeneralMatrix::genInfoBlock("ERROR!", {
         "W wprowadzanej przez Ciebie macierzy znalazłem niedozwolone wartości!",
         "Aby kontyuować wprowadź ponownie swoją macierz."
       });
 
       SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-      sequentialMess(5, "Ponawianie za");
+      MatrixAbstract<M>::sequentialMess(5, "Ponawianie za");
 
       error = repeatMess = true;
 

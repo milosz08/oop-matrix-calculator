@@ -1,6 +1,6 @@
 #include <iostream>
-#include "DiagonalMatrix.h"
-#include "../MatrixAbstractPackage/MatrixAbstract.h"
+#include "DiagonalMatrix.hpp"
+#include "../abstractMatrixPackage/MatrixAbstract.hpp"
 
 using namespace diagonalMatrixPackage;
 using namespace matrixAbstractPackage;

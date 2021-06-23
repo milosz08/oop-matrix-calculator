@@ -1,6 +1,6 @@
 #include <iostream>
-#include "GeneralMatrix.h"
-#include "../MatrixAbstractPackage/MatrixAbstract.h"
+#include "GeneralMatrix.hpp"
+#include "../abstractMatrixPackage/MatrixAbstract.hpp"
 
 using namespace generalMatrixPackage; /** Przestrzeń nazw z klasy GeneralMatrix */
 using namespace matrixAbstractPackage; /** Przestrzeń nazw z klas abstrakcyjnej */

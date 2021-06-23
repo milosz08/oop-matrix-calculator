@@ -1,4 +1,5 @@
-#include "DiagonalMatrix.h"
+#include "DiagonalMatrix.hpp"
+#include "../../../../Program Interface/interfaceDecl.hpp"
 
 using namespace diagonalMatrixPackage;
 
@@ -31,21 +32,22 @@ void DiagonalMatrix<M>::insertMtrx(HANDLE& hOut) {
   do {
     mtrxTypeAndSizeInfo();
     std::cout << "\nAby przejść dalej, podaj kolejne elementy macierzy diagonalnej.\n";
-    /** Kolor żółty */
+
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
-    genInfoBlock("UWAGA!", {
+    DiagonalMatrix::genInfoBlock("UWAGA!", {
       "Jeśli podasz więcej elementow, zostaną one przeze mnie zignorowane."
     });
 
     try {
       error = false;
-      /** Kolor biały - reset (wartość domyślna) */
+
       SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
       std::cout << "\nWpisz poniżej" << (!repeatMess ? "" : " ponownie");
       std::cout << " elemety macierzy diagonalnej (po spacji):\n";
       for(unsigned int i = 0; i < this->mtrxWidth; i++) {
         std::cin >> this->diagTab[i];
       }
+
       if(std::cin.fail()) {
         throw std::logic_error("badInputValue");
       } else {
@@ -54,15 +56,15 @@ void DiagonalMatrix<M>::insertMtrx(HANDLE& hOut) {
       }
     }
     catch(std::logic_error&) {
-      /** Kolor czerwony */
+
       SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);
-      genInfoBlock("ERROR!", {
+      DiagonalMatrix::genInfoBlock("ERROR!", {
         "W wprowadzanej przez Ciebie macierzy znalazłem niedozwolone wartości!",
         "Aby kontyuować wprowadź ponownie swoją macierz."
       });
-      /** Kolor biały - reset (wartość domyślna) */
+
       SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-      sequentialMess(5, "Ponawianie za");
+      MatrixAbstract<M>::sequentialMess(5, "Ponawianie za");
 
       std::system("cls");
       error = repeatMess = true;

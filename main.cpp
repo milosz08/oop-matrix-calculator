@@ -1,4 +1,4 @@
-#include "Interface/interfaceFunc.h"
+#include "Program Interface/interfaceDecl.hpp"
 
 int main() {
   SetConsoleOutputCP(CP_UTF8);

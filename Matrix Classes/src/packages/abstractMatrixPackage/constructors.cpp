@@ -1,4 +1,4 @@
-#include "MatrixAbstract.h"
+#include "MatrixAbstract.hpp"
 
 using namespace matrixAbstractPackage;
 

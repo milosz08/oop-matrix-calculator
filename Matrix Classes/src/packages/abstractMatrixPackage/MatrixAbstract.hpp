@@ -1,5 +1,5 @@
-#ifndef PK_MATRIX_CALCULATOR_MATRIXABSTRACT_H
-#define PK_MATRIX_CALCULATOR_MATRIXABSTRACT_H
+#ifndef PK_MATRIX_CALCULATOR_MATRIXABSTRACT_HPP
+#define PK_MATRIX_CALCULATOR_MATRIXABSTRACT_HPP
 #include <iostream>
 #include <list>
 #include <string>
@@ -33,6 +33,10 @@ namespace matrixAbstractPackage {
 
     virtual void mtrxTypeAndSizeInfo() = 0; /** Metoda czysto wirtualna - wypisywanie wiadomosci */
     virtual void insertMtrx(HANDLE&) = 0; /** Metoda czysto wirtualna - wprowadzanie macierzy */
+
+    static void genInfoBlock(std::string header, std::vector<std::string> mess);
+    static void sequentialMess(unsigned int, std::string);
+    static void errorMess(std::string, HANDLE&);
 
     virtual ~MatrixAbstract(); /** Wirtualny destruktor wywołujący destruktory z klas pochodnych */
 
