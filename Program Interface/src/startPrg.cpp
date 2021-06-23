@@ -1,6 +1,18 @@
 #include "interfaceDecl.hpp"
 
 
+/*!
+ * @fn startPrg()
+ *
+ * @brief Funkcja sterująca wywołująca wyświetlanie menu początkowego (opis programu) oraz inicjująca program.
+ *        W funkcji zadelkarowany jest uchwyt do konsoli, przekazywany przez referencję do reszty funkcji.
+ *        Funkcja posiada wyłapywanie wyjątków z operacji arytmetycznych (metody klas oraz przeciążenia operatorów).
+ *
+ * @exepctions Obsługa błędów logicznych. Typ błędu logicznego przekazywany w zmiennej e przez referencję.
+ *             Spośród obsługiwanych wyjątków (błędów matematycznych) można wyróżnić:
+ *               * dodawanie lub odejmowanie macierzy różnych rozmiarów
+ *               * mnożenie macierzy posiadających różną liczbę kolumn w stosunku do wierszy (i na odwrót)
+ */
 void startPrg() {
   HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE); /** Obsługa kolorów w konsoli CMD */
 

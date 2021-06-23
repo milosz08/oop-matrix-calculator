@@ -10,9 +10,6 @@
  * @protection Funkcja posiada walidację strumienia wejścia. Jeśli użytkownik nie poda liczby z zakresu 1-2 program
  *             zasygnalizuje błąd i po odczekaniu 5 sekund umożliwi użytkownikowi ponowne wybranie opcji.
  *
- * @tparam A - wartość szablonu klasy abstrakcyjnej (używane tylko do metody z klasy abstrakcyjnej
- *             "genInfoBlock" oraz "errorMess" przy operatorze zakresu).
- *
  * @param hOut - uchwyt na wyjście z konsoli (zadeklarowany w funkcji startPrg i przekazywany przez referencję).
  *
  * @return Funkcja zwraca opcję wybraną przez użytkownika (w postaci wartości całkowitej z zakresu 1-2)

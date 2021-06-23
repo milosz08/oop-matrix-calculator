@@ -6,16 +6,35 @@
 #include <limits>
 
 namespace diagonalMatrixPackage {
-  /**
+  /*!
    * @class DiagonalMatrix
    * @inherit MatrixAbstract
-   * @brief Klasa pochodna dziedzicząca po klasie abstrakcyjnej "MatrixAbstract".
-   * Obsługuje operacje macierzy diagonalnych (takich, których wartości poza główną przekątną są równe zero).
-   * Posiada 3 konstruktory: bazowy, bezargumentowy (dziedzieczenie) oraz kopiujący.
-   * Klasa posiada desktruktor pełniący rolę odśmiecacza pamięci.
-   * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
-   * @param diagTab - tablica dynamiczna o ilości elementów równej liczbie
-   * kolumn/wierszy macierzy przechowująca elementy macierzy diagonalnej
+   *
+   * @brief Klasa pochodna dziedzicząca po klasie abstrakcyjnej "MatrixAbstract". Obsługuje macierze diagonalne.
+   *        Macierze diagonalne to specjalny typ macierzy kwadratowej, która poza swoją główną przekątną -
+   *        diagonalną jest wypełniona zerami.
+   *
+   * @constructors Klasa posiada 4 zadeklarowane konstruktory, z czego jest to: konstruktor bezargumentowy,
+   *               konstruktor dwuargumentowy, konstruktor jednoargumentowy oraz konstruktor kopiujący. Wszystkie
+   *               oprócz konstruktora bezargumentowego wywołują konstruktory klasy bazowej (abstrakcyjnej).
+   *
+   * @destructor Klasa posiada destruktor. Pełną macierz usuwa destruktor z klasy abstrakcyjnej. Destruktor z
+   *             tej klasy usuwa zawartość tablicy dynamicznej reprezentującej elementy na diagonalnej.
+   *
+   * @methods Klasa posiada metody do operacji na pojedynczej macierzy. Są to odpowiednio: wyznaczanie macierzy
+   *          sprzężonej, transponowanie macierzy, obliczanie wyznacznika macierzy oraz wyznaczanie macierzy odwrotnej.
+   *          Klasa posiada również 2 metody prywatne, dostępne tylko na użytek metod tej klasy.
+   *
+   * @getters Klasa posiada zadeklarowaną jedną metodę getter, zwracającą elementy głównej diagonalnej w
+   *          postaci wskaźnika na tablicę dynamiczną typu M.
+   *
+   * @overload Klasa posiada przeciążenia 3 operatorów w postaci funkcji zaprzyjaźnionych. Są to odpowiednio:
+   *           operator dodawania "+" (dwie macierze), operator odejmowania "-" (dwie macierze), operator mnożenia "*"
+   *           (dwie macierze) oraz ponownie operator mnożenia "*" (macierz przez wartość skalarną).
+   *
+   * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double).
+   *
+   * @param diagTab - tablica dynamiczna reprezentująca elementy znajdujące się na diagonalnej (głównej przekątnej).
    */
   template<class M> class DiagonalMatrix;
   template<class M> DiagonalMatrix<M> operator+(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
@@ -27,15 +46,16 @@ namespace diagonalMatrixPackage {
   class DiagonalMatrix : public matrixAbstractPackage::MatrixAbstract<M> {
     public:
       DiagonalMatrix();
-      DiagonalMatrix(unsigned short int&); /** Sygnatura konstr. bazowego */
-      DiagonalMatrix(unsigned short int&, unsigned short int&); /** Sygnatura konstr. bazowego */
+      DiagonalMatrix(unsigned short int&); /** Sygnatura konstr. jednoargumentowego */
+      DiagonalMatrix(unsigned short int&, unsigned short int&); /** Sygnatura konstr. dwuargumentowego */
       DiagonalMatrix(const DiagonalMatrix&); /** Sygnatura konstr. kopiującego */
 
       DiagonalMatrix<M> coupledMtrx(); /** Macierz sprzężona */
       DiagonalMatrix<M> transposeMtrx(); /** Transponowanie macierzy */
       M determinantMtrx(HANDLE& hOut); /** Wyznacznik macierzy */
       DiagonalMatrix<double> inverseMtrx(); /** Macierz odwrotna */
-      virtual void insertMtrx(HANDLE&);
+
+      virtual void insertMtrx(HANDLE&); /** Metoda czysto wirtualna z klasy bazowej. Wprowadzanie macierzy */
 
       ~DiagonalMatrix();
 
@@ -54,6 +74,14 @@ namespace diagonalMatrixPackage {
   private:
     M* diagTab{nullptr};
   };
+
+  #include "src/constructors.tpp" /** Deklaracje konstruktorów */
+  #include "src/pureVirtMethods.tpp" /** Metody przysłaniające metody czysto wirtualne klasy abstrakcyjnej */
+  #include "src/getters.tpp" /** Metody zwracające wartości pól chronionych - gettery */
+  #include "src/privateMethods.tpp" /** Metody prywatne (niedziedziczne) */
+
+  #include "src/mathAndOprts/mathMethods.tpp" /** Operacje arytmetyczne - metody */
+
 
   /** Dyrektywa dodająca definicje przeciążeń szablonów operatorów */
   #include "../../friendFunc/diagMtrxTemplOperators.inl"

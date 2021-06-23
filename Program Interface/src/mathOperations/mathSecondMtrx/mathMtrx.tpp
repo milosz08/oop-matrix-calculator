@@ -85,17 +85,17 @@ void secondMtrxMathInfo(M& objF, M& objS, M& objFinal, HANDLE& hOut, std::vector
 
   SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
   std::cout << "\nPierwsza macierz pierwotna:\n\n";
-  objF.printMtrx(false, true, false);
+  objF.printMtrx(hOut, false, true, false);
 
   std::cout << "\n" << infMess[1] << "\n\n";
-  objS.printMtrx(false, true, false);
+  objS.printMtrx(hOut, false, true, false);
 
   std::cout << "\ndała nastepujacą macierz wynikową:\n\n";
   if(infMess[1] == "po pomnożeniu przez nią drugiej macierzy pierwotnej") { /** Jeśli nastąpi mnożenie macierzy */
    std::cout.precision(3); /** Zaokrąglanie do 3 znaków po przecinku */
    std::cout << std::fixed;
-   objFinal.printMtrx(false, true, true);
+   objFinal.printMtrx(hOut, false, true, true);
   } else {
-    objFinal.printMtrx(false, true, false);
+    objFinal.printMtrx(hOut, false, true, false);
   }
 }

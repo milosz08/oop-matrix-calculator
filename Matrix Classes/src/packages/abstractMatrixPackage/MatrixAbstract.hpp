@@ -7,17 +7,39 @@
 #include <vector>
 #include <windows.h>
 
+
 namespace matrixAbstractPackage {
   /*!
    * @class MatrixAbstract
-   * @brief Klasa abstrakcyjna. Posiada konstruktory: bezargumentowy, dla macierzy
-   * prostokątnych, dla macierzy kwadratowych oraz konstruktor kopiujący.
-   * Posiada destruktor wirtualny delokujący pamięć oraz wywołujący destruktory z klas pochodnych.
+   *
+   * @brief Klasa abstrakcyjna. Interfejs programu.
+   *
+   * @constructors Klasa posiada 4 zadeklarowane konstruktory, z czego jest to: konstruktor bezargumentowy,
+   *               konstruktor dwuargumentowy przyjmujący za parametry wywołania ilość wierszy i kolumn macierzy,
+   *               konstruktor jednoargumentowy przyjmujący za parametr stopień macierzy (macierze kwadratowe),
+   *               oraz konstruktor kopiujący, przyjmujący za parametr obiekt do skopiowania (niemodyfikowalny).
+   *
+   * @destructor Klasa posiada destruktor wirtualny delokujący pamięć oraz wywołujący destruktory z klas pochodnych.
+   *
+   * @methods Klasa posiada 3 metody statyczne, wykorzystywane na potrzeby metod składowych klas dziedziczących oraz
+   *          funkcji interfejsu. Ponadto posiada 2 metody czysto wirtualne przysłaniane w klasach dziedziczących.
+   *          Oprócz tego posiada 2 metody nieprzysłanialne, wspólne i jednakowe dla każdego obiektu klasy
+   *          dziedziczącej. Klasa posiada również własne 3 metody niedziedziczne, stanowiące uzupełnienie metod
+   *          wirtualnych. Klasa posiada zadeklarowany wirtualny destruktor w celu ochrony programu
+   *          przed wyciekami pamięci.
+   *
+   * @getters Klasa posiada zadeklarowane 3 funkcje getter dające możliwość dostępu do chronionych pól. Są to
+   *          odpowiednio: pobieranie parametrów macierzy (w postaci liczby wierszy lub kolumn) oraz pobieranie
+   *          całej macierzy w postaci dynamicznej tablicy wskaźników.
+   *
    * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
-   * @param mtrxWidth - liczba kolumn macierzy
-   * @param mtrxHeight - liczba wierszy macierzy
+   *
+   * @param mtrxWidth - liczba kolumn macierzy (długość macierzy)
+   * @param mtrxHeight - liczba wierszy macierzy (wysokość macierzy)
+   *
    * @param scalarVal - wartość skalara wprowadzana przez użytkownika
-   * @param mtrx - tablica wskaźników reprezentująca ilość wierszy w macierzy
+   *
+   * @param mtrx - tablica wskaźników reprezentująca macierz
    */
   template<typename M>
   class MatrixAbstract {
@@ -27,20 +49,21 @@ namespace matrixAbstractPackage {
     MatrixAbstract(unsigned short int&); /** Sygnatura konstr. dla macierzy kwadratowych */
     MatrixAbstract(const MatrixAbstract<M>&); /** Sygnatura konstr. kopiującego */
 
-    virtual void printMtrx(const bool, const bool, const bool) const; /** Metoda wirtualna - drukowanie macierzy */
-    void allocateMemory(); /** Alokacja pamięci */
+    void printMtrx(HANDLE&, const bool, const bool, const bool) const; /** Drukowanie macierzy */
     double scalarValuePush(HANDLE&); /** Wprowadzanie wartości skalara */
 
-    virtual void mtrxTypeAndSizeInfo() = 0; /** Metoda czysto wirtualna - wypisywanie wiadomosci */
-    virtual void insertMtrx(HANDLE&) = 0; /** Metoda czysto wirtualna - wprowadzanie macierzy */
+    virtual void mtrxTypeAndSizeInfo() = 0; /** Wypisywanie wiadomosci */
+    virtual void insertMtrx(HANDLE&) = 0; /** Wprowadzanie macierzy */
 
-    static void genInfoBlock(std::string header, std::vector<std::string> mess);
+    /** Metody statyczne */
+    static void genInfoBlock(std::string, std::vector<std::string>);
     static void sequentialMess(unsigned int, std::string);
     static void errorMess(std::string, HANDLE&);
 
     virtual ~MatrixAbstract(); /** Wirtualny destruktor wywołujący destruktory z klas pochodnych */
 
   private: /** Metody prywatne; dostępne tylko na użytek metod klasy abstrakcyjnej */
+    void allocateMemory(); /** Alokacja pamięci */
     unsigned int findMaxLength(unsigned int&) const;
     unsigned int lengthOfElm(M&) const;
 
@@ -52,8 +75,14 @@ namespace matrixAbstractPackage {
   protected:
     unsigned short int mtrxWidth{0}, mtrxHeight{0}; /** Wymiary macierzy */
     double scalarVal{0}; /** Wartość skalara */
-    M** mtrx{nullptr}; /** Tablica wskaźników typu M reprezentująca komórki macierzy */
+    M** mtrx{nullptr}; /** Tablica wskaźników typu M reprezentująca macierz */
   };
+
+  #include "src/constructors.tpp" /** Deklaracje konstruktorów */
+  #include "src/nonVirtMethods.tpp" /** Metody dziedziczące, niewirtualne */
+  #include "src/staticMethods.tpp" /** Szablonowe metody statyczne */
+  #include "src/privateMethods.tpp" /** Metody prywatne (niedziedziczne) */
+  #include "src/getters.tpp" /** Metody zwracające wartości pól chronionych - gettery */
 }
 
 #endif

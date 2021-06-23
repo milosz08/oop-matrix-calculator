@@ -40,10 +40,10 @@ unsigned int mathSecondMatrix(MatrixAbstract<T>* objF, MatrixAbstract<T>* objS, 
 
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
     std::cout << "\nPierwsza wprowadzona przez Ciebie macierz:\n\n";
-    objF->printMtrx(false, true, false);
+    objF->printMtrx(hOut, false, true, false);
 
     std::cout << "\nDruga wprowadzona przez Ciebie macierz:\n\n";
-    objS->printMtrx(false, true, false);
+    objS->printMtrx(hOut, false, true, false);
 
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
     std::cout << "\n";

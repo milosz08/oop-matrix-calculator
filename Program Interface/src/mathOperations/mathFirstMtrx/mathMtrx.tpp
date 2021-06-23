@@ -92,7 +92,7 @@ void onlyOneMtrxMath(unsigned int& choose, MatrixAbstract<T>* ptr, M& obj, HANDL
       SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
 
       std::cout << "\nZ macierzy pierwotnej (A):\n\n";
-      ptr->printMtrx(false, false, false); /** Drukuje macierz pierwotną z obiektu na podstawie wskaźnika */
+      ptr->printMtrx(hOut, false, false, false); /** Drukuje macierz pierwotną z obiektu na podstawie wskaźnika */
 
       std::cout << "\nwyznaczyłem następujacy wyznacznik (determinant):\n\n";
       std::cout.precision(3); /** Zaokrąglenie wyniku do 3 miejsc po przecinku */
@@ -113,12 +113,12 @@ void onlyOneMtrxMath(unsigned int& choose, MatrixAbstract<T>* ptr, M& obj, HANDL
       SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
 
       std::cout << "\nMacierz pierwotna:\n\n";
-      ptr->printMtrx(false, true, false); /** Drukuje macierz pierwotną z obiektu na podstawie wskaźnika */
+      ptr->printMtrx(hOut, false, true, false); /** Drukuje macierz pierwotną z obiektu na podstawie wskaźnika */
 
       std::cout << "\npo dokonaniu operacji odwrócenia\ndała następujacą macierz wynikową:\n\n";
       std::cout.precision(6); /** Zaokrąglenie wyniku do 6 miejsc po przecinku */
       std::cout << std::fixed;
-      afterInvr.printMtrx(false, true, true);
+      afterInvr.printMtrx(hOut, false, true, true);
 
       break;
     }
@@ -159,11 +159,11 @@ void onlyOneMtrxMathInfo(MatrixAbstract<T>* ptr, M& outObj, HANDLE& hOut, std::v
 
   SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
   std::cout << "\nMacierz pierwotna:\n\n";
-  ptr->printMtrx(false, true, false); /** Drukuje macierz pierwotną na podstawie wskaźnika */
+  ptr->printMtrx(hOut, false, true, false); /** Drukuje macierz pierwotną na podstawie wskaźnika */
 
   std::cout << "\n" << infMess[1] <<"\n";
   std::cout << "dała nastepujacą macierz wynikową:\n\n";
-  outObj.printMtrx(false, true, false); /** Drukuje macierz wynikową na podstawie obiektu */
+  outObj.printMtrx(hOut, false, true, false); /** Drukuje macierz wynikową na podstawie obiektu */
 }
 
 #include "../mathSecondMtrx/mathChooseMtrx.tpp"
