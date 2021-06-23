@@ -1,4 +1,4 @@
-#include "../../../interfaceDecl.hpp"
+#include "../../interfaceDecl.hpp"
 
 /*!
  * @fn secondMtrxMath(unsigned int& choose,  M& objF, M& objS, HANDLE& hOut)

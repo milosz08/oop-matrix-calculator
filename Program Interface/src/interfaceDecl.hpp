@@ -1,9 +1,9 @@
 #ifndef PK_MATRIX_CALCULATOR_INTERFACEDECL_HPP
 #define PK_MATRIX_CALCULATOR_INTERFACEDECL_HPP
 
-#include "../Matrix Classes/src/packages/abstractMatrixPackage/MatrixAbstract.hpp"
-#include "../Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp"
-#include "../Matrix Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp"
+#include "../../Matrix Classes/src/packages/abstractMatrixPackage/MatrixAbstract.hpp"
+#include "../../Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp"
+#include "../../Matrix Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp"
 
 #include <string>
 #include <stdlib.h>

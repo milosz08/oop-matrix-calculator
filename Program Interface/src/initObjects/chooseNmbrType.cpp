@@ -1,4 +1,4 @@
-#include "../../interfaceDecl.hpp"
+#include "../interfaceDecl.hpp"
 
 /*!
  * @fn chooseTypeOfNumbers(HANDLE& hOut)

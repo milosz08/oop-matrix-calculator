@@ -1,4 +1,4 @@
-#include "../../../interfaceDecl.hpp"
+#include "../../interfaceDecl.hpp"
 
 /*!
  * @fn mathChooseMtrx(MatrixAbstract<T>* obj, HANDLE& hOut)

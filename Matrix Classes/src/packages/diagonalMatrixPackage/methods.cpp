@@ -1,5 +1,5 @@
 #include "DiagonalMatrix.hpp"
-#include "../../../../Program Interface/interfaceDecl.hpp"
+#include "../../../../Program Interface/src/interfaceDecl.hpp"
 
 using namespace diagonalMatrixPackage;
 
