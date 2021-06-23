@@ -4,88 +4,9 @@
 using namespace generalMatrixPackage;
 using namespace matrixAbstractPackage;
 
-/**
- * @fn mtrxTypeAndSizeInfo()
- * @brief Metoda informująca użytkownika jakiej wielkości oraz ilu elementowa
- * macierz została zapisana.
- * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
- */
-template<class M>
-void GeneralMatrix<M>::mtrxTypeAndSizeInfo() {
-  std::cout << "\nZapisałem następujace informacje na temat macierzy ";
-  if(this->mtrxWidth == this->mtrxHeight) {
-    std::cout << "kwadratowej";
-  } else {
-    std::cout << "prostokątnej";
-  }
-  std::cout << "\no wymiarach: " << this->mtrxWidth << " x " << this->mtrxHeight;
-  std::cout << ", posiadającej liczbę " << this->mtrxWidth * this->mtrxHeight << " komórek.\n";
-}
 
-/**
- * @fn insertMtrx()
- * @brief Metoda umożliwiająca wprowadzenie przez użytkownika elementów macierzy do dwuwymiarowej
- * tablicy dynamicznej stworzonej w klasie abstrakcyjnej. Metoda posiada walidację strumienia wejścia
- * pod kątem wprowadzanych znaków do macierzy. Jeśli znak nie jest zgody z typem zmiennej
- * we wzorcu "M" program wyrzuca błąd i daje możliwość ponownego wpisania macierzy.
- * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
- * @param throw - błąd logiczny (niedozwolone znaki ASCII)
- */
-template<class M>
-void GeneralMatrix<M>::insertMtrx(HANDLE& hOut) {
-  bool error, repeatMess = false;
 
-  do {
-    std::system("cls");
-
-    mtrxTypeAndSizeInfo();
-    std::cout << "\nAby przejść dalej, podaj kolejne elementy macierzy.\n";
-
-    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
-    GeneralMatrix::genInfoBlock("UWAGA!", {
-      "Jeśli podasz więcej elementów, zostaną one przeze mnie zignorowane."
-    });
-
-    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-    GeneralMatrix::genInfoBlock("INFO", {
-      "Macierz możesz wpisać zarówno w formie jednoliniowej poziomej lub pionowej tablicy",
-      "lub w wygodnej formie wizualnej macierzy (kolejne elementy należy wypisywać po spacji",
-      "a w przechodzeniu do nowego wiersza należy uzyć klawisza \"enter\")."
-    });
-
-    error = false;
-
-    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-    std::cout << "\nWpisz " << (!repeatMess ? "" : "ponownie ") << "swoją macierz:\n";
-
-    for(unsigned int i = 0; i < this->mtrxHeight; i++) {
-      for(unsigned int j = 0; j < this->mtrxWidth; j++) {
-        std::cin >> this->mtrx[i][j];
-      }
-    }
-
-    if(std::cin.fail()) {
-
-      SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);
-      GeneralMatrix::genInfoBlock("ERROR!", {
-        "W wprowadzanej przez Ciebie macierzy znalazłem niedozwolone wartości!",
-        "Aby kontyuować wprowadź ponownie swoją macierz."
-      });
-
-      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-      MatrixAbstract<M>::sequentialMess(5, "Ponawianie za");
-
-      error = repeatMess = true;
-
-      std::cin.clear(); /** Czyszczenie strumienia wejścia */
-      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
-    }
-  } while(error);
-  std::system("cls");
-}
-
-/**
+/*!
  * @fn transposeMtrx(const GeneralMatrix<M>& mtrx)
  * @brief Metoda wykonująca operację tranponowania macierzy.
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
@@ -128,19 +49,15 @@ GeneralMatrix<M> GeneralMatrix<M>::coupledMtrx() {
 template<class M>
 M GeneralMatrix<M>::determinantMtrx(HANDLE& hOut) {
   M mtrxDet{0}; /** Końcowy wyznacznik (int/double) */
-  try {
-    if(this->mtrxWidth != this->mtrxHeight) {
-      throw std::logic_error("Program nie wspiera obliczania wyznacznika z macierzy prostokątnej.");
-    } else {
-      colsCount = new unsigned short int[this->mtrxWidth];
-      for(unsigned int i = 0; i < this->mtrxWidth; i++) {
-        colsCount[i] = i;
-      }
-      mtrxDet = detRecursion<M>(this->mtrxWidth, 0, colsCount, this->mtrx);
-    }
-  }
-  catch(std::logic_error) {
 
+  if(this->mtrxWidth != this->mtrxHeight) {
+    throw std::logic_error("Program nie wspiera obliczania wyznacznika z macierzy prostokątnej.");
+  } else {
+    this->colsCount = new unsigned short int[this->mtrxWidth];
+    for(unsigned int i = 0; i < this->mtrxWidth; i++) {
+      this->colsCount[i] = i;
+    }
+    mtrxDet = detRecursion<M>(this->mtrxWidth, 0, this->colsCount, this->mtrx);
   }
   return mtrxDet;
 }

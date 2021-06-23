@@ -1,6 +1,23 @@
-#include <iostream>
-#include "../packages/diagonalMatrixPackage/DiagonalMatrix.hpp"
+#include "../../DiagonalMatrix.hpp"
 
+/************************************************************************
+ * FUNKCJE ZAPRZYJAŹNIONE KLASY DIAGONALMATRIX (PRZECIĄŻENIE OPERATORÓW)
+ ************************************************************************/
+
+
+/*!
+ * @overload Operator dodawania (+) - macierze diagonalne
+ *
+ * @brief Przeciążenie operatora "+" (dodawania) pod kątem dodania do
+ *        siebie dwóch macierzy przekazywanych w argumentach funkcji.
+ *
+ * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double).
+ *
+ * @param mtrxF - macierz pierwotna pierwsza.
+ * @param mtrxS - macierz pierwotna druga.
+ *
+ * @return - macierz wynikowa (obiekt) po dodaniu do siebie macierzy diagonalnych.
+ */
 template<class M>
 DiagonalMatrix<M> operator+(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS) {
 
@@ -21,6 +38,19 @@ DiagonalMatrix<M> operator+(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix
 }
 
 
+/*!
+ * @overload Operator odejmowania (-) - macierze diagonalne
+ *
+ * @brief Przeciążenie operatora "-" (odejmowania) pod kątem odjęcia od
+ *        siebie dwóch macierzy przekazywanych w argumentach funkcji.
+ *
+ * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double).
+ *
+ * @param mtrxF - macierz pierwotna pierwsza.
+ * @param mtrxS - macierz pierwotna druga.
+ *
+ * @return - macierz wynikowa (obiekt) po odjęciu od siebie macierzy diagonalnych.
+ */
 template<class M>
 DiagonalMatrix<M> operator-(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS) {
 
@@ -41,6 +71,19 @@ DiagonalMatrix<M> operator-(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix
 }
 
 
+/*!
+ * @overload Operator mnożenia (*) - macierze diagonalne
+ *
+ * @brief Przeciążenie operatora "*" (mnożenia) pod kątem przemnożenia przez
+ *        siebie dwóch macierzy przekazywanych w argumentach funkcji.
+ *
+ * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double).
+ *
+ * @param mtrxF - macierz pierwotna pierwsza.
+ * @param mtrxS - macierz pierwotna druga.
+ *
+ * @return - macierz wynikowa (obiekt) po pomnożeniu obu macierzy diagonalnych przez siebie.
+ */
 template<class M>
 DiagonalMatrix<M> operator*(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS) {
 
@@ -62,13 +105,17 @@ DiagonalMatrix<M> operator*(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix
 
 
 /*!
- * @overload Operator Mnożenia
+ * @overload Operator mnożenia (*) - macierze diagonalne
+ *
  * @brief Przeciążenie operatora "*" (mnożenia) pod kątem przemnożenia wszystkich
- * elementów macierzy przez wartość skalarną.
- * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
- * @param mtrx - macierz, której elementy będą mnożone przez wartość skalara
- * @param scalar - wartość scalarna wprowadzana przez użytkownika
- * @return - macierz wynikowa (obiekt) po przemnożeniu przez skalar
+ *        elementów macierzy przez wartość skalarną.
+ *
+ * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double).
+ *
+ * @param mtrx - macierz, której elementy będą mnożone przez wartość skalara.
+ * @param scalar - wartość scalarna wprowadzana przez użytkownika.
+ *
+ * @return - macierz wynikowa (obiekt) po przemnożeniu macierzy diagonalnej przez skalar.
  */
 template<class M>
 DiagonalMatrix<M> operator*(const DiagonalMatrix<M>& mtrx, const double& scalar) {

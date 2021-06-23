@@ -26,10 +26,11 @@ void DiagonalMatrix<M>::mtrxTypeAndSizeInfo() {
  * @fn insertDiagElms()
  *
  * @brief Metoda przysłaniająca medotę czysto wirtualną klasy abstrakcyjnej. Metoda wprowadzająca podane przez
- *        użytkownika elementy macierzy diagonalnej (po przekątnej) do tablicy dynamicznej. Metoda posiada walidację
- *        strumienia wejścia pod kątem wprowadzanych znaków do macierzy diagonalnej. Jeśli znak nie jest zgody z
- *        typem zmiennej we wzorcu "M" program wyrzuca błąd i daje możliwość ponownego wpisania znaków
- *        macierzy diagonalnej.
+ *        użytkownika elementy macierzy diagonalnej (po przekątnej) do tablicy dynamicznej.
+ *
+ * @protection Metoda posiada walidację strumienia wejścia pod kątem wprowadzanych znaków do macierzy diagonalnej.
+ *             Jeśli znak nie jest zgody z typem zmiennej we wzorcu "M" program wyrzuca błąd i daje możliwość
+ *             ponownego wpisania znaków macierzy diagonalnej.
  *
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
  *

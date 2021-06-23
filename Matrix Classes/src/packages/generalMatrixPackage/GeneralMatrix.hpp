@@ -9,14 +9,33 @@
 
 namespace generalMatrixPackage {
   /*!
-   * @class GeneralMatrix
+   * @class DiagonalMatrix
    * @inherit MatrixAbstract
-   * @brief Klasa na podstawie której tworzona jest macierz kwadratowa lub prostokątna.
-   * Posiada 4 konstruktory, z których jeden odpowiada za stworzenie macierzy kwadratowej
-   * drugi macierzy prostokątnej a pozostałe pełnią funkcje pomocnicze (kopiowanie instancji,
-   * konstruktor bezargumentowy potrzebny do dziedziczenia).
-   * Klasa posiada desktruktor pełniący rolę odśmiecacza pamięci.
-   * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
+   *
+   * @brief Klasa pochodna dziedzicząca po klasie abstrakcyjnej "MatrixAbstract". Obsługuje zwykłe macierze
+   *        prostokątne oraz kwadratowe.
+   *
+   * @constructors Klasa posiada 4 zadeklarowane konstruktory, z czego jest to: konstruktor bezargumentowy,
+   *               konstruktor dwuargumentowy, konstruktor jednoargumentowy oraz konstruktor kopiujący. Wszystkie
+   *               oprócz konstruktora bezargumentowego wywołują konstruktory klasy bazowej (abstrakcyjnej).
+   *
+   * @destructor Klasa posiada destruktor. Pełną macierz usuwa destruktor z klasy abstrakcyjnej. Destruktor z
+   *             tej klasy usuwa zawartość tablicy dynamicznej reprezentującej indeksy kolumn macierzy (potrzebne
+   *             w celu wyznaczenia wyznacznika rekurencyjną metodą Laplace'a).
+   *
+   * @methods Klasa posiada metody do operacji na pojedynczej macierzy. Są to odpowiednio: wyznaczanie macierzy
+   *          sprzężonej, transponowanie macierzy, obliczanie wyznacznika macierzy oraz wyznaczanie macierzy odwrotnej.
+   *          Klasa posiada również 1 metodę prywatną (metoda przysłaniająca metodę czysto wirtualną z klasy
+   *          abstrakcyjnej), dostępną tylko na użytek metod tej klasy.
+   *
+   * @overload Klasa posiada przeciążenia 3 operatorów w postaci funkcji zaprzyjaźnionych. Są to odpowiednio:
+   *           operator dodawania "+" (dwie macierze), operator odejmowania "-" (dwie macierze), operator mnożenia "*"
+   *           (dwie macierze) oraz ponownie operator mnożenia "*" (macierz przez wartość skalarną). W funkcjach
+   *           zaprzyjaźnionych znajduje sie również funkcja rekurencyjna obliczająca wyznacznik metodą Laplace'a.
+   *
+   * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double).
+   *
+   * @param diagTab - tablica dynamiczna reprezentująca elementy znajdujące się na diagonalnej (głównej przekątnej).
    */
   template<class M> class GeneralMatrix;
   template<class M> GeneralMatrix<M> operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
@@ -29,12 +48,13 @@ namespace generalMatrixPackage {
   template<class M>
   class GeneralMatrix : public matrixAbstractPackage::MatrixAbstract<M> {
   public:
-    explicit GeneralMatrix();
-    explicit GeneralMatrix(unsigned short int&, unsigned short int&); /** Sygnatura konstr. macierzy prostokątnej */
-    explicit GeneralMatrix(unsigned short int&); /** Sygnatura konstr. macierzy kwadratowej */
+    GeneralMatrix();
+    GeneralMatrix(unsigned short int&, unsigned short int&); /** Sygnatura konstr. macierzy prostokątnej */
+    GeneralMatrix(unsigned short int&); /** Sygnatura konstr. macierzy kwadratowej */
     GeneralMatrix(const GeneralMatrix<M>&); /** Sygnatura konstr. kopiującego */
 
-    virtual void insertMtrx(HANDLE&); /** Wstawianie wartości w kom macierzy */
+    virtual void insertMtrx(HANDLE&); /** Wstawianie macierzy */
+
     GeneralMatrix<M> transposeMtrx(); /** Transponowanie macierzy */
     GeneralMatrix<M> coupledMtrx(); /** Macierz sprzężona */
     M determinantMtrx(HANDLE&); /** Wyznacznik (tylko macierze kwadratowe) n-tego stopnia */
@@ -56,6 +76,9 @@ namespace generalMatrixPackage {
   private:
     unsigned short int* colsCount{nullptr};
   };
+
+  #include "src/constructors.tpp" /** Deklaracje konstruktorów */
+  #include "src/pureVirtMethods.tpp" /** Metody przysłaniające metody czysto wirtualne klasy abstrakcyjnej */
 
   /** Dyrektywa dodająca definicje przeciążeń szablonów operatorów */
   #include "../../friendFunc/genMtrxTemplOperators.inl"
