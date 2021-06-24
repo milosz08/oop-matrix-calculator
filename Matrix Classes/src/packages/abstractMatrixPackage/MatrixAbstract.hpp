@@ -55,7 +55,7 @@ namespace matrixAbstractPackage {
     virtual void mtrxTypeAndSizeInfo() = 0; /** Wypisywanie wiadomosci */
     virtual void insertMtrx(HANDLE&) = 0; /** Wprowadzanie macierzy */
 
-    /** Metody statyczne */
+    /** Metody statyczne (dodatek interfejsu użytkownika) */
     static void genInfoBlock(std::string, std::vector<std::string>);
     static void sequentialMess(unsigned int, std::string);
     static void errorMess(std::string, HANDLE&);
