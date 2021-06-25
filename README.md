@@ -1,1 +1,4 @@
-# Matrix-Calculator-Objective-Cpp
+# Kalkulator Macierzy
+
+## O programie
+Macierze
