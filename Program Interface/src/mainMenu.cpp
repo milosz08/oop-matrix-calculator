@@ -34,7 +34,7 @@ void mainMenu(HANDLE& hOut) {
 
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
     MatrixAbstract<double>::genInfoBlock("WSPIERANE OPERACJE", {
-      "* Obliczanie wyznacznika macierzy 1, 2 oraz n-elementowej (tylko macierze kwadratowe).",
+      "* Obliczanie wyznacznika macierzy n-elementowej (tylko macierze kwadratowe).",
       "* Obliczanie macierzy odwrotnej względem macierzy pierwotnej (tylko macierze kwadratowe).",
       "* Obliczanie macierzy sprzężonej względem macierzy pierwotnej.",
       "* Podstawowe działania arytmetyczne (dodawanie, odejmowanie, mnożenie).",
