@@ -124,7 +124,11 @@ winnt.h
 type_traits
 -
 
-D:/Projekty programistyczne/PK Matrix Calculator/main.cpp
-Program Interface/src/interfaceDecl.hpp
+D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/mainMenu.cpp
+interfaceDecl.hpp
+D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
+
+D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/startPrg.cpp
+interfaceDecl.hpp
 D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
 

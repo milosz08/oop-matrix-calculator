@@ -90,4 +90,5 @@ void GeneralMatrix<M>::insertMtrx(HANDLE& hOut) {
 
     }
   } while(error);
+  std::system("cls");
 }

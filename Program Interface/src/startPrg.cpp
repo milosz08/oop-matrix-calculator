@@ -21,6 +21,9 @@ void startPrg() {
     mainMenu(hOut);
     initMtrxObj(hOut);
 
+    std::cout << "\nDziękuję za skorzystanie z kalkulatora macierzy. Program zakończył działanie.\n";
+    std::system("pause"); /** Zachowanie okna konsoli */
+
   } catch(std::logic_error& e) {
 
     SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);

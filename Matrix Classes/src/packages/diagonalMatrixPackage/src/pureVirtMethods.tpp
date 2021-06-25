@@ -78,4 +78,5 @@ void DiagonalMatrix<M>::insertMtrx(HANDLE& hOut) {
       std::system("cls");
     }
   } while(error);
+  std::system("cls");
 }

@@ -56,7 +56,7 @@ void mainMenu(HANDLE& hOut) {
         std::system("cls"); break;
       } case 2: {
         MatrixAbstract<double>::sequentialMess(5, "Program zakończy działanie za");
-        std::cout << "\nDziękuje za skorzystanie z kalkulatora macierzy. Program zakonczył działanie.\n";
+        std::cout << "\nDziękuję za skorzystanie z kalkulatora macierzy. Program zakończył działanie.\n";
         exit(0);
       } default: {
         error = true;
