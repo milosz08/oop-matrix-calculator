@@ -21,8 +21,9 @@
  *          a druga to macierze diagonalne (tylko kwadratowe). Zdecydowałem się użyć osobnych klas ze względu na
  *          różne metody matematyczne obliczające m. in. wyznacznik, czy macierz odwrotną.
  *
- * @templates W programie wykorzystuje szablony (programowanie generyczne). Funkcje i metody szablonowe
- *            zdecydowałem się umieszczać w plikach nagłówkowych z rozszerzeniem .tpp.
+ * @templates W programie wykorzystałem programowanie generyczne w postaci: szablonów klas, w celu zdefiniowania
+ *            typu wprowadzanych wartości do macierzy (int/double), szablonów funkcji, w celu zdefiniowania typu
+ *            przekazywanych argumentów (klasy/wartości),
  *
  * @details Program obsługujący podstawowe działania na macierzach kwadratowych, prostokątnych oraz specjalnym
  *          typie macierzy kwadratowych - diagonalnych (macierz diagonalna to macierz, która poza swoją główną
@@ -39,7 +40,7 @@
  *******************************************************************************************************************/
 
 int main() {
-  SetConsoleOutputCP(CP_UTF8);
+  SetConsoleOutputCP(CP_UTF8); /** Polskie znaki w konsoli */
 
   startPrg();
 
