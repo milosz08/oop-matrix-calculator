@@ -80,7 +80,7 @@ namespace generalMatrixPackage {
   #include "src/constructors.tpp" /** Deklaracje konstruktorów */
   #include "src/pureVirtMethods.tpp" /** Metody przysłaniające metody czysto wirtualne klasy abstrakcyjnej */
 
-  /** Dyrektywa dodająca definicje przeciążeń szablonów operatorów */
-  #include "../../friendFunc/genMtrxTemplOperators.inl"
+  #include "src/mathAndOprts/mathMethods.tpp" /** Operacje arytmetyczne - metody */
+  #include "src/mathAndOprts/friendOprts.inl" /** Przeciążenia operatorów (funkcje zaprzyjaźnione) */
 }
 #endif
