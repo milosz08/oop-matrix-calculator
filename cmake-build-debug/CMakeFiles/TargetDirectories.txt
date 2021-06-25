@@ -1,0 +1,3 @@
+D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug/CMakeFiles/PK_Matrix_Calculator.dir
+D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug/CMakeFiles/edit_cache.dir

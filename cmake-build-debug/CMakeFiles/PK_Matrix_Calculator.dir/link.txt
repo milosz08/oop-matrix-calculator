@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2021.1.1\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\PK_Matrix_Calculator.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\PK_Matrix_Calculator.dir/objects.a @CMakeFiles\PK_Matrix_Calculator.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\PK_Matrix_Calculator.dir/objects.a -Wl,--no-whole-archive -o PK_Matrix_Calculator.exe -Wl,--out-implib,libPK_Matrix_Calculator.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\PK_Matrix_Calculator.dir\linklibs.rsp

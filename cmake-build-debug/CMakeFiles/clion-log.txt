@@ -1,0 +1,4 @@
+"C:\Program Files\JetBrains\CLion 2021.1.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" "D:\Projekty programistyczne\PK Matrix Calculator"
+-- Configuring done
+-- Generating done
+-- Build files have been written to: D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug
