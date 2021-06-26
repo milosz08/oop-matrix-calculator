@@ -1,9 +1,5 @@
 #include "../../GeneralMatrix.hpp"
 
-/***********************************************************************
- * FUNKCJE ZAPRZYJAŹNIONE KLASY GENERALMATRIX (PRZECIĄŻENIE OPERATORÓW)
- ***********************************************************************/
-
 
 /*!
  * @overload Operator dodawania (+)
@@ -29,8 +25,8 @@ GeneralMatrix<M> operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>
   if(mtrxF.mtrxWidth != mtrxS.mtrxWidth && mtrxF.mtrxHeight != mtrxS.mtrxHeight) {
     throw std::logic_error("Dodawanie do siebie macierzy o różnych wielkościach jest niedozwolone!");
   } else {
-    for(unsigned int i = 0; i < mtrxF.mtrxHeight; i++) {
-      for(unsigned int j = 0; j < mtrxF.mtrxWidth; j++) {
+    for(unsigned short int i = 0; i < mtrxF.mtrxHeight; i++) {
+      for(unsigned short int j = 0; j < mtrxF.mtrxWidth; j++) {
         mtrxAdd.mtrx[i][j] = mtrxF.mtrx[i][j] + mtrxS.mtrx[i][j];
       }
     }
@@ -63,8 +59,8 @@ GeneralMatrix<M> operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>
   if(mtrxF.mtrxWidth != mtrxS.mtrxWidth && mtrxF.mtrxHeight != mtrxS.mtrxHeight) {
     throw std::logic_error("Odejmowanie od siebie macierzy o różnych wielkościach jest niedozwolone!");
   } else {
-    for(unsigned int i = 0; i < mtrxF.mtrxHeight; i++) {
-      for(unsigned int j = 0; j < mtrxF.mtrxWidth; j++) {
+    for(unsigned short int i = 0; i < mtrxF.mtrxHeight; i++) {
+      for(unsigned short int j = 0; j < mtrxF.mtrxWidth; j++) {
         mtrxSubt.mtrx[i][j] = mtrxF.mtrx[i][j] - mtrxS.mtrx[i][j];
       }
     }
@@ -99,10 +95,11 @@ GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>
     throw std::logic_error("Podane przez ciebie macierze nie spełniają zasad dot. mnożenia macierzy!");
   } else {
     M sum{0};
-    for(unsigned int i = 0; i < mtrxF.mtrxHeight; i++) {
-      for(unsigned int j = 0; j < mtrxS.mtrxWidth; j++) {
+
+    for(unsigned short int i = 0; i < mtrxF.mtrxHeight; i++) {
+      for(unsigned short int j = 0; j < mtrxS.mtrxWidth; j++) {
         sum = 0;
-        for(unsigned int k = 0; k < mtrxF.mtrxWidth; k++) {
+        for(unsigned short int k = 0; k < mtrxF.mtrxWidth; k++) {
           sum += mtrxF.mtrx[i][k] * mtrxS.mtrx[k][j];
           mtrxMult.mtrx[i][j] = sum;
         }
@@ -130,8 +127,9 @@ GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrx, const double& scalar) {
 
   /** Kopiowanie obiektu */
   GeneralMatrix<M> mtrxScalar = GeneralMatrix<M>{mtrx};
-  for(unsigned int i = 0; i < mtrx.mtrxHeight; i++) {
-    for(unsigned int j = 0; j < mtrx.mtrxWidth; j++) {
+
+  for(unsigned short int i = 0; i < mtrx.mtrxHeight; i++) {
+    for(unsigned short int j = 0; j < mtrx.mtrxWidth; j++) {
       mtrxScalar.mtrx[i][j] = mtrx.mtrx[i][j] * scalar;
     }
   }
@@ -175,9 +173,9 @@ M detRecursion(unsigned short int mtrxS, unsigned short int nextRow, unsigned sh
   } else {
     colRecCount = new unsigned short int[mtrxS - 1]; /** Macierz potomna pomniejszona o 1 */
 
-    for(unsigned int i = 0; i < mtrxS; i++) {
+    for(unsigned short int i = 0; i < mtrxS; i++) {
       mtrxElm = 0; /** Ustawianie pierwotnej pozycji obsługiwanego elementu */
-      for(unsigned int j = 0; j < mtrxS - 1; j++) {
+      for(unsigned short int j = 0; j < mtrxS - 1; j++) {
         if(mtrxElm == i) { /** Jeśli element jest taki sam, pomiń */
           mtrxElm++;
         }

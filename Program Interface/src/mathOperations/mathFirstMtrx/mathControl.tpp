@@ -22,8 +22,10 @@
  *                      całkowitych, 2 - dla wartości całkowitych oraz zmiennoprzecinkowych (double).
  */
 template<typename T>
-void createMtrxObject(unsigned short int* sizeMtrx, HANDLE& hOut, unsigned int& mtrxType, unsigned int& mtrxValType) {
-  unsigned int chooseMtrxMath{0}; /** Wybór przez użytkownika operacji matematycznej na macierzy */
+void createMtrxObject(unsigned short int* sizeMtrx, HANDLE& hOut,
+                      unsigned short int& mtrxType, unsigned short int& mtrxValType) {
+
+  unsigned short int chooseMtrxMath{0}; /** Wybór przez użytkownika operacji matematycznej na macierzy */
   MatrixAbstract<T>* ptr{nullptr}; /** Wzkaźnik wskazujący na obiekt typu T (int/double) */
 
   switch(mtrxType) {

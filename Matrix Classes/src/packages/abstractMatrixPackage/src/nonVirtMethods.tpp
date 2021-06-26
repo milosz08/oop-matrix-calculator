@@ -1,11 +1,6 @@
 #include "../MatrixAbstract.hpp"
 
 
-/*******************************************
- * METODY NIEWIRTUALNE KLASY ABSTRAKCYJNEJ
- *******************************************/
-
-
 /*!
  * @fn pringMtrx()
  * @inherit Metoda, którą dziedziczą wszyskie klasy pochodne od klasy abstrakcyjnej. Metoda niewirtualna.
@@ -23,8 +18,10 @@
  *                         jeśli "false" kolejne elementy macierzy ustawiane są na podstawie ich długości.
  */
 template<class M>
-void MatrixAbstract<M>::printMtrx(HANDLE& hOut, const bool textMess, const bool sharpBrc, const bool autoFreeSpaces) const {
-  unsigned int spaces{0}; /** Przerwa pomiędzy kolejnymi kolumnami */
+void MatrixAbstract<M>::printMtrx(HANDLE& hOut, const bool textMess, const bool sharpBrc,
+                                        const bool autoFreeSpaces) const {
+
+  unsigned short int spaces{0}; /** Przerwa pomiędzy kolejnymi kolumnami */
 
   if(textMess) {
 
@@ -38,8 +35,8 @@ void MatrixAbstract<M>::printMtrx(HANDLE& hOut, const bool textMess, const bool 
     std::cout << (this->mtrxHeight == this->mtrxWidth ? "kwadratową:\n\n" : "prostokatną:\n\n");
   }
 
-  for(unsigned int i = 0; i < this->mtrxHeight; i++) {
-    for(unsigned int j = 0; j < this->mtrxWidth; j++) {
+  for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
+    for(unsigned short int j = 0; j < this->mtrxWidth; j++) {
 
       if(j == 0) { /** Jeśli jest to 1 kolumna macierzy */
         std::cout << (sharpBrc ? "  [ " : "  | ");
@@ -54,7 +51,7 @@ void MatrixAbstract<M>::printMtrx(HANDLE& hOut, const bool textMess, const bool 
           spaces = findMaxLength(j) - lengthOfElm(this->mtrx[i][j]);
         }
 
-        for(unsigned int k = 0; k < spaces; k++) {
+        for(unsigned short int k = 0; k < spaces; k++) {
           std::cout << " ";
         }
 

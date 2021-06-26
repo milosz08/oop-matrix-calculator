@@ -1,9 +1,5 @@
 #include "../../DiagonalMatrix.hpp"
 
-/************************************************************************
- * FUNKCJE ZAPRZYJAŹNIONE KLASY DIAGONALMATRIX (PRZECIĄŻENIE OPERATORÓW)
- ************************************************************************/
-
 
 /*!
  * @overload Operator dodawania (+) - macierze diagonalne
@@ -24,9 +20,9 @@ DiagonalMatrix<M> operator+(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix
   /** Kopiowanie obiektu - kostruktor kopiujący */
   DiagonalMatrix<M> mtrxAdd = DiagonalMatrix<M>{mtrxF};
 
-  for(unsigned int i = 0; i < mtrxF.mtrxHeight; i++) {
+  for(unsigned short int i = 0; i < mtrxF.mtrxHeight; i++) {
     mtrxAdd.diagTab[i] = mtrxF.diagTab[i] + mtrxS.diagTab[i];
-    for(unsigned int j = 0; j < mtrxF.mtrxWidth; j++) {
+    for(unsigned short int j = 0; j < mtrxF.mtrxWidth; j++) {
       if(i == j) {
         mtrxAdd.mtrx[i][j] = mtrxAdd.diagTab[i];
       } else {
@@ -57,9 +53,9 @@ DiagonalMatrix<M> operator-(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix
   /** Kopiowanie obiektu - kostruktor kopiujący */
   DiagonalMatrix<M> mtrxAdd = DiagonalMatrix<M>{mtrxF};
 
-  for(unsigned int i = 0; i < mtrxF.mtrxHeight; i++) {
+  for(unsigned short int i = 0; i < mtrxF.mtrxHeight; i++) {
     mtrxAdd.diagTab[i] = mtrxF.diagTab[i] - mtrxS.diagTab[i];
-    for(unsigned int j = 0; j < mtrxF.mtrxWidth; j++) {
+    for(unsigned short int j = 0; j < mtrxF.mtrxWidth; j++) {
       if(i == j) {
         mtrxAdd.mtrx[i][j] = mtrxAdd.diagTab[i];
       } else {
@@ -90,9 +86,9 @@ DiagonalMatrix<M> operator*(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix
   /** Kopiowanie obiektu - kostruktor kopiujący */
   DiagonalMatrix<M> mtrxAdd = DiagonalMatrix<M>{mtrxF};
 
-  for(unsigned int i = 0; i < mtrxF.mtrxHeight; i++) {
+  for(unsigned short int i = 0; i < mtrxF.mtrxHeight; i++) {
     mtrxAdd.diagTab[i] = mtrxF.diagTab[i] * mtrxS.diagTab[i];
-    for(unsigned int j = 0; j < mtrxF.mtrxWidth; j++) {
+    for(unsigned short int j = 0; j < mtrxF.mtrxWidth; j++) {
       if(i == j) {
         mtrxAdd.mtrx[i][j] = mtrxAdd.diagTab[i];
       } else {
@@ -123,9 +119,9 @@ DiagonalMatrix<M> operator*(const DiagonalMatrix<M>& mtrx, const double& scalar)
   /** Kopiowanie obiektu - kostruktor kopiujący */
   DiagonalMatrix<M> mtrxScal = DiagonalMatrix<M>{mtrx};
 
-  for(unsigned int i = 0; i < mtrx.mtrxHeight; i++) {
+  for(unsigned short int i = 0; i < mtrx.mtrxHeight; i++) {
     mtrxScal.diagTab[i] = mtrx.diagTab[i] * scalar;
-    for(unsigned int j = 0; j < mtrx.mtrxWidth; j++) {
+    for(unsigned short int j = 0; j < mtrx.mtrxWidth; j++) {
       if(i == j) {
         mtrxScal.mtrx[i][j] = mtrxScal.diagTab[i];
       } else {

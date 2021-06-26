@@ -1,9 +1,5 @@
 #include "../../DiagonalMatrix.hpp"
 
-/*********************************************************************************************************
- * METODY OPERACJI MATEMATYCZNYCH KLASY DIAGONALMATRIX (DZIEDZICZĄCEJ PO KLASIE ABSTRAKCYJNEJ - BAZOWEJ)
- *********************************************************************************************************/
-
 
 /*!
  * @fn coupledMtrx()
@@ -18,9 +14,12 @@
  */
 template<class M>
 DiagonalMatrix<M> DiagonalMatrix<M>::coupledMtrx() {
-  DiagonalMatrix<M> mtrxCoup = DiagonalMatrix<M>{*this}; /** Kopiowanie macierzy */
-  for(unsigned int i = 0; i < this->mtrxHeight; i++) {
-    for(unsigned int j = 0; j < this->mtrxWidth; j++) {
+
+  /** Kopiowanie macierzy */
+  DiagonalMatrix<M> mtrxCoup = DiagonalMatrix<M>{*this};
+
+  for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
+    for(unsigned short int j = 0; j < this->mtrxWidth; j++) {
       if(i == j) {
         mtrxCoup.mtrx[i][j] = this->diagTab[j] * -1;
       } else {
@@ -45,9 +44,12 @@ DiagonalMatrix<M> DiagonalMatrix<M>::coupledMtrx() {
  */
 template<class M>
 DiagonalMatrix<M> DiagonalMatrix<M>::transposeMtrx() {
-  DiagonalMatrix<M> mtrxCoup = DiagonalMatrix<M>{*this}; /** Kopiowanie macierzy */
-  for(unsigned int i = 0; i < this->mtrxHeight; i++) {
-    for(unsigned int j = 0; j < this->mtrxWidth; j++) {
+
+  /** Kopiowanie macierzy */
+  DiagonalMatrix<M> mtrxCoup = DiagonalMatrix<M>{*this};
+
+  for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
+    for(unsigned short int j = 0; j < this->mtrxWidth; j++) {
       if(i == j) {
         mtrxCoup.mtrx[i][j] = this->diagTab[i];
       } else {
@@ -80,7 +82,7 @@ M DiagonalMatrix<M>::determinantMtrx(HANDLE& hOut) {
   if(this->mtrxWidth != this->mtrxHeight) { /** Jeśli macierz nie jest kwadratowa */
     throw std::logic_error("Program nie wspiera obliczania wyznacznika z macierzy która nie jest kwadratowa");
   } else {
-    for(unsigned int i = 0; i < this->mtrxHeight; i++) {
+    for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
       mtrxDet *= this->diagTab[i];
     }
   }
@@ -115,9 +117,9 @@ DiagonalMatrix<double> DiagonalMatrix<M>::inverseMtrx() {
   } else {
 
     /** Obliczenie i przypisanie kolejnym elementom po diagonalnej wartości odwrotnej */
-    for(unsigned int i = 0; i < this->mtrxHeight; i++) {
+    for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
       mtrxInvrs.get_DiagTab()[i] = 1 / this->diagTab[i];
-      for(unsigned int j = 0; j < this->mtrxWidth; j++) {
+      for(unsigned short int j = 0; j < this->mtrxWidth; j++) {
         if(i == j) {
           mtrxInvrs.get_Mtrx()[i][j] = mtrxInvrs.get_DiagTab()[i];
         } else {

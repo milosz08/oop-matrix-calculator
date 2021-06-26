@@ -1,5 +1,6 @@
 #include "../interfaceDecl.hpp"
 
+
 /*!
  * @fn chooseTypeOfMatrix(HANDLE& hOut)
  *
@@ -14,8 +15,8 @@
  *
  * @return Funkcja zwraca opcję wybraną przez użytkownika (w postaci wartości całkowitej z zakresu 1-3)
  */
-unsigned int chooseTypeOfMatrix(HANDLE& hOut) {
-  unsigned int choice{0};
+unsigned short int chooseTypeOfMatrix(HANDLE& hOut) {
+  unsigned short int choice{0};
   bool error{false};
 
   do {

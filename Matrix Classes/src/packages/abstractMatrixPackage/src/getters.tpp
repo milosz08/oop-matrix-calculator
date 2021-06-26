@@ -1,11 +1,6 @@
 #include "../MatrixAbstract.hpp"
 
 
-/*******************************
- * GETTERY KLASY ABSTRAKCYJNEJ
- *******************************/
-
-
 /*!
  * @fn get_Cols()
  * @brief Getter klasy abstrakcyjnej "MatrixAbstract".

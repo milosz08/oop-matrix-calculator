@@ -1,0 +1,7 @@
+Macierz kwadratowa 5x5 (inty i double wraz z wartościami ujemnymi)
+
+4.323 54 3.43 -432 3
+43 2.334 -43 2.34 125
+76.54 4.32 4.76 5 234
+45 -2.123 49 54.32 0.43
+4.3 334 12.4 5.44 -2.34

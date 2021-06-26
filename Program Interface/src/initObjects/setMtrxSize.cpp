@@ -23,7 +23,7 @@
  * @return wskaźnik do tablicy statycznej przechowującej ilość wierszy i kolumn (w przypadku podawania tylko jednej
  *         wartości, obie wartości w tablicy przyjmują jednakową wartość)
  */
-unsigned short int* setMtrxSize(HANDLE& hOut, unsigned int& mtrxType, unsigned int& mtrxValType) {
+unsigned short int* setMtrxSize(HANDLE& hOut, unsigned short int& mtrxType, unsigned short int& mtrxValType) {
 
   /** Static użyte w celu zwrócenia wartości zmiennej lokalnej, transformacja na zmienną globalną,
    * dla 1 elementu ilość kolumn, dla 2 elementu ilośc wierszy */
@@ -58,9 +58,12 @@ unsigned short int* setMtrxSize(HANDLE& hOut, unsigned int& mtrxType, unsigned i
       std::cin >> mtrxSizes[0] >> mtrxSizes[1]; /** Wprowadzenie ilości kolumn i wierszy */
     }
 
-    if(!(mtrxSizes[0] != 0 || mtrxSizes[1] != 0 || !std::cin.fail())) {
+    if(mtrxSizes[0] == 0 || mtrxSizes[1] == 0 || mtrxSizes[0] > 20 || mtrxSizes[1] > 20 || std::cin.fail()) {
       error = true;
-      MatrixAbstract<double>::errorMess("Podany został błedny wymiar macierzy (niedozwolony znak lub liczba 0)!", hOut);
+      MatrixAbstract<double>::errorMess(
+        "Podany został błedny wymiar macierzy (niedozwolony znak, zbyt duży wymiar lub liczba 0)!",
+        hOut
+      );
     }
 
   } while (error);
@@ -82,7 +85,7 @@ unsigned short int* setMtrxSize(HANDLE& hOut, unsigned int& mtrxType, unsigned i
  *
  * @return Funkcja zwraca wynikowy string z całym zapisanym komunikatem.
  */
-std::string saveMtrxInfo(unsigned int& type, unsigned int& val) {
+std::string saveMtrxInfo(unsigned short int& type, unsigned short int& val) {
   std::string output;
 
   switch(type) {

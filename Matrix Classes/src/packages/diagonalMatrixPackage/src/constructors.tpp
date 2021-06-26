@@ -1,11 +1,7 @@
 #include "../DiagonalMatrix.hpp"
 
+
 using namespace matrixAbstractPackage;
-
-
-/**************************************************************************************
- * KONSTRUKTORY KLASY DIAGONALMATRIX (DZIEDZICZĄCEJ PO KLASIE ABSTRAKCYJNEJ - BAZOWEJ)
- **************************************************************************************/
 
 
 /*!

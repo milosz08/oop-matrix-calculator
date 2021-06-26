@@ -61,18 +61,18 @@ namespace diagonalMatrixPackage {
 
       M* get_DiagTab() const; /** Getter */
 
-  private:
-    virtual void mtrxTypeAndSizeInfo();
-    void generateDiagMtrx(bool identityMtrx);
+    private:
+      virtual void mtrxTypeAndSizeInfo();
+      void generateDiagMtrx(bool identityMtrx);
 
-  public:
-    friend DiagonalMatrix<M> operator+ <>(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
-    friend DiagonalMatrix<M> operator- <>(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
-    friend DiagonalMatrix<M> operator* <>(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
-    friend DiagonalMatrix<M> operator* <>(const DiagonalMatrix<M>& mtrx, const double& scalar);
+    public:
+      friend DiagonalMatrix<M> operator+ <>(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
+      friend DiagonalMatrix<M> operator- <>(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
+      friend DiagonalMatrix<M> operator* <>(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
+      friend DiagonalMatrix<M> operator* <>(const DiagonalMatrix<M>& mtrx, const double& scalar);
 
-  private:
-    M* diagTab{nullptr};
+    private:
+      M* diagTab{nullptr};
   };
 
   #include "src/constructors.tpp" /** Deklaracje konstruktorów */

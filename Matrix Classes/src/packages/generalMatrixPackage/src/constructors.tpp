@@ -1,10 +1,7 @@
 #include "../GeneralMatrix.hpp"
 
-using namespace matrixAbstractPackage;
 
-/**************************************************************************************
- * KONSTRUKTORY KLASY GENERALMATRIX (DZIEDZICZĄCEJ PO KLASIE ABSTRAKCYJNEJ - BAZOWEJ)
- **************************************************************************************/
+using namespace matrixAbstractPackage;
 
 
 /*!

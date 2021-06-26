@@ -1,11 +1,6 @@
 #include "../MatrixAbstract.hpp"
 
 
-/****************************************
- * METODY STATYCZNE KLASY ABSTRAKCYJNEJ
- ****************************************/
-
-
 /*!
  * @fn genInfoBlock(std::string header, std::vector<std::string> mess)
  *
@@ -45,10 +40,14 @@ void MatrixAbstract<M>::genInfoBlock(std::string header, std::vector<std::string
   for(unsigned int i = 0; i < maxLength - 5; i++) { std::cout << "+"; }
   std::cout << "\n";
 
-  /** Generacja głównego kontentu tekstowego */
+  /** Generacja głównego kontentu tekstowego (jeśli w headerze error -> strumień wyjścia błędu cerr) */
   std::vector<std::string>::iterator pos;
   for(pos = mess.begin(); pos != mess.end(); pos++) {
-    std::cout << " " << *pos << "\n";
+    if(header != "error!" || header != "ERROR!") {
+      std::cout << " " << *pos << "\n";
+    } else {
+      std::cerr << " " << *pos << "\n";
+    }
   }
 
   /** Generowanie stopki */
@@ -97,7 +96,7 @@ void MatrixAbstract<M>::errorMess(std::string mess, HANDLE& hOut) {
  * @param mess - wiadomość pojawiająca się przy odliczaniu
  */
 template<class M>
-void MatrixAbstract<M>::sequentialMess(unsigned int n, std::string mess) {
+void MatrixAbstract<M>::sequentialMess(unsigned short int n, std::string mess) {
   std::cout << "\n" << mess << ": ";
   for(int i = n; i >= 0; i--) {
     std::cout << i;

@@ -1,9 +1,5 @@
 #include "../DiagonalMatrix.hpp"
 
-/*********************************************************************************
- * GETTERY KLASY DIAGONALMATRIX (DZIEDZICZĄCEJ PO KLASIE ABSTRAKCYJNEJ - BAZOWEJ)
- *********************************************************************************/
-
 
 /*!
  * @fn get_DiagTab()

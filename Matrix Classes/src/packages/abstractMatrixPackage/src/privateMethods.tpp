@@ -1,11 +1,6 @@
 #include "../MatrixAbstract.hpp"
 
 
-/********************************************************
- * METODY PRYWATNE KLASY ABSTRAKCYJNEJ (NIEDZIEDZICZNE)
- ********************************************************/
-
-
 /*!
  * @fn allocateMemory()
  * @inherit Metoda niedziedziczna. Tylko na użytek klasy abstrakcyjnej.
@@ -20,7 +15,7 @@
 template<class M>
 void MatrixAbstract<M>::allocateMemory() {
   this->mtrx = new M* [this->mtrxHeight];
-  for(unsigned int i = 0; i < this->mtrxHeight; i++) {
+  for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
     this->mtrx[i] = new M [this->mtrxWidth];
   }
 }
@@ -39,11 +34,11 @@ void MatrixAbstract<M>::allocateMemory() {
  * @return - Najdłuższy ciąg liczbowy w n kolumnie (wartość n = param col).
  */
 template<class M>
-unsigned int MatrixAbstract<M>::findMaxLength(unsigned int& col) const {
+unsigned short int MatrixAbstract<M>::findMaxLength(unsigned short int& col) const {
   std::string str{""};
-  unsigned int freeSpace{2}; /** Ilość spacji między kolumnami macierzy */
-  std::vector<unsigned int>allLength;
-  for(unsigned int i = 0; i < this->mtrxHeight; i++) {
+  unsigned short int freeSpace{2}; /** Ilość spacji między kolumnami macierzy */
+  std::vector<unsigned short int>allLength;
+  for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
     allLength.push_back(lengthOfElm(this->mtrx[i][col]));
   }
   return *max_element(allLength.begin(), allLength.end()) + freeSpace;
@@ -63,7 +58,7 @@ unsigned int MatrixAbstract<M>::findMaxLength(unsigned int& col) const {
  * @return - Długość wartości pobieranej ze zmiennej "cell" typu M przez referencję.
  */
 template<class M>
-unsigned int MatrixAbstract<M>::lengthOfElm(M& cell) const {
+unsigned short int MatrixAbstract<M>::lengthOfElm(M& cell) const {
   std::string elmLength;
   elmLength = std::to_string(cell);
   elmLength.erase(elmLength.find_last_not_of('0') + 1, std::string::npos);

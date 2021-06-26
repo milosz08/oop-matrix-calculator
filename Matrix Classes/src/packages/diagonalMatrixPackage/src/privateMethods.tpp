@@ -1,9 +1,5 @@
 #include "../DiagonalMatrix.hpp"
 
-/*****************************************************************************************
- * METODY PRYWATNE KLASY DIAGONALMATRIX (DZIEDZICZĄCEJ PO KLASIE ABSTRAKCYJNEJ - BAZOWEJ)
- *****************************************************************************************/
-
 
 /*!
  * @fn generateDiagMtrx(bool identityMtrx)
@@ -19,8 +15,8 @@
  */
 template<class M>
 void DiagonalMatrix<M>::generateDiagMtrx(bool identityMtrx) {
-  for(unsigned int i = 0; i < this->mtrxHeight; i++) {
-    for(unsigned int j = 0; j < this->mtrxWidth; j++) {
+  for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
+    for(unsigned short int j = 0; j < this->mtrxWidth; j++) {
       if(i == j) {
         (!identityMtrx ? this->mtrx[i][j] = this->diagTab[j] : this->mtrx[i][j] = 1);
       } else {

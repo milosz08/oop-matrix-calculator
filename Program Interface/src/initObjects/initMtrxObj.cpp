@@ -12,14 +12,14 @@
  * @param hOut - uchwyt na wyjście z konsoli (zadeklarowany w funkcji startPrg i przekazywany przez referencję).
  */
 void initMtrxObj(HANDLE& hOut) {
-  unsigned int mtrxType = chooseTypeOfMatrix(hOut); /** typ macierzy (kwadratowa/prostokątna/diagonalna) */
-  unsigned int mtrxValType = chooseTypeOfNumbers(hOut); /** typ wartości przekazywany we wzorcu (int/double) */
+  unsigned short int mtrxType = chooseTypeOfMatrix(hOut); /** typ macierzy (kwadratowa/prostokątna/diagonalna) */
+  unsigned short int mtrxValType = chooseTypeOfNumbers(hOut); /** typ wartości przekazywany we wzorcu (int/double) */
 
   /** Przechowalnia ilości wierszy i/lub kolumn */
   unsigned short int* sizeMtrx = setMtrxSize(hOut, mtrxType, mtrxValType);
 
   if(mtrxValType == 1) { /** Macierz tylko znaki stałoprzecinkowe */
-    createMtrxObject<short int>(sizeMtrx, hOut, mtrxType, mtrxValType);
+    createMtrxObject<int>(sizeMtrx, hOut, mtrxType, mtrxValType);
   } else { /** Macierz znaki zmienno i stałoprzecinkowe */
     createMtrxObject<double>(sizeMtrx, hOut, mtrxType, mtrxValType);
   }

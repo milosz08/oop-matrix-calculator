@@ -22,7 +22,7 @@ void startPrg() {
     initMtrxObj(hOut);
 
     std::cout << "\nDziękuję za skorzystanie z kalkulatora macierzy. Program zakończył działanie.\n";
-    std::system("pause"); /** Zachowanie okna konsoli */
+    std::system("pause"); /** Zachowanie okna konsoli po zakończeniu działania programu */
 
   } catch(std::logic_error& e) {
 

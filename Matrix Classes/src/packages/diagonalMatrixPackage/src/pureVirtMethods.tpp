@@ -1,9 +1,5 @@
 #include "../DiagonalMatrix.hpp"
 
-/*************************************************************
- * METODY PRZESŁONIĘTE CZYSTO WIRTUALNE Z KLASY ABSTRAKCYJNEJ
- *************************************************************/
-
 
 /*!
  * @fn mtrxTypeAndSizeInfo()
@@ -54,7 +50,7 @@ void DiagonalMatrix<M>::insertMtrx(HANDLE& hOut) {
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
     std::cout << "\nWpisz poniżej" << (!repeatMess ? "" : " ponownie");
     std::cout << " elemety macierzy diagonalnej (po spacji):\n";
-    for(unsigned int i = 0; i < this->mtrxWidth; i++) {
+    for(unsigned short int i = 0; i < this->mtrxWidth; i++) {
       std::cin >> this->diagTab[i];
     }
 

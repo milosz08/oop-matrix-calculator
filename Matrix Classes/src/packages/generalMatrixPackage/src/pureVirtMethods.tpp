@@ -1,9 +1,5 @@
 #include "../GeneralMatrix.hpp"
 
-/*************************************************************
- * METODY PRZESŁONIĘTE CZYSTO WIRTUALNE Z KLASY ABSTRAKCYJNEJ
- *************************************************************/
-
 
 /*!
  * @fn mtrxTypeAndSizeInfo()
@@ -66,8 +62,8 @@ void GeneralMatrix<M>::insertMtrx(HANDLE& hOut) {
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
     std::cout << "\nWpisz " << (!repeatMess ? "" : "ponownie ") << "swoją macierz:\n";
 
-    for(unsigned int i = 0; i < this->mtrxHeight; i++) {
-      for(unsigned int j = 0; j < this->mtrxWidth; j++) {
+    for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
+      for(unsigned short int j = 0; j < this->mtrxWidth; j++) {
         std::cin >> this->mtrx[i][j];
       }
     }

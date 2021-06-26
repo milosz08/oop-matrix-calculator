@@ -1,11 +1,6 @@
 #include "../MatrixAbstract.hpp"
 
 
-/************************************
- * KONSTRUKTORY KLASY ABSTRAKCYJNEJ
- ************************************/
-
-
 /*!
  * @fn GeneralMatrix()
  *
@@ -63,7 +58,7 @@ MatrixAbstract<M>::MatrixAbstract(unsigned short int& s) : mtrxWidth{s}, mtrxHei
 template<class M>
 MatrixAbstract<M>::MatrixAbstract(const MatrixAbstract<M>& c) : mtrxWidth{c.mtrxWidth}, mtrxHeight{c.mtrxHeight} {
   this->mtrx = new M* [c.mtrxHeight];
-  for(unsigned int i = 0; i < c.mtrxHeight; i++) {
+  for(unsigned short int i = 0; i < c.mtrxHeight; i++) {
     this->mtrx[i] = new M [c.mtrxWidth];
   }
 }
@@ -78,7 +73,7 @@ MatrixAbstract<M>::MatrixAbstract(const MatrixAbstract<M>& c) : mtrxWidth{c.mtrx
  */
 template<class M>
 MatrixAbstract<M>::~MatrixAbstract() {
-  for(unsigned int i = 0; i < this->mtrxHeight; i++) {
+  for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
     delete[] this->mtrx[i];
   }
   delete[] this->mtrx;

@@ -42,39 +42,40 @@ namespace generalMatrixPackage {
   template<class M> GeneralMatrix<M> operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
   template<class M> GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
   template<class M> GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrx, const double& scalar);
-  template<class M>
-    M detRecursion(unsigned short int mtrxS, unsigned short int nextRow, unsigned short int* colCount, M** mtrx);
+  template<class M> M detRecursion(unsigned short int mtrxS, unsigned short int nextRow,
+                                   unsigned short int* colCount, M** mtrx);
 
   template<class M>
   class GeneralMatrix : public matrixAbstractPackage::MatrixAbstract<M> {
-  public:
-    GeneralMatrix();
-    GeneralMatrix(unsigned short int&, unsigned short int&); /** Sygnatura konstr. macierzy prostokątnej */
-    GeneralMatrix(unsigned short int&); /** Sygnatura konstr. macierzy kwadratowej */
-    GeneralMatrix(const GeneralMatrix<M>&); /** Sygnatura konstr. kopiującego */
+    public:
+      GeneralMatrix();
+      GeneralMatrix(unsigned short int&, unsigned short int&); /** Sygnatura konstr. macierzy prostokątnej */
+      GeneralMatrix(unsigned short int&); /** Sygnatura konstr. macierzy kwadratowej */
+      GeneralMatrix(const GeneralMatrix<M>&); /** Sygnatura konstr. kopiującego */
 
-    virtual void insertMtrx(HANDLE&); /** Wstawianie macierzy */
+      virtual void insertMtrx(HANDLE&); /** Wstawianie macierzy */
 
-    GeneralMatrix<M> transposeMtrx(); /** Transponowanie macierzy */
-    GeneralMatrix<M> coupledMtrx(); /** Macierz sprzężona */
-    M determinantMtrx(HANDLE&); /** Wyznacznik (tylko macierze kwadratowe) n-tego stopnia */
-    GeneralMatrix<double> inverseMtrx();
+      GeneralMatrix<M> transposeMtrx(); /** Transponowanie macierzy */
+      GeneralMatrix<M> coupledMtrx(); /** Macierz sprzężona */
+      M determinantMtrx(HANDLE&); /** Wyznacznik (tylko macierze kwadratowe) n-tego stopnia */
+      GeneralMatrix<double> inverseMtrx();
 
-    ~GeneralMatrix();
+      ~GeneralMatrix();
 
-  private:
-    virtual void mtrxTypeAndSizeInfo(); /** Metoda z klasy abstrakcyjnej */
+    private:
+      virtual void mtrxTypeAndSizeInfo(); /** Metoda z klasy abstrakcyjnej */
 
-  public:
-    friend GeneralMatrix<M> operator+ <>(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
-    friend GeneralMatrix<M> operator- <>(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
-    friend GeneralMatrix<M> operator* <>(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
-    friend GeneralMatrix<M> operator* <>(const GeneralMatrix<M>& mtrx, const double& scalar);
+    public:
+      friend GeneralMatrix<M> operator+ <>(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
+      friend GeneralMatrix<M> operator- <>(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
+      friend GeneralMatrix<M> operator* <>(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
+      friend GeneralMatrix<M> operator* <>(const GeneralMatrix<M>& mtrx, const double& scalar);
 
-    friend M detRecursion <>(unsigned short int mtrxS, unsigned short int nextRow, unsigned short int* colCount, M** mtrx);
+      friend M detRecursion <>(unsigned short int mtrxS, unsigned short int nextRow,
+                               unsigned short int* colCount, M** mtrx);
 
-  private:
-    unsigned short int* colsCount{nullptr};
+    private:
+      unsigned short int* colsCount{nullptr};
   };
 
   #include "src/constructors.tpp" /** Deklaracje konstruktorów */

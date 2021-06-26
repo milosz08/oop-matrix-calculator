@@ -1,9 +1,5 @@
 #include "../../GeneralMatrix.hpp"
 
-/*******************************************************************************************************
- * METODY OPERACJI MATEMATYCZNYCH KLASY GENERALMATRIX (DZIEDZICZĄCEJ PO KLASIE ABSTRAKCYJNEJ - BAZOWEJ)
- *******************************************************************************************************/
-
 
 /*!
  * @fn transposeMtrx()
@@ -18,8 +14,8 @@
 template<class M>
 GeneralMatrix<M> GeneralMatrix<M>::transposeMtrx() {
   GeneralMatrix<M> mtrxTrans = GeneralMatrix<M>{*this}; /** Kopiowanie macierzy */
-  for(unsigned int i = 0; i < this->mtrxHeight; i++) {
-    for(unsigned int j = 0; j < this->mtrxWidth; j++) {
+  for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
+    for(unsigned short int j = 0; j < this->mtrxWidth; j++) {
       mtrxTrans.mtrx[i][j] = this->mtrx[j][i];
     }
   }
@@ -40,8 +36,8 @@ GeneralMatrix<M> GeneralMatrix<M>::transposeMtrx() {
 template<class M>
 GeneralMatrix<M> GeneralMatrix<M>::coupledMtrx() {
   GeneralMatrix<M> mtrxCoup = GeneralMatrix<M>{*this}; /** Kopiowanie macierzy */
-  for(unsigned int i = 0; i < this->mtrxHeight; i++) {
-    for(unsigned int j = 0; j < this->mtrxWidth; j++) {
+  for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
+    for(unsigned short int j = 0; j < this->mtrxWidth; j++) {
       mtrxCoup.mtrx[i][j] = this->mtrx[i][j] * -1;
     }
   }
@@ -75,7 +71,7 @@ M GeneralMatrix<M>::determinantMtrx(HANDLE& hOut) {
     throw std::logic_error("Program nie wspiera obliczania wyznacznika z macierzy prostokątnej.");
   } else {
     this->colsCount = new unsigned short int[this->mtrxWidth];
-    for(unsigned int i = 0; i < this->mtrxWidth; i++) {
+    for(unsigned short int i = 0; i < this->mtrxWidth; i++) {
       this->colsCount[i] = i;
     }
     mtrxDet = detRecursion<M>(this->mtrxWidth, 0, this->colsCount, this->mtrx);
@@ -118,8 +114,8 @@ GeneralMatrix<double> GeneralMatrix<M>::inverseMtrx() {
   } else {
 
     /** Dodanie do istniejącej macierzy (A) macierzy jednostkowej (I) */
-    for(unsigned int i = 0; i < this->mtrxHeight; i++) {
-      for(unsigned int j = 0; j < doubleWidth; j++) {
+    for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
+      for(unsigned short int j = 0; j < doubleWidth; j++) {
         if(j == i + this->mtrxWidth) { /** Diagonalna (jednostkowa) */
           mtrxWithIdn.mtrx[i][j] = 1;
         } else if(j >= this->mtrxWidth) { /** Pozostałe komórki (jednostkowa) */
@@ -130,12 +126,12 @@ GeneralMatrix<double> GeneralMatrix<M>::inverseMtrx() {
       }
     }
 
-    for(unsigned int i = 0; i < this->mtrxHeight; i++) {
-      for(unsigned int j = 0; j < this->mtrxWidth; j++) {
+    for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
+      for(unsigned short int j = 0; j < this->mtrxWidth; j++) {
         if(i != j) { /** Pomiń elementy na diagonalnej */
           /** Podzielenie kolejnych elementów kolumn przez kolejne wartości diagonalnej i zapisanie w tempMath */
           tempMath = mtrxWithIdn.mtrx[j][i] / mtrxWithIdn.mtrx[i][i];
-          for(unsigned int k = 0; k < doubleWidth; k++) {
+          for(unsigned short int k = 0; k < doubleWidth; k++) {
             /** Przejście przez kolejne elementy wierszów macierzy wspólnej (podwójna szerokość) i odjęcie od
              * aktualnej  wartości elementu wiersza (pętla wewnętrzna) wartości w zmiennej tempMath przemnożonej
              * przez kolejne elementy wiersza (pętla zewnętrzna) */
@@ -145,10 +141,10 @@ GeneralMatrix<double> GeneralMatrix<M>::inverseMtrx() {
       }
     }
 
-    for(unsigned int i = 0; i < this->mtrxWidth; i++) {
+    for(unsigned short int i = 0; i < this->mtrxWidth; i++) {
       /** Przypisanie do zmiennej tempMath wartości leżących na diagonalnej */
       tempMath = mtrxWithIdn.mtrx[i][i];
-      for(unsigned int j = 0; j < doubleWidth; j++) {
+      for(unsigned short int j = 0; j < doubleWidth; j++) {
         /** Zaktualizowanie kolejnych elementów macierzy podwójnej poprzez podzielenie aktualnej wartości przez
          * wcześniej przypisaną zmienną tempMath */
         mtrxWithIdn.mtrx[i][j] /= tempMath;
@@ -156,8 +152,8 @@ GeneralMatrix<double> GeneralMatrix<M>::inverseMtrx() {
     }
 
     /** Przypisanie elementów (oprócz elm macierzy jednostkowej) do macierzy z obiektu macierzy odwrotnej */
-    for(unsigned int i = 0; i < this->mtrxWidth; i++) {
-      for(unsigned int j = this->mtrxWidth; j < doubleWidth; j++) {
+    for(unsigned short int i = 0; i < this->mtrxWidth; i++) {
+      for(unsigned short int j = this->mtrxWidth; j < doubleWidth; j++) {
         mtrxInvrs.get_Mtrx()[i][j - this->mtrxWidth] = mtrxWithIdn.mtrx[i][j];
       }
     }

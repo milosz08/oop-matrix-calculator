@@ -1,5 +1,6 @@
 #include "../../interfaceDecl.hpp"
 
+
 /*!
  * @fn secondMtrxMath(unsigned int& choose,  M& objF, M& objS, HANDLE& hOut)
  *
@@ -16,7 +17,7 @@
  * @param hOut - uchwyt na wyjście z konsoli (zadeklarowany w funkcji startPrg i przekazywany przez referencję).
  */
 template<class M>
-void secondMtrxMath(unsigned int& choose, M& objF, M& objS, HANDLE& hOut) {
+void secondMtrxMath(unsigned short int& choose, M& objF, M& objS, HANDLE& hOut) {
   switch(choose) {
     case 1: { /** Dodawanie macierzy */
       M objAdd = objF + objS;

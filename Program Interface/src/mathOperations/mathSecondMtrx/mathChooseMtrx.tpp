@@ -23,9 +23,9 @@
  * @return Funkcja zwraca opcję wybraną przez użytkownika (w postaci wartości całkowitej) z zakresu 1-3.
  */
 template<typename T>
-unsigned int mathSecondMatrix(MatrixAbstract<T>* objF, MatrixAbstract<T>* objS, HANDLE& hOut) {
+unsigned short int mathSecondMatrix(MatrixAbstract<T>* objF, MatrixAbstract<T>* objS, HANDLE& hOut) {
 
-  unsigned int choice{0}; /** Zwracany wybór opcji */
+  unsigned short int choice{0}; /** Zwracany wybór opcji */
   bool error{false}; /** Zwalnianie/ustawianie blokady pętli */
 
   objS->insertMtrx(hOut); /** Wprowadzanie macierzy */

@@ -1,5 +1,6 @@
 #include "../interfaceDecl.hpp"
 
+
 /*!
  * @fn chooseTypeOfNumbers(HANDLE& hOut)
  *
@@ -14,8 +15,8 @@
  *
  * @return Funkcja zwraca opcję wybraną przez użytkownika (w postaci wartości całkowitej z zakresu 1-2)
  */
-unsigned int chooseTypeOfNumbers(HANDLE& hOut) {
-  unsigned int choice{0};
+unsigned short int chooseTypeOfNumbers(HANDLE& hOut) {
+  unsigned short int choice{0};
   bool error{false};
 
   do {

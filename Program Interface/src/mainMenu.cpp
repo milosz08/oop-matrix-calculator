@@ -15,8 +15,9 @@
  * @param hOut - uchwyt na wyjście z konsoli (zadeklarowany w funkcji startPrg i przekazywany przez referencję).
  */
 void mainMenu(HANDLE& hOut) {
-  unsigned int choice{0};
+  unsigned short int choice{0};
   bool error{false};
+
   do {
     error = false;
 
@@ -27,7 +28,7 @@ void mainMenu(HANDLE& hOut) {
 
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
     MatrixAbstract<double>::genInfoBlock("AUTOR", {
-      "Napisane w C++ z użyciem mechanizmów obiektowosci przez Miłosz Gilga.",
+      "Napisane w C++ z użyciem mechanizmów obiektowości przez Miłosz Gilga.",
       "Programowanie Komputerów, Wydział Elektryczny, Politechnika Śląska, Gliwice.",
       "(c) 2021 by Miłosz Gilga (github.com/Milosz08)."
     });
@@ -42,6 +43,12 @@ void mainMenu(HANDLE& hOut) {
       "* Transponowanie macierzy.",
     });
 
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
+    MatrixAbstract<double>::genInfoBlock("UWAGA!", {
+      "Z uwagi na dużą złożoność obliczeniową wyznacznika macierzy O(n!) rekurencyjną",
+      "metodą Laplace'a, maksymalną macierz jaką program może przyjąć to 20x20.",
+    });
+
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
     MatrixAbstract<double>::genInfoBlock("MENU POCZATKOWE", {
       "Aby zainicjalizowac program, wybierz jedną opcje z poniższego menu:",
@@ -53,7 +60,8 @@ void mainMenu(HANDLE& hOut) {
     std::cin >> choice;
     switch(choice) {
       case 1: {
-        std::system("cls"); break;
+        std::system("cls");
+        break;
       } case 2: {
         MatrixAbstract<double>::sequentialMess(5, "Program zakończy działanie za");
         std::cout << "\nDziękuję za skorzystanie z kalkulatora macierzy. Program zakończył działanie.\n";

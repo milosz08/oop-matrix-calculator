@@ -1,5 +1,6 @@
 #include "../../interfaceDecl.hpp"
 
+
 /*!
  * @fn mathChooseMtrx(MatrixAbstract<T>* obj, HANDLE& hOut)
  *
@@ -24,8 +25,8 @@
  *         kwadratowe) lub 1-4 (macierze prostokątne).
  */
 template<typename T>
-unsigned int mathChooseMtrx(MatrixAbstract<T>* obj, HANDLE& hOut) {
-  unsigned int choice{0};
+unsigned short int mathChooseMtrx(MatrixAbstract<T>* obj, HANDLE& hOut) {
+  unsigned short int choice{0};
   std::vector<std::string>strArr; /** Tablica przechowująca zawartość menu do wydrukowania */
   bool error{false};
 

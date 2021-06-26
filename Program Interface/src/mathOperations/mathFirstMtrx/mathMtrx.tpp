@@ -33,11 +33,11 @@
  *                      całkowitych, 2 - dla wartości całkowitych oraz zmiennoprzecinkowych (double).
  */
 template<class M, class I, typename T>
-void onlyOneMtrxMath(unsigned int& choose, MatrixAbstract<T>* ptr, M& obj, HANDLE& hOut,
-                     unsigned int& mtrxType, unsigned int& mtrxValType) {
+void onlyOneMtrxMath(unsigned short int& choose, MatrixAbstract<T>* ptr, M& obj, HANDLE& hOut,
+                     unsigned short int& mtrxType, unsigned short int& mtrxValType) {
   switch(choose) {
     case 1: { /** Operacje arytmetyczne na dwóch macierzach */
-      unsigned int chooseMath{0};
+      unsigned short int chooseMath{0};
 
       /** Przechowalnia ilości wierszy i/lub kolumn */
       unsigned short int* sizeMtrx = setMtrxSize(hOut, mtrxType, mtrxValType);
