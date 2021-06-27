@@ -58,6 +58,7 @@ void mainMenu(HANDLE& hOut) {
 
     std::cout << "\nTwój wybór: ";
     std::cin >> choice;
+
     switch(choice) {
       case 1: {
         std::system("cls");

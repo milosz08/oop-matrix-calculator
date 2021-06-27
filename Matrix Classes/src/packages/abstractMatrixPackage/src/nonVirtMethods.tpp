@@ -13,15 +13,11 @@
  * @param textMess - jeśli "true" drukuje komunikat, jeśli "false" drukuje jednynie macierz.
  *
  * @param sharpBrc - "true" dla zaznaczenia macierzy, "false" dla zaznaczenia wyznacznika macierzy.
- *
- * @param autoFreeSpaces - jeśli "true" kolejne elementy macierzy ustawiane są automatycznie przy pomocy tabulatora,
- *                         jeśli "false" kolejne elementy macierzy ustawiane są na podstawie ich długości.
  */
 template<class M>
-void MatrixAbstract<M>::printMtrx(HANDLE& hOut, const bool textMess, const bool sharpBrc,
-                                        const bool autoFreeSpaces) const {
+void MatrixAbstract<M>::printMtrx(HANDLE& hOut, const bool textMess, const bool sharpBrc) const {
 
-  unsigned short int spaces{0}; /** Przerwa pomiędzy kolejnymi kolumnami */
+  unsigned short int spaces{0}, longestNr{0};
 
   if(textMess) {
 
@@ -38,28 +34,23 @@ void MatrixAbstract<M>::printMtrx(HANDLE& hOut, const bool textMess, const bool 
   for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
     for(unsigned short int j = 0; j < this->mtrxWidth; j++) {
 
+      longestNr = longestNumber(j); /** Najdłuższa liczba w kolumnie */
+      spaces = longestNr - longOfCell(this->mtrx[i][j]) + 2; /** Ilość pustych znaków */
+
       if(j == 0) { /** Jeśli jest to 1 kolumna macierzy */
         std::cout << (sharpBrc ? "  [ " : "  | ");
       }
 
-      if(!autoFreeSpaces) {
-        std::cout << this->mtrx[i][j];
+      /** Wypisanie macierzy z precyzją cyfr na podstawie najdłuższej liczby w kolumnie */
+      std::cout << std::setprecision(longestNr - 1) << this->mtrx[i][j];
 
-        if(j == this->mtrxWidth - 1) { /** Jeśli jest to ostatnia kolumna macierzy */
-          spaces = findMaxLength(j) - lengthOfElm(this->mtrx[i][j]) - 2;
-        } else { /** Pozostałe kolumny macierzy */
-          spaces = findMaxLength(j) - lengthOfElm(this->mtrx[i][j]);
-        }
-
-        for(unsigned short int k = 0; k < spaces; k++) {
-          std::cout << " ";
-        }
-
-      } else {
-        std::cout << this->mtrx[i][j] << "\t";
+      /** Dodaj puste znaki w celu wyrównania kolumn */
+      for(unsigned short int k = 0; k < spaces; k++) {
+        std::cout << " ";
       }
+
     }
-    std::cout << (sharpBrc ? " ]" : " |") << "\n";
+    std::cout << (sharpBrc ? "]" : "|") << "\n";
   }
 }
 
@@ -75,7 +66,7 @@ void MatrixAbstract<M>::printMtrx(HANDLE& hOut, const bool textMess, const bool 
  *
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
  *
- * @return - Wartość skalara zapisaną w polu klasy.
+ * @return Metoda zwraca wartość skalara zapisaną w polu klasy.
  */
 template<class M>
 double MatrixAbstract<M>::scalarValuePush(HANDLE& hOut) {

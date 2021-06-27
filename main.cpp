@@ -3,15 +3,13 @@
 /*!
  * @title KALKULATOR MACIERZY
  *
- *******************************************************************************************************************
- *
  * @author Miłosz Gilga
  *
  * @date 06/2021
  *
  * @copyright (c) 2021 by Miłosz Gilga. Cały kod wraz z opisem oraz kolejnymi etapami produkcji programu
- *            (wszystkie commity wraz z tagami razem z opisem w postaci daty) znajduje się na moim
- *            repozytorium GitHub pod adresem: https://github.com/Milosz08/Matrix-Calculator-Objective-Cpp.
+ *            (wszystkie commity wraz z tagami razem z opisem) znajduje się na moim repozytorium
+ *            GitHub pod adresem: https://github.com/Milosz08/Matrix-Calculator-Objective-Cpp.
  *
  * @description Program wykonany na przedmiot Programowanie Komputerów z wykorzystaniem elementów
  *              obiektowości języka C++. Wydział Elektryczny, Politechnika Śląska, Gliwice 2021.
@@ -37,7 +35,7 @@
  *        + Mnożenie macierzy przez wartość skalarną.<br>
  *        + Transponowanie macierzy.<br>
  *
- *******************************************************************************************************************/
+ */
 
 int main() {
   SetConsoleOutputCP(CP_UTF8); /** Polskie znaki w konsoli */

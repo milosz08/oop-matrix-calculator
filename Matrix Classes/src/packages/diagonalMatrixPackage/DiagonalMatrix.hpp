@@ -81,7 +81,7 @@ namespace diagonalMatrixPackage {
   #include "src/privateMethods.tpp" /** Metody prywatne (niedziedziczne) */
 
   #include "src/mathAndOprts/mathMethods.tpp" /** Operacje arytmetyczne - metody */
-  #include "src/mathAndOprts/friendOprts.inl" /** Przeciążenia operatorów (funkcje zaprzyjaźnione) */
+  #include "src/mathAndOprts/friendOprts.tpp" /** Przeciążenia operatorów (funkcje zaprzyjaźnione) */
 }
 
 #endif

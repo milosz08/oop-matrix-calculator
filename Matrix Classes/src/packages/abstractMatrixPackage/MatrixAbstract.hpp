@@ -6,6 +6,7 @@
 #include <limits>
 #include <vector>
 #include <windows.h>
+#include <iomanip>
 
 
 namespace matrixAbstractPackage {
@@ -19,14 +20,14 @@ namespace matrixAbstractPackage {
    *               konstruktor jednoargumentowy przyjmujący za parametr stopień macierzy (macierze kwadratowe),
    *               oraz konstruktor kopiujący, przyjmujący za parametr obiekt do skopiowania (niemodyfikowalny).
    *
-   * @destructor Klasa posiada destruktor wirtualny delokujący pamięć oraz wywołujący destruktory z klas pochodnych.
+   * @destructor Klasa posiada destruktor wirtualny delokujący pamięć, wywołujący destruktory z klas pochodnych
+   *             w celu ochrony programu przed wyciekami pamięci.
    *
    * @methods Klasa posiada 3 metody statyczne, wykorzystywane na potrzeby metod składowych klas dziedziczących oraz
    *          funkcji interfejsu. Ponadto posiada 2 metody czysto wirtualne przysłaniane w klasach dziedziczących.
    *          Oprócz tego posiada 2 metody nieprzysłanialne, wspólne i jednakowe dla każdego obiektu klasy
    *          dziedziczącej. Klasa posiada również własne 3 metody niedziedziczne, stanowiące uzupełnienie metod
-   *          wirtualnych. Klasa posiada zadeklarowany wirtualny destruktor w celu ochrony programu
-   *          przed wyciekami pamięci.
+   *          wirtualnych.
    *
    * @getters Klasa posiada zadeklarowane 3 funkcje getter dające możliwość dostępu do chronionych pól. Są to
    *          odpowiednio: pobieranie parametrów macierzy (w postaci liczby wierszy lub kolumn) oraz pobieranie
@@ -49,7 +50,7 @@ namespace matrixAbstractPackage {
       MatrixAbstract(unsigned short int&); /** Sygnatura konstr. dla macierzy kwadratowych */
       MatrixAbstract(const MatrixAbstract<M>&); /** Sygnatura konstr. kopiującego */
 
-      void printMtrx(HANDLE&, const bool, const bool, const bool) const; /** Drukowanie macierzy */
+      void printMtrx(HANDLE&, const bool, const bool) const; /** Drukowanie macierzy */
       double scalarValuePush(HANDLE&); /** Wprowadzanie wartości skalara */
 
       virtual void mtrxTypeAndSizeInfo() = 0; /** Wypisywanie wiadomosci */
@@ -64,8 +65,9 @@ namespace matrixAbstractPackage {
 
     private: /** Metody prywatne; dostępne tylko na użytek metod klasy abstrakcyjnej */
       void allocateMemory(); /** Alokacja pamięci */
-      unsigned short int findMaxLength(unsigned short int&) const;
-      unsigned short int lengthOfElm(M&) const;
+      bool ifValueIsInt(std::string&) const;
+      unsigned short int longestNumber(unsigned short int&) const;
+      unsigned short int longOfCell(M&) const;
 
     public: /** Gettery */
       unsigned short int get_Cols() const;

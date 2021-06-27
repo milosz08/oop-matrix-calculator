@@ -82,6 +82,6 @@ namespace generalMatrixPackage {
   #include "src/pureVirtMethods.tpp" /** Metody przysłaniające metody czysto wirtualne klasy abstrakcyjnej */
 
   #include "src/mathAndOprts/mathMethods.tpp" /** Operacje arytmetyczne - metody */
-  #include "src/mathAndOprts/friendOprts.inl" /** Przeciążenia operatorów (funkcje zaprzyjaźnione) */
+  #include "src/mathAndOprts/friendOprts.tpp" /** Przeciążenia operatorów (funkcje zaprzyjaźnione) */
 }
 #endif

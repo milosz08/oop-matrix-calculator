@@ -33,7 +33,7 @@ unsigned short int mathChooseMtrx(MatrixAbstract<T>* obj, HANDLE& hOut) {
   obj->insertMtrx(hOut); /** Wprowadzanie macierzy */
   do {
     error = false;
-    obj->printMtrx(hOut, true, true, false); /** Drukowanie macierzy */
+    obj->printMtrx(hOut, true, true); /** Drukowanie macierzy */
 
     if(obj->get_Cols() == obj->get_Rows()) { /** Macierz kwadratowa */
       strArr = {
