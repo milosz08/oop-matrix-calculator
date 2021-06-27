@@ -36,7 +36,6 @@
  *        + Transponowanie macierzy.<br>
  *
  */
-
 int main() {
   SetConsoleOutputCP(CP_UTF8); /** Polskie znaki w konsoli */
 

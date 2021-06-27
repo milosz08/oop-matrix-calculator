@@ -9,7 +9,7 @@ CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseMtrx
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseMtrxType.cpp.obj: ../Matrix\ Classes/src/packages/abstractMatrixPackage/src/staticMethods.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseMtrxType.cpp.obj: ../Matrix\ Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseMtrxType.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
-CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseMtrxType.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.inl
+CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseMtrxType.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseMtrxType.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/mathAndOprts/mathMethods.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseMtrxType.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/pureVirtMethods.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseMtrxType.cpp.obj: ../Program\ Interface/src/initObjects/chooseMtrxType.cpp
@@ -23,7 +23,7 @@ CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseNmbr
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseNmbrType.cpp.obj: ../Matrix\ Classes/src/packages/abstractMatrixPackage/src/staticMethods.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseNmbrType.cpp.obj: ../Matrix\ Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseNmbrType.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
-CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseNmbrType.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.inl
+CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseNmbrType.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseNmbrType.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/mathAndOprts/mathMethods.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseNmbrType.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/pureVirtMethods.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseNmbrType.cpp.obj: ../Program\ Interface/src/initObjects/chooseNmbrType.cpp
@@ -37,7 +37,7 @@ CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/initMtrxOb
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/initMtrxObj.cpp.obj: ../Matrix\ Classes/src/packages/abstractMatrixPackage/src/staticMethods.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/initMtrxObj.cpp.obj: ../Matrix\ Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/initMtrxObj.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
-CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/initMtrxObj.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.inl
+CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/initMtrxObj.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/initMtrxObj.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/mathAndOprts/mathMethods.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/initMtrxObj.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/pureVirtMethods.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/initMtrxObj.cpp.obj: ../Program\ Interface/src/initObjects/initMtrxObj.cpp
@@ -56,7 +56,7 @@ CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/setMtrxSiz
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/setMtrxSize.cpp.obj: ../Matrix\ Classes/src/packages/abstractMatrixPackage/src/staticMethods.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/setMtrxSize.cpp.obj: ../Matrix\ Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/setMtrxSize.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
-CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/setMtrxSize.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.inl
+CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/setMtrxSize.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/setMtrxSize.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/mathAndOprts/mathMethods.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/setMtrxSize.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/pureVirtMethods.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/setMtrxSize.cpp.obj: ../Program\ Interface/src/initObjects/setMtrxSize.cpp
@@ -70,7 +70,7 @@ CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/mainMenu.cpp.obj: ../M
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/mainMenu.cpp.obj: ../Matrix\ Classes/src/packages/abstractMatrixPackage/src/staticMethods.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/mainMenu.cpp.obj: ../Matrix\ Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/mainMenu.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
-CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/mainMenu.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.inl
+CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/mainMenu.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/mainMenu.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/mathAndOprts/mathMethods.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/mainMenu.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/pureVirtMethods.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/mainMenu.cpp.obj: ../Program\ Interface/src/interfaceDecl.hpp
@@ -84,7 +84,7 @@ CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/startPrg.cpp.obj: ../M
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/startPrg.cpp.obj: ../Matrix\ Classes/src/packages/abstractMatrixPackage/src/staticMethods.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/startPrg.cpp.obj: ../Matrix\ Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/startPrg.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
-CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/startPrg.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.inl
+CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/startPrg.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/startPrg.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/mathAndOprts/mathMethods.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/startPrg.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/pureVirtMethods.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/startPrg.cpp.obj: ../Program\ Interface/src/interfaceDecl.hpp
@@ -98,7 +98,7 @@ CMakeFiles/PK_Matrix_Calculator.dir/main.cpp.obj: ../Matrix\ Classes/src/package
 CMakeFiles/PK_Matrix_Calculator.dir/main.cpp.obj: ../Matrix\ Classes/src/packages/abstractMatrixPackage/src/staticMethods.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/main.cpp.obj: ../Matrix\ Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp
 CMakeFiles/PK_Matrix_Calculator.dir/main.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
-CMakeFiles/PK_Matrix_Calculator.dir/main.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.inl
+CMakeFiles/PK_Matrix_Calculator.dir/main.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/main.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/mathAndOprts/mathMethods.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/main.cpp.obj: ../Matrix\ Classes/src/packages/generalMatrixPackage/src/pureVirtMethods.tpp
 CMakeFiles/PK_Matrix_Calculator.dir/main.cpp.obj: ../Program\ Interface/src/interfaceDecl.hpp

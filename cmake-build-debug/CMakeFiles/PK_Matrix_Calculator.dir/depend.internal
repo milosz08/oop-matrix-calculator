@@ -10,7 +10,7 @@ CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseMtrx
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/src/staticMethods.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
- D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.inl
+ D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/mathAndOprts/mathMethods.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/pureVirtMethods.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/initObjects/chooseMtrxType.cpp
@@ -24,7 +24,7 @@ CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseNmbr
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/src/staticMethods.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
- D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.inl
+ D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/mathAndOprts/mathMethods.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/pureVirtMethods.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/initObjects/chooseNmbrType.cpp
@@ -38,7 +38,7 @@ CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/initMtrxOb
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/src/staticMethods.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
- D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.inl
+ D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/mathAndOprts/mathMethods.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/pureVirtMethods.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/initObjects/initMtrxObj.cpp
@@ -57,7 +57,7 @@ CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/setMtrxSiz
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/src/staticMethods.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
- D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.inl
+ D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/mathAndOprts/mathMethods.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/pureVirtMethods.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/initObjects/setMtrxSize.cpp
@@ -71,7 +71,7 @@ CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/mainMenu.cpp.obj
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/src/staticMethods.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
- D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.inl
+ D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/mathAndOprts/mathMethods.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/pureVirtMethods.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
@@ -85,7 +85,7 @@ CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/startPrg.cpp.obj
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/src/staticMethods.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
- D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.inl
+ D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/mathAndOprts/mathMethods.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/pureVirtMethods.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
@@ -99,7 +99,7 @@ CMakeFiles/PK_Matrix_Calculator.dir/main.cpp.obj
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/src/staticMethods.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
- D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.inl
+ D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/mathAndOprts/mathMethods.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/pureVirtMethods.tpp
  D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
