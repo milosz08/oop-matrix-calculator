@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Kalkulator Macierzy: Dokumentacja pliku Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="polsl logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Kalkulator Macierzy
+   </div>
+   <div id="projectbrief">Projekt zaliczeniowy z labolatorium przedmiotu Programowanie Komputerów. Napisany zgodnie z paradygmatami programowania obiektowego w języku C++</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_38cb5389abe0947eceed07a48a092250.html">Matrix Classes</a></li><li class="navelem"><a class="el" href="dir_2c94d456434de8074d96c89edf12cd69.html">src</a></li><li class="navelem"><a class="el" href="dir_f31fa3e8a9a1a4ce8e5bb7d3fb48946f.html">packages</a></li><li class="navelem"><a class="el" href="dir_1501af9e20806ea712eb651978202325.html">generalMatrixPackage</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Komponenty</a> &#124;
+<a href="#namespaces">Przestrzenie nazw</a> &#124;
+<a href="#func-members">Funkcje</a>  </div>
+  <div class="headertitle">
+<div class="title">Dokumentacja pliku GeneralMatrix.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="_matrix_abstract_8hpp_source.html">../abstractMatrixPackage/MatrixAbstract.hpp</a>&quot;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;limits&gt;</code><br />
+<code>#include &lt;iomanip&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;windows.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="general_matrix_package_2src_2constructors_8tpp.html">src/constructors.tpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="general_matrix_package_2src_2pure_virt_methods_8tpp.html">src/pureVirtMethods.tpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="general_matrix_package_2src_2math_and_oprts_2math_methods_8tpp.html">src/mathAndOprts/mathMethods.tpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="general_matrix_package_2src_2math_and_oprts_2friend_oprts_8tpp.html">src/mathAndOprts/friendOprts.tpp</a>&quot;</code><br />
+</div>
+<p><a href="_general_matrix_8hpp_source.html">Idź do kodu źródłowego tego pliku.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Komponenty</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgeneral_matrix_package_1_1_general_matrix.html">generalMatrixPackage::GeneralMatrix&lt; M &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Przestrzenie nazw</h2></td></tr>
+<tr class="memitem:namespacegeneral_matrix_package"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegeneral_matrix_package.html">generalMatrixPackage</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funkcje</h2></td></tr>
+<tr class="memitem:a104f64008a7cbb8cca6e529de6b4991b"><td class="memTemplParams" colspan="2">template&lt;class M &gt; </td></tr>
+<tr class="memitem:a104f64008a7cbb8cca6e529de6b4991b"><td class="memTemplItemLeft" align="right" valign="top">GeneralMatrix&lt; M &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacegeneral_matrix_package.html#a104f64008a7cbb8cca6e529de6b4991b">generalMatrixPackage::operator+</a> (const GeneralMatrix&lt; M &gt; &amp;mtrxF, const GeneralMatrix&lt; M &gt; &amp;mtrxS)</td></tr>
+<tr class="separator:a104f64008a7cbb8cca6e529de6b4991b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6905bb7bd43c504c1e83802819c51e29"><td class="memTemplParams" colspan="2">template&lt;class M &gt; </td></tr>
+<tr class="memitem:a6905bb7bd43c504c1e83802819c51e29"><td class="memTemplItemLeft" align="right" valign="top">GeneralMatrix&lt; M &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacegeneral_matrix_package.html#a6905bb7bd43c504c1e83802819c51e29">generalMatrixPackage::operator-</a> (const GeneralMatrix&lt; M &gt; &amp;mtrxF, const GeneralMatrix&lt; M &gt; &amp;mtrxS)</td></tr>
+<tr class="separator:a6905bb7bd43c504c1e83802819c51e29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0738f04355c1c21439fa4787d9ddf178"><td class="memTemplParams" colspan="2">template&lt;class M &gt; </td></tr>
+<tr class="memitem:a0738f04355c1c21439fa4787d9ddf178"><td class="memTemplItemLeft" align="right" valign="top">GeneralMatrix&lt; M &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacegeneral_matrix_package.html#a0738f04355c1c21439fa4787d9ddf178">generalMatrixPackage::operator*</a> (const GeneralMatrix&lt; M &gt; &amp;mtrxF, const GeneralMatrix&lt; M &gt; &amp;mtrxS)</td></tr>
+<tr class="separator:a0738f04355c1c21439fa4787d9ddf178"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a434ff15fb56dd86b4362f0639b257550"><td class="memTemplParams" colspan="2">template&lt;class M &gt; </td></tr>
+<tr class="memitem:a434ff15fb56dd86b4362f0639b257550"><td class="memTemplItemLeft" align="right" valign="top">GeneralMatrix&lt; M &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacegeneral_matrix_package.html#a434ff15fb56dd86b4362f0639b257550">generalMatrixPackage::operator*</a> (const GeneralMatrix&lt; M &gt; &amp;mtrx, const double &amp;scalar)</td></tr>
+<tr class="separator:a434ff15fb56dd86b4362f0639b257550"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a5021345f9a0f2b3dc3d71397283c96"><td class="memTemplParams" colspan="2">template&lt;class M &gt; </td></tr>
+<tr class="memitem:a3a5021345f9a0f2b3dc3d71397283c96"><td class="memTemplItemLeft" align="right" valign="top">M&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacegeneral_matrix_package.html#a3a5021345f9a0f2b3dc3d71397283c96">generalMatrixPackage::detRecursion</a> (unsigned short int mtrxS, unsigned short int nextRow, unsigned short int *colCount, M **mtrx)</td></tr>
+<tr class="separator:a3a5021345f9a0f2b3dc3d71397283c96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

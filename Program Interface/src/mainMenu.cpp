@@ -4,10 +4,10 @@
  * @fn mainMenu(HANDLE& hOut)
  *
  * @brief Funkcja generująca początkowe menu. Informuje o: autorze, wspieranych operacjach oraz daje
- *        możliwość użytkownikowi wybrania dwóch opcji: przejścia dalej lub zakończenia działania programu.
+ *        możliwość użytkownikowi wybrania dwóch opcji: przejścia dalej lub zakończenia działania programu.<br>
  *
- * @protection Funkcja posiada walidację strumienia wejścia. Jeśli użytkownik nie poda liczb z zakresu 1-2 program
- *             zasygnalizuje błąd i po odczekaniu 5 sekund umożliwi użytkownikowi ponowne wybranie opcji.
+ *        Funkcja posiada walidację strumienia wejścia. Jeśli użytkownik nie poda liczb z zakresu 1-2 program
+ *        zasygnalizuje błąd i po odczekaniu 5 sekund umożliwi użytkownikowi ponowne wybranie opcji.
  *
  * @tparam A - wartość szablonu klasy abstrakcyjnej (używane tylko do metody z klasy abstrakcyjnej
  *             "genInfoBlock", "sequentialMess" oraz "errorMess" przy operatorze zakresu).

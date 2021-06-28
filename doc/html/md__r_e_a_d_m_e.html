@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Kalkulator Macierzy: Kalkulator Macierzy</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="polsl logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Kalkulator Macierzy
+   </div>
+   <div id="projectbrief">Projekt zaliczeniowy z labolatorium przedmiotu Programowanie Komputerów. Napisany zgodnie z paradygmatami programowania obiektowego w języku C++</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Kalkulator Macierzy </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h1><a class="anchor" id="autotoc_md1"></a>
+Temat zadania</h1>
+<p>Macierze prostokątne, pamięć alokowana dynamicznie, sprawdzanie wymiarów podczas operacji, podstawowe działania jak dodawanie, odejmowanie, mnożenie, obliczanie wyznacznika. Oprócz podstawowych działań na macierzach należy: wyznacznyć macierz odwrotną, macierz transponowaną itp. Należy obowiązkowo zastosować wzorce.</p>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Autor</h1>
+<p>Program wykonany przez Miłosz Gilga na przedmiot <b>Programowanie Komputerów</b> z wykorzystaniem elementów obiektowości języka C++. Wydział Elektryczny, Politechnika Śląska, Gliwice 2021.</p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Wspierane operacje matematyczne</h1>
+<ul>
+<li>Obliczanie wyznacznika macierzy <code>n</code> elementowej (tylko macierze kwadratowe),</li>
+<li>Obliczanie macierzy odwrotnej względem macierzy pierwotnej (tylko macierze kwadratowe),</li>
+<li>Obliczanie macierzy sprzężonej względem macierzy pierwotnej,</li>
+<li>Podstawowe działania arytmetyczne (dodawanie, odejmowanie, mnożenie),</li>
+<li>Mnożenie macierzy przez wartość skalarną,</li>
+<li>Transponowanie macierzy.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md4"></a>
+Techniczne aspekty programu</h1>
+<h2><a class="anchor" id="autotoc_md5"></a>
+Opis klas</h2>
+<p>Program oparłem na 3 klasach, z czego jedna to klasa abstrakcyjna <code>MatrixAbstract</code> (interfejs) zawierająca metody i pola dziedziczące po 2 klasach pochodnych, z których jedna <code>GeneralMatrix</code> to zwykłe macierze kwadratowe/prostokątne, a druga <code><a class="el" href="class_diagonal_matrix.html" title="Klasa pochodna dziedzicząca po klasie abstrakcyjnej &quot;MatrixAbstract&quot;. Obsługuje zwykłe macierze prost...">DiagonalMatrix</a></code> to macierze diagonalne (które z definicji są tylko kwadratowe). Zdecydowałem się użyć osobnych klas ze względu na różne metody matematyczne obliczające między innymi wyznacznik, czy macierz odwrotną.<br  />
+</p>
+<h2><a class="anchor" id="autotoc_md6"></a>
+Programowanie generyczne (szablony)</h2>
+<p>W programie wykorzystałem programowanie generyczne w postaci:</p><ul>
+<li><b>szablonów klas</b>, w celu zdefiniowania typu wprowadzanych wartości do macierzy (int/double),</li>
+<li><b>szablonów funkcji</b>, w celu zdefiniowania typu przekazywanych argumentów (klasy/wartości),</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md7"></a>
+Obsługa wyjątów (throw)</h2>
+<p>W programie zaimplementowałem obsługę wyjątków (błędów typu <code>std::logic_error</code>) powstałych na skutek wykonania niedozwolonych operacji arytmetycznych, między innymi: wyznacznik z macierzy, która nie jest kwadratowa, czy macierz odwrotna z macierzy, której wyznacznik jest równy zero. Wszystkie wyjątki metod obliczających oraz funkcji zaprzyjaźnionych obsługiwane są w funkcji interfejsu <code><a class="el" href="interface_decl_8hpp.html#a1bc160c7e082fb43a4cda14fe0fc879c" title="Funkcja sterująca wywołująca wyświetlanie menu początkowego (opis programu) oraz inicjująca program....">startPrg()</a></code>. Wyrzucenie każdego wyjątku kończy działanie programu z informacją o błędzie.</p>
+<h1><a class="anchor" id="autotoc_md8"></a>
+Rozszerzalność programu</h1>
+<p>Dzięki użyciu klasy abstrakcyjnej w formie interfejsu przechowującego metody i pola definiujące różne składowe funkcji matematycznych oraz samych macierzy, dodanie nowej klasy (np. definiującej macierze jednostkowe) nie będzie zbyt dużym problemem.</p>
+<h2><a class="anchor" id="autotoc_md9"></a>
+Przestrzenie nazw</h2>
+<p>W programie wykorzystałem przestrzenie nazw. Użyte w celu opakowania klas składowych programu pełnią podobną funkcję do pakietów w Javie. Dzięki temu konflikty nazw (jeśli użytkownik odwołuje się do składowych metod klasy poprzez operator zakresu) są zniwelowane.</p>
+<h1><a class="anchor" id="autotoc_md10"></a>
+Uruchamianie programu</h1>
+<p>Program można uruchomić poprzez plik <code>PK_Matrix_Calculator.exe</code> znajdujący się w katalogu <code>../cmake-build-debug/PK_Matrix_Calculator.exe</code>. Program ten jest programem konsolowym. Pełne wsparcie dla systemu Windows 10 (v20H2) 64-bit. Program nietestowany na systemach Linux oraz macOS. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

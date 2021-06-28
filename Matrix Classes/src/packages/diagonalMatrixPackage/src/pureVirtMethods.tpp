@@ -22,11 +22,11 @@ void DiagonalMatrix<M>::mtrxTypeAndSizeInfo() {
  * @fn insertDiagElms()
  *
  * @brief Metoda przysłaniająca medotę czysto wirtualną klasy abstrakcyjnej. Metoda wprowadzająca podane przez
- *        użytkownika elementy macierzy diagonalnej (po przekątnej) do tablicy dynamicznej.
+ *        użytkownika elementy macierzy diagonalnej (po przekątnej) do tablicy dynamicznej.<br>
  *
- * @protection Metoda posiada walidację strumienia wejścia pod kątem wprowadzanych znaków do macierzy diagonalnej.
- *             Jeśli znak nie jest zgody z typem zmiennej we wzorcu "M" program wyrzuca błąd i daje możliwość
- *             ponownego wpisania znaków macierzy diagonalnej.
+ *        Metoda posiada walidację strumienia wejścia pod kątem wprowadzanych znaków do macierzy diagonalnej.
+ *        Jeśli znak nie jest zgody z typem zmiennej we wzorcu "M" program wyrzuca błąd i daje możliwość
+ *        ponownego wpisania znaków macierzy diagonalnej.<br>
  *
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
  *
@@ -54,7 +54,7 @@ void DiagonalMatrix<M>::insertMtrx(HANDLE& hOut) {
       std::cin >> this->diagTab[i];
     }
 
-    if(std::cin.fail()) { /** Jeśli użytkownik nie wpisze porządanych wartości w strumień wejścia */
+    if(std::cin.fail()) { /** @skip Jeśli użytkownik nie wpisze porządanych wartości w strumień wejścia */
       SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);
       DiagonalMatrix::genInfoBlock("ERROR!", {
         "W wprowadzanej przez Ciebie macierzy znalazłem niedozwolone wartości!",
@@ -66,11 +66,11 @@ void DiagonalMatrix<M>::insertMtrx(HANDLE& hOut) {
 
       std::system("cls");
       error = repeatMess = true;
-      std::cin.clear(); /** Czyszczenie strumienia wejścia */
+      std::cin.clear(); /** @skip Czyszczenie strumienia wejścia */
       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     } else {
-      generateDiagMtrx(false); /** Wstawianie wartości diagonalnej do macierzy */
+      generateDiagMtrx(false); /** @skip Wstawianie wartości diagonalnej do macierzy */
       std::system("cls");
     }
   } while(error);

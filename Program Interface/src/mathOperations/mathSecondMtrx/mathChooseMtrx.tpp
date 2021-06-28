@@ -6,10 +6,10 @@
  *
  * @brief Funkcja umożliwiająca użytkownikowi wpisanie macierzy (na podstawie wskaźnika klasy abstrakcyjnej) oraz
  *        wybranie działania, jakie program ma zrobić na dwóch wprowadzonych macierzach. Dostępne działania to:
- *        dodawanie, odejmowanie oraz mnożenie.
+ *        dodawanie, odejmowanie oraz mnożenie.<br>
  *
- * @protection Funkcja posiada walidację strumienia wejścia. Jeśli użytkownik nie poda liczby z zakresu 1-3
- *             program zasygnalizuje błąd i po odczekaniu 5 sekund umożliwi użytkownikowi ponowne wybranie opcji.
+ *        Funkcja posiada walidację strumienia wejścia. Jeśli użytkownik nie poda liczby z zakresu 1-3
+ *        program zasygnalizuje błąd i po odczekaniu 5 sekund umożliwi użytkownikowi ponowne wybranie opcji.
  *
  * @tparam T - wzorzec, który reprezentuje wartości jakimi można zapełnić macierz (int/double).
  * @tparam A - wartość szablonu klasy abstrakcyjnej (używane tylko do metody z klasy abstrakcyjnej
@@ -25,10 +25,10 @@
 template<typename T>
 unsigned short int mathSecondMatrix(MatrixAbstract<T>* objF, MatrixAbstract<T>* objS, HANDLE& hOut) {
 
-  unsigned short int choice{0}; /** Zwracany wybór opcji */
-  bool error{false}; /** Zwalnianie/ustawianie blokady pętli */
+  unsigned short int choice{0}; /** @skip Zwracany wybór opcji */
+  bool error{false}; /** @skip Zwalnianie/ustawianie blokady pętli */
 
-  objS->insertMtrx(hOut); /** Wprowadzanie macierzy */
+  objS->insertMtrx(hOut); /** @skip Wprowadzanie macierzy */
 
   do {
     error = false;
@@ -64,6 +64,6 @@ unsigned short int mathSecondMatrix(MatrixAbstract<T>* objF, MatrixAbstract<T>* 
     }
 
   } while(error);
-  std::system("cls"); /** czyszczenie konsoli */
+  std::system("cls"); /** @skip czyszczenie konsoli */
   return choice;
 }

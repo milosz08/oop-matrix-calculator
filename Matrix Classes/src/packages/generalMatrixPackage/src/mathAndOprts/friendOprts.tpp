@@ -4,9 +4,9 @@
 /*!
  * @overload Operator dodawania (+)
  *
- * @brief Przeciążenie operatora "+" (dodawania) dodającego do siebie dwie macierze.
+ * @brief Przeciążenie operatora "+" (dodawania) dodającego do siebie dwie macierze.<br>
+ *        Funkcja posiada walidację obliczanych macierzy (jeśli nie mają tych samych rozmiarów - błąd).
  *
- * @protection Funkcja posiada walidację obliczanych macierzy (jeśli nie mają tych samych rozmiarów - błąd).
  * @throw logic_error -> Brak możliwości dodania macierzy które nie mają tych samych rozmiarów.
  *
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double).
@@ -14,12 +14,12 @@
  * @param mtrxF - pierwsza dodawana macierz.
  * @param mtrxS - druga dodawana macierz.
  *
- * @return - Funkcja zwraca macierz wynikową (obiekt) po dodaniu.
+ * @return Funkcja zwraca macierz wynikową (obiekt) po dodaniu.
  */
 template<class M>
 GeneralMatrix<M> operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS) {
 
-  /** Kopiowanie obiektu */
+  /** @skip Kopiowanie obiektu */
   GeneralMatrix<M> mtrxAdd = GeneralMatrix<M>{mtrxF};
 
   if(mtrxF.mtrxWidth != mtrxS.mtrxWidth && mtrxF.mtrxHeight != mtrxS.mtrxHeight) {
@@ -38,9 +38,9 @@ GeneralMatrix<M> operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>
 /*!
  * @overload Operator odejmowania (-)
  *
- * @brief Przeciążenie operatora "-" (odejmowania) odejmującego od siebie dwie macierze.
+ * @brief Przeciążenie operatora "-" (odejmowania) odejmującego od siebie dwie macierze.<br>
+ *        Funkcja posiada walidację obliczanych macierzy (jeśli nie mają tych samych rozmiarów - błąd).
  *
- * @protection Funkcja posiada walidację obliczanych macierzy (jeśli nie mają tych samych rozmiarów - błąd).
  * @throw logic_error -> Brak możliwości odjęcia macierzy które nie mają tych samych rozmiarów.
  *
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double).
@@ -48,12 +48,12 @@ GeneralMatrix<M> operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>
  * @param mtrxF - pierwsza dodawana macierz.
  * @param mtrxS - druga dodawana macierz.
  *
- * @return - Funkcja zwraca macierz wynikową (obiekt) po odjęciu.
+ * @return Funkcja zwraca macierz wynikową (obiekt) po odjęciu.
  */
 template<class M>
 GeneralMatrix<M> operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS) {
 
-  /** Kopiowanie obiektu */
+  /** @skip Kopiowanie obiektu */
   GeneralMatrix<M> mtrxSubt = GeneralMatrix<M>{mtrxF};
 
   if(mtrxF.mtrxWidth != mtrxS.mtrxWidth && mtrxF.mtrxHeight != mtrxS.mtrxHeight) {
@@ -72,10 +72,10 @@ GeneralMatrix<M> operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>
 /*!
  * @overload Operator mnożenia (*)
  *
- * @brief Przeciążenie operatora "*" (mnożenia) mnożącego przez siebie dwie macierze.
+ * @brief Przeciążenie operatora "*" (mnożenia) mnożącego przez siebie dwie macierze.<br>
+ *        Funkcja posiada walidację obliczanych macierzy (jeśli macierz pierwsza nie ma tyle samo wierszy co
+ *        macierz druga kolumn lub macierz pierwsza nie ma tyle samo kolumn co macierz druga wierszy - błąd).
  *
- * @protection Funkcja posiada walidację obliczanych macierzy (jeśli macierz pierwsza nie ma tyle samo wierszy co
- *             macierz druga kolumn lub macierz pierwsza nie ma tyle samo kolumn co macierz druga wierszy - błąd).
  * @throw logic_error -> Brak możliwości odjęcia macierzy które nie mają tych samych rozmiarów.
  *
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double).
@@ -83,12 +83,12 @@ GeneralMatrix<M> operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>
  * @param mtrxF - pierwsza dodawana macierz.
  * @param mtrxS - druga dodawana macierz.
  *
- * @return - Funkcja zwraca macierz wynikową (obiekt) po odjęciu.
+ * @return Funkcja zwraca macierz wynikową (obiekt) po odjęciu.
  */
 template<class M>
 GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS) {
 
-  /** Kopiowanie obiektu */
+  /** @skip Kopiowanie obiektu */
   GeneralMatrix<M> mtrxMult = GeneralMatrix<M>{mtrxF};
 
   if(mtrxF.mtrxWidth != mtrxS.mtrxHeight || mtrxS.mtrxWidth != mtrxF.mtrxHeight) {
@@ -120,12 +120,12 @@ GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>
  * @param mtrx - pierwsza dodawana macierz.
  * @param scalar - wartość skalarna.
  *
- * @return - Funkcja zwraca macierz wynikową (obiekt) po odjęciu.
+ * @return Funkcja zwraca macierz wynikową (obiekt) po odjęciu.
  */
 template<class M>
 GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrx, const double& scalar) {
 
-  /** Kopiowanie obiektu */
+  /** @skip Kopiowanie obiektu */
   GeneralMatrix<M> mtrxScalar = GeneralMatrix<M>{mtrx};
 
   for(unsigned short int i = 0; i < mtrx.mtrxHeight; i++) {
@@ -144,10 +144,10 @@ GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrx, const double& scalar) {
  *        wybiera wiersz/kolumnę po czym następuje przemnożenie każdego elementu wiersza/kolumny przez wyznacznik
  *        macierzy której rozmiar to n - 1 (wyznaczany rekurencyjnie). Pod koniec funkcja mnoży otrzymaną wartość
  *        wyznacznika przez -1 w celu odwrócenia znaku (znaki na przemian). Wszystkie wyznaczniki powstałe na skutek
- *        rekurencji są dodawane i zwracane przez funkcję. Rekurencja działa aż do momentu osiągnięcia n = 1.
+ *        rekurencji są dodawane i zwracane przez funkcję. Rekurencja działa aż do momentu osiągnięcia n = 1.<br>
  *
- * @copy Funkcję oparłem na kodzie języka Python rozwinięcia Laplace'a odpowiednio przerobionym na standardy
- *       języka C++ ze strony: https://en.wikipedia.org/wiki/Laplace_expansion.
+ *        Funkcję oparłem na kodzie języka Python rozwinięcia Laplace'a odpowiednio przerobionym na standardy
+ *        języka C++ ze strony: https://en.wikipedia.org/wiki/Laplace_expansion.
  *
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double).
  *
@@ -155,7 +155,7 @@ GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrx, const double& scalar) {
  *
  * @param nextRow - indeks wiersza rozpoczynający macierz powstałą na skutek rekurencji.
  *
- * @param colCount - przechowywanie indeksów elementów kolumn z macierzy pierwotnej ().
+ * @param colCount - przechowywanie indeksów elementów kolumn z macierzy pierwotnej.
  *
  * @param mtrx - macierz w postaci dwuwymiarowej tablicy dynamicznej przekazywanej przez rekurencję.
  *
@@ -163,28 +163,28 @@ GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrx, const double& scalar) {
  */
 template<class M>
 M detRecursion(unsigned short int mtrxS, unsigned short int nextRow, unsigned short int* colCount, M** mtrx) {
-  M recDet{0}; /** Obliczony wyznacznik */
-  unsigned short int* colRecCount{nullptr}; /** indeksy kolumn przekazywane w rekurencji */
+  M recDet{0}; /** @skip Obliczony wyznacznik */
+  unsigned short int* colRecCount{nullptr}; /** @skip indeksy kolumn przekazywane w rekurencji */
   unsigned short int mtrxElm{0};
   signed char sign{1};
 
-  if(mtrxS == 1) { /** Jeśli wielkość macierzy potomnej 1 to zakończ rekurencję */
+  if(mtrxS == 1) { /** @skip Jeśli wielkość macierzy potomnej 1 to zakończ rekurencję */
     return mtrx[nextRow][colCount[0]];
   } else {
-    colRecCount = new unsigned short int[mtrxS - 1]; /** Macierz potomna pomniejszona o 1 */
+    colRecCount = new unsigned short int[mtrxS - 1]; /** @skip Macierz potomna pomniejszona o 1 */
 
     for(unsigned short int i = 0; i < mtrxS; i++) {
-      mtrxElm = 0; /** Ustawianie pierwotnej pozycji obsługiwanego elementu */
+      mtrxElm = 0; /** @skip Ustawianie pierwotnej pozycji obsługiwanego elementu */
       for(unsigned short int j = 0; j < mtrxS - 1; j++) {
-        if(mtrxElm == i) { /** Jeśli element jest taki sam, pomiń */
+        if(mtrxElm == i) { /** @skip Jeśli element jest taki sam, pomiń */
           mtrxElm++;
         }
         colRecCount[j] = colCount[mtrxElm++];
       }
       recDet += sign * mtrx[nextRow][colCount[i]] * detRecursion<M>(mtrxS - 1, nextRow + 1, colRecCount, mtrx);
-      sign *= -1; /** Odwrócenie znaku */
+      sign *= -1; /** @skip Odwrócenie znaku */
     }
-    delete [] colRecCount; /** Odśmiecanie pamięci */
+    delete [] colRecCount; /** @skip Odśmiecanie pamięci */
   }
   return recDet;
 }

@@ -1,0 +1,32 @@
+\doxysection{Dokumentacja pliku Program Interface/src/init\+Objects/choose\+Mtrx\+Type.cpp}
+\label{choose_mtrx_type_8cpp}\index{Program Interface/src/initObjects/chooseMtrxType.cpp@{Program Interface/src/initObjects/chooseMtrxType.cpp}}
+{\ttfamily \#include \char`\"{}../interface\+Decl.\+hpp\char`\"{}}\newline
+\doxysubsection*{Funkcje}
+\begin{DoxyCompactItemize}
+\item 
+unsigned short int \textbf{ choose\+Type\+Of\+Matrix} (HANDLE \&h\+Out)
+\begin{DoxyCompactList}\small\item\em Funkcja pobierająca od użytkownika typ macierzy, na jakiej chce wykonywać operacje w programie. Spośród opcji użytkownik może wybrać odpowiednio\+: 1 -\/ macierz zwykła prostokątna, 2 -\/ macierz zwykła kwadratowa, 3 -\/ macierz diagonalna (typ macierzy kwadratowej). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Dokumentacja funkcji}
+\mbox{\label{choose_mtrx_type_8cpp_a28144759058a8302c08c1de18883d802}} 
+\index{chooseMtrxType.cpp@{chooseMtrxType.cpp}!chooseTypeOfMatrix@{chooseTypeOfMatrix}}
+\index{chooseTypeOfMatrix@{chooseTypeOfMatrix}!chooseMtrxType.cpp@{chooseMtrxType.cpp}}
+\doxysubsubsection{chooseTypeOfMatrix()}
+{\footnotesize\ttfamily choose\+Type\+Of\+Matrix (\begin{DoxyParamCaption}\item[{HANDLE \&}]{h\+Out }\end{DoxyParamCaption})}
+
+
+
+Funkcja pobierająca od użytkownika typ macierzy, na jakiej chce wykonywać operacje w programie. Spośród opcji użytkownik może wybrać odpowiednio\+: 1 -\/ macierz zwykła prostokątna, 2 -\/ macierz zwykła kwadratowa, 3 -\/ macierz diagonalna (typ macierzy kwadratowej). 
+
+@protection Funkcja posiada walidację strumienia wejścia. Jeśli użytkownik nie poda liczby z zakresu 1-\/3 program zasygnalizuje błąd i po odczekaniu 5 sekund umożliwi użytkownikowi ponowne wybranie opcji.
+
+
+\begin{DoxyParams}{Parametry}
+{\em h\+Out} & -\/ uchwyt na wyjście z konsoli (zadeklarowany w funkcji start\+Prg i przekazywany przez referencję).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Funkcja zwraca opcję wybraną przez użytkownika (w postaci wartości całkowitej z zakresu 1-\/3) 
+\end{DoxyReturn}
+czyszczenie konsoli

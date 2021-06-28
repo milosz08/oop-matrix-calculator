@@ -16,31 +16,32 @@
 template<class M>
 void MatrixAbstract<M>::genInfoBlock(std::string header, std::vector<std::string> mess) {
 
-  /** Długość wyrazu w nagłówku powiększona o 2 */
+  /** @skip Długość wyrazu w nagłówku powiększona o 2 */
   unsigned int headerLength = header.length() + 2;
 
-  /** Wyrażenie lambda porównujące wielkość 2 stringów, zwracające prawdę, jeśli string b jest dłuższy od stringu a */
+  /** @skip Wyrażenie lambda porównujące wielkość 2 stringów, zwracające prawdę, jeśli string
+   * b jest dłuższy od stringu a */
   auto lambdaFind = [](const std::string& a, const std::string& b) {
     return a.size() < b.size();
   };
 
-  /** Wyznacznie maksymalnej długości stringa w wektorze stringów mess (pomniejszony o 2) */
+  /** @skip Wyznacznie maksymalnej długości stringa w wektorze stringów mess (pomniejszony o 2) */
   unsigned int maxLength = std::max_element(mess.begin(), mess.end(), lambdaFind)->length() - headerLength - 2;
 
-  if(maxLength % 2 == 0) { /** Dla stringów parzystych */
+  if(maxLength % 2 == 0) { /** @skip Dla stringów parzystych */
     maxLength += 5;
-  } else { /** Dla stringów nieparzystych */
+  } else { /** @skip Dla stringów nieparzystych */
     maxLength += 4;
   }
 
-  /** Generacja nagłówka */
+  /** @skip Generacja nagłówka */
   std::cout << "\n";
   for(unsigned int i = 0; i < 5; i++) { std::cout << "+"; }
   std::cout << " " << header << " ";
   for(unsigned int i = 0; i < maxLength - 5; i++) { std::cout << "+"; }
   std::cout << "\n";
 
-  /** Generacja głównego kontentu tekstowego (jeśli w headerze error -> strumień wyjścia błędu cerr) */
+  /** @skip Generacja głównego kontentu tekstowego (jeśli w headerze error -> strumień wyjścia błędu cerr) */
   std::vector<std::string>::iterator pos;
   for(pos = mess.begin(); pos != mess.end(); pos++) {
     if(header != "error!" || header != "ERROR!") {
@@ -50,7 +51,7 @@ void MatrixAbstract<M>::genInfoBlock(std::string header, std::vector<std::string
     }
   }
 
-  /** Generowanie stopki */
+  /** @skip Generowanie stopki */
   for(unsigned int i = 0; i < maxLength + headerLength; i++) { std::cout << "+"; }
   std::cout << "\n";
 }

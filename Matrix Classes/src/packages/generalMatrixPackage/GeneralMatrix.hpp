@@ -15,23 +15,23 @@ namespace generalMatrixPackage {
    * @brief Klasa pochodna dziedzicząca po klasie abstrakcyjnej "MatrixAbstract". Obsługuje zwykłe macierze
    *        prostokątne oraz kwadratowe.
    *
-   * @constructors Klasa posiada 4 zadeklarowane konstruktory, z czego jest to: konstruktor bezargumentowy,
-   *               konstruktor dwuargumentowy, konstruktor jednoargumentowy oraz konstruktor kopiujący. Wszystkie
-   *               oprócz konstruktora bezargumentowego wywołują konstruktory klasy bazowej (abstrakcyjnej).
+   *        Klasa posiada 4 zadeklarowane konstruktory, z czego jest to: konstruktor bezargumentowy,
+   *        konstruktor dwuargumentowy, konstruktor jednoargumentowy oraz konstruktor kopiujący. Wszystkie
+   *        oprócz konstruktora bezargumentowego wywołują konstruktory klasy bazowej (abstrakcyjnej).
    *
-   * @destructor Klasa posiada destruktor. Pełną macierz usuwa destruktor z klasy abstrakcyjnej. Destruktor z
-   *             tej klasy usuwa zawartość tablicy dynamicznej reprezentującej indeksy kolumn macierzy (potrzebne
-   *             w celu wyznaczenia wyznacznika rekurencyjną metodą Laplace'a).
+   *        Klasa posiada destruktor. Pełną macierz usuwa destruktor z klasy abstrakcyjnej. Destruktor z
+   *        tej klasy usuwa zawartość tablicy dynamicznej reprezentującej indeksy kolumn macierzy (potrzebne
+   *        w celu wyznaczenia wyznacznika rekurencyjną metodą Laplace'a).
    *
-   * @methods Klasa posiada metody do operacji na pojedynczej macierzy. Są to odpowiednio: wyznaczanie macierzy
-   *          sprzężonej, transponowanie macierzy, obliczanie wyznacznika macierzy oraz wyznaczanie macierzy odwrotnej.
-   *          Klasa posiada również 1 metodę prywatną (metoda przysłaniająca metodę czysto wirtualną z klasy
-   *          abstrakcyjnej), dostępną tylko na użytek metod tej klasy.
+   *        Klasa posiada metody do operacji na pojedynczej macierzy. Są to odpowiednio: wyznaczanie macierzy
+   *        sprzężonej, transponowanie macierzy, obliczanie wyznacznika macierzy oraz wyznaczanie macierzy odwrotnej.
+   *        Klasa posiada również 1 metodę prywatną (metoda przysłaniająca metodę czysto wirtualną z klasy
+   *        abstrakcyjnej), dostępną tylko na użytek metod tej klasy.
    *
-   * @overload Klasa posiada przeciążenia 3 operatorów w postaci funkcji zaprzyjaźnionych. Są to odpowiednio:
-   *           operator dodawania "+" (dwie macierze), operator odejmowania "-" (dwie macierze), operator mnożenia "*"
-   *           (dwie macierze) oraz ponownie operator mnożenia "*" (macierz przez wartość skalarną). W funkcjach
-   *           zaprzyjaźnionych znajduje sie również funkcja rekurencyjna obliczająca wyznacznik metodą Laplace'a.
+   *        Klasa posiada przeciążenia 3 operatorów w postaci funkcji zaprzyjaźnionych. Są to odpowiednio:
+   *        operator dodawania "+" (dwie macierze), operator odejmowania "-" (dwie macierze), operator mnożenia "*"
+   *        (dwie macierze) oraz ponownie operator mnożenia "*" (macierz przez wartość skalarną). W funkcjach
+   *        zaprzyjaźnionych znajduje sie również funkcja rekurencyjna obliczająca wyznacznik metodą Laplace'a.
    *
    * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double).
    *
@@ -49,21 +49,21 @@ namespace generalMatrixPackage {
   class GeneralMatrix : public matrixAbstractPackage::MatrixAbstract<M> {
     public:
       GeneralMatrix();
-      GeneralMatrix(unsigned short int&, unsigned short int&); /** Sygnatura konstr. macierzy prostokątnej */
-      GeneralMatrix(unsigned short int&); /** Sygnatura konstr. macierzy kwadratowej */
-      GeneralMatrix(const GeneralMatrix<M>&); /** Sygnatura konstr. kopiującego */
+      GeneralMatrix(unsigned short int&, unsigned short int&); /** @skip Sygnatura konstr. macierzy prostokątnej */
+      GeneralMatrix(unsigned short int&); /** @skip Sygnatura konstr. macierzy kwadratowej */
+      GeneralMatrix(const GeneralMatrix<M>&); /** @skip Sygnatura konstr. kopiującego */
 
-      virtual void insertMtrx(HANDLE&); /** Wstawianie macierzy */
+      virtual void insertMtrx(HANDLE&); /** @skip Wstawianie macierzy */
 
-      GeneralMatrix<M> transposeMtrx(); /** Transponowanie macierzy */
-      GeneralMatrix<M> coupledMtrx(); /** Macierz sprzężona */
-      M determinantMtrx(HANDLE&); /** Wyznacznik (tylko macierze kwadratowe) n-tego stopnia */
-      GeneralMatrix<double> inverseMtrx();
+      GeneralMatrix<M> transposeMtrx(); /** @skip Transponowanie macierzy */
+      GeneralMatrix<M> coupledMtrx(); /** @skip Macierz sprzężona */
+      M determinantMtrx(HANDLE&); /** @skip Wyznacznik (tylko macierze kwadratowe) n-tego stopnia */
+      GeneralMatrix<double> inverseMtrx(HANDLE&);
 
       ~GeneralMatrix();
 
     private:
-      virtual void mtrxTypeAndSizeInfo(); /** Metoda z klasy abstrakcyjnej */
+      virtual void mtrxTypeAndSizeInfo(); /** @skip Metoda z klasy abstrakcyjnej */
 
     public:
       friend GeneralMatrix<M> operator+ <>(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
@@ -78,10 +78,10 @@ namespace generalMatrixPackage {
       unsigned short int* colsCount{nullptr};
   };
 
-  #include "src/constructors.tpp" /** Deklaracje konstruktorów */
-  #include "src/pureVirtMethods.tpp" /** Metody przysłaniające metody czysto wirtualne klasy abstrakcyjnej */
+  #include "src/constructors.tpp" /** @skip Deklaracje konstruktorów */
+  #include "src/pureVirtMethods.tpp" /** @skip Metody przysłaniające metody czysto wirtualne klasy abstrakcyjnej */
 
-  #include "src/mathAndOprts/mathMethods.tpp" /** Operacje arytmetyczne - metody */
-  #include "src/mathAndOprts/friendOprts.tpp" /** Przeciążenia operatorów (funkcje zaprzyjaźnione) */
+  #include "src/mathAndOprts/mathMethods.tpp" /** @skip Operacje arytmetyczne - metody */
+  #include "src/mathAndOprts/friendOprts.tpp" /** @skip Przeciążenia operatorów (funkcje zaprzyjaźnione) */
 }
 #endif

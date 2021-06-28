@@ -14,23 +14,23 @@ namespace diagonalMatrixPackage {
    *        Macierze diagonalne to specjalny typ macierzy kwadratowej, która poza swoją główną przekątną -
    *        diagonalną jest wypełniona zerami.
    *
-   * @constructors Klasa posiada 4 zadeklarowane konstruktory, z czego jest to: konstruktor bezargumentowy,
-   *               konstruktor dwuargumentowy, konstruktor jednoargumentowy oraz konstruktor kopiujący. Wszystkie
-   *               oprócz konstruktora bezargumentowego wywołują konstruktory klasy bazowej (abstrakcyjnej).
+   *        Klasa posiada 4 zadeklarowane konstruktory, z czego jest to: konstruktor bezargumentowy,
+   *        konstruktor dwuargumentowy, konstruktor jednoargumentowy oraz konstruktor kopiujący. Wszystkie
+   *        oprócz konstruktora bezargumentowego wywołują konstruktory klasy bazowej (abstrakcyjnej).
    *
-   * @destructor Klasa posiada destruktor. Pełną macierz usuwa destruktor z klasy abstrakcyjnej. Destruktor z
-   *             tej klasy usuwa zawartość tablicy dynamicznej reprezentującej elementy na diagonalnej.
+   *        Klasa posiada destruktor. Pełną macierz usuwa destruktor z klasy abstrakcyjnej. Destruktor z
+   *        tej klasy usuwa zawartość tablicy dynamicznej reprezentującej elementy na diagonalnej.
    *
-   * @methods Klasa posiada metody do operacji na pojedynczej macierzy. Są to odpowiednio: wyznaczanie macierzy
-   *          sprzężonej, transponowanie macierzy, obliczanie wyznacznika macierzy oraz wyznaczanie macierzy odwrotnej.
-   *          Klasa posiada również 2 metody prywatne, dostępne tylko na użytek metod tej klasy.
+   *        Klasa posiada metody do operacji na pojedynczej macierzy. Są to odpowiednio: wyznaczanie macierzy
+   *        sprzężonej, transponowanie macierzy, obliczanie wyznacznika macierzy oraz wyznaczanie macierzy odwrotnej.
+   *        Klasa posiada również 2 metody prywatne, dostępne tylko na użytek metod tej klasy.
    *
-   * @getters Klasa posiada zadeklarowaną jedną metodę getter, zwracającą elementy głównej diagonalnej w
-   *          postaci wskaźnika na tablicę dynamiczną typu M.
+   *        Klasa posiada zadeklarowaną jedną metodę getter, zwracającą elementy głównej diagonalnej w
+   *        postaci wskaźnika na tablicę dynamiczną typu M.
    *
-   * @overload Klasa posiada przeciążenia 3 operatorów w postaci funkcji zaprzyjaźnionych. Są to odpowiednio:
-   *           operator dodawania "+" (dwie macierze), operator odejmowania "-" (dwie macierze), operator mnożenia "*"
-   *           (dwie macierze) oraz ponownie operator mnożenia "*" (macierz przez wartość skalarną).
+   *        Klasa posiada przeciążenia 3 operatorów w postaci funkcji zaprzyjaźnionych. Są to odpowiednio:
+   *        operator dodawania "+" (dwie macierze), operator odejmowania "-" (dwie macierze), operator mnożenia "*"
+   *        (dwie macierze) oraz ponownie operator mnożenia "*" (macierz przez wartość skalarną).
    *
    * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double).
    *
@@ -46,20 +46,20 @@ namespace diagonalMatrixPackage {
   class DiagonalMatrix : public matrixAbstractPackage::MatrixAbstract<M> {
     public:
       DiagonalMatrix();
-      DiagonalMatrix(unsigned short int&); /** Sygnatura konstr. jednoargumentowego */
-      DiagonalMatrix(unsigned short int&, unsigned short int&); /** Sygnatura konstr. dwuargumentowego */
-      DiagonalMatrix(const DiagonalMatrix&); /** Sygnatura konstr. kopiującego */
+      DiagonalMatrix(unsigned short int&); /** @skip Sygnatura konstr. jednoargumentowego */
+      DiagonalMatrix(unsigned short int&, unsigned short int&); /** @skip Sygnatura konstr. dwuargumentowego */
+      DiagonalMatrix(const DiagonalMatrix&); /** @skip Sygnatura konstr. kopiującego */
 
-      DiagonalMatrix<M> coupledMtrx(); /** Macierz sprzężona */
-      DiagonalMatrix<M> transposeMtrx(); /** Transponowanie macierzy */
-      M determinantMtrx(HANDLE& hOut); /** Wyznacznik macierzy */
-      DiagonalMatrix<double> inverseMtrx(); /** Macierz odwrotna */
+      DiagonalMatrix<M> coupledMtrx(); /** @skip Macierz sprzężona */
+      DiagonalMatrix<M> transposeMtrx(); /** @skip Transponowanie macierzy */
+      M determinantMtrx(HANDLE&); /** @skip Wyznacznik macierzy */
+      DiagonalMatrix<double> inverseMtrx(HANDLE&); /** @skip Macierz odwrotna */
 
-      virtual void insertMtrx(HANDLE&); /** Metoda czysto wirtualna z klasy bazowej. Wprowadzanie macierzy */
+      virtual void insertMtrx(HANDLE&); /** @skip Metoda czysto wirtualna z klasy bazowej. Wprowadzanie macierzy */
 
       ~DiagonalMatrix();
 
-      M* get_DiagTab() const; /** Getter */
+      M* get_DiagTab() const; /** @skip Getter */
 
     private:
       virtual void mtrxTypeAndSizeInfo();
@@ -75,13 +75,13 @@ namespace diagonalMatrixPackage {
       M* diagTab{nullptr};
   };
 
-  #include "src/constructors.tpp" /** Deklaracje konstruktorów */
-  #include "src/pureVirtMethods.tpp" /** Metody przysłaniające metody czysto wirtualne klasy abstrakcyjnej */
-  #include "src/getters.tpp" /** Metody zwracające wartości pól chronionych - gettery */
-  #include "src/privateMethods.tpp" /** Metody prywatne (niedziedziczne) */
+  #include "src/constructors.tpp" /** @skip Deklaracje konstruktorów */
+  #include "src/pureVirtMethods.tpp" /** @skip Metody przysłaniające metody czysto wirtualne klasy abstrakcyjnej */
+  #include "src/getters.tpp" /** @skip Metody zwracające wartości pól chronionych - gettery */
+  #include "src/privateMethods.tpp" /** @skip Metody prywatne (niedziedziczne) */
 
-  #include "src/mathAndOprts/mathMethods.tpp" /** Operacje arytmetyczne - metody */
-  #include "src/mathAndOprts/friendOprts.tpp" /** Przeciążenia operatorów (funkcje zaprzyjaźnione) */
+  #include "src/mathAndOprts/mathMethods.tpp" /** @skip Operacje arytmetyczne - metody */
+  #include "src/mathAndOprts/friendOprts.tpp" /** @skip Przeciążenia operatorów (funkcje zaprzyjaźnione) */
 }
 
 #endif

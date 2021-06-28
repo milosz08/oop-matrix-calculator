@@ -12,12 +12,12 @@
  * @param mtrxF - macierz pierwotna pierwsza.
  * @param mtrxS - macierz pierwotna druga.
  *
- * @return - macierz wynikowa (obiekt) po dodaniu do siebie macierzy diagonalnych.
+ * @return Funkcja zwraca macierz wynikową (obiekt) po dodaniu do siebie macierzy diagonalnych.
  */
 template<class M>
 DiagonalMatrix<M> operator+(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS) {
 
-  /** Kopiowanie obiektu - kostruktor kopiujący */
+  /** @skip Kopiowanie obiektu - kostruktor kopiujący */
   DiagonalMatrix<M> mtrxAdd = DiagonalMatrix<M>{mtrxF};
 
   for(unsigned short int i = 0; i < mtrxF.mtrxHeight; i++) {
@@ -45,12 +45,12 @@ DiagonalMatrix<M> operator+(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix
  * @param mtrxF - macierz pierwotna pierwsza.
  * @param mtrxS - macierz pierwotna druga.
  *
- * @return - macierz wynikowa (obiekt) po odjęciu od siebie macierzy diagonalnych.
+ * @return Funkcja zwraca macierz wynikową (obiekt) po odjęciu od siebie macierzy diagonalnych.
  */
 template<class M>
 DiagonalMatrix<M> operator-(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS) {
 
-  /** Kopiowanie obiektu - kostruktor kopiujący */
+  /** @skip Kopiowanie obiektu - kostruktor kopiujący */
   DiagonalMatrix<M> mtrxAdd = DiagonalMatrix<M>{mtrxF};
 
   for(unsigned short int i = 0; i < mtrxF.mtrxHeight; i++) {
@@ -78,12 +78,12 @@ DiagonalMatrix<M> operator-(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix
  * @param mtrxF - macierz pierwotna pierwsza.
  * @param mtrxS - macierz pierwotna druga.
  *
- * @return - macierz wynikowa (obiekt) po pomnożeniu obu macierzy diagonalnych przez siebie.
+ * @return Funkcja zwraca macierz wynikową (obiekt) po pomnożeniu obu macierzy diagonalnych przez siebie.
  */
 template<class M>
 DiagonalMatrix<M> operator*(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS) {
 
-  /** Kopiowanie obiektu - kostruktor kopiujący */
+  /** @skip Kopiowanie obiektu - kostruktor kopiujący */
   DiagonalMatrix<M> mtrxAdd = DiagonalMatrix<M>{mtrxF};
 
   for(unsigned short int i = 0; i < mtrxF.mtrxHeight; i++) {
@@ -111,12 +111,12 @@ DiagonalMatrix<M> operator*(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix
  * @param mtrx - macierz, której elementy będą mnożone przez wartość skalara.
  * @param scalar - wartość scalarna wprowadzana przez użytkownika.
  *
- * @return - macierz wynikowa (obiekt) po przemnożeniu macierzy diagonalnej przez skalar.
+ * @return Funkcja zwraca macierz wynikową (obiekt) po przemnożeniu macierzy diagonalnej przez skalar.
  */
 template<class M>
 DiagonalMatrix<M> operator*(const DiagonalMatrix<M>& mtrx, const double& scalar) {
 
-  /** Kopiowanie obiektu - kostruktor kopiujący */
+  /** @skip Kopiowanie obiektu - kostruktor kopiujący */
   DiagonalMatrix<M> mtrxScal = DiagonalMatrix<M>{mtrx};
 
   for(unsigned short int i = 0; i < mtrx.mtrxHeight; i++) {

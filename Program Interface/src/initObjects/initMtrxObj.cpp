@@ -15,12 +15,12 @@ void initMtrxObj(HANDLE& hOut) {
   unsigned short int mtrxType = chooseTypeOfMatrix(hOut); /** typ macierzy (kwadratowa/prostokątna/diagonalna) */
   unsigned short int mtrxValType = chooseTypeOfNumbers(hOut); /** typ wartości przekazywany we wzorcu (int/double) */
 
-  /** Przechowalnia ilości wierszy i/lub kolumn */
+  /** @skip Przechowalnia ilości wierszy i/lub kolumn */
   unsigned short int* sizeMtrx = setMtrxSize(hOut, mtrxType, mtrxValType);
 
-  if(mtrxValType == 1) { /** Macierz tylko znaki stałoprzecinkowe */
+  if(mtrxValType == 1) { /** @skip Macierz tylko znaki stałoprzecinkowe */
     createMtrxObject<int>(sizeMtrx, hOut, mtrxType, mtrxValType);
-  } else { /** Macierz znaki zmienno i stałoprzecinkowe */
+  } else { /** @skip Macierz znaki zmienno i stałoprzecinkowe */
     createMtrxObject<double>(sizeMtrx, hOut, mtrxType, mtrxValType);
   }
 }

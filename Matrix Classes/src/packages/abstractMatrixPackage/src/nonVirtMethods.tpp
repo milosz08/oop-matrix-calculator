@@ -34,17 +34,17 @@ void MatrixAbstract<M>::printMtrx(HANDLE& hOut, const bool textMess, const bool 
   for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
     for(unsigned short int j = 0; j < this->mtrxWidth; j++) {
 
-      longestNr = longestNumber(j); /** Najdłuższa liczba w kolumnie */
-      spaces = longestNr - longOfCell(this->mtrx[i][j]) + 2; /** Ilość pustych znaków */
+      longestNr = longestNumber(j); /** @skip Najdłuższa liczba w kolumnie */
+      spaces = longestNr - longOfCell(this->mtrx[i][j]) + 2; /** @skip Ilość pustych znaków */
 
-      if(j == 0) { /** Jeśli jest to 1 kolumna macierzy */
+      if(j == 0) { /** @skip Jeśli jest to 1 kolumna macierzy */
         std::cout << (sharpBrc ? "  [ " : "  | ");
       }
 
-      /** Wypisanie macierzy z precyzją cyfr na podstawie najdłuższej liczby w kolumnie */
+      /** @skip Wypisanie macierzy z precyzją cyfr na podstawie najdłuższej liczby w kolumnie */
       std::cout << std::setprecision(longestNr - 1) << this->mtrx[i][j];
 
-      /** Dodaj puste znaki w celu wyrównania kolumn */
+      /** @skip Dodaj puste znaki w celu wyrównania kolumn */
       for(unsigned short int k = 0; k < spaces; k++) {
         std::cout << " ";
       }
@@ -59,10 +59,10 @@ void MatrixAbstract<M>::printMtrx(HANDLE& hOut, const bool textMess, const bool 
  * @fn scalarValuePush()
  * @inherit Metoda, którą dziedziczą wszyskie klasy pochodne od klasy abstrakcyjnej. Metoda niewirtualna.
  *
- * @brief Wprowadzanie przez użytkownika wartości skalara.
+ * @brief Wprowadzanie przez użytkownika wartości skalara.<br>
  *
- * @protection Metoda posiada walidację pod kątem strumienia wejścia. Jeśli zostaną podane nieprawidłowe wartości,
- *             program wyświetli błąd i umożliwi ponowne wpisanie wartości skalara przez użytkownika.
+ *        Metoda posiada walidację pod kątem strumienia wejścia. Jeśli zostaną podane nieprawidłowe wartości,
+ *        program wyświetli błąd i umożliwi ponowne wpisanie wartości skalara przez użytkownika.
  *
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
  *

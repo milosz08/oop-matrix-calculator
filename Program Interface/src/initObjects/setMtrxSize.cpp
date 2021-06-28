@@ -6,26 +6,28 @@
  *
  * @brief Funkcja umożliwia wprowadzenie przez użytkownika parametrów dotyczących wielkości macierzy. Dla macierzy
  *        kwadratowych program prosi użytkownika o wpisanie tylko jednego parametru. Dla macierzy prostokątnych
- *        należy wpisać 2 parametry (ilość wierszy i ilość kolumn).
+ *        należy wpisać 2 parametry (ilość wierszy i ilość kolumn).<br>
  *
- * @protection Funkcja posiada walidację strumienia wejścia. Jeśli użytkownik nie poda liczby z zakresu 1-3 program
- *             zasygnalizuje błąd i po odczekaniu 5 sekund umożliwi użytkownikowi ponowne wybranie opcji.
+ *        Funkcja posiada walidację strumienia wejścia. Jeśli użytkownik nie poda liczby z zakresu 1-3 program
+ *        zasygnalizuje błąd i po odczekaniu 5 sekund umożliwi użytkownikowi ponowne wybranie opcji.
  *
  * @param hOut - uchwyt na wyjście z konsoli (zadeklarowany w funkcji startPrg i przekazywany przez referencję).
  *
- * @param mtrxType - typ macierzy. Przyjmuje dla wartości: 1 -> macierz prostokątna, 2 -> macierz zwykła kwadratowa,
- *                   3 -> macierz diagonalna (typ macierzy kwadratowej).
+ * @param mtrxType - typ macierzy. Przyjmuje dla wartości:
+ *           * 1 -> macierz prostokątna,
+ *           * 2 -> macierz zwykła kwadratowa,
+ *           * 3 -> macierz diagonalna (typ macierzy kwadratowej).
  *
  * @param mtrxValType - typ wartości, jakie użytkownik może wprowadzić do macierzy. Przyjmuje dla wartości:
- *                      1 -> tylko wartości całkowite (integer),
- *                      2 -> wartości całkowite oraz zmiennoprzecinkowe (double).
+ *          * 1 -> tylko wartości całkowite (integer),
+ *          * 2 -> wartości całkowite oraz zmiennoprzecinkowe (double).
  *
- * @return wskaźnik do tablicy statycznej przechowującej ilość wierszy i kolumn (w przypadku podawania tylko jednej
- *         wartości, obie wartości w tablicy przyjmują jednakową wartość)
+ * @return Funkcja zwraca wskaźnik do tablicy statycznej przechowującej ilość wierszy i kolumn (w przypadku podawania
+ *         tylko jednej wartości, obie wartości w tablicy przyjmują jednakową wartość).
  */
 unsigned short int* setMtrxSize(HANDLE& hOut, unsigned short int& mtrxType, unsigned short int& mtrxValType) {
 
-  /** Static użyte w celu zwrócenia wartości zmiennej lokalnej, transformacja na zmienną globalną,
+  /** @skip Static użyte w celu zwrócenia wartości zmiennej lokalnej, transformacja na zmienną globalną,
    * dla 1 elementu ilość kolumn, dla 2 elementu ilośc wierszy */
   static unsigned short int mtrxSizes[2] = {0,0};
   bool error{false};
@@ -51,11 +53,11 @@ unsigned short int* setMtrxSize(HANDLE& hOut, unsigned short int& mtrxType, unsi
     std::cout << "\nPodaj ";
     if(mtrxType == 2 || mtrxType == 3) {
       std::cout << "wielkosc macierzy (tylko jeden wymiar): ";
-      std::cin >> mtrxSizes[0]; /** Wprowadzenie ilości wierszy/kolumn */
-      mtrxSizes[1] = mtrxSizes[0]; /** Zapełnienie 2 komórki taką samą wartością (kwadratowe) */
+      std::cin >> mtrxSizes[0]; /** @skip Wprowadzenie ilości wierszy/kolumn */
+      mtrxSizes[1] = mtrxSizes[0]; /** @skip Zapełnienie 2 komórki taką samą wartością (kwadratowe) */
     } else {
       std::cout << "liczbę wierszy i kolumn (w formacie k x w) po spacji: ";
-      std::cin >> mtrxSizes[0] >> mtrxSizes[1]; /** Wprowadzenie ilości kolumn i wierszy */
+      std::cin >> mtrxSizes[0] >> mtrxSizes[1]; /** @skip Wprowadzenie ilości kolumn i wierszy */
     }
 
     if(mtrxSizes[0] == 0 || mtrxSizes[1] == 0 || mtrxSizes[0] > 20 || mtrxSizes[1] > 20 || std::cin.fail()) {
@@ -67,7 +69,7 @@ unsigned short int* setMtrxSize(HANDLE& hOut, unsigned short int& mtrxType, unsi
     }
 
   } while (error);
-  std::system("cls"); /** czyszczenie konsoli */
+  std::system("cls"); /** @skip czyszczenie konsoli */
   return mtrxSizes;
 }
 
@@ -89,11 +91,11 @@ std::string saveMtrxInfo(unsigned short int& type, unsigned short int& val) {
   std::string output;
 
   switch(type) {
-    case 1: { /** type 1 = macierz prostokątna */
+    case 1: { /** @skip type 1 = macierz prostokątna */
       output = "Macierz prostokątna "; break;
-    } case 2: { /** type 2 = macierz kwadratowa */
+    } case 2: { /** @skip type 2 = macierz kwadratowa */
       output = "Macierz kwadratowa "; break;
-    } case 3: { /** type 3 = macierz diagonalna */
+    } case 3: { /** @skip type 3 = macierz diagonalna */
       output = "Macierz diagonalna "; break;
     }
   }
@@ -101,9 +103,9 @@ std::string saveMtrxInfo(unsigned short int& type, unsigned short int& val) {
   output += "możliwa do zapełnienia\n";
 
   switch(val) {
-    case 1: { /** val 1 = jedynie wartości stałoprzecinkowe */
+    case 1: { /** @skip val 1 = jedynie wartości stałoprzecinkowe */
       output += "jedynie wartościami stałoprzecinkowymi."; break;
-    } case 2: { /** val 1 = wartości stałoprzecinkowe oraz zmiennoprzecinkowe */
+    } case 2: { /** @skip val 1 = wartości stałoprzecinkowe oraz zmiennoprzecinkowe */
       output += "zarowno wartościami stało oraz zmiennoprzecinkowymi."; break;
     }
   }

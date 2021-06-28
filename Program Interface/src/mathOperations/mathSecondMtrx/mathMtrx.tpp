@@ -19,7 +19,7 @@
 template<class M>
 void secondMtrxMath(unsigned short int& choose, M& objF, M& objS, HANDLE& hOut) {
   switch(choose) {
-    case 1: { /** Dodawanie macierzy */
+    case 1: { /** @skip Dodawanie macierzy */
       M objAdd = objF + objS;
 
       secondMtrxMathInfo(objF, objS, objAdd, hOut, {
@@ -28,7 +28,7 @@ void secondMtrxMath(unsigned short int& choose, M& objF, M& objS, HANDLE& hOut) 
       });
 
       break;
-    } case 2: { /** Odejmowanie macierzy */
+    } case 2: { /** @skip Odejmowanie macierzy */
       M objSub = objF - objS;
 
       secondMtrxMathInfo(objF, objS, objSub, hOut, {
@@ -37,7 +37,7 @@ void secondMtrxMath(unsigned short int& choose, M& objF, M& objS, HANDLE& hOut) 
       });
 
       break;
-    } case 3: { /** Mnożenie macierzy */
+    } case 3: { /** @skip Mnożenie macierzy */
       M objMlt = objF * objS;
 
       secondMtrxMathInfo(objF, objS, objMlt, hOut, {

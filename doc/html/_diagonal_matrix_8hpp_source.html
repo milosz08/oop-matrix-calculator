@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Kalkulator Macierzy: Plik źródłowy Matrix Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="polsl logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Kalkulator Macierzy
+   </div>
+   <div id="projectbrief">Projekt zaliczeniowy z labolatorium przedmiotu Programowanie Komputerów. Napisany zgodnie z paradygmatami programowania obiektowego w języku C++</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_38cb5389abe0947eceed07a48a092250.html">Matrix Classes</a></li><li class="navelem"><a class="el" href="dir_2c94d456434de8074d96c89edf12cd69.html">src</a></li><li class="navelem"><a class="el" href="dir_f31fa3e8a9a1a4ce8e5bb7d3fb48946f.html">packages</a></li><li class="navelem"><a class="el" href="dir_1288f89cbbe2b2b2c0b3c1a473271a49.html">diagonalMatrixPackage</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">DiagonalMatrix.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_diagonal_matrix_8hpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef PK_MATRIX_CALCULATOR_DIAGONALMATRIX_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define PK_MATRIX_CALCULATOR_DIAGONALMATRIX_HPP</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;../abstractMatrixPackage/MatrixAbstract.hpp&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;../generalMatrixPackage/GeneralMatrix.hpp&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;limits&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="namespacediagonal_matrix_package.html">    8</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacediagonal_matrix_package.html">diagonalMatrixPackage</a> {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> M&gt; <span class="keyword">class </span><a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="namespacediagonal_matrix_package.html#a1025384c58a94c9f4b01ad2761be42b6">   40</a></span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> M&gt; <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix&lt;M&gt;</a> <a class="code" href="namespacediagonal_matrix_package.html#a1025384c58a94c9f4b01ad2761be42b6">operator+</a>(<span class="keyword">const</span> <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix&lt;M&gt;</a>&amp; mtrxF, <span class="keyword">const</span> <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix&lt;M&gt;</a>&amp; mtrxS);</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="namespacediagonal_matrix_package.html#a5976e1e22a3870b52eb9558bc0958448">   41</a></span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> M&gt; <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix&lt;M&gt;</a> <a class="code" href="namespacediagonal_matrix_package.html#a5976e1e22a3870b52eb9558bc0958448">operator-</a>(<span class="keyword">const</span> <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix&lt;M&gt;</a>&amp; mtrxF, <span class="keyword">const</span> <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix&lt;M&gt;</a>&amp; mtrxS);</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="namespacediagonal_matrix_package.html#aa5dc9b1f826fcb53ca767c8190323bd9">   42</a></span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> M&gt; <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix&lt;M&gt;</a> <a class="code" href="namespacediagonal_matrix_package.html#aa5dc9b1f826fcb53ca767c8190323bd9">operator*</a>(<span class="keyword">const</span> <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix&lt;M&gt;</a>&amp; mtrxF, <span class="keyword">const</span> <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix&lt;M&gt;</a>&amp; mtrxS);</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="namespacediagonal_matrix_package.html#a40092f8b213d7c79d6f38238afc8a02f">   43</a></span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> M&gt; <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix&lt;M&gt;</a> <a class="code" href="namespacediagonal_matrix_package.html#aa5dc9b1f826fcb53ca767c8190323bd9">operator*</a>(<span class="keyword">const</span> <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix&lt;M&gt;</a>&amp; mtrx, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; scalar);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> M&gt;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">   46</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix</a> : <span class="keyword">public</span> <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html">matrixAbstractPackage::MatrixAbstract</a>&lt;M&gt; {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a1a8b7586588255d703225ece924d6148">   48</a></span>&#160;      <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a1a8b7586588255d703225ece924d6148">DiagonalMatrix</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a72c6ac8744a189f4740280df0ac6c2fd">   49</a></span>&#160;      <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a72c6ac8744a189f4740280df0ac6c2fd">DiagonalMatrix</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>&amp;); </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#acaf3625d590697efcae919bb22b9fb72">   50</a></span>&#160;      <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#acaf3625d590697efcae919bb22b9fb72">DiagonalMatrix</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>&amp;, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>&amp;); </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a5017d8b854d37852ac241ad929a7d147">   51</a></span>&#160;      <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a5017d8b854d37852ac241ad929a7d147">DiagonalMatrix</a>(<span class="keyword">const</span> <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix</a>&amp;); </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a8d737b21b7212fba1600dee530895501">   53</a></span>&#160;      <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix&lt;M&gt;</a> <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a8d737b21b7212fba1600dee530895501">coupledMtrx</a>(); </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a929b7032902fd731522a569c16a2cde1">   54</a></span>&#160;      <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix&lt;M&gt;</a> <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a929b7032902fd731522a569c16a2cde1">transposeMtrx</a>(); </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a6fe9452cff0f966ee242086d242879ca">   55</a></span>&#160;      M <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a6fe9452cff0f966ee242086d242879ca">determinantMtrx</a>(HANDLE&amp;); </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#ac4f8437dbf90576b8c64a804981686ad">   56</a></span>&#160;      <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix&lt;double&gt;</a> <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#ac4f8437dbf90576b8c64a804981686ad">inverseMtrx</a>(HANDLE&amp;); </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a9229fe5bb21f646c1b9a62d431a8d2d9">   58</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a9229fe5bb21f646c1b9a62d431a8d2d9">insertMtrx</a>(HANDLE&amp;); </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#afc6c31c823d2ecc2365e0bd4021c6c6c">   60</a></span>&#160;      <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#afc6c31c823d2ecc2365e0bd4021c6c6c">~DiagonalMatrix</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a6a0da12561c7da935e7d7e6f3f1214b8">   62</a></span>&#160;      M* <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a6a0da12561c7da935e7d7e6f3f1214b8">get_DiagTab</a>() <span class="keyword">const</span>; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> mtrxTypeAndSizeInfo();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      <span class="keywordtype">void</span> generateDiagMtrx(<span class="keywordtype">bool</span> identityMtrx);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a5a9f5da7efc88d6b21b3d2cb44a80d78">   69</a></span>&#160;      <span class="keyword">friend</span> <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix&lt;M&gt;</a> operator+ &lt;&gt;(<span class="keyword">const</span> <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix&lt;M&gt;</a>&amp; mtrxF, <span class="keyword">const</span> <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix&lt;M&gt;</a>&amp; mtrxS);</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a397920c720ac985d1daa4e7493b383c3">   70</a></span>&#160;      <span class="keyword">friend</span> <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix&lt;M&gt;</a> operator- &lt;&gt;(<span class="keyword">const</span> <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix&lt;M&gt;</a>&amp; mtrxF, <span class="keyword">const</span> <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix&lt;M&gt;</a>&amp; mtrxS);</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a98be135d4e526abeae07b32a27a1a2e9">   71</a></span>&#160;      <span class="keyword">friend</span> <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix&lt;M&gt;</a> operator* &lt;&gt;(<span class="keyword">const</span> <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix&lt;M&gt;</a>&amp; mtrxF, <span class="keyword">const</span> <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix&lt;M&gt;</a>&amp; mtrxS);</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a5fdf4626a5e6ee8ecd240b20c2ca17a5">   72</a></span>&#160;      <span class="keyword">friend</span> <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix&lt;M&gt;</a> operator* &lt;&gt;(<span class="keyword">const</span> <a class="code" href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">DiagonalMatrix&lt;M&gt;</a>&amp; <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html#a613783812ce703b2e9ffe4f83f26d9a8">mtrx</a>, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; scalar);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      M* diagTab{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  };</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">  #include &quot;src/constructors.tpp&quot;</span> </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">  #include &quot;src/pureVirtMethods.tpp&quot;</span> </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">  #include &quot;src/getters.tpp&quot;</span> </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">  #include &quot;src/privateMethods.tpp&quot;</span> </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">  #include &quot;src/mathAndOprts/mathMethods.tpp&quot;</span> </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">  #include &quot;src/mathAndOprts/friendOprts.tpp&quot;</span> </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassdiagonal_matrix_package_1_1_diagonal_matrix_html"><div class="ttname"><a href="classdiagonal_matrix_package_1_1_diagonal_matrix.html">diagonalMatrixPackage::DiagonalMatrix</a></div><div class="ttdoc">Klasa pochodna dziedzicząca po klasie abstrakcyjnej &quot;MatrixAbstract&quot;. Obsługuje macierze diagonalne....</div><div class="ttdef"><b>Definition:</b> DiagonalMatrix.hpp:46</div></div>
+<div class="ttc" id="aclassdiagonal_matrix_package_1_1_diagonal_matrix_html_a1a8b7586588255d703225ece924d6148"><div class="ttname"><a href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a1a8b7586588255d703225ece924d6148">diagonalMatrixPackage::DiagonalMatrix::DiagonalMatrix</a></div><div class="ttdeci">DiagonalMatrix()</div></div>
+<div class="ttc" id="aclassdiagonal_matrix_package_1_1_diagonal_matrix_html_a5017d8b854d37852ac241ad929a7d147"><div class="ttname"><a href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a5017d8b854d37852ac241ad929a7d147">diagonalMatrixPackage::DiagonalMatrix::DiagonalMatrix</a></div><div class="ttdeci">DiagonalMatrix(const DiagonalMatrix &amp;)</div></div>
+<div class="ttc" id="aclassdiagonal_matrix_package_1_1_diagonal_matrix_html_a6a0da12561c7da935e7d7e6f3f1214b8"><div class="ttname"><a href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a6a0da12561c7da935e7d7e6f3f1214b8">diagonalMatrixPackage::DiagonalMatrix::get_DiagTab</a></div><div class="ttdeci">M * get_DiagTab() const</div></div>
+<div class="ttc" id="aclassdiagonal_matrix_package_1_1_diagonal_matrix_html_a6fe9452cff0f966ee242086d242879ca"><div class="ttname"><a href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a6fe9452cff0f966ee242086d242879ca">diagonalMatrixPackage::DiagonalMatrix::determinantMtrx</a></div><div class="ttdeci">M determinantMtrx(HANDLE &amp;)</div></div>
+<div class="ttc" id="aclassdiagonal_matrix_package_1_1_diagonal_matrix_html_a72c6ac8744a189f4740280df0ac6c2fd"><div class="ttname"><a href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a72c6ac8744a189f4740280df0ac6c2fd">diagonalMatrixPackage::DiagonalMatrix::DiagonalMatrix</a></div><div class="ttdeci">DiagonalMatrix(unsigned short int &amp;)</div></div>
+<div class="ttc" id="aclassdiagonal_matrix_package_1_1_diagonal_matrix_html_a8d737b21b7212fba1600dee530895501"><div class="ttname"><a href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a8d737b21b7212fba1600dee530895501">diagonalMatrixPackage::DiagonalMatrix::coupledMtrx</a></div><div class="ttdeci">DiagonalMatrix&lt; M &gt; coupledMtrx()</div></div>
+<div class="ttc" id="aclassdiagonal_matrix_package_1_1_diagonal_matrix_html_a9229fe5bb21f646c1b9a62d431a8d2d9"><div class="ttname"><a href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a9229fe5bb21f646c1b9a62d431a8d2d9">diagonalMatrixPackage::DiagonalMatrix::insertMtrx</a></div><div class="ttdeci">virtual void insertMtrx(HANDLE &amp;)</div></div>
+<div class="ttc" id="aclassdiagonal_matrix_package_1_1_diagonal_matrix_html_a929b7032902fd731522a569c16a2cde1"><div class="ttname"><a href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#a929b7032902fd731522a569c16a2cde1">diagonalMatrixPackage::DiagonalMatrix::transposeMtrx</a></div><div class="ttdeci">DiagonalMatrix&lt; M &gt; transposeMtrx()</div></div>
+<div class="ttc" id="aclassdiagonal_matrix_package_1_1_diagonal_matrix_html_ac4f8437dbf90576b8c64a804981686ad"><div class="ttname"><a href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#ac4f8437dbf90576b8c64a804981686ad">diagonalMatrixPackage::DiagonalMatrix::inverseMtrx</a></div><div class="ttdeci">DiagonalMatrix&lt; double &gt; inverseMtrx(HANDLE &amp;)</div></div>
+<div class="ttc" id="aclassdiagonal_matrix_package_1_1_diagonal_matrix_html_acaf3625d590697efcae919bb22b9fb72"><div class="ttname"><a href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#acaf3625d590697efcae919bb22b9fb72">diagonalMatrixPackage::DiagonalMatrix::DiagonalMatrix</a></div><div class="ttdeci">DiagonalMatrix(unsigned short int &amp;, unsigned short int &amp;)</div></div>
+<div class="ttc" id="aclassdiagonal_matrix_package_1_1_diagonal_matrix_html_afc6c31c823d2ecc2365e0bd4021c6c6c"><div class="ttname"><a href="classdiagonal_matrix_package_1_1_diagonal_matrix.html#afc6c31c823d2ecc2365e0bd4021c6c6c">diagonalMatrixPackage::DiagonalMatrix::~DiagonalMatrix</a></div><div class="ttdeci">~DiagonalMatrix()</div></div>
+<div class="ttc" id="aclassmatrix_abstract_package_1_1_matrix_abstract_html"><div class="ttname"><a href="classmatrix_abstract_package_1_1_matrix_abstract.html">matrixAbstractPackage::MatrixAbstract</a></div><div class="ttdoc">Klasa abstrakcyjna. Interfejs programu.</div><div class="ttdef"><b>Definition:</b> MatrixAbstract.hpp:46</div></div>
+<div class="ttc" id="aclassmatrix_abstract_package_1_1_matrix_abstract_html_a613783812ce703b2e9ffe4f83f26d9a8"><div class="ttname"><a href="classmatrix_abstract_package_1_1_matrix_abstract.html#a613783812ce703b2e9ffe4f83f26d9a8">matrixAbstractPackage::MatrixAbstract::mtrx</a></div><div class="ttdeci">M ** mtrx</div><div class="ttdef"><b>Definition:</b> MatrixAbstract.hpp:80</div></div>
+<div class="ttc" id="anamespacediagonal_matrix_package_html"><div class="ttname"><a href="namespacediagonal_matrix_package.html">diagonalMatrixPackage</a></div><div class="ttdef"><b>Definition:</b> DiagonalMatrix.hpp:8</div></div>
+<div class="ttc" id="anamespacediagonal_matrix_package_html_a1025384c58a94c9f4b01ad2761be42b6"><div class="ttname"><a href="namespacediagonal_matrix_package.html#a1025384c58a94c9f4b01ad2761be42b6">diagonalMatrixPackage::operator+</a></div><div class="ttdeci">DiagonalMatrix&lt; M &gt; operator+(const DiagonalMatrix&lt; M &gt; &amp;mtrxF, const DiagonalMatrix&lt; M &gt; &amp;mtrxS)</div></div>
+<div class="ttc" id="anamespacediagonal_matrix_package_html_a5976e1e22a3870b52eb9558bc0958448"><div class="ttname"><a href="namespacediagonal_matrix_package.html#a5976e1e22a3870b52eb9558bc0958448">diagonalMatrixPackage::operator-</a></div><div class="ttdeci">DiagonalMatrix&lt; M &gt; operator-(const DiagonalMatrix&lt; M &gt; &amp;mtrxF, const DiagonalMatrix&lt; M &gt; &amp;mtrxS)</div></div>
+<div class="ttc" id="anamespacediagonal_matrix_package_html_aa5dc9b1f826fcb53ca767c8190323bd9"><div class="ttname"><a href="namespacediagonal_matrix_package.html#aa5dc9b1f826fcb53ca767c8190323bd9">diagonalMatrixPackage::operator*</a></div><div class="ttdeci">DiagonalMatrix&lt; M &gt; operator*(const DiagonalMatrix&lt; M &gt; &amp;mtrxF, const DiagonalMatrix&lt; M &gt; &amp;mtrxS)</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

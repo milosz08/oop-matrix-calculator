@@ -25,11 +25,11 @@ template<typename T>
 void createMtrxObject(unsigned short int* sizeMtrx, HANDLE& hOut,
                       unsigned short int& mtrxType, unsigned short int& mtrxValType) {
 
-  unsigned short int chooseMtrxMath{0}; /** Wybór przez użytkownika operacji matematycznej na macierzy */
-  MatrixAbstract<T>* ptr{nullptr}; /** Wzkaźnik wskazujący na obiekt typu T (int/double) */
+  unsigned short int chooseMtrxMath{0}; /** @skip Wybór przez użytkownika operacji matematycznej na macierzy */
+  MatrixAbstract<T>* ptr{nullptr}; /** @skip Wzkaźnik wskazujący na obiekt typu T (int/double) */
 
   switch(mtrxType) {
-    case 1: { /** macierze prostokątne */
+    case 1: { /** @skip macierze prostokątne */
       GeneralMatrix<T> rectObj{sizeMtrx[0], sizeMtrx[1]};
       ptr = &rectObj;
 
@@ -39,7 +39,7 @@ void createMtrxObject(unsigned short int* sizeMtrx, HANDLE& hOut,
       );
 
       break;
-    } case 2: { /** macierze kwadratowe */
+    } case 2: { /** @skip macierze kwadratowe */
       GeneralMatrix<T> sqrObj{sizeMtrx[0]};
       ptr = &sqrObj;
 
@@ -49,7 +49,7 @@ void createMtrxObject(unsigned short int* sizeMtrx, HANDLE& hOut,
       );
 
       break;
-    } case 3: { /** macierze diagonalne */
+    } case 3: { /** @skip macierze diagonalne */
       DiagonalMatrix<T> diagObj{sizeMtrx[0]};
       ptr = &diagObj;
 

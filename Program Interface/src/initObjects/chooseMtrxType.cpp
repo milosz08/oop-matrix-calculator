@@ -6,10 +6,10 @@
  *
  * @brief Funkcja pobierająca od użytkownika typ macierzy, na jakiej chce wykonywać operacje w programie. Spośród
  *        opcji użytkownik może wybrać odpowiednio: 1 - macierz zwykła prostokątna, 2 - macierz zwykła kwadratowa,
- *        3 - macierz diagonalna (typ macierzy kwadratowej).
+ *        3 - macierz diagonalna (typ macierzy kwadratowej).<br>
  *
- * @protection Funkcja posiada walidację strumienia wejścia. Jeśli użytkownik nie poda liczby z zakresu 1-3 program
- *             zasygnalizuje błąd i po odczekaniu 5 sekund umożliwi użytkownikowi ponowne wybranie opcji.
+ *        Funkcja posiada walidację strumienia wejścia. Jeśli użytkownik nie poda liczby z zakresu 1-3 program
+ *        zasygnalizuje błąd i po odczekaniu 5 sekund umożliwi użytkownikowi ponowne wybranie opcji.
  *
  * @param hOut - uchwyt na wyjście z konsoli (zadeklarowany w funkcji startPrg i przekazywany przez referencję).
  *
@@ -46,6 +46,6 @@ unsigned short int chooseTypeOfMatrix(HANDLE& hOut) {
 
   } while(error);
 
-  std::system("cls"); /** czyszczenie konsoli */
+  std::system("cls"); /** @skip czyszczenie konsoli */
   return choice;
 }

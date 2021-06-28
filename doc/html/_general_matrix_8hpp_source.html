@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Kalkulator Macierzy: Plik źródłowy Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="polsl logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Kalkulator Macierzy
+   </div>
+   <div id="projectbrief">Projekt zaliczeniowy z labolatorium przedmiotu Programowanie Komputerów. Napisany zgodnie z paradygmatami programowania obiektowego w języku C++</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_38cb5389abe0947eceed07a48a092250.html">Matrix Classes</a></li><li class="navelem"><a class="el" href="dir_2c94d456434de8074d96c89edf12cd69.html">src</a></li><li class="navelem"><a class="el" href="dir_f31fa3e8a9a1a4ce8e5bb7d3fb48946f.html">packages</a></li><li class="navelem"><a class="el" href="dir_1501af9e20806ea712eb651978202325.html">generalMatrixPackage</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">GeneralMatrix.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_general_matrix_8hpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef PK_MATRIX_CALCULATOR_GENERALMATRIX_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define PK_MATRIX_CALCULATOR_GENERALMATRIX_HPP</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;../abstractMatrixPackage/MatrixAbstract.hpp&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;limits&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;iomanip&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;windows.h&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="namespacegeneral_matrix_package.html">   10</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacegeneral_matrix_package.html">generalMatrixPackage</a> {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> M&gt; <span class="keyword">class </span><a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="namespacegeneral_matrix_package.html#a104f64008a7cbb8cca6e529de6b4991b">   41</a></span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> M&gt; <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;M&gt;</a> <a class="code" href="namespacegeneral_matrix_package.html#a104f64008a7cbb8cca6e529de6b4991b">operator+</a>(<span class="keyword">const</span> <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;M&gt;</a>&amp; mtrxF, <span class="keyword">const</span> <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;M&gt;</a>&amp; mtrxS);</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="namespacegeneral_matrix_package.html#a6905bb7bd43c504c1e83802819c51e29">   42</a></span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> M&gt; <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;M&gt;</a> <a class="code" href="namespacegeneral_matrix_package.html#a6905bb7bd43c504c1e83802819c51e29">operator-</a>(<span class="keyword">const</span> <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;M&gt;</a>&amp; mtrxF, <span class="keyword">const</span> <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;M&gt;</a>&amp; mtrxS);</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="namespacegeneral_matrix_package.html#a0738f04355c1c21439fa4787d9ddf178">   43</a></span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> M&gt; <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;M&gt;</a> <a class="code" href="namespacegeneral_matrix_package.html#a0738f04355c1c21439fa4787d9ddf178">operator*</a>(<span class="keyword">const</span> <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;M&gt;</a>&amp; mtrxF, <span class="keyword">const</span> <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;M&gt;</a>&amp; mtrxS);</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="namespacegeneral_matrix_package.html#a434ff15fb56dd86b4362f0639b257550">   44</a></span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> M&gt; <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;M&gt;</a> <a class="code" href="namespacegeneral_matrix_package.html#a0738f04355c1c21439fa4787d9ddf178">operator*</a>(<span class="keyword">const</span> <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;M&gt;</a>&amp; mtrx, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; scalar);</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="namespacegeneral_matrix_package.html#a3a5021345f9a0f2b3dc3d71397283c96">   45</a></span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> M&gt; M <a class="code" href="namespacegeneral_matrix_package.html#a3a5021345f9a0f2b3dc3d71397283c96">detRecursion</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> mtrxS, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> nextRow,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                                   <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>* colCount, M** mtrx);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> M&gt;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classgeneral_matrix_package_1_1_general_matrix.html">   49</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix</a> : <span class="keyword">public</span> <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html">matrixAbstractPackage::MatrixAbstract</a>&lt;M&gt; {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classgeneral_matrix_package_1_1_general_matrix.html#ac88aae2fbb085b213f93af48f926e6de">   51</a></span>&#160;      <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html#ac88aae2fbb085b213f93af48f926e6de">GeneralMatrix</a>();</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classgeneral_matrix_package_1_1_general_matrix.html#af371b120af1e3fb01d7dd641a56fc4dc">   52</a></span>&#160;      <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html#af371b120af1e3fb01d7dd641a56fc4dc">GeneralMatrix</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>&amp;, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>&amp;); </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classgeneral_matrix_package_1_1_general_matrix.html#ab6c5c40b4c736c5f6c30856a85b712db">   53</a></span>&#160;      <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html#ab6c5c40b4c736c5f6c30856a85b712db">GeneralMatrix</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>&amp;); </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classgeneral_matrix_package_1_1_general_matrix.html#a239b60c5006ce799ca7988bd2b649e41">   54</a></span>&#160;      <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html#a239b60c5006ce799ca7988bd2b649e41">GeneralMatrix</a>(<span class="keyword">const</span> <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;M&gt;</a>&amp;); </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classgeneral_matrix_package_1_1_general_matrix.html#ac3ed454415800c91ef47b8c4686f258c">   56</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html#ac3ed454415800c91ef47b8c4686f258c">insertMtrx</a>(HANDLE&amp;); </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classgeneral_matrix_package_1_1_general_matrix.html#ad79a33cbbf08c5d5f032fa9db4bf401b">   58</a></span>&#160;      <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;M&gt;</a> <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html#ad79a33cbbf08c5d5f032fa9db4bf401b">transposeMtrx</a>(); </div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classgeneral_matrix_package_1_1_general_matrix.html#a94ae18e1e114859f42555216ffd3d09c">   59</a></span>&#160;      <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;M&gt;</a> <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html#a94ae18e1e114859f42555216ffd3d09c">coupledMtrx</a>(); </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classgeneral_matrix_package_1_1_general_matrix.html#a1af87093e922ac4638dec9761c778618">   60</a></span>&#160;      M <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html#a1af87093e922ac4638dec9761c778618">determinantMtrx</a>(HANDLE&amp;); </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classgeneral_matrix_package_1_1_general_matrix.html#aef248b759318e07a6c344c5c571fa750">   61</a></span>&#160;      <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;double&gt;</a> <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html#aef248b759318e07a6c344c5c571fa750">inverseMtrx</a>(HANDLE&amp;);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classgeneral_matrix_package_1_1_general_matrix.html#ad433e683a0ea558e7304bb8eec124efd">   63</a></span>&#160;      <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html#ad433e683a0ea558e7304bb8eec124efd">~GeneralMatrix</a>();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> mtrxTypeAndSizeInfo(); </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classgeneral_matrix_package_1_1_general_matrix.html#ab46fefc3b59b8c7f9738ef3a15d95994">   69</a></span>&#160;      <span class="keyword">friend</span> <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;M&gt;</a> operator+ &lt;&gt;(<span class="keyword">const</span> <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;M&gt;</a>&amp; mtrxF, <span class="keyword">const</span> <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;M&gt;</a>&amp; mtrxS);</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classgeneral_matrix_package_1_1_general_matrix.html#a594dd1fe543430e4cf750568f9a08fb3">   70</a></span>&#160;      <span class="keyword">friend</span> <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;M&gt;</a> operator- &lt;&gt;(<span class="keyword">const</span> <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;M&gt;</a>&amp; mtrxF, <span class="keyword">const</span> <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;M&gt;</a>&amp; mtrxS);</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classgeneral_matrix_package_1_1_general_matrix.html#a852f5ec1c65b7fa55dbef07a428fbab9">   71</a></span>&#160;      <span class="keyword">friend</span> <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;M&gt;</a> operator* &lt;&gt;(<span class="keyword">const</span> <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;M&gt;</a>&amp; mtrxF, <span class="keyword">const</span> <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;M&gt;</a>&amp; mtrxS);</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classgeneral_matrix_package_1_1_general_matrix.html#a89905036d3757ac0c801df85109904fd">   72</a></span>&#160;      <span class="keyword">friend</span> <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;M&gt;</a> operator* &lt;&gt;(<span class="keyword">const</span> <a class="code" href="classgeneral_matrix_package_1_1_general_matrix.html">GeneralMatrix&lt;M&gt;</a>&amp; <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html#a613783812ce703b2e9ffe4f83f26d9a8">mtrx</a>, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; scalar);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classgeneral_matrix_package_1_1_general_matrix.html#a6c20a5b3753f02a7523a1da899634b1f">   74</a></span>&#160;      <span class="keyword">friend</span> M detRecursion &lt;&gt;(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> mtrxS, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> nextRow,</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                               <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>* colCount, M** <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html#a613783812ce703b2e9ffe4f83f26d9a8">mtrx</a>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>* colsCount{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  };</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">  #include &quot;src/constructors.tpp&quot;</span> </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">  #include &quot;src/pureVirtMethods.tpp&quot;</span> </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">  #include &quot;src/mathAndOprts/mathMethods.tpp&quot;</span> </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">  #include &quot;src/mathAndOprts/friendOprts.tpp&quot;</span> </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassgeneral_matrix_package_1_1_general_matrix_html"><div class="ttname"><a href="classgeneral_matrix_package_1_1_general_matrix.html">generalMatrixPackage::GeneralMatrix</a></div><div class="ttdef"><b>Definition:</b> GeneralMatrix.hpp:49</div></div>
+<div class="ttc" id="aclassgeneral_matrix_package_1_1_general_matrix_html_a1af87093e922ac4638dec9761c778618"><div class="ttname"><a href="classgeneral_matrix_package_1_1_general_matrix.html#a1af87093e922ac4638dec9761c778618">generalMatrixPackage::GeneralMatrix::determinantMtrx</a></div><div class="ttdeci">M determinantMtrx(HANDLE &amp;)</div></div>
+<div class="ttc" id="aclassgeneral_matrix_package_1_1_general_matrix_html_a239b60c5006ce799ca7988bd2b649e41"><div class="ttname"><a href="classgeneral_matrix_package_1_1_general_matrix.html#a239b60c5006ce799ca7988bd2b649e41">generalMatrixPackage::GeneralMatrix::GeneralMatrix</a></div><div class="ttdeci">GeneralMatrix(const GeneralMatrix&lt; M &gt; &amp;)</div></div>
+<div class="ttc" id="aclassgeneral_matrix_package_1_1_general_matrix_html_a94ae18e1e114859f42555216ffd3d09c"><div class="ttname"><a href="classgeneral_matrix_package_1_1_general_matrix.html#a94ae18e1e114859f42555216ffd3d09c">generalMatrixPackage::GeneralMatrix::coupledMtrx</a></div><div class="ttdeci">GeneralMatrix&lt; M &gt; coupledMtrx()</div></div>
+<div class="ttc" id="aclassgeneral_matrix_package_1_1_general_matrix_html_ab6c5c40b4c736c5f6c30856a85b712db"><div class="ttname"><a href="classgeneral_matrix_package_1_1_general_matrix.html#ab6c5c40b4c736c5f6c30856a85b712db">generalMatrixPackage::GeneralMatrix::GeneralMatrix</a></div><div class="ttdeci">GeneralMatrix(unsigned short int &amp;)</div></div>
+<div class="ttc" id="aclassgeneral_matrix_package_1_1_general_matrix_html_ac3ed454415800c91ef47b8c4686f258c"><div class="ttname"><a href="classgeneral_matrix_package_1_1_general_matrix.html#ac3ed454415800c91ef47b8c4686f258c">generalMatrixPackage::GeneralMatrix::insertMtrx</a></div><div class="ttdeci">virtual void insertMtrx(HANDLE &amp;)</div></div>
+<div class="ttc" id="aclassgeneral_matrix_package_1_1_general_matrix_html_ac88aae2fbb085b213f93af48f926e6de"><div class="ttname"><a href="classgeneral_matrix_package_1_1_general_matrix.html#ac88aae2fbb085b213f93af48f926e6de">generalMatrixPackage::GeneralMatrix::GeneralMatrix</a></div><div class="ttdeci">GeneralMatrix()</div></div>
+<div class="ttc" id="aclassgeneral_matrix_package_1_1_general_matrix_html_ad433e683a0ea558e7304bb8eec124efd"><div class="ttname"><a href="classgeneral_matrix_package_1_1_general_matrix.html#ad433e683a0ea558e7304bb8eec124efd">generalMatrixPackage::GeneralMatrix::~GeneralMatrix</a></div><div class="ttdeci">~GeneralMatrix()</div></div>
+<div class="ttc" id="aclassgeneral_matrix_package_1_1_general_matrix_html_ad79a33cbbf08c5d5f032fa9db4bf401b"><div class="ttname"><a href="classgeneral_matrix_package_1_1_general_matrix.html#ad79a33cbbf08c5d5f032fa9db4bf401b">generalMatrixPackage::GeneralMatrix::transposeMtrx</a></div><div class="ttdeci">GeneralMatrix&lt; M &gt; transposeMtrx()</div></div>
+<div class="ttc" id="aclassgeneral_matrix_package_1_1_general_matrix_html_aef248b759318e07a6c344c5c571fa750"><div class="ttname"><a href="classgeneral_matrix_package_1_1_general_matrix.html#aef248b759318e07a6c344c5c571fa750">generalMatrixPackage::GeneralMatrix::inverseMtrx</a></div><div class="ttdeci">GeneralMatrix&lt; double &gt; inverseMtrx(HANDLE &amp;)</div></div>
+<div class="ttc" id="aclassgeneral_matrix_package_1_1_general_matrix_html_af371b120af1e3fb01d7dd641a56fc4dc"><div class="ttname"><a href="classgeneral_matrix_package_1_1_general_matrix.html#af371b120af1e3fb01d7dd641a56fc4dc">generalMatrixPackage::GeneralMatrix::GeneralMatrix</a></div><div class="ttdeci">GeneralMatrix(unsigned short int &amp;, unsigned short int &amp;)</div></div>
+<div class="ttc" id="aclassmatrix_abstract_package_1_1_matrix_abstract_html"><div class="ttname"><a href="classmatrix_abstract_package_1_1_matrix_abstract.html">matrixAbstractPackage::MatrixAbstract</a></div><div class="ttdoc">Klasa abstrakcyjna. Interfejs programu.</div><div class="ttdef"><b>Definition:</b> MatrixAbstract.hpp:46</div></div>
+<div class="ttc" id="aclassmatrix_abstract_package_1_1_matrix_abstract_html_a613783812ce703b2e9ffe4f83f26d9a8"><div class="ttname"><a href="classmatrix_abstract_package_1_1_matrix_abstract.html#a613783812ce703b2e9ffe4f83f26d9a8">matrixAbstractPackage::MatrixAbstract::mtrx</a></div><div class="ttdeci">M ** mtrx</div><div class="ttdef"><b>Definition:</b> MatrixAbstract.hpp:80</div></div>
+<div class="ttc" id="anamespacegeneral_matrix_package_html"><div class="ttname"><a href="namespacegeneral_matrix_package.html">generalMatrixPackage</a></div><div class="ttdef"><b>Definition:</b> GeneralMatrix.hpp:10</div></div>
+<div class="ttc" id="anamespacegeneral_matrix_package_html_a0738f04355c1c21439fa4787d9ddf178"><div class="ttname"><a href="namespacegeneral_matrix_package.html#a0738f04355c1c21439fa4787d9ddf178">generalMatrixPackage::operator*</a></div><div class="ttdeci">GeneralMatrix&lt; M &gt; operator*(const GeneralMatrix&lt; M &gt; &amp;mtrxF, const GeneralMatrix&lt; M &gt; &amp;mtrxS)</div></div>
+<div class="ttc" id="anamespacegeneral_matrix_package_html_a104f64008a7cbb8cca6e529de6b4991b"><div class="ttname"><a href="namespacegeneral_matrix_package.html#a104f64008a7cbb8cca6e529de6b4991b">generalMatrixPackage::operator+</a></div><div class="ttdeci">GeneralMatrix&lt; M &gt; operator+(const GeneralMatrix&lt; M &gt; &amp;mtrxF, const GeneralMatrix&lt; M &gt; &amp;mtrxS)</div></div>
+<div class="ttc" id="anamespacegeneral_matrix_package_html_a3a5021345f9a0f2b3dc3d71397283c96"><div class="ttname"><a href="namespacegeneral_matrix_package.html#a3a5021345f9a0f2b3dc3d71397283c96">generalMatrixPackage::detRecursion</a></div><div class="ttdeci">M detRecursion(unsigned short int mtrxS, unsigned short int nextRow, unsigned short int *colCount, M **mtrx)</div></div>
+<div class="ttc" id="anamespacegeneral_matrix_package_html_a6905bb7bd43c504c1e83802819c51e29"><div class="ttname"><a href="namespacegeneral_matrix_package.html#a6905bb7bd43c504c1e83802819c51e29">generalMatrixPackage::operator-</a></div><div class="ttdeci">GeneralMatrix&lt; M &gt; operator-(const GeneralMatrix&lt; M &gt; &amp;mtrxF, const GeneralMatrix&lt; M &gt; &amp;mtrxS)</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Kalkulator Macierzy: Plik źródłowy Program Interface/src/interfaceDecl.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="polsl logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Kalkulator Macierzy
+   </div>
+   <div id="projectbrief">Projekt zaliczeniowy z labolatorium przedmiotu Programowanie Komputerów. Napisany zgodnie z paradygmatami programowania obiektowego w języku C++</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_0d13dfbfd3fb24b5df105b1f02cb3488.html">Program Interface</a></li><li class="navelem"><a class="el" href="dir_19f498bbf45ce41685f9c6703943bc6a.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">interfaceDecl.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="interface_decl_8hpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef PK_MATRIX_CALCULATOR_INTERFACEDECL_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define PK_MATRIX_CALCULATOR_INTERFACEDECL_HPP</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;../../Matrix Classes/src/packages/abstractMatrixPackage/MatrixAbstract.hpp&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;../../Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;../../Matrix Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;windows.h&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;winnt.h&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacematrix_abstract_package.html">matrixAbstractPackage</a>;  </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacegeneral_matrix_package.html">generalMatrixPackage</a>;   </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacediagonal_matrix_package.html">diagonalMatrixPackage</a>;  </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> <a class="code" href="interface_decl_8hpp.html#a1bc160c7e082fb43a4cda14fe0fc879c">startPrg</a>();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">void</span> <a class="code" href="interface_decl_8hpp.html#a0e71477aa589762f23a69ac6f59c753a">mainMenu</a>(HANDLE&amp; hOut);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">void</span> <a class="code" href="interface_decl_8hpp.html#a60e56f19f48b4eac97f518fb8375fcd6">initMtrxObj</a>(HANDLE&amp; hOut);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;std::string <a class="code" href="interface_decl_8hpp.html#aa50a8fd53426b67df8013b3ae43a4a83">saveMtrxInfo</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>&amp; type, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>&amp; val);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> <a class="code" href="interface_decl_8hpp.html#a93c1b692b592f712b61d26eb9fb86cc9">chooseTypeOfMatrix</a>(HANDLE&amp; hOut);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> <a class="code" href="interface_decl_8hpp.html#a04f9f814e6a4e8355f5cd839d6b06702">chooseTypeOfNumbers</a>(HANDLE&amp; hOut);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>* <a class="code" href="interface_decl_8hpp.html#a4d4b22c5fa873d7f8ec58e6126e6c98b">setMtrxSize</a>(HANDLE&amp; hOut, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>&amp; mtrxType, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>&amp; mtrxValType);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="interface_decl_8hpp.html#a35c5efdb2f9d61f8049b64bb52867089">   38</a></span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> <a class="code" href="interface_decl_8hpp.html#a35c5efdb2f9d61f8049b64bb52867089">mathChooseMtrx</a>(<a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html">MatrixAbstract&lt;T&gt;</a>* obj, HANDLE&amp; hOut);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="interface_decl_8hpp.html#a7b92af2181d4b7532da94fe146ea89a0">   41</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="interface_decl_8hpp.html#a7b92af2181d4b7532da94fe146ea89a0">createMtrxObject</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>* sizeMtrx, HANDLE&amp; hOut,</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                        <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>&amp; mtrxType, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>&amp; mtrxValType);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> M, <span class="keyword">class</span> I, <span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="interface_decl_8hpp.html#a683ad991d459f7ad04c6bd0a1359cad6">   45</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="interface_decl_8hpp.html#a683ad991d459f7ad04c6bd0a1359cad6">onlyOneMtrxMath</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>&amp; choose, <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html">MatrixAbstract&lt;T&gt;</a>* ptr, M&amp; obj, HANDLE&amp; hOut,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                       <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>&amp; mtrxType, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>&amp; mtrxValType);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> M, <span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="interface_decl_8hpp.html#abef103f5fcc7f64e1a8c8305a6c6507b">   49</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="interface_decl_8hpp.html#abef103f5fcc7f64e1a8c8305a6c6507b">onlyOneMtrxMathInfo</a>(<a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html">MatrixAbstract&lt;T&gt;</a>* ptr, M&amp; outObj, HANDLE&amp; hOut, std::vector&lt;std::string&gt;infMess);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="interface_decl_8hpp.html#a9e156be2a6b202959285dce178b6a31a">   55</a></span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> <a class="code" href="interface_decl_8hpp.html#a9e156be2a6b202959285dce178b6a31a">mathSecondMatrix</a>(<a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html">MatrixAbstract&lt;T&gt;</a>* objF, <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html">MatrixAbstract&lt;T&gt;</a>* objS, HANDLE&amp; hOut);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> M&gt;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="interface_decl_8hpp.html#a0a5871fca7c66cd8442f8f046b804d7d">   58</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="interface_decl_8hpp.html#a0a5871fca7c66cd8442f8f046b804d7d">secondMtrxMath</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>&amp; choose, M&amp; objF, M&amp; objS, HANDLE&amp; hOut);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> M&gt;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="interface_decl_8hpp.html#ae0ba02beee779c3a1df649ba7b592a67">   61</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="interface_decl_8hpp.html#ae0ba02beee779c3a1df649ba7b592a67">secondMtrxMathInfo</a>(M&amp; objF, M&amp; objS, M&amp; objFinal, HANDLE&amp; hOut, std::vector&lt;std::string&gt;infMess);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassmatrix_abstract_package_1_1_matrix_abstract_html"><div class="ttname"><a href="classmatrix_abstract_package_1_1_matrix_abstract.html">matrixAbstractPackage::MatrixAbstract</a></div><div class="ttdoc">Klasa abstrakcyjna. Interfejs programu.</div><div class="ttdef"><b>Definition:</b> MatrixAbstract.hpp:46</div></div>
+<div class="ttc" id="ainterface_decl_8hpp_html_a04f9f814e6a4e8355f5cd839d6b06702"><div class="ttname"><a href="interface_decl_8hpp.html#a04f9f814e6a4e8355f5cd839d6b06702">chooseTypeOfNumbers</a></div><div class="ttdeci">unsigned short int chooseTypeOfNumbers(HANDLE &amp;hOut)</div><div class="ttdoc">Funkcja pobierająca od użytkownika typ wartości, jakie będzie mógł wpisać do macierzy....</div><div class="ttdef"><b>Definition:</b> chooseNmbrType.cpp:19</div></div>
+<div class="ttc" id="ainterface_decl_8hpp_html_a0a5871fca7c66cd8442f8f046b804d7d"><div class="ttname"><a href="interface_decl_8hpp.html#a0a5871fca7c66cd8442f8f046b804d7d">secondMtrxMath</a></div><div class="ttdeci">void secondMtrxMath(unsigned short int &amp;choose, M &amp;objF, M &amp;objS, HANDLE &amp;hOut)</div></div>
+<div class="ttc" id="ainterface_decl_8hpp_html_a0e71477aa589762f23a69ac6f59c753a"><div class="ttname"><a href="interface_decl_8hpp.html#a0e71477aa589762f23a69ac6f59c753a">mainMenu</a></div><div class="ttdeci">void mainMenu(HANDLE &amp;hOut)</div><div class="ttdoc">Funkcja generująca początkowe menu. Informuje o: autorze, wspieranych operacjach oraz daje możliwość ...</div><div class="ttdef"><b>Definition:</b> mainMenu.cpp:17</div></div>
+<div class="ttc" id="ainterface_decl_8hpp_html_a1bc160c7e082fb43a4cda14fe0fc879c"><div class="ttname"><a href="interface_decl_8hpp.html#a1bc160c7e082fb43a4cda14fe0fc879c">startPrg</a></div><div class="ttdeci">void startPrg()</div><div class="ttdoc">Funkcja sterująca wywołująca wyświetlanie menu początkowego (opis programu) oraz inicjująca program....</div><div class="ttdef"><b>Definition:</b> startPrg.cpp:16</div></div>
+<div class="ttc" id="ainterface_decl_8hpp_html_a35c5efdb2f9d61f8049b64bb52867089"><div class="ttname"><a href="interface_decl_8hpp.html#a35c5efdb2f9d61f8049b64bb52867089">mathChooseMtrx</a></div><div class="ttdeci">unsigned short int mathChooseMtrx(MatrixAbstract&lt; T &gt; *obj, HANDLE &amp;hOut)</div></div>
+<div class="ttc" id="ainterface_decl_8hpp_html_a4d4b22c5fa873d7f8ec58e6126e6c98b"><div class="ttname"><a href="interface_decl_8hpp.html#a4d4b22c5fa873d7f8ec58e6126e6c98b">setMtrxSize</a></div><div class="ttdeci">unsigned short int * setMtrxSize(HANDLE &amp;hOut, unsigned short int &amp;mtrxType, unsigned short int &amp;mtrxValType)</div><div class="ttdef"><b>Definition:</b> setMtrxSize.cpp:28</div></div>
+<div class="ttc" id="ainterface_decl_8hpp_html_a60e56f19f48b4eac97f518fb8375fcd6"><div class="ttname"><a href="interface_decl_8hpp.html#a60e56f19f48b4eac97f518fb8375fcd6">initMtrxObj</a></div><div class="ttdeci">void initMtrxObj(HANDLE &amp;hOut)</div><div class="ttdoc">Funkcja wywołująca pozostałe funkcje (&quot;chooseMtrxType&quot;, &quot;chooseMtrxNmbr&quot; oraz &quot;setMtrxSize&quot;) które od...</div><div class="ttdef"><b>Definition:</b> initMtrxObj.cpp:14</div></div>
+<div class="ttc" id="ainterface_decl_8hpp_html_a683ad991d459f7ad04c6bd0a1359cad6"><div class="ttname"><a href="interface_decl_8hpp.html#a683ad991d459f7ad04c6bd0a1359cad6">onlyOneMtrxMath</a></div><div class="ttdeci">void onlyOneMtrxMath(unsigned short int &amp;choose, MatrixAbstract&lt; T &gt; *ptr, M &amp;obj, HANDLE &amp;hOut, unsigned short int &amp;mtrxType, unsigned short int &amp;mtrxValType)</div></div>
+<div class="ttc" id="ainterface_decl_8hpp_html_a7b92af2181d4b7532da94fe146ea89a0"><div class="ttname"><a href="interface_decl_8hpp.html#a7b92af2181d4b7532da94fe146ea89a0">createMtrxObject</a></div><div class="ttdeci">void createMtrxObject(unsigned short int *sizeMtrx, HANDLE &amp;hOut, unsigned short int &amp;mtrxType, unsigned short int &amp;mtrxValType)</div></div>
+<div class="ttc" id="ainterface_decl_8hpp_html_a93c1b692b592f712b61d26eb9fb86cc9"><div class="ttname"><a href="interface_decl_8hpp.html#a93c1b692b592f712b61d26eb9fb86cc9">chooseTypeOfMatrix</a></div><div class="ttdeci">unsigned short int chooseTypeOfMatrix(HANDLE &amp;hOut)</div><div class="ttdoc">Funkcja pobierająca od użytkownika typ macierzy, na jakiej chce wykonywać operacje w programie....</div><div class="ttdef"><b>Definition:</b> chooseMtrxType.cpp:18</div></div>
+<div class="ttc" id="ainterface_decl_8hpp_html_a9e156be2a6b202959285dce178b6a31a"><div class="ttname"><a href="interface_decl_8hpp.html#a9e156be2a6b202959285dce178b6a31a">mathSecondMatrix</a></div><div class="ttdeci">unsigned short int mathSecondMatrix(MatrixAbstract&lt; T &gt; *objF, MatrixAbstract&lt; T &gt; *objS, HANDLE &amp;hOut)</div></div>
+<div class="ttc" id="ainterface_decl_8hpp_html_aa50a8fd53426b67df8013b3ae43a4a83"><div class="ttname"><a href="interface_decl_8hpp.html#aa50a8fd53426b67df8013b3ae43a4a83">saveMtrxInfo</a></div><div class="ttdeci">std::string saveMtrxInfo(unsigned short int &amp;type, unsigned short int &amp;val)</div><div class="ttdef"><b>Definition:</b> setMtrxSize.cpp:90</div></div>
+<div class="ttc" id="ainterface_decl_8hpp_html_abef103f5fcc7f64e1a8c8305a6c6507b"><div class="ttname"><a href="interface_decl_8hpp.html#abef103f5fcc7f64e1a8c8305a6c6507b">onlyOneMtrxMathInfo</a></div><div class="ttdeci">void onlyOneMtrxMathInfo(MatrixAbstract&lt; T &gt; *ptr, M &amp;outObj, HANDLE &amp;hOut, std::vector&lt; std::string &gt;infMess)</div></div>
+<div class="ttc" id="ainterface_decl_8hpp_html_ae0ba02beee779c3a1df649ba7b592a67"><div class="ttname"><a href="interface_decl_8hpp.html#ae0ba02beee779c3a1df649ba7b592a67">secondMtrxMathInfo</a></div><div class="ttdeci">void secondMtrxMathInfo(M &amp;objF, M &amp;objS, M &amp;objFinal, HANDLE &amp;hOut, std::vector&lt; std::string &gt;infMess)</div></div>
+<div class="ttc" id="anamespacediagonal_matrix_package_html"><div class="ttname"><a href="namespacediagonal_matrix_package.html">diagonalMatrixPackage</a></div><div class="ttdef"><b>Definition:</b> DiagonalMatrix.hpp:8</div></div>
+<div class="ttc" id="anamespacegeneral_matrix_package_html"><div class="ttname"><a href="namespacegeneral_matrix_package.html">generalMatrixPackage</a></div><div class="ttdef"><b>Definition:</b> GeneralMatrix.hpp:10</div></div>
+<div class="ttc" id="anamespacematrix_abstract_package_html"><div class="ttname"><a href="namespacematrix_abstract_package.html">matrixAbstractPackage</a></div><div class="ttdef"><b>Definition:</b> MatrixAbstract.hpp:12</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

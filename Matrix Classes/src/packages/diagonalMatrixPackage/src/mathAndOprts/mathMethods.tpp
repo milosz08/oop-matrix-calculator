@@ -10,12 +10,12 @@
  *
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double).
  *
- * @return Macierz sprzężona (obiekt klasy DiagonalMatrix).
+ * @return Metoda zwraca macierz sprzężoną (obiekt klasy DiagonalMatrix).
  */
 template<class M>
 DiagonalMatrix<M> DiagonalMatrix<M>::coupledMtrx() {
 
-  /** Kopiowanie macierzy */
+  /** @skip Kopiowanie macierzy */
   DiagonalMatrix<M> mtrxCoup = DiagonalMatrix<M>{*this};
 
   for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
@@ -40,12 +40,12 @@ DiagonalMatrix<M> DiagonalMatrix<M>::coupledMtrx() {
  *
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double).
  *
- * @return Macierz transponowana (obiekt klasy DiagonalMatrix).
+ * @return Metoda zwraca macierz transponowaną (obiekt klasy DiagonalMatrix).
  */
 template<class M>
 DiagonalMatrix<M> DiagonalMatrix<M>::transposeMtrx() {
 
-  /** Kopiowanie macierzy */
+  /** @skip Kopiowanie macierzy */
   DiagonalMatrix<M> mtrxCoup = DiagonalMatrix<M>{*this};
 
   for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
@@ -73,11 +73,11 @@ DiagonalMatrix<M> DiagonalMatrix<M>::transposeMtrx() {
  *
  * @throw Metoda rzuca wyjątek, jeśli odkryje, że macierz nie jest kwadratowa.
  *
- * @return Wyznacznik (w zależności od wzorca: wartość int lub double).
+ * @return Metoda zwraca wyznacznik (w zależności od wzorca: wartość int lub double).
  */
 template<class M>
 M DiagonalMatrix<M>::determinantMtrx(HANDLE& hOut) {
-  M mtrxDet{1}; /** Końcowy wyznacznik (int/double) */
+  M mtrxDet{1}; /** @skip Końcowy wyznacznik (int/double) */
 
   if(this->mtrxWidth != this->mtrxHeight) { /** Jeśli macierz nie jest kwadratowa */
     throw std::logic_error("Program nie wspiera obliczania wyznacznika z macierzy która nie jest kwadratowa");
@@ -101,22 +101,21 @@ M DiagonalMatrix<M>::determinantMtrx(HANDLE& hOut) {
  *
  * @throw Metoda rzuca wyjątek, jeśli odkryje, że macierz nie jest kwadratowa.
  *
- * @return Macierz odwrotna (obiekt klasy DiagonalMatrix).
+ * @return Metoda zwraca macierz odwrotną (obiekt klasy DiagonalMatrix).
  */
 template<class M>
-DiagonalMatrix<double> DiagonalMatrix<M>::inverseMtrx() {
-  HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+DiagonalMatrix<double> DiagonalMatrix<M>::inverseMtrx(HANDLE& hOut) {
 
   M detCheck = this->determinantMtrx(hOut);
 
-  /** Macierz odwrotna do macierzy pierwotnej - na stałe wartość double */
+  /** @skip Macierz odwrotna do macierzy pierwotnej - na stałe wartość double */
   DiagonalMatrix<double> mtrxInvrs = DiagonalMatrix<double>{this->mtrxWidth};
 
-  if(detCheck == 0) { /** Jeśli wyznacznik jest równy zero - wyjątek */
+  if(detCheck == 0) { /** @skip Jeśli wyznacznik jest równy zero - wyjątek */
     throw std::logic_error("Nie można wyznaczyć macierzy odwrotnej, jeśli wyznacznik równy jest zero");
   } else {
 
-    /** Obliczenie i przypisanie kolejnym elementom po diagonalnej wartości odwrotnej */
+    /** @skip Obliczenie i przypisanie kolejnym elementom po diagonalnej wartości odwrotnej */
     for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
       mtrxInvrs.get_DiagTab()[i] = 1 / this->diagTab[i];
       for(unsigned short int j = 0; j < this->mtrxWidth; j++) {

@@ -65,7 +65,7 @@ unsigned short int MatrixAbstract<M>::longestNumber(unsigned short int& indexOfR
   for(unsigned short int i = 0; i < this->mtrxWidth; i++) {
     cellStr = std::to_string(this->mtrx[i][indexOfRow]);
 
-    if(!ifValueIsInt(cellStr)) { /** Tylko dla wartości double */
+    if(!ifValueIsInt(cellStr)) { /** @skip Tylko dla wartości double */
       cellStr.erase(cellStr.find_last_not_of('0') + 1, std::string::npos);
     }
 
@@ -94,7 +94,7 @@ unsigned short int MatrixAbstract<M>::longOfCell(M& cell) const {
 
   cellStr = std::to_string(cell);
 
-  if(!ifValueIsInt(cellStr)) { /** Tylko dla wartości double */
+  if(!ifValueIsInt(cellStr)) { /** @skip Tylko dla wartości double */
     cellStr.erase(cellStr.find_last_not_of('0') + 1, std::string::npos);
     cellStr.erase(cellStr.find_last_not_of('.') + 1, std::string::npos);
   }

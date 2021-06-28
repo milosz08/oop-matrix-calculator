@@ -12,20 +12,20 @@
 
 
 
-using namespace matrixAbstractPackage;  //package klasy wirtualnej (bazowej) macierzy
-using namespace generalMatrixPackage;   //package klasy pochodnej (macierze standardowa)
-using namespace diagonalMatrixPackage;  //package klasy pochodnej (macierze diagonalna)
+using namespace matrixAbstractPackage;  /** @skip package klasy wirtualnej (bazowej) macierzy */
+using namespace generalMatrixPackage;   /** @skip package klasy pochodnej (macierze standardowa) */
+using namespace diagonalMatrixPackage;  /** @skip package klasy pochodnej (macierze diagonalna) */
 
 
 
-//Deklaracje funkcji zawartych w folderze ../ProgramInterface/src
+/** @skip Deklaracje funkcji zawartych w folderze ../ProgramInterface/src */
 void startPrg();
 void mainMenu(HANDLE& hOut);
 void initMtrxObj(HANDLE& hOut);
 
 
 
-//Deklaracje funkcji zawartych w folderze ../ProgramInterface/src/initObjects
+/** @skip Deklaracje funkcji zawartych w folderze ../ProgramInterface/src/initObjects */
 std::string saveMtrxInfo(unsigned short int& type, unsigned short int& val);
 unsigned short int chooseTypeOfMatrix(HANDLE& hOut);
 unsigned short int chooseTypeOfNumbers(HANDLE& hOut);
@@ -33,7 +33,7 @@ unsigned short int* setMtrxSize(HANDLE& hOut, unsigned short int& mtrxType, unsi
 
 
 
-//Deklaracje funkcji zawartych w folderze ../ProgramInterface/src/mathOperations/mathFirstMtrx
+/** @skip Deklaracje funkcji zawartych w folderze ../ProgramInterface/src/mathOperations/mathFirstMtrx */
 template<typename T>
   unsigned short int mathChooseMtrx(MatrixAbstract<T>* obj, HANDLE& hOut);
 
@@ -50,7 +50,7 @@ template<class M, typename T>
 
 
 
-//Deklaracje funkcji zawartych w folderze ../ProgramInterface/src/mathOperations/mathSecondMtrx
+/** @skip Deklaracje funkcji zawartych w folderze ../ProgramInterface/src/mathOperations/mathSecondMtrx */
 template<typename T>
   unsigned short int mathSecondMatrix(MatrixAbstract<T>* objF, MatrixAbstract<T>* objS, HANDLE& hOut);
 

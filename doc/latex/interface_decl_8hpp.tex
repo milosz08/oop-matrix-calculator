@@ -1,0 +1,231 @@
+\doxysection{Dokumentacja pliku Program Interface/src/interface\+Decl.hpp}
+\label{interface_decl_8hpp}\index{Program Interface/src/interfaceDecl.hpp@{Program Interface/src/interfaceDecl.hpp}}
+{\ttfamily \#include \char`\"{}../../\+Matrix Classes/src/packages/abstract\+Matrix\+Package/\+Matrix\+Abstract.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../\+Matrix Classes/src/packages/general\+Matrix\+Package/\+General\+Matrix.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../\+Matrix Classes/src/packages/diagonal\+Matrix\+Package/\+Diagonal\+Matrix.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$windows.\+h$>$}\newline
+{\ttfamily \#include $<$winnt.\+h$>$}\newline
+\doxysubsection*{Funkcje}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ start\+Prg} ()
+\begin{DoxyCompactList}\small\item\em Funkcja sterująca wywołująca wyświetlanie menu początkowego (opis programu) oraz inicjująca program. W funkcji zadelkarowany jest uchwyt do konsoli, przekazywany przez referencję do reszty funkcji. Funkcja posiada wyłapywanie wyjątków z operacji arytmetycznych (metody klas oraz przeciążenia operatorów). \end{DoxyCompactList}\item 
+void \textbf{ main\+Menu} (HANDLE \&h\+Out)
+\begin{DoxyCompactList}\small\item\em Funkcja generująca początkowe menu. Informuje o\+: autorze, wspieranych operacjach oraz daje możliwość użytkownikowi wybrania dwóch opcji\+: przejścia dalej lub zakończenia działania programu. \end{DoxyCompactList}\item 
+void \textbf{ init\+Mtrx\+Obj} (HANDLE \&h\+Out)
+\begin{DoxyCompactList}\small\item\em Funkcja wywołująca pozostałe funkcje (\char`\"{}choose\+Mtrx\+Type\char`\"{}, \char`\"{}choose\+Mtrx\+Nmbr\char`\"{} oraz \char`\"{}set\+Mtrx\+Size\char`\"{}) które odpowiednio zapisują informację na temat\+: typu macierzy, typu liczb wprowadzających do macierzy oraz wielkości macierzy w postaci wskaźnika wskazującego na 2 -\/ elementową tablicę statyczną przechowująca ilość wierszy i kolumn wprowadzanej macierzy. \end{DoxyCompactList}\item 
+std\+::string \textbf{ save\+Mtrx\+Info} (unsigned short int \&type, unsigned short int \&val)
+\item 
+unsigned short int \textbf{ choose\+Type\+Of\+Matrix} (HANDLE \&h\+Out)
+\begin{DoxyCompactList}\small\item\em Funkcja pobierająca od użytkownika typ macierzy, na jakiej chce wykonywać operacje w programie. Spośród opcji użytkownik może wybrać odpowiednio\+: 1 -\/ macierz zwykła prostokątna, 2 -\/ macierz zwykła kwadratowa, 3 -\/ macierz diagonalna (typ macierzy kwadratowej). \end{DoxyCompactList}\item 
+unsigned short int \textbf{ choose\+Type\+Of\+Numbers} (HANDLE \&h\+Out)
+\begin{DoxyCompactList}\small\item\em Funkcja pobierająca od użytkownika typ wartości, jakie będzie mógł wpisać do macierzy. Spośród opcji użytkownik może wybrać odpowiednio\+: 1 -\/ macierz możliwa do zapełnienia tylko przez wartości całkowite, 2 -\/ macierz możliwa do zapełnienia zarówno przez wartości całkowite jak i zmiennoprzecinkowe (double) \end{DoxyCompactList}\item 
+unsigned short int $\ast$ \textbf{ set\+Mtrx\+Size} (HANDLE \&h\+Out, unsigned short int \&mtrx\+Type, unsigned short int \&mtrx\+Val\+Type)
+\item 
+{\footnotesize template$<$typename T $>$ }\\unsigned short int \textbf{ math\+Choose\+Mtrx} (\textbf{ Matrix\+Abstract}$<$ T $>$ $\ast$obj, HANDLE \&h\+Out)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \textbf{ create\+Mtrx\+Object} (unsigned short int $\ast$size\+Mtrx, HANDLE \&h\+Out, unsigned short int \&mtrx\+Type, unsigned short int \&mtrx\+Val\+Type)
+\item 
+{\footnotesize template$<$class M , class I , typename T $>$ }\\void \textbf{ only\+One\+Mtrx\+Math} (unsigned short int \&choose, \textbf{ Matrix\+Abstract}$<$ T $>$ $\ast$ptr, M \&obj, HANDLE \&h\+Out, unsigned short int \&mtrx\+Type, unsigned short int \&mtrx\+Val\+Type)
+\item 
+{\footnotesize template$<$class M , typename T $>$ }\\void \textbf{ only\+One\+Mtrx\+Math\+Info} (\textbf{ Matrix\+Abstract}$<$ T $>$ $\ast$ptr, M \&out\+Obj, HANDLE \&h\+Out, std\+::vector$<$ std\+::string $>$inf\+Mess)
+\item 
+{\footnotesize template$<$typename T $>$ }\\unsigned short int \textbf{ math\+Second\+Matrix} (\textbf{ Matrix\+Abstract}$<$ T $>$ $\ast$objF, \textbf{ Matrix\+Abstract}$<$ T $>$ $\ast$objS, HANDLE \&h\+Out)
+\item 
+{\footnotesize template$<$class M $>$ }\\void \textbf{ second\+Mtrx\+Math} (unsigned short int \&choose, M \&objF, M \&objS, HANDLE \&h\+Out)
+\item 
+{\footnotesize template$<$class M $>$ }\\void \textbf{ second\+Mtrx\+Math\+Info} (M \&objF, M \&objS, M \&obj\+Final, HANDLE \&h\+Out, std\+::vector$<$ std\+::string $>$inf\+Mess)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Dokumentacja funkcji}
+\mbox{\label{interface_decl_8hpp_a93c1b692b592f712b61d26eb9fb86cc9}} 
+\index{interfaceDecl.hpp@{interfaceDecl.hpp}!chooseTypeOfMatrix@{chooseTypeOfMatrix}}
+\index{chooseTypeOfMatrix@{chooseTypeOfMatrix}!interfaceDecl.hpp@{interfaceDecl.hpp}}
+\doxysubsubsection{chooseTypeOfMatrix()}
+{\footnotesize\ttfamily unsigned short int choose\+Type\+Of\+Matrix (\begin{DoxyParamCaption}\item[{HANDLE \&}]{h\+Out }\end{DoxyParamCaption})}
+
+
+
+Funkcja pobierająca od użytkownika typ macierzy, na jakiej chce wykonywać operacje w programie. Spośród opcji użytkownik może wybrać odpowiednio\+: 1 -\/ macierz zwykła prostokątna, 2 -\/ macierz zwykła kwadratowa, 3 -\/ macierz diagonalna (typ macierzy kwadratowej). 
+
+@protection Funkcja posiada walidację strumienia wejścia. Jeśli użytkownik nie poda liczby z zakresu 1-\/3 program zasygnalizuje błąd i po odczekaniu 5 sekund umożliwi użytkownikowi ponowne wybranie opcji.
+
+
+\begin{DoxyParams}{Parametry}
+{\em h\+Out} & -\/ uchwyt na wyjście z konsoli (zadeklarowany w funkcji start\+Prg i przekazywany przez referencję).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Funkcja zwraca opcję wybraną przez użytkownika (w postaci wartości całkowitej z zakresu 1-\/3) 
+\end{DoxyReturn}
+czyszczenie konsoli\mbox{\label{interface_decl_8hpp_a04f9f814e6a4e8355f5cd839d6b06702}} 
+\index{interfaceDecl.hpp@{interfaceDecl.hpp}!chooseTypeOfNumbers@{chooseTypeOfNumbers}}
+\index{chooseTypeOfNumbers@{chooseTypeOfNumbers}!interfaceDecl.hpp@{interfaceDecl.hpp}}
+\doxysubsubsection{chooseTypeOfNumbers()}
+{\footnotesize\ttfamily unsigned short int choose\+Type\+Of\+Numbers (\begin{DoxyParamCaption}\item[{HANDLE \&}]{h\+Out }\end{DoxyParamCaption})}
+
+
+
+Funkcja pobierająca od użytkownika typ wartości, jakie będzie mógł wpisać do macierzy. Spośród opcji użytkownik może wybrać odpowiednio\+: 1 -\/ macierz możliwa do zapełnienia tylko przez wartości całkowite, 2 -\/ macierz możliwa do zapełnienia zarówno przez wartości całkowite jak i zmiennoprzecinkowe (double) 
+
+@protection Funkcja posiada walidację strumienia wejścia. Jeśli użytkownik nie poda liczby z zakresu 1-\/2 program zasygnalizuje błąd i po odczekaniu 5 sekund umożliwi użytkownikowi ponowne wybranie opcji.
+
+
+\begin{DoxyParams}{Parametry}
+{\em h\+Out} & -\/ uchwyt na wyjście z konsoli (zadeklarowany w funkcji start\+Prg i przekazywany przez referencję).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Funkcja zwraca opcję wybraną przez użytkownika (w postaci wartości całkowitej z zakresu 1-\/2) 
+\end{DoxyReturn}
+czyszczenie konsoli\mbox{\label{interface_decl_8hpp_a7b92af2181d4b7532da94fe146ea89a0}} 
+\index{interfaceDecl.hpp@{interfaceDecl.hpp}!createMtrxObject@{createMtrxObject}}
+\index{createMtrxObject@{createMtrxObject}!interfaceDecl.hpp@{interfaceDecl.hpp}}
+\doxysubsubsection{createMtrxObject()}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void create\+Mtrx\+Object (\begin{DoxyParamCaption}\item[{unsigned short int $\ast$}]{size\+Mtrx,  }\item[{HANDLE \&}]{h\+Out,  }\item[{unsigned short int \&}]{mtrx\+Type,  }\item[{unsigned short int \&}]{mtrx\+Val\+Type }\end{DoxyParamCaption})}
+
+\mbox{\label{interface_decl_8hpp_a60e56f19f48b4eac97f518fb8375fcd6}} 
+\index{interfaceDecl.hpp@{interfaceDecl.hpp}!initMtrxObj@{initMtrxObj}}
+\index{initMtrxObj@{initMtrxObj}!interfaceDecl.hpp@{interfaceDecl.hpp}}
+\doxysubsubsection{initMtrxObj()}
+{\footnotesize\ttfamily void init\+Mtrx\+Obj (\begin{DoxyParamCaption}\item[{HANDLE \&}]{h\+Out }\end{DoxyParamCaption})}
+
+
+
+Funkcja wywołująca pozostałe funkcje (\char`\"{}choose\+Mtrx\+Type\char`\"{}, \char`\"{}choose\+Mtrx\+Nmbr\char`\"{} oraz \char`\"{}set\+Mtrx\+Size\char`\"{}) które odpowiednio zapisują informację na temat\+: typu macierzy, typu liczb wprowadzających do macierzy oraz wielkości macierzy w postaci wskaźnika wskazującego na 2 -\/ elementową tablicę statyczną przechowująca ilość wierszy i kolumn wprowadzanej macierzy. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em h\+Out} & -\/ uchwyt na wyjście z konsoli (zadeklarowany w funkcji start\+Prg i przekazywany przez referencję). \\
+\hline
+\end{DoxyParams}
+typ macierzy (kwadratowa/prostokątna/diagonalna)
+
+typ wartości przekazywany we wzorcu (int/double)
+
+Przechowalnia ilości wierszy i/lub kolumn
+
+Macierz tylko znaki stałoprzecinkowe
+
+Macierz znaki zmienno i stałoprzecinkowe\mbox{\label{interface_decl_8hpp_a0e71477aa589762f23a69ac6f59c753a}} 
+\index{interfaceDecl.hpp@{interfaceDecl.hpp}!mainMenu@{mainMenu}}
+\index{mainMenu@{mainMenu}!interfaceDecl.hpp@{interfaceDecl.hpp}}
+\doxysubsubsection{mainMenu()}
+{\footnotesize\ttfamily main\+Menu (\begin{DoxyParamCaption}\item[{HANDLE \&}]{h\+Out }\end{DoxyParamCaption})}
+
+
+
+Funkcja generująca początkowe menu. Informuje o\+: autorze, wspieranych operacjach oraz daje możliwość użytkownikowi wybrania dwóch opcji\+: przejścia dalej lub zakończenia działania programu. 
+
+@protection Funkcja posiada walidację strumienia wejścia. Jeśli użytkownik nie poda liczb z zakresu 1-\/2 program zasygnalizuje błąd i po odczekaniu 5 sekund umożliwi użytkownikowi ponowne wybranie opcji.
+
+
+\begin{DoxyTemplParams}{Parametry Szablonu}
+{\em A} & -\/ wartość szablonu klasy abstrakcyjnej (używane tylko do metody z klasy abstrakcyjnej \char`\"{}gen\+Info\+Block\char`\"{}, \char`\"{}sequential\+Mess\char`\"{} oraz \char`\"{}error\+Mess\char`\"{} przy operatorze zakresu).\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parametry}
+{\em h\+Out} & -\/ uchwyt na wyjście z konsoli (zadeklarowany w funkcji start\+Prg i przekazywany przez referencję). \\
+\hline
+\end{DoxyParams}
+\mbox{\label{interface_decl_8hpp_a35c5efdb2f9d61f8049b64bb52867089}} 
+\index{interfaceDecl.hpp@{interfaceDecl.hpp}!mathChooseMtrx@{mathChooseMtrx}}
+\index{mathChooseMtrx@{mathChooseMtrx}!interfaceDecl.hpp@{interfaceDecl.hpp}}
+\doxysubsubsection{mathChooseMtrx()}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+unsigned short int math\+Choose\+Mtrx (\begin{DoxyParamCaption}\item[{\textbf{ Matrix\+Abstract}$<$ T $>$ $\ast$}]{obj,  }\item[{HANDLE \&}]{h\+Out }\end{DoxyParamCaption})}
+
+\mbox{\label{interface_decl_8hpp_a9e156be2a6b202959285dce178b6a31a}} 
+\index{interfaceDecl.hpp@{interfaceDecl.hpp}!mathSecondMatrix@{mathSecondMatrix}}
+\index{mathSecondMatrix@{mathSecondMatrix}!interfaceDecl.hpp@{interfaceDecl.hpp}}
+\doxysubsubsection{mathSecondMatrix()}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+unsigned short int math\+Second\+Matrix (\begin{DoxyParamCaption}\item[{\textbf{ Matrix\+Abstract}$<$ T $>$ $\ast$}]{objF,  }\item[{\textbf{ Matrix\+Abstract}$<$ T $>$ $\ast$}]{objS,  }\item[{HANDLE \&}]{h\+Out }\end{DoxyParamCaption})}
+
+\mbox{\label{interface_decl_8hpp_a683ad991d459f7ad04c6bd0a1359cad6}} 
+\index{interfaceDecl.hpp@{interfaceDecl.hpp}!onlyOneMtrxMath@{onlyOneMtrxMath}}
+\index{onlyOneMtrxMath@{onlyOneMtrxMath}!interfaceDecl.hpp@{interfaceDecl.hpp}}
+\doxysubsubsection{onlyOneMtrxMath()}
+{\footnotesize\ttfamily template$<$class M , class I , typename T $>$ \\
+void only\+One\+Mtrx\+Math (\begin{DoxyParamCaption}\item[{unsigned short int \&}]{choose,  }\item[{\textbf{ Matrix\+Abstract}$<$ T $>$ $\ast$}]{ptr,  }\item[{M \&}]{obj,  }\item[{HANDLE \&}]{h\+Out,  }\item[{unsigned short int \&}]{mtrx\+Type,  }\item[{unsigned short int \&}]{mtrx\+Val\+Type }\end{DoxyParamCaption})}
+
+\mbox{\label{interface_decl_8hpp_abef103f5fcc7f64e1a8c8305a6c6507b}} 
+\index{interfaceDecl.hpp@{interfaceDecl.hpp}!onlyOneMtrxMathInfo@{onlyOneMtrxMathInfo}}
+\index{onlyOneMtrxMathInfo@{onlyOneMtrxMathInfo}!interfaceDecl.hpp@{interfaceDecl.hpp}}
+\doxysubsubsection{onlyOneMtrxMathInfo()}
+{\footnotesize\ttfamily template$<$class M , typename T $>$ \\
+void only\+One\+Mtrx\+Math\+Info (\begin{DoxyParamCaption}\item[{\textbf{ Matrix\+Abstract}$<$ T $>$ $\ast$}]{ptr,  }\item[{M \&}]{out\+Obj,  }\item[{HANDLE \&}]{h\+Out,  }\item[{std\+::vector$<$ std\+::string $>$}]{inf\+Mess }\end{DoxyParamCaption})}
+
+\mbox{\label{interface_decl_8hpp_aa50a8fd53426b67df8013b3ae43a4a83}} 
+\index{interfaceDecl.hpp@{interfaceDecl.hpp}!saveMtrxInfo@{saveMtrxInfo}}
+\index{saveMtrxInfo@{saveMtrxInfo}!interfaceDecl.hpp@{interfaceDecl.hpp}}
+\doxysubsubsection{saveMtrxInfo()}
+{\footnotesize\ttfamily std\+::string save\+Mtrx\+Info (\begin{DoxyParamCaption}\item[{unsigned short int \&}]{type,  }\item[{unsigned short int \&}]{val }\end{DoxyParamCaption})}
+
+type 1 = macierz prostokątna
+
+type 2 = macierz kwadratowa
+
+type 3 = macierz diagonalna
+
+val 1 = jedynie wartości stałoprzecinkowe
+
+val 1 = wartości stałoprzecinkowe oraz zmiennoprzecinkowe\mbox{\label{interface_decl_8hpp_a0a5871fca7c66cd8442f8f046b804d7d}} 
+\index{interfaceDecl.hpp@{interfaceDecl.hpp}!secondMtrxMath@{secondMtrxMath}}
+\index{secondMtrxMath@{secondMtrxMath}!interfaceDecl.hpp@{interfaceDecl.hpp}}
+\doxysubsubsection{secondMtrxMath()}
+{\footnotesize\ttfamily template$<$class M $>$ \\
+void second\+Mtrx\+Math (\begin{DoxyParamCaption}\item[{unsigned short int \&}]{choose,  }\item[{M \&}]{objF,  }\item[{M \&}]{objS,  }\item[{HANDLE \&}]{h\+Out }\end{DoxyParamCaption})}
+
+\mbox{\label{interface_decl_8hpp_ae0ba02beee779c3a1df649ba7b592a67}} 
+\index{interfaceDecl.hpp@{interfaceDecl.hpp}!secondMtrxMathInfo@{secondMtrxMathInfo}}
+\index{secondMtrxMathInfo@{secondMtrxMathInfo}!interfaceDecl.hpp@{interfaceDecl.hpp}}
+\doxysubsubsection{secondMtrxMathInfo()}
+{\footnotesize\ttfamily template$<$class M $>$ \\
+void second\+Mtrx\+Math\+Info (\begin{DoxyParamCaption}\item[{M \&}]{objF,  }\item[{M \&}]{objS,  }\item[{M \&}]{obj\+Final,  }\item[{HANDLE \&}]{h\+Out,  }\item[{std\+::vector$<$ std\+::string $>$}]{inf\+Mess }\end{DoxyParamCaption})}
+
+\mbox{\label{interface_decl_8hpp_a4d4b22c5fa873d7f8ec58e6126e6c98b}} 
+\index{interfaceDecl.hpp@{interfaceDecl.hpp}!setMtrxSize@{setMtrxSize}}
+\index{setMtrxSize@{setMtrxSize}!interfaceDecl.hpp@{interfaceDecl.hpp}}
+\doxysubsubsection{setMtrxSize()}
+{\footnotesize\ttfamily unsigned short int$\ast$ set\+Mtrx\+Size (\begin{DoxyParamCaption}\item[{HANDLE \&}]{h\+Out,  }\item[{unsigned short int \&}]{mtrx\+Type,  }\item[{unsigned short int \&}]{mtrx\+Val\+Type }\end{DoxyParamCaption})}
+
+Static użyte w celu zwrócenia wartości zmiennej lokalnej, transformacja na zmienną globalną, dla 1 elementu ilość kolumn, dla 2 elementu ilośc wierszy
+
+Wprowadzenie ilości wierszy/kolumn
+
+Zapełnienie 2 komórki taką samą wartością (kwadratowe)
+
+Wprowadzenie ilości kolumn i wierszy
+
+czyszczenie konsoli\mbox{\label{interface_decl_8hpp_a1bc160c7e082fb43a4cda14fe0fc879c}} 
+\index{interfaceDecl.hpp@{interfaceDecl.hpp}!startPrg@{startPrg}}
+\index{startPrg@{startPrg}!interfaceDecl.hpp@{interfaceDecl.hpp}}
+\doxysubsubsection{startPrg()}
+{\footnotesize\ttfamily start\+Prg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Funkcja sterująca wywołująca wyświetlanie menu początkowego (opis programu) oraz inicjująca program. W funkcji zadelkarowany jest uchwyt do konsoli, przekazywany przez referencję do reszty funkcji. Funkcja posiada wyłapywanie wyjątków z operacji arytmetycznych (metody klas oraz przeciążenia operatorów). 
+
+
+\begin{DoxyExceptions}{Wyjątki}
+{\em Obsługa} & błędów logicznych. Typ błędu logicznego przekazywany w zmiennej e przez referencję. Spośród obsługiwanych wyjątków (błędów matematycznych) można wyróżnić\+:
+\begin{DoxyItemize}
+\item dodawanie lub odejmowanie macierzy różnych rozmiarów
+\item mnożenie macierzy posiadających różną liczbę kolumn w stosunku do wierszy (i na odwrót) 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyExceptions}
+Obsługa kolorów w konsoli CMD
+
+
+\begin{DoxyCodeInclude}{0}
+
+\end{DoxyCodeInclude}
+ 

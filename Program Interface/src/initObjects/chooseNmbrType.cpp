@@ -5,11 +5,12 @@
  * @fn chooseTypeOfNumbers(HANDLE& hOut)
  *
  * @brief Funkcja pobierająca od użytkownika typ wartości, jakie będzie mógł wpisać do macierzy. Spośród opcji
- *        użytkownik może wybrać odpowiednio: 1 - macierz możliwa do zapełnienia tylko przez wartości całkowite,
- *        2 - macierz możliwa do zapełnienia zarówno przez wartości całkowite jak i zmiennoprzecinkowe (double)
+ *        użytkownik może wybrać odpowiednio: 1 - macierz możliwa do zapełnienia tylko przez wartości
+ *        całkowite, 2 - macierz możliwa do zapełnienia zarówno przez wartości całkowite
+ *        jak i zmiennoprzecinkowe (double).<br>
  *
- * @protection Funkcja posiada walidację strumienia wejścia. Jeśli użytkownik nie poda liczby z zakresu 1-2 program
- *             zasygnalizuje błąd i po odczekaniu 5 sekund umożliwi użytkownikowi ponowne wybranie opcji.
+ *        Funkcja posiada walidację strumienia wejścia. Jeśli użytkownik nie poda liczby z zakresu 1-2 program
+ *        zasygnalizuje błąd i po odczekaniu 5 sekund umożliwi użytkownikowi ponowne wybranie opcji.
  *
  * @param hOut - uchwyt na wyjście z konsoli (zadeklarowany w funkcji startPrg i przekazywany przez referencję).
  *
@@ -46,6 +47,6 @@ unsigned short int chooseTypeOfNumbers(HANDLE& hOut) {
 
   } while(error);
 
-  std::system("cls"); /** czyszczenie konsoli */
+  std::system("cls"); /** @skip czyszczenie konsoli */
   return choice;
 }

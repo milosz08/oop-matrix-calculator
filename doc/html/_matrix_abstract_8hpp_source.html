@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Kalkulator Macierzy: Plik źródłowy Matrix Classes/src/packages/abstractMatrixPackage/MatrixAbstract.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="polsl logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Kalkulator Macierzy
+   </div>
+   <div id="projectbrief">Projekt zaliczeniowy z labolatorium przedmiotu Programowanie Komputerów. Napisany zgodnie z paradygmatami programowania obiektowego w języku C++</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_38cb5389abe0947eceed07a48a092250.html">Matrix Classes</a></li><li class="navelem"><a class="el" href="dir_2c94d456434de8074d96c89edf12cd69.html">src</a></li><li class="navelem"><a class="el" href="dir_f31fa3e8a9a1a4ce8e5bb7d3fb48946f.html">packages</a></li><li class="navelem"><a class="el" href="dir_1e8369004f3c84962c6c16f6d2a541ba.html">abstractMatrixPackage</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">MatrixAbstract.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_matrix_abstract_8hpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef PK_MATRIX_CALCULATOR_MATRIXABSTRACT_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define PK_MATRIX_CALCULATOR_MATRIXABSTRACT_HPP</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;limits&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;windows.h&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;iomanip&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="namespacematrix_abstract_package.html">   12</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacematrix_abstract_package.html">matrixAbstractPackage</a> {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> M&gt;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classmatrix_abstract_package_1_1_matrix_abstract.html">   46</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html">MatrixAbstract</a> {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classmatrix_abstract_package_1_1_matrix_abstract.html#a5c13cad6aa99cef6409e208a9b706107">   48</a></span>&#160;      <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html#a5c13cad6aa99cef6409e208a9b706107">MatrixAbstract</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classmatrix_abstract_package_1_1_matrix_abstract.html#add23d2d71b80058b159bd5d437a254b3">   49</a></span>&#160;      <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html#add23d2d71b80058b159bd5d437a254b3">MatrixAbstract</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>&amp;, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>&amp;); </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classmatrix_abstract_package_1_1_matrix_abstract.html#aa9db56d5cf8c5392d8a5bb4bb1c4a177">   50</a></span>&#160;      <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html#aa9db56d5cf8c5392d8a5bb4bb1c4a177">MatrixAbstract</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>&amp;); </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classmatrix_abstract_package_1_1_matrix_abstract.html#aa54eccb2175ed049532086d2bd3fd8a9">   51</a></span>&#160;      <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html#aa54eccb2175ed049532086d2bd3fd8a9">MatrixAbstract</a>(<span class="keyword">const</span> <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html">MatrixAbstract&lt;M&gt;</a>&amp;); </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classmatrix_abstract_package_1_1_matrix_abstract.html#afae232fc31f41e1d525a649c25c80382">   53</a></span>&#160;      <span class="keywordtype">void</span> <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html#afae232fc31f41e1d525a649c25c80382">printMtrx</a>(HANDLE&amp;, <span class="keyword">const</span> <span class="keywordtype">bool</span>, <span class="keyword">const</span> <span class="keywordtype">bool</span>) <span class="keyword">const</span>; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classmatrix_abstract_package_1_1_matrix_abstract.html#ab9658c90213ba8dc8cddecd924901b58">   54</a></span>&#160;      <span class="keywordtype">double</span> <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html#ab9658c90213ba8dc8cddecd924901b58">scalarValuePush</a>(HANDLE&amp;); </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classmatrix_abstract_package_1_1_matrix_abstract.html#a9e06d41152c8a4aa172fa63132bc6b98">   56</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html#a9e06d41152c8a4aa172fa63132bc6b98">mtrxTypeAndSizeInfo</a>() = 0; </div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classmatrix_abstract_package_1_1_matrix_abstract.html#ae3992716d204dfb8b1d35ab86147a9f6">   57</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html#ae3992716d204dfb8b1d35ab86147a9f6">insertMtrx</a>(HANDLE&amp;) = 0; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classmatrix_abstract_package_1_1_matrix_abstract.html#a481ac1d0b0449ad1b9cafe18ff85460f">   60</a></span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html#a481ac1d0b0449ad1b9cafe18ff85460f">genInfoBlock</a>(std::string, std::vector&lt;std::string&gt;);</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classmatrix_abstract_package_1_1_matrix_abstract.html#a091cb77a083d7c9ffa4f41fbaa5c3045">   61</a></span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html#a091cb77a083d7c9ffa4f41fbaa5c3045">sequentialMess</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>, std::string);</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classmatrix_abstract_package_1_1_matrix_abstract.html#a43f7a66b13ae0a72db9d63ac412726a4">   62</a></span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html#a43f7a66b13ae0a72db9d63ac412726a4">errorMess</a>(std::string, HANDLE&amp;);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classmatrix_abstract_package_1_1_matrix_abstract.html#aa915bfa143581ce9d1117dd1c9716917">   64</a></span>&#160;      <span class="keyword">virtual</span> <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html#aa915bfa143581ce9d1117dd1c9716917">~MatrixAbstract</a>(); </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">private</span>: </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <span class="keywordtype">void</span> allocateMemory();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="keywordtype">bool</span> ifValueIsInt(std::string&amp;) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> longestNumber(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span>&amp;) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> longOfCell(M&amp;) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">public</span>: </div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classmatrix_abstract_package_1_1_matrix_abstract.html#a4d133bbcf1fdb4f62e65cb9a5d9a46c9">   73</a></span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html#a4d133bbcf1fdb4f62e65cb9a5d9a46c9">get_Cols</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classmatrix_abstract_package_1_1_matrix_abstract.html#ae3579fa2c8c20f8edaff6ec9deb04770">   74</a></span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html#ae3579fa2c8c20f8edaff6ec9deb04770">get_Rows</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classmatrix_abstract_package_1_1_matrix_abstract.html#a3e6aa64d95107743dbbd404e1ff78741">   75</a></span>&#160;      M** <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html#a3e6aa64d95107743dbbd404e1ff78741">get_Mtrx</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classmatrix_abstract_package_1_1_matrix_abstract.html#a697fba0a35266514f518dad87a631c6a">   78</a></span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html#a4feccb9225d08d165edf90484e4dd958">mtrxWidth</a>{0}, <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html#a697fba0a35266514f518dad87a631c6a">mtrxHeight</a>{0}; </div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classmatrix_abstract_package_1_1_matrix_abstract.html#abb1ac94c2224e7b901cde65c31bcc989">   79</a></span>&#160;      <span class="keywordtype">double</span> <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html#abb1ac94c2224e7b901cde65c31bcc989">scalarVal</a>{0}; </div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classmatrix_abstract_package_1_1_matrix_abstract.html#a613783812ce703b2e9ffe4f83f26d9a8">   80</a></span>&#160;      M** <a class="code" href="classmatrix_abstract_package_1_1_matrix_abstract.html#a613783812ce703b2e9ffe4f83f26d9a8">mtrx</a>{<span class="keyword">nullptr</span>}; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  };</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">  #include &quot;src/constructors.tpp&quot;</span> </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">  #include &quot;<a class="code" href="non_virt_methods_8tpp.html">src/nonVirtMethods.tpp</a>&quot;</span> </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">  #include &quot;<a class="code" href="static_methods_8tpp.html">src/staticMethods.tpp</a>&quot;</span> </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">  #include &quot;src/privateMethods.tpp&quot;</span> </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">  #include &quot;src/getters.tpp&quot;</span> </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassmatrix_abstract_package_1_1_matrix_abstract_html"><div class="ttname"><a href="classmatrix_abstract_package_1_1_matrix_abstract.html">matrixAbstractPackage::MatrixAbstract</a></div><div class="ttdoc">Klasa abstrakcyjna. Interfejs programu.</div><div class="ttdef"><b>Definition:</b> MatrixAbstract.hpp:46</div></div>
+<div class="ttc" id="aclassmatrix_abstract_package_1_1_matrix_abstract_html_a091cb77a083d7c9ffa4f41fbaa5c3045"><div class="ttname"><a href="classmatrix_abstract_package_1_1_matrix_abstract.html#a091cb77a083d7c9ffa4f41fbaa5c3045">matrixAbstractPackage::MatrixAbstract::sequentialMess</a></div><div class="ttdeci">static void sequentialMess(unsigned short int, std::string)</div></div>
+<div class="ttc" id="aclassmatrix_abstract_package_1_1_matrix_abstract_html_a3e6aa64d95107743dbbd404e1ff78741"><div class="ttname"><a href="classmatrix_abstract_package_1_1_matrix_abstract.html#a3e6aa64d95107743dbbd404e1ff78741">matrixAbstractPackage::MatrixAbstract::get_Mtrx</a></div><div class="ttdeci">M ** get_Mtrx() const</div></div>
+<div class="ttc" id="aclassmatrix_abstract_package_1_1_matrix_abstract_html_a43f7a66b13ae0a72db9d63ac412726a4"><div class="ttname"><a href="classmatrix_abstract_package_1_1_matrix_abstract.html#a43f7a66b13ae0a72db9d63ac412726a4">matrixAbstractPackage::MatrixAbstract::errorMess</a></div><div class="ttdeci">static void errorMess(std::string, HANDLE &amp;)</div></div>
+<div class="ttc" id="aclassmatrix_abstract_package_1_1_matrix_abstract_html_a481ac1d0b0449ad1b9cafe18ff85460f"><div class="ttname"><a href="classmatrix_abstract_package_1_1_matrix_abstract.html#a481ac1d0b0449ad1b9cafe18ff85460f">matrixAbstractPackage::MatrixAbstract::genInfoBlock</a></div><div class="ttdeci">static void genInfoBlock(std::string, std::vector&lt; std::string &gt;)</div></div>
+<div class="ttc" id="aclassmatrix_abstract_package_1_1_matrix_abstract_html_a4d133bbcf1fdb4f62e65cb9a5d9a46c9"><div class="ttname"><a href="classmatrix_abstract_package_1_1_matrix_abstract.html#a4d133bbcf1fdb4f62e65cb9a5d9a46c9">matrixAbstractPackage::MatrixAbstract::get_Cols</a></div><div class="ttdeci">unsigned short int get_Cols() const</div></div>
+<div class="ttc" id="aclassmatrix_abstract_package_1_1_matrix_abstract_html_a4feccb9225d08d165edf90484e4dd958"><div class="ttname"><a href="classmatrix_abstract_package_1_1_matrix_abstract.html#a4feccb9225d08d165edf90484e4dd958">matrixAbstractPackage::MatrixAbstract::mtrxWidth</a></div><div class="ttdeci">unsigned short int mtrxWidth</div><div class="ttdef"><b>Definition:</b> MatrixAbstract.hpp:78</div></div>
+<div class="ttc" id="aclassmatrix_abstract_package_1_1_matrix_abstract_html_a5c13cad6aa99cef6409e208a9b706107"><div class="ttname"><a href="classmatrix_abstract_package_1_1_matrix_abstract.html#a5c13cad6aa99cef6409e208a9b706107">matrixAbstractPackage::MatrixAbstract::MatrixAbstract</a></div><div class="ttdeci">MatrixAbstract()</div></div>
+<div class="ttc" id="aclassmatrix_abstract_package_1_1_matrix_abstract_html_a613783812ce703b2e9ffe4f83f26d9a8"><div class="ttname"><a href="classmatrix_abstract_package_1_1_matrix_abstract.html#a613783812ce703b2e9ffe4f83f26d9a8">matrixAbstractPackage::MatrixAbstract::mtrx</a></div><div class="ttdeci">M ** mtrx</div><div class="ttdef"><b>Definition:</b> MatrixAbstract.hpp:80</div></div>
+<div class="ttc" id="aclassmatrix_abstract_package_1_1_matrix_abstract_html_a697fba0a35266514f518dad87a631c6a"><div class="ttname"><a href="classmatrix_abstract_package_1_1_matrix_abstract.html#a697fba0a35266514f518dad87a631c6a">matrixAbstractPackage::MatrixAbstract::mtrxHeight</a></div><div class="ttdeci">unsigned short int mtrxHeight</div><div class="ttdef"><b>Definition:</b> MatrixAbstract.hpp:78</div></div>
+<div class="ttc" id="aclassmatrix_abstract_package_1_1_matrix_abstract_html_a9e06d41152c8a4aa172fa63132bc6b98"><div class="ttname"><a href="classmatrix_abstract_package_1_1_matrix_abstract.html#a9e06d41152c8a4aa172fa63132bc6b98">matrixAbstractPackage::MatrixAbstract::mtrxTypeAndSizeInfo</a></div><div class="ttdeci">virtual void mtrxTypeAndSizeInfo()=0</div></div>
+<div class="ttc" id="aclassmatrix_abstract_package_1_1_matrix_abstract_html_aa54eccb2175ed049532086d2bd3fd8a9"><div class="ttname"><a href="classmatrix_abstract_package_1_1_matrix_abstract.html#aa54eccb2175ed049532086d2bd3fd8a9">matrixAbstractPackage::MatrixAbstract::MatrixAbstract</a></div><div class="ttdeci">MatrixAbstract(const MatrixAbstract&lt; M &gt; &amp;)</div></div>
+<div class="ttc" id="aclassmatrix_abstract_package_1_1_matrix_abstract_html_aa915bfa143581ce9d1117dd1c9716917"><div class="ttname"><a href="classmatrix_abstract_package_1_1_matrix_abstract.html#aa915bfa143581ce9d1117dd1c9716917">matrixAbstractPackage::MatrixAbstract::~MatrixAbstract</a></div><div class="ttdeci">virtual ~MatrixAbstract()</div></div>
+<div class="ttc" id="aclassmatrix_abstract_package_1_1_matrix_abstract_html_aa9db56d5cf8c5392d8a5bb4bb1c4a177"><div class="ttname"><a href="classmatrix_abstract_package_1_1_matrix_abstract.html#aa9db56d5cf8c5392d8a5bb4bb1c4a177">matrixAbstractPackage::MatrixAbstract::MatrixAbstract</a></div><div class="ttdeci">MatrixAbstract(unsigned short int &amp;)</div></div>
+<div class="ttc" id="aclassmatrix_abstract_package_1_1_matrix_abstract_html_ab9658c90213ba8dc8cddecd924901b58"><div class="ttname"><a href="classmatrix_abstract_package_1_1_matrix_abstract.html#ab9658c90213ba8dc8cddecd924901b58">matrixAbstractPackage::MatrixAbstract::scalarValuePush</a></div><div class="ttdeci">double scalarValuePush(HANDLE &amp;)</div></div>
+<div class="ttc" id="aclassmatrix_abstract_package_1_1_matrix_abstract_html_abb1ac94c2224e7b901cde65c31bcc989"><div class="ttname"><a href="classmatrix_abstract_package_1_1_matrix_abstract.html#abb1ac94c2224e7b901cde65c31bcc989">matrixAbstractPackage::MatrixAbstract::scalarVal</a></div><div class="ttdeci">double scalarVal</div><div class="ttdef"><b>Definition:</b> MatrixAbstract.hpp:79</div></div>
+<div class="ttc" id="aclassmatrix_abstract_package_1_1_matrix_abstract_html_add23d2d71b80058b159bd5d437a254b3"><div class="ttname"><a href="classmatrix_abstract_package_1_1_matrix_abstract.html#add23d2d71b80058b159bd5d437a254b3">matrixAbstractPackage::MatrixAbstract::MatrixAbstract</a></div><div class="ttdeci">MatrixAbstract(unsigned short int &amp;, unsigned short int &amp;)</div></div>
+<div class="ttc" id="aclassmatrix_abstract_package_1_1_matrix_abstract_html_ae3579fa2c8c20f8edaff6ec9deb04770"><div class="ttname"><a href="classmatrix_abstract_package_1_1_matrix_abstract.html#ae3579fa2c8c20f8edaff6ec9deb04770">matrixAbstractPackage::MatrixAbstract::get_Rows</a></div><div class="ttdeci">unsigned short int get_Rows() const</div></div>
+<div class="ttc" id="aclassmatrix_abstract_package_1_1_matrix_abstract_html_ae3992716d204dfb8b1d35ab86147a9f6"><div class="ttname"><a href="classmatrix_abstract_package_1_1_matrix_abstract.html#ae3992716d204dfb8b1d35ab86147a9f6">matrixAbstractPackage::MatrixAbstract::insertMtrx</a></div><div class="ttdeci">virtual void insertMtrx(HANDLE &amp;)=0</div></div>
+<div class="ttc" id="aclassmatrix_abstract_package_1_1_matrix_abstract_html_afae232fc31f41e1d525a649c25c80382"><div class="ttname"><a href="classmatrix_abstract_package_1_1_matrix_abstract.html#afae232fc31f41e1d525a649c25c80382">matrixAbstractPackage::MatrixAbstract::printMtrx</a></div><div class="ttdeci">void printMtrx(HANDLE &amp;, const bool, const bool) const</div></div>
+<div class="ttc" id="anamespacematrix_abstract_package_html"><div class="ttname"><a href="namespacematrix_abstract_package.html">matrixAbstractPackage</a></div><div class="ttdef"><b>Definition:</b> MatrixAbstract.hpp:12</div></div>
+<div class="ttc" id="anon_virt_methods_8tpp_html"><div class="ttname"><a href="non_virt_methods_8tpp.html">nonVirtMethods.tpp</a></div></div>
+<div class="ttc" id="astatic_methods_8tpp_html"><div class="ttname"><a href="static_methods_8tpp.html">staticMethods.tpp</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

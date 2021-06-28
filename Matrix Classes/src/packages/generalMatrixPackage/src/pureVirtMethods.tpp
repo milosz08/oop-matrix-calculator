@@ -25,11 +25,11 @@ void GeneralMatrix<M>::mtrxTypeAndSizeInfo() {
  * @fn insertMtrx()
  *
  * @brief Metoda umożliwiająca wprowadzenie przez użytkownika elementów macierzy do dwuwymiarowej
- *        tablicy dynamicznej stworzonej w klasie abstrakcyjnej.
+ *        tablicy dynamicznej stworzonej w klasie abstrakcyjnej.<br>
  *
- * @protection Metoda posiada walidację strumienia wejścia pod kątem wprowadzanych znaków do macierzy diagonalnej.
- *             Jeśli znak nie jest zgody z typem zmiennej we wzorcu "M" program wyrzuca błąd i daje możliwość
- *             ponownego wpisania znaków macierzy.
+ *        Metoda posiada walidację strumienia wejścia pod kątem wprowadzanych znaków do macierzy diagonalnej.
+ *        Jeśli znak nie jest zgody z typem zmiennej we wzorcu "M" program wyrzuca błąd i daje możliwość
+ *        ponownego wpisania znaków macierzy.
  *
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
  *
@@ -68,7 +68,7 @@ void GeneralMatrix<M>::insertMtrx(HANDLE& hOut) {
       }
     }
 
-    if(std::cin.fail()) { /** Jeśli użytkownik wpisze wartości inne niż zdefiniowane we wzorcu */
+    if(std::cin.fail()) { /** @skip Jeśli użytkownik wpisze wartości inne niż zdefiniowane we wzorcu */
 
       SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);
       MatrixAbstract<double>::genInfoBlock("ERROR!", {
@@ -81,7 +81,7 @@ void GeneralMatrix<M>::insertMtrx(HANDLE& hOut) {
 
       error = repeatMess = true;
 
-      std::cin.clear(); /** Czyszczenie strumienia wejścia */
+      std::cin.clear(); /** @skip Czyszczenie strumienia wejścia */
       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     }
