@@ -58,3 +58,8 @@ Program można uruchomić poprzez plik `PK_Matrix_Calculator.exe` znajdujący si
 `../cmake-build-debug/PK_Matrix_Calculator.exe`. Program ten jest programem konsolowym.
 Pełne wsparcie dla systemu Windows 10 (v20H2) 64-bit. Program nietestowany na systemach
 Linux oraz macOS.
+
+## Dokumentacja DOXYGEN
+Komentarze programu są zgodne ze standardem Doxygen. Dla projektu wygenerowałem dokumentację przy pomocy
+Doxygena w formie strony HTML. Możliwość wygenerowania także w formie PDF przy użyciu narzędzi 
+pracujących w formacie LaTeX.
