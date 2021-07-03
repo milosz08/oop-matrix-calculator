@@ -28,7 +28,7 @@ DiagonalMatrix<M>::DiagonalMatrix() = default;
  */
 template<class M>
 DiagonalMatrix<M>::DiagonalMatrix(unsigned short int& s) : MatrixAbstract<M>{s, s} {
-  this->diagTab = new M[this->mtrxWidth];
+  diagTab = new M[this->mtrxWidth];
 }
 
 
@@ -46,7 +46,7 @@ DiagonalMatrix<M>::DiagonalMatrix(unsigned short int& s) : MatrixAbstract<M>{s, 
  */
 template<class M>
 DiagonalMatrix<M>::DiagonalMatrix(unsigned short int& w, unsigned short int& h) : MatrixAbstract<M>{w, h} {
-  this->diagTab = new M[this->mtrxWidth];
+  diagTab = new M[this->mtrxWidth];
 }
 
 
@@ -72,5 +72,5 @@ DiagonalMatrix<M>::DiagonalMatrix(const DiagonalMatrix<M>& mtrxCopy) : MatrixAbs
  */
 template<class M>
 DiagonalMatrix<M>::~DiagonalMatrix() {
-  delete[] this->diagTab;
+  delete[] diagTab;
 }

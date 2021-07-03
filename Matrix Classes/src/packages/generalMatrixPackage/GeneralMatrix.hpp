@@ -58,7 +58,7 @@ namespace generalMatrixPackage {
       GeneralMatrix<M> transposeMtrx(); /** @skip Transponowanie macierzy */
       GeneralMatrix<M> coupledMtrx(); /** @skip Macierz sprzężona */
       M determinantMtrx(HANDLE&); /** @skip Wyznacznik (tylko macierze kwadratowe) n-tego stopnia */
-      GeneralMatrix<double> inverseMtrx(HANDLE&);
+      GeneralMatrix<double> inverseMtrx(HANDLE&); /** @skip Macierz odwrotna */
 
       ~GeneralMatrix();
 

@@ -6,7 +6,7 @@
  * @inherit Metoda, którą dziedziczą wszyskie klasy pochodne od klasy abstrakcyjnej. Metoda niewirtualna.
  *
  * @brief Metoda drukująca na ekran zawartość macierzy na podstawie wartości
- *        zapisanych w dwuwymiarowej tablicy dynamicznej. Metoda niemodyfikująca elementów obiektu (const).
+ *        zapisanych w dwuwymiarowej tablicy dynamicznej. Metoda niemodyfikująca obiektu (const).
  *
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double).
  *
@@ -28,21 +28,21 @@ void MatrixAbstract<M>::printMtrx(HANDLE& hOut, const bool textMess, const bool 
 
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
     std::cout << "\nZapisałem następujacą macierz ";
-    std::cout << (this->mtrxHeight == this->mtrxWidth ? "kwadratową:\n\n" : "prostokatną:\n\n");
+    std::cout << (this->mtrxHeight == mtrxWidth ? "kwadratową:\n\n" : "prostokatną:\n\n");
   }
 
-  for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
-    for(unsigned short int j = 0; j < this->mtrxWidth; j++) {
+  for(unsigned short int i = 0; i < mtrxHeight; i++) {
+    for(unsigned short int j = 0; j < mtrxWidth; j++) {
 
       longestNr = longestNumber(j); /** @skip Najdłuższa liczba w kolumnie */
-      spaces = longestNr - longOfCell(this->mtrx[i][j]) + 2; /** @skip Ilość pustych znaków */
+      spaces = longestNr - longOfCell(mtrx[i][j]) + 2; /** @skip Ilość pustych znaków */
 
       if(j == 0) { /** @skip Jeśli jest to 1 kolumna macierzy */
         std::cout << (sharpBrc ? "  [ " : "  | ");
       }
 
       /** @skip Wypisanie macierzy z precyzją cyfr na podstawie najdłuższej liczby w kolumnie */
-      std::cout << std::setprecision(longestNr - 1) << this->mtrx[i][j];
+      std::cout << std::setprecision(longestNr - 1) << mtrx[i][j];
 
       /** @skip Dodaj puste znaki w celu wyrównania kolumn */
       for(unsigned short int k = 0; k < spaces; k++) {
@@ -84,7 +84,7 @@ double MatrixAbstract<M>::scalarValuePush(HANDLE& hOut) {
 
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
     std::cout << "\nWpisz tutaj" << (!repeatMess ? "" : " ponownie") << " wartość skalarną: ";
-    std::cin >> this->scalarVal;
+    std::cin >> scalarVal;
     if(std::cin.fail()) {
 
       SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);

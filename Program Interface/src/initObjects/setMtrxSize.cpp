@@ -105,7 +105,7 @@ std::string saveMtrxInfo(unsigned short int& type, unsigned short int& val) {
   switch(val) {
     case 1: { /** @skip val 1 = jedynie wartości stałoprzecinkowe */
       output += "jedynie wartościami stałoprzecinkowymi."; break;
-    } case 2: { /** @skip val 1 = wartości stałoprzecinkowe oraz zmiennoprzecinkowe */
+    } case 2: { /** @skip val 2 = wartości stałoprzecinkowe oraz zmiennoprzecinkowe */
       output += "zarowno wartościami stało oraz zmiennoprzecinkowymi."; break;
     }
   }

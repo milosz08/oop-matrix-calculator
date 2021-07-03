@@ -9,4 +9,4 @@
  * @return Getter zwraca tablicę dynamiczną elementów na diagonalnej (przekątnej macierzy diagonalnej).
  */
 template<class M>
-M* DiagonalMatrix<M>::get_DiagTab() const { return this->diagTab; }
+M* DiagonalMatrix<M>::get_DiagTab() const { return diagTab; }

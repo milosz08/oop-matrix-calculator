@@ -57,10 +57,10 @@ MatrixAbstract<M>::MatrixAbstract(unsigned short int& s) : mtrxWidth{s}, mtrxHei
  */
 template<class M>
 MatrixAbstract<M>::MatrixAbstract(const MatrixAbstract<M>& c) : mtrxWidth{c.mtrxWidth}, mtrxHeight{c.mtrxHeight} {
-  this->mtrx = new M* [c.mtrxHeight];
+  mtrx = new M* [c.mtrxHeight];
 
   for(unsigned short int i = 0; i < c.mtrxHeight; i++) {
-    this->mtrx[i] = new M [c.mtrxWidth];
+    mtrx[i] = new M [c.mtrxWidth];
   }
 }
 
@@ -74,8 +74,8 @@ MatrixAbstract<M>::MatrixAbstract(const MatrixAbstract<M>& c) : mtrxWidth{c.mtrx
  */
 template<class M>
 MatrixAbstract<M>::~MatrixAbstract() {
-  for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
-    delete[] this->mtrx[i];
+  for(unsigned short int i = 0; i < mtrxHeight; i++) {
+    delete[] mtrx[i];
   }
-  delete[] this->mtrx;
+  delete[] mtrx;
 }

@@ -14,10 +14,10 @@
  */
 template<class M>
 void MatrixAbstract<M>::allocateMemory() {
-  this->mtrx = new M* [this->mtrxHeight];
+  mtrx = new M* [mtrxHeight];
 
-  for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
-    this->mtrx[i] = new M [this->mtrxWidth];
+  for(unsigned short int i = 0; i < mtrxHeight; i++) {
+    mtrx[i] = new M [mtrxWidth];
   }
 }
 
@@ -62,8 +62,8 @@ unsigned short int MatrixAbstract<M>::longestNumber(unsigned short int& indexOfR
   std::vector<unsigned short int> colSizes;
   std::string cellStr, changeStr;
 
-  for(unsigned short int i = 0; i < this->mtrxWidth; i++) {
-    cellStr = std::to_string(this->mtrx[i][indexOfRow]);
+  for(unsigned short int i = 0; i < mtrxWidth; i++) {
+    cellStr = std::to_string(mtrx[i][indexOfRow]);
 
     if(!ifValueIsInt(cellStr)) { /** @skip Tylko dla wartości double */
       cellStr.erase(cellStr.find_last_not_of('0') + 1, std::string::npos);

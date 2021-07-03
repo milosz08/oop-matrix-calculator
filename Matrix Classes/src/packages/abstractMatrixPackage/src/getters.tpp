@@ -9,7 +9,7 @@
  * @return Getter zwraca ilość kolumn macierzy (szerokość macierzy).
  */
 template<class M>
-unsigned short int MatrixAbstract<M>::get_Cols() const { return this->mtrxWidth; }
+unsigned short int MatrixAbstract<M>::get_Cols() const { return mtrxWidth; }
 
 
 /*!
@@ -20,7 +20,7 @@ unsigned short int MatrixAbstract<M>::get_Cols() const { return this->mtrxWidth;
  * @return Getter zwraca ilość wierszy macierzy (wysokość macierzy).
  */
 template<class M>
-unsigned short int MatrixAbstract<M>::get_Rows() const { return this->mtrxHeight; }
+unsigned short int MatrixAbstract<M>::get_Rows() const { return mtrxHeight; }
 
 
 /*!
@@ -31,4 +31,4 @@ unsigned short int MatrixAbstract<M>::get_Rows() const { return this->mtrxHeight
  * @return Getter zwraca macierz w postaci dynamicznej dwuwymiarowej tablicy.
  */
 template<class M>
-M** MatrixAbstract<M>::get_Mtrx() const { return this->mtrx; }
+M** MatrixAbstract<M>::get_Mtrx() const { return mtrx; }
