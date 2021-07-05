@@ -14,8 +14,6 @@
  *        błąd i po odczekaniu 5 sekund umożliwi użytkownikowi ponowne wybranie opcji.
  *
  * @tparam T - wzorzec, który reprezentuje wartości jakimi można zapełnić macierz (int/double).
- * @tparam A - wartość szablonu klasy abstrakcyjnej (używane tylko do metody z klasy abstrakcyjnej
- *             "genInfoBlock" oraz "errorMess" przy operatorze zakresu).
  *
  * @param obj - wskaźnik klasy abstrakcyjnej wskazujący na aktualnie obsługiwany obiekt klasy pochodnej.
  *
@@ -31,8 +29,10 @@ unsigned short int mathChooseMtrx(MatrixAbstract<T>* obj, HANDLE& hOut) {
   bool error{false};
 
   obj->insertMtrx(hOut); /** @skip Wprowadzanie macierzy */
+
   do {
     error = false;
+
     obj->printMtrx(hOut, true, true); /** @skip Drukowanie macierzy */
 
     if(obj->get_Cols() == obj->get_Rows()) { /** @skip Macierz kwadratowa */

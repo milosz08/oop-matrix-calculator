@@ -15,8 +15,6 @@
  *             odwrotnej (klasa GeneralMatrix<double> lub DiagonalMatrix<double>).
  *
  * @tparam T - wzorzec, który reprezentuje wartości jakimi można zapełnić macierz (int/double).
- * @tparam A - wartość szablonu klasy abstrakcyjnej (używane tylko do metody z klasy abstrakcyjnej
- *             "genInfoBlock" przy operatorze zakresu).
  *
  * @param choose - zmienna przechowująca wybór operacji matematycznej dokonanej przez użytkownika.
  *
@@ -136,8 +134,6 @@ void onlyOneMtrxMath(unsigned short int& choose, MatrixAbstract<T>* ptr, M& obj,
  * @tparam M - wzorzec reprezentujący klasę jako typ danych (klasa GeneralMatrix<T> lub DiagonalMatrix<T>).
  *
  * @tparam T - wzorzec, który reprezentuje wartości jakimi można zapełnić macierz (int/double).
- * @tparam A - wartość szablonu klasy abstrakcyjnej (używane tylko do metody z klasy abstrakcyjnej
- *             "genInfoBlock" przy operatorze zakresu).
  *
  * @param ptr - wskaźnik klasy abstrakcyjnej wskazujący na obiekt przechowujący macierz pierwotną
  *

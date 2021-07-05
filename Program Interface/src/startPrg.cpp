@@ -14,7 +14,7 @@
  *              * mnożenie macierzy posiadających różną liczbę kolumn w stosunku do wierszy (i na odwrót)
  */
 void startPrg() {
-  HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE); /** @skip Obsługa kolorów w konsoli CMD */
+  HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE); /** @skip Uchwyt konsoli CMD */
 
   try {
 

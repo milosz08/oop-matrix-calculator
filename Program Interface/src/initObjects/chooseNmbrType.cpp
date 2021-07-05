@@ -26,14 +26,14 @@ unsigned short int chooseTypeOfNumbers(HANDLE& hOut) {
     MatrixAbstract<double>::genInfoBlock("ETAP 2", {
       "Wybierz, na jakim typie wartości macierzy chcesz przeprowadzać operacje:",
       "1. Chcę przeprowadzać operacje tylko i wyłącznie na liczbach stałoprzecinkowych.",
-      "2. Chcę przeprowadzać operacje na liczbach stałoprzecinkowych i zmiennoprzecinkowych.",
+      "2. Chcę przeprowadzać operacje na liczbach stałoprzecinkowych i zmiennoprzecinkowych."
     });
 
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
     MatrixAbstract<double>::genInfoBlock("UWAGA!", {
       "Jeśli wybierzesz tylko liczby stałoprzecinkowe, próba zapełnienia macierzy liczbami",
       "zmiennoprzecinkowymi zakończy się błedem. Preferowany typ to macierz obsługująca zarówno",
-      "liczby zmiennoprzecinkowe jak i stałoprzecinkowe.",
+      "liczby zmiennoprzecinkowe jak i stałoprzecinkowe."
     });
 
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);

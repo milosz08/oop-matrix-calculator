@@ -14,7 +14,7 @@
  * @brief Program wykonany na przedmiot Programowanie Komputerów z wykorzystaniem elementów
  *        obiektowości języka C++. Wydział Elektryczny, Politechnika Śląska, Gliwice 2021.<br>
  *
- *        Program oparłem na 3 klasach, z czego jedna to klasa abstrakcyjna (interfejs) zawierająca metody i
+ *        Program oparłem na 3 klasach, z czego jedna to klasa abstrakcyjna zawierająca metody i
  *        pola dziedziczące po 2 klasach pochodnych, z których jedna to zwykłe macierze kwadratowe/prostokątne
  *        a druga to macierze diagonalne (tylko kwadratowe). Zdecydowałem się użyć osobnych klas ze względu na
  *        różne metody matematyczne obliczające m. in. wyznacznik, czy macierz odwrotną.<br>

@@ -22,7 +22,7 @@ void MatrixAbstract<M>::genInfoBlock(std::string header, std::vector<std::string
   /** @skip Wyrażenie lambda porównujące wielkość 2 stringów, zwracające prawdę, jeśli string
    * b jest dłuższy od stringu a */
   auto lambdaFind = [](const std::string& a, const std::string& b) {
-    return a.size() < b.size();
+    return a.length() < b.length();
   };
 
   /** @skip Wyznacznie maksymalnej długości stringa w wektorze stringów mess (pomniejszony o 2) */

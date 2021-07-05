@@ -108,11 +108,23 @@ D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/gen
 ../GeneralMatrix.hpp
 D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
 
+D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/initObjects/chooseMtrxType.cpp
+../interfaceDecl.hpp
+D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
+
+D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/initObjects/chooseNmbrType.cpp
+../interfaceDecl.hpp
+D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
+
 D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/initObjects/initMtrxObj.cpp
 ../interfaceDecl.hpp
 D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
 ../mathOperations/mathFirstMtrx/mathControl.tpp
 D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/mathOperations/mathFirstMtrx/mathControl.tpp
+
+D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/initObjects/setMtrxSize.cpp
+../interfaceDecl.hpp
+D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
 
 D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
 ../../Matrix Classes/src/packages/abstractMatrixPackage/MatrixAbstract.hpp
@@ -129,6 +141,10 @@ windows.h
 -
 winnt.h
 -
+
+D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/mainMenu.cpp
+interfaceDecl.hpp
+D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
 
 D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/mathOperations/mathFirstMtrx/mathChooseMtrx.tpp
 ../../interfaceDecl.hpp
@@ -156,5 +172,13 @@ D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interface
 
 D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/mathOperations/mathSecondMtrx/mathMtrx.tpp
 ../../interfaceDecl.hpp
+D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
+
+D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/startPrg.cpp
+interfaceDecl.hpp
+D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
+
+D:/Projekty programistyczne/PK Matrix Calculator/main.cpp
+Program Interface/src/interfaceDecl.hpp
 D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
 

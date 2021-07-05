@@ -7,6 +7,8 @@
  * @brief Przeciążenie operatora "+" (dodawania) pod kątem dodania do
  *        siebie dwóch macierzy przekazywanych w argumentach funkcji.
  *
+ * @throw logic_error -> Brak możliwości dodania macierzy które nie mają tych samych rozmiarów.
+ *
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double).
  *
  * @param mtrxF - macierz pierwotna pierwsza.
@@ -20,13 +22,17 @@ DiagonalMatrix<M> operator+(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix
   /** @skip Kopiowanie obiektu - kostruktor kopiujący */
   DiagonalMatrix<M> mtrxAdd = DiagonalMatrix<M>{mtrxF};
 
-  for(unsigned short int i = 0; i < mtrxF.mtrxHeight; i++) {
-    mtrxAdd.diagTab[i] = mtrxF.diagTab[i] + mtrxS.diagTab[i];
-    for(unsigned short int j = 0; j < mtrxF.mtrxWidth; j++) {
-      if(i == j) {
-        mtrxAdd.mtrx[i][j] = mtrxAdd.diagTab[i];
-      } else {
-        mtrxAdd.mtrx[i][j] = 0;
+  if(mtrxF.mtrxHeight != mtrxS.mtrxHeight) {
+    throw std::logic_error("Dodawanie do siebie macierzy diagonalnych o różnych wielkościach jest niedozwolone!");
+  } else {
+    for(unsigned short int i = 0; i < mtrxF.mtrxHeight; i++) {
+      mtrxAdd.diagTab[i] = mtrxF.diagTab[i] + mtrxS.diagTab[i];
+      for(unsigned short int j = 0; j < mtrxF.mtrxWidth; j++) {
+        if(i == j) {
+          mtrxAdd.mtrx[i][j] = mtrxAdd.diagTab[i];
+        } else {
+          mtrxAdd.mtrx[i][j] = 0;
+        }
       }
     }
   }
@@ -40,6 +46,8 @@ DiagonalMatrix<M> operator+(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix
  * @brief Przeciążenie operatora "-" (odejmowania) pod kątem odjęcia od
  *        siebie dwóch macierzy przekazywanych w argumentach funkcji.
  *
+ * @throw logic_error -> Brak możliwości dodania macierzy które nie mają tych samych rozmiarów.
+ *
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double).
  *
  * @param mtrxF - macierz pierwotna pierwsza.
@@ -51,19 +59,23 @@ template<class M>
 DiagonalMatrix<M> operator-(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS) {
 
   /** @skip Kopiowanie obiektu - kostruktor kopiujący */
-  DiagonalMatrix<M> mtrxAdd = DiagonalMatrix<M>{mtrxF};
+  DiagonalMatrix<M> mtrxSub = DiagonalMatrix<M>{mtrxF};
 
-  for(unsigned short int i = 0; i < mtrxF.mtrxHeight; i++) {
-    mtrxAdd.diagTab[i] = mtrxF.diagTab[i] - mtrxS.diagTab[i];
-    for(unsigned short int j = 0; j < mtrxF.mtrxWidth; j++) {
-      if(i == j) {
-        mtrxAdd.mtrx[i][j] = mtrxAdd.diagTab[i];
-      } else {
-        mtrxAdd.mtrx[i][j] = 0;
+  if(mtrxF.mtrxHeight != mtrxS.mtrxHeight) {
+    throw std::logic_error("Odejmowanie od siebie macierzy diagonalnych o różnych wielkościach jest niedozwolone!");
+  } else {
+    for(unsigned short int i = 0; i < mtrxF.mtrxHeight; i++) {
+      mtrxSub.diagTab[i] = mtrxF.diagTab[i] - mtrxS.diagTab[i];
+      for(unsigned short int j = 0; j < mtrxF.mtrxWidth; j++) {
+        if(i == j) {
+          mtrxSub.mtrx[i][j] = mtrxSub.diagTab[i];
+        } else {
+          mtrxSub.mtrx[i][j] = 0;
+        }
       }
     }
   }
-  return mtrxAdd;
+  return mtrxSub;
 }
 
 
@@ -72,6 +84,8 @@ DiagonalMatrix<M> operator-(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix
  *
  * @brief Przeciążenie operatora "*" (mnożenia) pod kątem przemnożenia przez
  *        siebie dwóch macierzy przekazywanych w argumentach funkcji.
+ *
+ * @throw logic_error -> Brak możliwości dodania macierzy które nie mają tych samych rozmiarów.
  *
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double).
  *
@@ -84,19 +98,23 @@ template<class M>
 DiagonalMatrix<M> operator*(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS) {
 
   /** @skip Kopiowanie obiektu - kostruktor kopiujący */
-  DiagonalMatrix<M> mtrxAdd = DiagonalMatrix<M>{mtrxF};
+  DiagonalMatrix<M> mtrxMult = DiagonalMatrix<M>{mtrxF};
 
-  for(unsigned short int i = 0; i < mtrxF.mtrxHeight; i++) {
-    mtrxAdd.diagTab[i] = mtrxF.diagTab[i] * mtrxS.diagTab[i];
-    for(unsigned short int j = 0; j < mtrxF.mtrxWidth; j++) {
-      if(i == j) {
-        mtrxAdd.mtrx[i][j] = mtrxAdd.diagTab[i];
-      } else {
-        mtrxAdd.mtrx[i][j] = 0;
+  if(mtrxF.mtrxHeight != mtrxS.mtrxHeight) {
+    throw std::logic_error("Mnożenie przez siebie macierzy diagonalnych o różnych wielkościach jest niedozwolone!");
+  } else {
+    for(unsigned short int i = 0; i < mtrxF.mtrxHeight; i++) {
+      mtrxMult.diagTab[i] = mtrxF.diagTab[i] * mtrxS.diagTab[i];
+      for(unsigned short int j = 0; j < mtrxF.mtrxWidth; j++) {
+        if(i == j) {
+          mtrxMult.mtrx[i][j] = mtrxMult.diagTab[i];
+        } else {
+          mtrxMult.mtrx[i][j] = 0;
+        }
       }
     }
   }
-  return mtrxAdd;
+  return mtrxMult;
 }
 
 

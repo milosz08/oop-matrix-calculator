@@ -60,8 +60,6 @@ void secondMtrxMath(unsigned short int& choose, M& objF, M& objS, HANDLE& hOut) 
  *        na podstawie wzorca M).
  *
  * @tparam M - wzorzec reprezentujący klasę jako typ danych (klasa GeneralMatrix<T> lub DiagonalMatrix<T>).
- * @tparam A - wartość szablonu klasy abstrakcyjnej (używane tylko do metody z klasy abstrakcyjnej
- *             "genInfoBlock" przy operatorze zakresu).
  *
  * @param objF - obiekt klasy ustalanej wg wzorca M przechowujący pierwszą macierz (przekazywany przez referencję
  *               z funkcji "secondMtrxMath").

@@ -13,14 +13,14 @@ namespace matrixAbstractPackage {
   /*!
    * @class MatrixAbstract
    *
-   * @brief Klasa abstrakcyjna. Interfejs programu.
+   * @brief Klasa abstrakcyjna.
    *
    *        Klasa posiada 4 zadeklarowane konstruktory, z czego jest to: konstruktor bezargumentowy,
    *        konstruktor dwuargumentowy przyjmujący za parametry wywołania ilość wierszy i kolumn macierzy,
    *        konstruktor jednoargumentowy przyjmujący za parametr stopień macierzy (macierze kwadratowe),
    *        oraz konstruktor kopiujący, przyjmujący za parametr obiekt do skopiowania (niemodyfikowalny).
    *
-   *        Klasa posiada destruktor wirtualny delokujący pamięć, wywołujący destruktory z klas pochodnych
+   *        Klasa posiada destruktor wirtualny dealokujący pamięć, wywołujący destruktory z klas pochodnych
    *        w celu ochrony programu przed wyciekami pamięci.
    *
    *        Klasa posiada 3 metody statyczne, wykorzystywane na potrzeby metod składowych klas dziedziczących oraz

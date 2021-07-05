@@ -18,10 +18,14 @@ void initMtrxObj(HANDLE& hOut) {
   /** @skip Przechowalnia ilości wierszy i/lub kolumn */
   unsigned short int* sizeMtrx = setMtrxSize(hOut, mtrxType, mtrxValType);
 
-  if(mtrxValType == 1) { /** @skip Macierz tylko znaki stałoprzecinkowe */
-    createMtrxObject<int>(sizeMtrx, hOut, mtrxType, mtrxValType);
-  } else { /** @skip Macierz znaki zmienno i stałoprzecinkowe */
-    createMtrxObject<double>(sizeMtrx, hOut, mtrxType, mtrxValType);
+  switch(mtrxValType) {
+    case 1: { /** @skip Macierz tylko znaki stałoprzecinkowe */
+      createMtrxObject<int>(sizeMtrx, hOut, mtrxType, mtrxValType);
+      break;
+    } case 2: { /** @skip Macierz znaki zmienno i stałoprzecinkowe */
+      createMtrxObject<double>(sizeMtrx, hOut, mtrxType, mtrxValType);
+      break;
+    }
   }
 }
 
