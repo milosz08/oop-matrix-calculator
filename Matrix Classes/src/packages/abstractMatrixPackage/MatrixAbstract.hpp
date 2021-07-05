@@ -45,7 +45,6 @@ namespace matrixAbstractPackage {
   template<typename M>
   class MatrixAbstract {
     public:
-      MatrixAbstract();
       MatrixAbstract(unsigned short int&, unsigned short int&); /** @skip Sygnatura konstr. dla macierzy prostokątnych */
       MatrixAbstract(const MatrixAbstract<M>&); /** @skip Sygnatura konstr. kopiującego */
 

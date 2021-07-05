@@ -21,7 +21,7 @@ DiagonalMatrix<M> DiagonalMatrix<M>::coupledMtrx() {
   for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
     for(unsigned short int j = 0; j < this->mtrxWidth; j++) {
       if(i == j) {
-        mtrxCoup.mtrx[i][j] = this->diagTab[j] * -1;
+        mtrxCoup.mtrx[i][i] = this->diagTab[i] * -1;
       } else {
         mtrxCoup.mtrx[i][j] = 0;
       }
@@ -51,7 +51,7 @@ DiagonalMatrix<M> DiagonalMatrix<M>::transposeMtrx() {
   for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
     for(unsigned short int j = 0; j < this->mtrxWidth; j++) {
       if(i == j) {
-        mtrxCoup.mtrx[i][j] = this->diagTab[i];
+        mtrxCoup.mtrx[i][i] = this->diagTab[i];
       } else {
         mtrxCoup.mtrx[i][j] = 0;
       }
@@ -117,10 +117,9 @@ DiagonalMatrix<double> DiagonalMatrix<M>::inverseMtrx(HANDLE& hOut) {
 
     /** @skip Obliczenie i przypisanie kolejnym elementom po diagonalnej wartości odwrotnej */
     for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
-      mtrxInvrs.get_DiagTab()[i] = 1 / this->diagTab[i];
       for(unsigned short int j = 0; j < this->mtrxWidth; j++) {
         if(i == j) {
-          mtrxInvrs.get_Mtrx()[i][j] = mtrxInvrs.get_DiagTab()[i];
+          mtrxInvrs.get_Mtrx()[i][i] = 1 / this->diagTab[i];
         } else {
           mtrxInvrs.get_Mtrx()[i][j] = 0;
         }

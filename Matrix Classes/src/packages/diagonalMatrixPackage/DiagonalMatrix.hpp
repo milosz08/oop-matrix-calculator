@@ -37,6 +37,7 @@ namespace diagonalMatrixPackage {
    * @param diagTab - tablica dynamiczna reprezentująca elementy znajdujące się na diagonalnej (głównej przekątnej).
    */
   template<class M> class DiagonalMatrix;
+
   template<class M> DiagonalMatrix<M> operator+(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
   template<class M> DiagonalMatrix<M> operator-(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
   template<class M> DiagonalMatrix<M> operator*(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix<M>& mtrxS);
@@ -45,7 +46,6 @@ namespace diagonalMatrixPackage {
   template<class M>
   class DiagonalMatrix : public matrixAbstractPackage::MatrixAbstract<M> {
     public:
-      DiagonalMatrix();
       DiagonalMatrix(unsigned short int&); /** @skip Sygnatura konstr. jednoargumentowego */
       DiagonalMatrix(unsigned short int&, unsigned short int&); /** @skip Sygnatura konstr. dwuargumentowego */
       DiagonalMatrix(const DiagonalMatrix&); /** @skip Sygnatura konstr. kopiującego */

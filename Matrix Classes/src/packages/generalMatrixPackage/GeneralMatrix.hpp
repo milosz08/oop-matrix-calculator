@@ -38,17 +38,18 @@ namespace generalMatrixPackage {
    * @param diagTab - tablica dynamiczna reprezentująca elementy znajdujące się na diagonalnej (głównej przekątnej).
    */
   template<class M> class GeneralMatrix;
+
   template<class M> GeneralMatrix<M> operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
   template<class M> GeneralMatrix<M> operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
   template<class M> GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS);
   template<class M> GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrx, const double& scalar);
+
   template<class M> M detRecursion(unsigned short int mtrxS, unsigned short int nextRow,
                                    unsigned short int* colCount, M** mtrx);
 
   template<class M>
   class GeneralMatrix : public matrixAbstractPackage::MatrixAbstract<M> {
     public:
-      GeneralMatrix();
       GeneralMatrix(unsigned short int&, unsigned short int&); /** @skip Sygnatura konstr. macierzy prostokątnej */
       GeneralMatrix(unsigned short int&); /** @skip Sygnatura konstr. macierzy kwadratowej */
       GeneralMatrix(const GeneralMatrix<M>&); /** @skip Sygnatura konstr. kopiującego */

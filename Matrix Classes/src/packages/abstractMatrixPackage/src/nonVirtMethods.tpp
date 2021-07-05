@@ -28,7 +28,7 @@ void MatrixAbstract<M>::printMtrx(HANDLE& hOut, const bool textMess, const bool 
 
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
     std::cout << "\nZapisałem następujacą macierz ";
-    std::cout << (this->mtrxHeight == mtrxWidth ? "kwadratową:\n\n" : "prostokatną:\n\n");
+    std::cout << (mtrxHeight == mtrxWidth ? "kwadratową:\n\n" : "prostokatną:\n\n");
   }
 
   for(unsigned short int i = 0; i < mtrxHeight; i++) {
@@ -38,7 +38,7 @@ void MatrixAbstract<M>::printMtrx(HANDLE& hOut, const bool textMess, const bool 
       spaces = longestNr - longOfCell(mtrx[i][j]) + 2; /** @skip Ilość pustych znaków */
 
       if(j == 0) { /** @skip Jeśli jest to 1 kolumna macierzy */
-        std::cout << (sharpBrc ? "  [ " : "  | ");
+        std::cout << (sharpBrc ? "  [  " : "  |  ");
       }
 
       /** @skip Wypisanie macierzy z precyzją cyfr na podstawie najdłuższej liczby w kolumnie */
@@ -103,5 +103,5 @@ double MatrixAbstract<M>::scalarValuePush(HANDLE& hOut) {
     }
 
   } while(error);
-  return this->scalarVal;
+  return scalarVal;
 }

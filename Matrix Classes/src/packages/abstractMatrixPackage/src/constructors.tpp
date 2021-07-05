@@ -2,17 +2,6 @@
 
 
 /*!
- * @fn GeneralMatrix()
- *
- * @brief Konstruktor bezargumentowy.
- *
- * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double).
- */
-template<class M>
-MatrixAbstract<M>::MatrixAbstract() = default;
-
-
-/*!
  * @fn MatrixAbstract(unsigned int& w, unsigned int& h)
  *
  * @brief Konstruktor dwuargumentowy (macierze prostokątne).

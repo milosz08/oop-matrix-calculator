@@ -5,17 +5,6 @@ using namespace matrixAbstractPackage;
 
 
 /*!
- * @fn GeneralMatrix()
- *
- * @brief Konstruktor bezargumentowy.
- *
- * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double)
- */
-template<class M>
-GeneralMatrix<M>::GeneralMatrix() = default;
-
-
-/*!
  * @fn GeneralMatrix(unsigned int& w, unsigned int& h)
  *
  * @brief Konstruktor dwuargumentowy. Wywoływany dla macierzy prostokątnych. Wywołuje konstruktor

@@ -13,7 +13,10 @@
  */
 template<class M>
 GeneralMatrix<M> GeneralMatrix<M>::transposeMtrx() {
-  GeneralMatrix<M> mtrxTrans = GeneralMatrix<M>{*this}; /** Kopiowanie macierzy */
+
+  /** Kopiowanie macierzy */
+  GeneralMatrix<M> mtrxTrans = GeneralMatrix<M>{*this};
+
   for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
     for(unsigned short int j = 0; j < this->mtrxWidth; j++) {
       mtrxTrans.mtrx[i][j] = this->mtrx[j][i];
@@ -35,7 +38,10 @@ GeneralMatrix<M> GeneralMatrix<M>::transposeMtrx() {
  */
 template<class M>
 GeneralMatrix<M> GeneralMatrix<M>::coupledMtrx() {
-  GeneralMatrix<M> mtrxCoup = GeneralMatrix<M>{*this}; /** Kopiowanie macierzy */
+
+  /** Kopiowanie macierzy */
+  GeneralMatrix<M> mtrxCoup = GeneralMatrix<M>{*this};
+
   for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
     for(unsigned short int j = 0; j < this->mtrxWidth; j++) {
       mtrxCoup.mtrx[i][j] = this->mtrx[i][j] * -1;

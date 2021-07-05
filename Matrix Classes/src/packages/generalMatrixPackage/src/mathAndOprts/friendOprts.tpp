@@ -146,7 +146,7 @@ GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrx, const double& scalar) {
  *        wyznacznika przez -1 w celu odwrócenia znaku (znaki na przemian). Wszystkie wyznaczniki powstałe na skutek
  *        rekurencji są dodawane i zwracane przez funkcję. Rekurencja działa aż do momentu osiągnięcia n = 1.<br>
  *
- *        Funkcję oparłem na kodzie języka Python rozwinięcia Laplace'a odpowiednio przerobionym na standardy
+ *        Funkcję oparłem na podstawie algorytmu rozwinięcia Laplace'a odpowiednio przystosowanym na standardy
  *        języka C++ ze strony: https://en.wikipedia.org/wiki/Laplace_expansion.
  *
  * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double).
@@ -184,7 +184,7 @@ M detRecursion(unsigned short int mtrxS, unsigned short int nextRow, unsigned sh
       recDet += sign * mtrx[nextRow][colCount[i]] * detRecursion<M>(mtrxS - 1, nextRow + 1, colRecCount, mtrx);
       sign *= -1; /** @skip Odwrócenie znaku */
     }
-    delete [] colRecCount; /** @skip Odśmiecanie pamięci */
+    delete[] colRecCount; /** @skip Usuwanie tablicy */
   }
   return recDet;
 }

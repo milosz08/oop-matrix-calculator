@@ -5,17 +5,6 @@ using namespace matrixAbstractPackage;
 
 
 /*!
- * @fn DiagonalMatrix()
- *
- * @brief Konstruktor bezargumentowy wykorzystywany jedynie przy dziedziczeniu.
- *
- * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double).
- */
-template<class M>
-DiagonalMatrix<M>::DiagonalMatrix() = default;
-
-
-/*!
  * @fn GeneralMatrix(unsigned int& w, unsigned int& h)
  *
  * @brief Konstruktor jednoargumentowy alokujący pamięć dla tablicy dynamicznej przechowującej
