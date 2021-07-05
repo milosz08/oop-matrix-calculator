@@ -30,22 +30,6 @@ MatrixAbstract<M>::MatrixAbstract(unsigned short int& w, unsigned short int& h) 
 
 
 /*!
- * @fn MatrixAbstract(unsigned int& s)
- *
- * @brief Konstruktor jednoargumentowy (macierze kwadratowe).
- *        Alokuje pamięć dla tablicy dynamicznej dwuwymiarowej.
- *
- * @tparam M - wzór reprezentujący typ wartości wprowadzanych do macierzy (int/double).
- *
- * @param s - wysokość oraz szerokość macierzy (ilośc kolumn oraz ilość wierszy).
- */
-template<class M>
-MatrixAbstract<M>::MatrixAbstract(unsigned short int& s) : mtrxWidth{s}, mtrxHeight{s} {
-  allocateMemory();
-}
-
-
-/*!
  * @fn MatrixAbstract(const MatrixAbstract& c)
  *
  * @brief Konstruktor kopiujący. Rozwiązuje problem alokacji pamięci przy

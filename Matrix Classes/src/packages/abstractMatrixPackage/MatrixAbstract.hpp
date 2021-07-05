@@ -47,7 +47,6 @@ namespace matrixAbstractPackage {
     public:
       MatrixAbstract();
       MatrixAbstract(unsigned short int&, unsigned short int&); /** @skip Sygnatura konstr. dla macierzy prostokątnych */
-      MatrixAbstract(unsigned short int&); /** @skip Sygnatura konstr. dla macierzy kwadratowych */
       MatrixAbstract(const MatrixAbstract<M>&); /** @skip Sygnatura konstr. kopiującego */
 
       void printMtrx(HANDLE&, const bool, const bool) const; /** @skip Drukowanie macierzy */

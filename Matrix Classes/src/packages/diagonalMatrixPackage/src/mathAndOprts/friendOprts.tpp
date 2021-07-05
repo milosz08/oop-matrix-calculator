@@ -26,10 +26,9 @@ DiagonalMatrix<M> operator+(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix
     throw std::logic_error("Dodawanie do siebie macierzy diagonalnych o różnych wielkościach jest niedozwolone!");
   } else {
     for(unsigned short int i = 0; i < mtrxF.mtrxHeight; i++) {
-      mtrxAdd.diagTab[i] = mtrxF.diagTab[i] + mtrxS.diagTab[i];
       for(unsigned short int j = 0; j < mtrxF.mtrxWidth; j++) {
         if(i == j) {
-          mtrxAdd.mtrx[i][j] = mtrxAdd.diagTab[i];
+          mtrxAdd.mtrx[i][i] = mtrxF.diagTab[i] + mtrxS.diagTab[i];
         } else {
           mtrxAdd.mtrx[i][j] = 0;
         }
@@ -65,10 +64,9 @@ DiagonalMatrix<M> operator-(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix
     throw std::logic_error("Odejmowanie od siebie macierzy diagonalnych o różnych wielkościach jest niedozwolone!");
   } else {
     for(unsigned short int i = 0; i < mtrxF.mtrxHeight; i++) {
-      mtrxSub.diagTab[i] = mtrxF.diagTab[i] - mtrxS.diagTab[i];
       for(unsigned short int j = 0; j < mtrxF.mtrxWidth; j++) {
         if(i == j) {
-          mtrxSub.mtrx[i][j] = mtrxSub.diagTab[i];
+          mtrxSub.mtrx[i][i] = mtrxF.diagTab[i] - mtrxS.diagTab[i];
         } else {
           mtrxSub.mtrx[i][j] = 0;
         }
@@ -104,10 +102,9 @@ DiagonalMatrix<M> operator*(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix
     throw std::logic_error("Mnożenie przez siebie macierzy diagonalnych o różnych wielkościach jest niedozwolone!");
   } else {
     for(unsigned short int i = 0; i < mtrxF.mtrxHeight; i++) {
-      mtrxMult.diagTab[i] = mtrxF.diagTab[i] * mtrxS.diagTab[i];
       for(unsigned short int j = 0; j < mtrxF.mtrxWidth; j++) {
         if(i == j) {
-          mtrxMult.mtrx[i][j] = mtrxMult.diagTab[i];
+          mtrxMult.mtrx[i][i] = mtrxF.diagTab[i] * mtrxS.diagTab[i];
         } else {
           mtrxMult.mtrx[i][j] = 0;
         }
@@ -138,10 +135,9 @@ DiagonalMatrix<M> operator*(const DiagonalMatrix<M>& mtrx, const double& scalar)
   DiagonalMatrix<M> mtrxScal = DiagonalMatrix<M>{mtrx};
 
   for(unsigned short int i = 0; i < mtrx.mtrxHeight; i++) {
-    mtrxScal.diagTab[i] = mtrx.diagTab[i] * scalar;
     for(unsigned short int j = 0; j < mtrx.mtrxWidth; j++) {
       if(i == j) {
-        mtrxScal.mtrx[i][j] = mtrxScal.diagTab[i];
+        mtrxScal.mtrx[i][i] = mtrx.diagTab[i] * scalar;
       } else {
         mtrxScal.mtrx[i][j] = 0;
       }
