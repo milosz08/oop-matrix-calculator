@@ -61,10 +61,10 @@ RM = "C:\Program Files\JetBrains\CLion 2021.1.1\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "D:\Projekty programistyczne\PK Matrix Calculator"
+CMAKE_SOURCE_DIR = "D:\Projekty Programistyczne\PK Matrix Calculator"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "D:\Projekty programistyczne\PK Matrix Calculator\cmake-build-debug"
+CMAKE_BINARY_DIR = "D:\Projekty Programistyczne\PK Matrix Calculator\cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/PK_Matrix_Calculator.dir/depend.make
@@ -77,94 +77,94 @@ include CMakeFiles/PK_Matrix_Calculator.dir/flags.make
 
 CMakeFiles/PK_Matrix_Calculator.dir/main.cpp.obj: CMakeFiles/PK_Matrix_Calculator.dir/flags.make
 CMakeFiles/PK_Matrix_Calculator.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Projekty programistyczne\PK Matrix Calculator\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/PK_Matrix_Calculator.dir/main.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\PK_Matrix_Calculator.dir\main.cpp.obj -c "D:\Projekty programistyczne\PK Matrix Calculator\main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Projekty Programistyczne\PK Matrix Calculator\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/PK_Matrix_Calculator.dir/main.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\PK_Matrix_Calculator.dir\main.cpp.obj -c "D:\Projekty Programistyczne\PK Matrix Calculator\main.cpp"
 
 CMakeFiles/PK_Matrix_Calculator.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PK_Matrix_Calculator.dir/main.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Projekty programistyczne\PK Matrix Calculator\main.cpp" > CMakeFiles\PK_Matrix_Calculator.dir\main.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Projekty Programistyczne\PK Matrix Calculator\main.cpp" > CMakeFiles\PK_Matrix_Calculator.dir\main.cpp.i
 
 CMakeFiles/PK_Matrix_Calculator.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PK_Matrix_Calculator.dir/main.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Projekty programistyczne\PK Matrix Calculator\main.cpp" -o CMakeFiles\PK_Matrix_Calculator.dir\main.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Projekty Programistyczne\PK Matrix Calculator\main.cpp" -o CMakeFiles\PK_Matrix_Calculator.dir\main.cpp.s
 
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/startPrg.cpp.obj: CMakeFiles/PK_Matrix_Calculator.dir/flags.make
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/startPrg.cpp.obj: ../Program\ Interface/src/startPrg.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Projekty programistyczne\PK Matrix Calculator\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/startPrg.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\startPrg.cpp.obj -c "D:\Projekty programistyczne\PK Matrix Calculator\Program Interface\src\startPrg.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Projekty Programistyczne\PK Matrix Calculator\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/startPrg.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\startPrg.cpp.obj -c "D:\Projekty Programistyczne\PK Matrix Calculator\Program Interface\src\startPrg.cpp"
 
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/startPrg.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/startPrg.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Projekty programistyczne\PK Matrix Calculator\Program Interface\src\startPrg.cpp" > CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\startPrg.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Projekty Programistyczne\PK Matrix Calculator\Program Interface\src\startPrg.cpp" > CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\startPrg.cpp.i
 
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/startPrg.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/startPrg.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Projekty programistyczne\PK Matrix Calculator\Program Interface\src\startPrg.cpp" -o CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\startPrg.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Projekty Programistyczne\PK Matrix Calculator\Program Interface\src\startPrg.cpp" -o CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\startPrg.cpp.s
 
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/mainMenu.cpp.obj: CMakeFiles/PK_Matrix_Calculator.dir/flags.make
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/mainMenu.cpp.obj: ../Program\ Interface/src/mainMenu.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Projekty programistyczne\PK Matrix Calculator\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/mainMenu.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\mainMenu.cpp.obj -c "D:\Projekty programistyczne\PK Matrix Calculator\Program Interface\src\mainMenu.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Projekty Programistyczne\PK Matrix Calculator\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/mainMenu.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\mainMenu.cpp.obj -c "D:\Projekty Programistyczne\PK Matrix Calculator\Program Interface\src\mainMenu.cpp"
 
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/mainMenu.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/mainMenu.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Projekty programistyczne\PK Matrix Calculator\Program Interface\src\mainMenu.cpp" > CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\mainMenu.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Projekty Programistyczne\PK Matrix Calculator\Program Interface\src\mainMenu.cpp" > CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\mainMenu.cpp.i
 
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/mainMenu.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/mainMenu.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Projekty programistyczne\PK Matrix Calculator\Program Interface\src\mainMenu.cpp" -o CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\mainMenu.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Projekty Programistyczne\PK Matrix Calculator\Program Interface\src\mainMenu.cpp" -o CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\mainMenu.cpp.s
 
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/setMtrxSize.cpp.obj: CMakeFiles/PK_Matrix_Calculator.dir/flags.make
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/setMtrxSize.cpp.obj: ../Program\ Interface/src/initObjects/setMtrxSize.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Projekty programistyczne\PK Matrix Calculator\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/setMtrxSize.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\initObjects\setMtrxSize.cpp.obj -c "D:\Projekty programistyczne\PK Matrix Calculator\Program Interface\src\initObjects\setMtrxSize.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Projekty Programistyczne\PK Matrix Calculator\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/setMtrxSize.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\initObjects\setMtrxSize.cpp.obj -c "D:\Projekty Programistyczne\PK Matrix Calculator\Program Interface\src\initObjects\setMtrxSize.cpp"
 
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/setMtrxSize.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/setMtrxSize.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Projekty programistyczne\PK Matrix Calculator\Program Interface\src\initObjects\setMtrxSize.cpp" > CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\initObjects\setMtrxSize.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Projekty Programistyczne\PK Matrix Calculator\Program Interface\src\initObjects\setMtrxSize.cpp" > CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\initObjects\setMtrxSize.cpp.i
 
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/setMtrxSize.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/setMtrxSize.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Projekty programistyczne\PK Matrix Calculator\Program Interface\src\initObjects\setMtrxSize.cpp" -o CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\initObjects\setMtrxSize.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Projekty Programistyczne\PK Matrix Calculator\Program Interface\src\initObjects\setMtrxSize.cpp" -o CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\initObjects\setMtrxSize.cpp.s
 
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseMtrxType.cpp.obj: CMakeFiles/PK_Matrix_Calculator.dir/flags.make
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseMtrxType.cpp.obj: ../Program\ Interface/src/initObjects/chooseMtrxType.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Projekty programistyczne\PK Matrix Calculator\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseMtrxType.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\initObjects\chooseMtrxType.cpp.obj -c "D:\Projekty programistyczne\PK Matrix Calculator\Program Interface\src\initObjects\chooseMtrxType.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Projekty Programistyczne\PK Matrix Calculator\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseMtrxType.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\initObjects\chooseMtrxType.cpp.obj -c "D:\Projekty Programistyczne\PK Matrix Calculator\Program Interface\src\initObjects\chooseMtrxType.cpp"
 
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseMtrxType.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseMtrxType.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Projekty programistyczne\PK Matrix Calculator\Program Interface\src\initObjects\chooseMtrxType.cpp" > CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\initObjects\chooseMtrxType.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Projekty Programistyczne\PK Matrix Calculator\Program Interface\src\initObjects\chooseMtrxType.cpp" > CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\initObjects\chooseMtrxType.cpp.i
 
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseMtrxType.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseMtrxType.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Projekty programistyczne\PK Matrix Calculator\Program Interface\src\initObjects\chooseMtrxType.cpp" -o CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\initObjects\chooseMtrxType.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Projekty Programistyczne\PK Matrix Calculator\Program Interface\src\initObjects\chooseMtrxType.cpp" -o CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\initObjects\chooseMtrxType.cpp.s
 
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseNmbrType.cpp.obj: CMakeFiles/PK_Matrix_Calculator.dir/flags.make
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseNmbrType.cpp.obj: ../Program\ Interface/src/initObjects/chooseNmbrType.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Projekty programistyczne\PK Matrix Calculator\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseNmbrType.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\initObjects\chooseNmbrType.cpp.obj -c "D:\Projekty programistyczne\PK Matrix Calculator\Program Interface\src\initObjects\chooseNmbrType.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Projekty Programistyczne\PK Matrix Calculator\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseNmbrType.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\initObjects\chooseNmbrType.cpp.obj -c "D:\Projekty Programistyczne\PK Matrix Calculator\Program Interface\src\initObjects\chooseNmbrType.cpp"
 
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseNmbrType.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseNmbrType.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Projekty programistyczne\PK Matrix Calculator\Program Interface\src\initObjects\chooseNmbrType.cpp" > CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\initObjects\chooseNmbrType.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Projekty Programistyczne\PK Matrix Calculator\Program Interface\src\initObjects\chooseNmbrType.cpp" > CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\initObjects\chooseNmbrType.cpp.i
 
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseNmbrType.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/chooseNmbrType.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Projekty programistyczne\PK Matrix Calculator\Program Interface\src\initObjects\chooseNmbrType.cpp" -o CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\initObjects\chooseNmbrType.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Projekty Programistyczne\PK Matrix Calculator\Program Interface\src\initObjects\chooseNmbrType.cpp" -o CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\initObjects\chooseNmbrType.cpp.s
 
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/initMtrxObj.cpp.obj: CMakeFiles/PK_Matrix_Calculator.dir/flags.make
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/initMtrxObj.cpp.obj: ../Program\ Interface/src/initObjects/initMtrxObj.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Projekty programistyczne\PK Matrix Calculator\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/initMtrxObj.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\initObjects\initMtrxObj.cpp.obj -c "D:\Projekty programistyczne\PK Matrix Calculator\Program Interface\src\initObjects\initMtrxObj.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Projekty Programistyczne\PK Matrix Calculator\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/initMtrxObj.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\initObjects\initMtrxObj.cpp.obj -c "D:\Projekty Programistyczne\PK Matrix Calculator\Program Interface\src\initObjects\initMtrxObj.cpp"
 
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/initMtrxObj.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/initMtrxObj.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Projekty programistyczne\PK Matrix Calculator\Program Interface\src\initObjects\initMtrxObj.cpp" > CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\initObjects\initMtrxObj.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Projekty Programistyczne\PK Matrix Calculator\Program Interface\src\initObjects\initMtrxObj.cpp" > CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\initObjects\initMtrxObj.cpp.i
 
 CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/initMtrxObj.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PK_Matrix_Calculator.dir/Program_Interface/src/initObjects/initMtrxObj.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Projekty programistyczne\PK Matrix Calculator\Program Interface\src\initObjects\initMtrxObj.cpp" -o CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\initObjects\initMtrxObj.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Projekty Programistyczne\PK Matrix Calculator\Program Interface\src\initObjects\initMtrxObj.cpp" -o CMakeFiles\PK_Matrix_Calculator.dir\Program_Interface\src\initObjects\initMtrxObj.cpp.s
 
 # Object files for target PK_Matrix_Calculator
 PK_Matrix_Calculator_OBJECTS = \
@@ -190,7 +190,7 @@ PK_Matrix_Calculator.exe: CMakeFiles/PK_Matrix_Calculator.dir/build.make
 PK_Matrix_Calculator.exe: CMakeFiles/PK_Matrix_Calculator.dir/linklibs.rsp
 PK_Matrix_Calculator.exe: CMakeFiles/PK_Matrix_Calculator.dir/objects1.rsp
 PK_Matrix_Calculator.exe: CMakeFiles/PK_Matrix_Calculator.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="D:\Projekty programistyczne\PK Matrix Calculator\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable PK_Matrix_Calculator.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="D:\Projekty Programistyczne\PK Matrix Calculator\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable PK_Matrix_Calculator.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\PK_Matrix_Calculator.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -203,6 +203,6 @@ CMakeFiles/PK_Matrix_Calculator.dir/clean:
 .PHONY : CMakeFiles/PK_Matrix_Calculator.dir/clean
 
 CMakeFiles/PK_Matrix_Calculator.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "D:\Projekty programistyczne\PK Matrix Calculator" "D:\Projekty programistyczne\PK Matrix Calculator" "D:\Projekty programistyczne\PK Matrix Calculator\cmake-build-debug" "D:\Projekty programistyczne\PK Matrix Calculator\cmake-build-debug" "D:\Projekty programistyczne\PK Matrix Calculator\cmake-build-debug\CMakeFiles\PK_Matrix_Calculator.dir\DependInfo.cmake" --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "D:\Projekty Programistyczne\PK Matrix Calculator" "D:\Projekty Programistyczne\PK Matrix Calculator" "D:\Projekty Programistyczne\PK Matrix Calculator\cmake-build-debug" "D:\Projekty Programistyczne\PK Matrix Calculator\cmake-build-debug" "D:\Projekty Programistyczne\PK Matrix Calculator\cmake-build-debug\CMakeFiles\PK_Matrix_Calculator.dir\DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/PK_Matrix_Calculator.dir/depend
 

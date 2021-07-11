@@ -6,7 +6,15 @@
 
 #IncludeRegexTransform: 
 
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/MatrixAbstract.hpp
+D:/Projekty Programistyczne/PK Matrix Calculator/FriendFunctions/friendDiagonal.tpp
+../Matrix Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp
+D:/Projekty Programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp
+
+D:/Projekty Programistyczne/PK Matrix Calculator/FriendFunctions/friendGeneral.tpp
+../Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
+D:/Projekty Programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
+
+D:/Projekty Programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/MatrixAbstract.hpp
 iostream
 -
 list
@@ -21,62 +29,34 @@ windows.h
 -
 iomanip
 -
-src/constructors.tpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/src/constructors.tpp
-src/nonVirtMethods.tpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/src/nonVirtMethods.tpp
-src/staticMethods.tpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/src/staticMethods.tpp
-src/privateMethods.tpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/src/privateMethods.tpp
-src/getters.tpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/src/getters.tpp
+MatrixAbstract.tpp
+D:/Projekty Programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/MatrixAbstract.tpp
 
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/src/constructors.tpp
-../MatrixAbstract.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/MatrixAbstract.hpp
+D:/Projekty Programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/MatrixAbstract.tpp
+MatrixAbstract.hpp
+D:/Projekty Programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/MatrixAbstract.hpp
 
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/src/getters.tpp
-../MatrixAbstract.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/MatrixAbstract.hpp
-
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/src/nonVirtMethods.tpp
-../MatrixAbstract.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/MatrixAbstract.hpp
-
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/src/privateMethods.tpp
-../MatrixAbstract.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/MatrixAbstract.hpp
-
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/src/staticMethods.tpp
-../MatrixAbstract.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/MatrixAbstract.hpp
-
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp
+D:/Projekty Programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp
 ../abstractMatrixPackage/MatrixAbstract.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/MatrixAbstract.hpp
+D:/Projekty Programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/MatrixAbstract.hpp
 ../generalMatrixPackage/GeneralMatrix.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
+D:/Projekty Programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
 iostream
 -
 limits
 -
-src/constructors.tpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/diagonalMatrixPackage/src/constructors.tpp
-src/pureVirtMethods.tpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/diagonalMatrixPackage/src/pureVirtMethods.tpp
-src/getters.tpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/diagonalMatrixPackage/src/getters.tpp
-src/privateMethods.tpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/diagonalMatrixPackage/src/privateMethods.tpp
-src/mathAndOprts/mathMethods.tpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/diagonalMatrixPackage/src/mathAndOprts/mathMethods.tpp
-src/mathAndOprts/friendOprts.tpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/diagonalMatrixPackage/src/mathAndOprts/friendOprts.tpp
+DiagonalMatrix.tpp
+D:/Projekty Programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.tpp
+../../../../FriendFunctions/friendDiagonal.tpp
+D:/Projekty Programistyczne/PK Matrix Calculator/FriendFunctions/friendDiagonal.tpp
 
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
+D:/Projekty Programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.tpp
+DiagonalMatrix.hpp
+D:/Projekty Programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp
+
+D:/Projekty Programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
 ../abstractMatrixPackage/MatrixAbstract.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/MatrixAbstract.hpp
+D:/Projekty Programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/MatrixAbstract.hpp
 iostream
 -
 limits
@@ -87,52 +67,22 @@ string
 -
 windows.h
 -
-src/constructors.tpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/constructors.tpp
-src/pureVirtMethods.tpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/pureVirtMethods.tpp
-src/mathAndOprts/mathMethods.tpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/mathAndOprts/mathMethods.tpp
-src/mathAndOprts/friendOprts.tpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.tpp
+GeneralMatrix.tpp
+D:/Projekty Programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.tpp
+../../../../FriendFunctions/friendGeneral.tpp
+D:/Projekty Programistyczne/PK Matrix Calculator/FriendFunctions/friendGeneral.tpp
 
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/mathAndOprts/friendOprts.tpp
-../../GeneralMatrix.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
+D:/Projekty Programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.tpp
+GeneralMatrix.hpp
+D:/Projekty Programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
 
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/mathAndOprts/mathMethods.tpp
-../../GeneralMatrix.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
-
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/src/pureVirtMethods.tpp
-../GeneralMatrix.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
-
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/initObjects/chooseMtrxType.cpp
-../interfaceDecl.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
-
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/initObjects/chooseNmbrType.cpp
-../interfaceDecl.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
-
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/initObjects/initMtrxObj.cpp
-../interfaceDecl.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
-../mathOperations/mathFirstMtrx/mathControl.tpp
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/mathOperations/mathFirstMtrx/mathControl.tpp
-
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/initObjects/setMtrxSize.cpp
-../interfaceDecl.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
-
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
+D:/Projekty Programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
 ../../Matrix Classes/src/packages/abstractMatrixPackage/MatrixAbstract.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/MatrixAbstract.hpp
+D:/Projekty Programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/MatrixAbstract.hpp
 ../../Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
+D:/Projekty Programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp
 ../../Matrix Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp
+D:/Projekty Programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp
 string
 -
 stdlib.h
@@ -142,43 +92,7 @@ windows.h
 winnt.h
 -
 
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/mainMenu.cpp
+D:/Projekty Programistyczne/PK Matrix Calculator/Program Interface/src/mainMenu.cpp
 interfaceDecl.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
-
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/mathOperations/mathFirstMtrx/mathChooseMtrx.tpp
-../../interfaceDecl.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
-
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/mathOperations/mathFirstMtrx/mathControl.tpp
-../../interfaceDecl.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
-mathChooseMtrx.tpp
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/mathOperations/mathFirstMtrx/mathChooseMtrx.tpp
-mathMtrx.tpp
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/mathOperations/mathFirstMtrx/mathMtrx.tpp
-
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/mathOperations/mathFirstMtrx/mathMtrx.tpp
-../../interfaceDecl.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
-../mathSecondMtrx/mathChooseMtrx.tpp
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/mathOperations/mathSecondMtrx/mathChooseMtrx.tpp
-../mathSecondMtrx/mathMtrx.tpp
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/mathOperations/mathSecondMtrx/mathMtrx.tpp
-
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/mathOperations/mathSecondMtrx/mathChooseMtrx.tpp
-../../interfaceDecl.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
-
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/mathOperations/mathSecondMtrx/mathMtrx.tpp
-../../interfaceDecl.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
-
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/startPrg.cpp
-interfaceDecl.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
-
-D:/Projekty programistyczne/PK Matrix Calculator/main.cpp
-Program Interface/src/interfaceDecl.hpp
-D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
+D:/Projekty Programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp
 

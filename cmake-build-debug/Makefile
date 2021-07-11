@@ -66,10 +66,10 @@ RM = "C:\Program Files\JetBrains\CLion 2021.1.1\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "D:\Projekty programistyczne\PK Matrix Calculator"
+CMAKE_SOURCE_DIR = "D:\Projekty Programistyczne\PK Matrix Calculator"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "D:\Projekty programistyczne\PK Matrix Calculator\cmake-build-debug"
+CMAKE_BINARY_DIR = "D:\Projekty Programistyczne\PK Matrix Calculator\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -98,9 +98,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Projekty programistyczne\PK Matrix Calculator\cmake-build-debug\CMakeFiles" "D:\Projekty programistyczne\PK Matrix Calculator\cmake-build-debug\\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Projekty Programistyczne\PK Matrix Calculator\cmake-build-debug\CMakeFiles" "D:\Projekty Programistyczne\PK Matrix Calculator\cmake-build-debug\\CMakeFiles\progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Projekty programistyczne\PK Matrix Calculator\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Projekty Programistyczne\PK Matrix Calculator\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target

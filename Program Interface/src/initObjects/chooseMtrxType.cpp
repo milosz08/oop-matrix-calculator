@@ -20,28 +20,34 @@ unsigned short int chooseTypeOfMatrix(HANDLE& hOut) {
   bool error{false};
 
   do {
-    error = false;
+    try {
 
-    MatrixAbstract<double>::genInfoBlock("ETAP 1", {
-      "Wybierz, na jakim typie macierzy chcesz przeprowadzać operacje:",
-      "1. Chcę przeprowadzać operacje na zwykłej macierzy prostokatnej.",
-      "2. Chcę przeprowadzać operacje na zwykłej macierzy kwadratowej.",
-      "3. Chcę przeprowadzać operacje na kwadratowej macierzy diagonalnej."
-    });
+      error = false;
 
-    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-    MatrixAbstract<double>::genInfoBlock("INFO", {
-      "Macierz diagonalna to macierz, która poza swoją głowna przekątną (diagonalna)",
-      "posiada wartosci zerowe. Na przekątnej diagonalnej znajdą sie podane przez Ciebie wartosci."
-    });
+      MatrixAbstract<double>::genInfoBlock("ETAP 1", {
+        "Wybierz, na jakim typie macierzy chcesz przeprowadzać operacje:",
+        "1. Chcę przeprowadzać operacje na zwykłej macierzy prostokatnej.",
+        "2. Chcę przeprowadzać operacje na zwykłej macierzy kwadratowej.",
+        "3. Chcę przeprowadzać operacje na kwadratowej macierzy diagonalnej."
+      });
 
-    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-    std::cout << "\nTwój wybór: ";
-    std::cin >> choice;
+      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+      MatrixAbstract<double>::genInfoBlock("INFO", {
+        "Macierz diagonalna to macierz, która poza swoją głowna przekątną (diagonalna)",
+        "posiada wartosci zerowe. Na przekątnej diagonalnej znajdą sie podane przez Ciebie wartosci."
+      });
 
-    if((choice < 1 || choice > 3) || std::cin.fail()) {
+      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+      std::cout << "\nTwój wybór: ";
+      std::cin >> choice;
+
+      if((choice < 1 || choice > 3) || std::cin.fail()) {
+        throw std::out_of_range("Błąd strumienia wejścia. Wybrana opcja nie istnieje.");
+      }
+
+    } catch(std::out_of_range& e) {
       error = true;
-      MatrixAbstract<double>::errorMess("Wybrana przez Ciebie opcja menu nie istnieje!", hOut);
+      MatrixAbstract<double>::errorMess(e.what(), hOut);
     }
 
   } while(error);

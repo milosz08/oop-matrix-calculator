@@ -79,10 +79,7 @@ namespace generalMatrixPackage {
       unsigned short int* colsCount{nullptr};
   };
 
-  #include "src/constructors.tpp" /** @skip Deklaracje konstruktorów */
-  #include "src/pureVirtMethods.tpp" /** @skip Metody przysłaniające metody czysto wirtualne klasy abstrakcyjnej */
-
-  #include "src/mathAndOprts/mathMethods.tpp" /** @skip Operacje arytmetyczne - metody */
-  #include "src/mathAndOprts/friendOprts.tpp" /** @skip Przeciążenia operatorów (funkcje zaprzyjaźnione) */
+  #include "GeneralMatrix.tpp"
+  #include "../../../../FriendFunctions/friendGeneral.tpp"
 }
 #endif

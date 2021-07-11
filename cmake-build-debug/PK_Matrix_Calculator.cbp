@@ -8,28 +8,28 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug"/>
+				<Option working_dir="D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug"/>
+				<Option working_dir="D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="PK_Matrix_Calculator">
-				<Option output="D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug/PK_Matrix_Calculator.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug"/>
+				<Option output="D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug/PK_Matrix_Calculator.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -42,15 +42,15 @@
 					<Add directory="c:\mingw\bin\../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 PK_Matrix_Calculator"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 PK_Matrix_Calculator"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="PK_Matrix_Calculator/fast">
-				<Option output="D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug/PK_Matrix_Calculator.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug"/>
+				<Option output="D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug/PK_Matrix_Calculator.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -63,72 +63,75 @@
 					<Add directory="c:\mingw\bin\../lib/gcc/x86_64-w64-mingw32/9.2.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 PK_Matrix_Calculator/fast"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 PK_Matrix_Calculator/fast"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug"/>
+				<Option working_dir="D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/Projekty Programistyczne/PK Matrix Calculator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/MatrixAbstract.hpp">
+		<Unit filename="D:/Projekty Programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/MatrixAbstract.hpp">
 			<Option target="PK_Matrix_Calculator"/>
 		</Unit>
-		<Unit filename="D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp">
+		<Unit filename="D:/Projekty Programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/abstractMatrixPackage/MatrixAbstract.tpp">
 			<Option target="PK_Matrix_Calculator"/>
 		</Unit>
-		<Unit filename="D:/Projekty programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp">
+		<Unit filename="D:/Projekty Programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/diagonalMatrixPackage/DiagonalMatrix.hpp">
 			<Option target="PK_Matrix_Calculator"/>
 		</Unit>
-		<Unit filename="D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/initObjects/chooseMtrxType.cpp">
+		<Unit filename="D:/Projekty Programistyczne/PK Matrix Calculator/Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp">
 			<Option target="PK_Matrix_Calculator"/>
 		</Unit>
-		<Unit filename="D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/initObjects/chooseNmbrType.cpp">
+		<Unit filename="D:/Projekty Programistyczne/PK Matrix Calculator/Program Interface/src/initObjects/chooseMtrxType.cpp">
 			<Option target="PK_Matrix_Calculator"/>
 		</Unit>
-		<Unit filename="D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/initObjects/initMtrxObj.cpp">
+		<Unit filename="D:/Projekty Programistyczne/PK Matrix Calculator/Program Interface/src/initObjects/chooseNmbrType.cpp">
 			<Option target="PK_Matrix_Calculator"/>
 		</Unit>
-		<Unit filename="D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/initObjects/setMtrxSize.cpp">
+		<Unit filename="D:/Projekty Programistyczne/PK Matrix Calculator/Program Interface/src/initObjects/initMtrxObj.cpp">
 			<Option target="PK_Matrix_Calculator"/>
 		</Unit>
-		<Unit filename="D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp">
+		<Unit filename="D:/Projekty Programistyczne/PK Matrix Calculator/Program Interface/src/initObjects/setMtrxSize.cpp">
 			<Option target="PK_Matrix_Calculator"/>
 		</Unit>
-		<Unit filename="D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/mainMenu.cpp">
+		<Unit filename="D:/Projekty Programistyczne/PK Matrix Calculator/Program Interface/src/interfaceDecl.hpp">
 			<Option target="PK_Matrix_Calculator"/>
 		</Unit>
-		<Unit filename="D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/mathOperations/mathFirstMtrx/mathChooseMtrx.tpp">
+		<Unit filename="D:/Projekty Programistyczne/PK Matrix Calculator/Program Interface/src/mainMenu.cpp">
 			<Option target="PK_Matrix_Calculator"/>
 		</Unit>
-		<Unit filename="D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/mathOperations/mathFirstMtrx/mathControl.tpp">
+		<Unit filename="D:/Projekty Programistyczne/PK Matrix Calculator/Program Interface/src/mathOperations/mathFirstMtrx/mathChooseMtrx.tpp">
 			<Option target="PK_Matrix_Calculator"/>
 		</Unit>
-		<Unit filename="D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/mathOperations/mathFirstMtrx/mathMtrx.tpp">
+		<Unit filename="D:/Projekty Programistyczne/PK Matrix Calculator/Program Interface/src/mathOperations/mathFirstMtrx/mathControl.tpp">
 			<Option target="PK_Matrix_Calculator"/>
 		</Unit>
-		<Unit filename="D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/mathOperations/mathSecondMtrx/mathChooseMtrx.tpp">
+		<Unit filename="D:/Projekty Programistyczne/PK Matrix Calculator/Program Interface/src/mathOperations/mathFirstMtrx/mathMtrx.tpp">
 			<Option target="PK_Matrix_Calculator"/>
 		</Unit>
-		<Unit filename="D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/mathOperations/mathSecondMtrx/mathMtrx.tpp">
+		<Unit filename="D:/Projekty Programistyczne/PK Matrix Calculator/Program Interface/src/mathOperations/mathSecondMtrx/mathChooseMtrx.tpp">
 			<Option target="PK_Matrix_Calculator"/>
 		</Unit>
-		<Unit filename="D:/Projekty programistyczne/PK Matrix Calculator/Program Interface/src/startPrg.cpp">
+		<Unit filename="D:/Projekty Programistyczne/PK Matrix Calculator/Program Interface/src/mathOperations/mathSecondMtrx/mathMtrx.tpp">
 			<Option target="PK_Matrix_Calculator"/>
 		</Unit>
-		<Unit filename="D:/Projekty programistyczne/PK Matrix Calculator/main.cpp">
+		<Unit filename="D:/Projekty Programistyczne/PK Matrix Calculator/Program Interface/src/startPrg.cpp">
 			<Option target="PK_Matrix_Calculator"/>
 		</Unit>
-		<Unit filename="D:/Projekty programistyczne/PK Matrix Calculator/CMakeLists.txt">
+		<Unit filename="D:/Projekty Programistyczne/PK Matrix Calculator/main.cpp">
+			<Option target="PK_Matrix_Calculator"/>
+		</Unit>
+		<Unit filename="D:/Projekty Programistyczne/PK Matrix Calculator/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

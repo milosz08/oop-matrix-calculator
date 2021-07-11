@@ -21,28 +21,34 @@ unsigned short int chooseTypeOfNumbers(HANDLE& hOut) {
   bool error{false};
 
   do {
-    error = false;
+    try {
 
-    MatrixAbstract<double>::genInfoBlock("ETAP 2", {
-      "Wybierz, na jakim typie wartości macierzy chcesz przeprowadzać operacje:",
-      "1. Chcę przeprowadzać operacje tylko i wyłącznie na liczbach stałoprzecinkowych.",
-      "2. Chcę przeprowadzać operacje na liczbach stałoprzecinkowych i zmiennoprzecinkowych."
-    });
+      error = false;
 
-    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
-    MatrixAbstract<double>::genInfoBlock("UWAGA!", {
-      "Jeśli wybierzesz tylko liczby stałoprzecinkowe, próba zapełnienia macierzy liczbami",
-      "zmiennoprzecinkowymi zakończy się błedem. Preferowany typ to macierz obsługująca zarówno",
-      "liczby zmiennoprzecinkowe jak i stałoprzecinkowe."
-    });
+      MatrixAbstract<double>::genInfoBlock("ETAP 2", {
+        "Wybierz, na jakim typie wartości macierzy chcesz przeprowadzać operacje:",
+        "1. Chcę przeprowadzać operacje tylko i wyłącznie na liczbach stałoprzecinkowych.",
+        "2. Chcę przeprowadzać operacje na liczbach stałoprzecinkowych i zmiennoprzecinkowych."
+      });
 
-    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-    std::cout << "\nTwój wybór: ";
-    std::cin >> choice;
+      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
+      MatrixAbstract<double>::genInfoBlock("UWAGA!", {
+        "Jeśli wybierzesz tylko liczby stałoprzecinkowe, próba zapełnienia macierzy liczbami",
+        "zmiennoprzecinkowymi zakończy się błedem. Preferowany typ to macierz obsługująca zarówno",
+        "liczby zmiennoprzecinkowe jak i stałoprzecinkowe."
+      });
 
-    if((choice != 1 && choice != 2) || std::cin.fail()) {
+      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+      std::cout << "\nTwój wybór: ";
+      std::cin >> choice;
+
+      if((choice != 1 && choice != 2) || std::cin.fail()) {
+        throw std::out_of_range("Błąd strumienia wejścia. Wybrana opcja nie istnieje.");
+      }
+
+    } catch(std::out_of_range& e) {
       error = true;
-      MatrixAbstract<double>::errorMess("Wybrana przez Ciebie opcja menu nie istnieje!", hOut);
+      MatrixAbstract<double>::errorMess(e.what(), hOut);
     }
 
   } while(error);

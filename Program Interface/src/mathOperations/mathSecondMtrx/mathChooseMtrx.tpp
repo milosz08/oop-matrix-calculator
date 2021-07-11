@@ -31,36 +31,43 @@ unsigned short int mathSecondMatrix(MatrixAbstract<T>* objF, MatrixAbstract<T>* 
   objS->insertMtrx(hOut); /** @skip Wprowadzanie macierzy */
 
   do {
-    error = false;
+    try {
 
-    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-    MatrixAbstract<double>::genInfoBlock("SUKCES!", {
-      "Z wprowadzonych przez Ciebie parametrów wygenerowałem poniższe macierze.",
-    });
+      error = false;
 
-    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-    std::cout << "\nPierwsza wprowadzona przez Ciebie macierz:\n\n";
-    objF->printMtrx(hOut, false, true);
+      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+      MatrixAbstract<double>::genInfoBlock("SUKCES!", {
+        "Z wprowadzonych przez Ciebie parametrów wygenerowałem poniższe macierze.",
+      });
 
-    std::cout << "\nDruga wprowadzona przez Ciebie macierz:\n\n";
-    objS->printMtrx(hOut, false, true);
+      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+      std::cout << "\nPierwsza wprowadzona przez Ciebie macierz:\n\n";
+      objF->printMtrx(hOut, false, true);
 
-    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-    std::cout << "\n";
-    MatrixAbstract<double>::genInfoBlock("ETAP 5", {
-      "Wybierz działanie, jakie chcesz wykonać na podanych przez Ciebie macierzach:",
-      "1. Chcę dodać do siebie wpisane przeze mnie macierze.",
-      "2. Chcę odjąć od siebie wpisane przeze mnie macierze.",
-      "3. Chcę pomnożyć przez siebie wpisane przeze mnie macierze."
-    });
+      std::cout << "\nDruga wprowadzona przez Ciebie macierz:\n\n";
+      objS->printMtrx(hOut, false, true);
 
-    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-    std::cout << "\nTwój wybór: ";
-    std::cin >> choice;
+      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+      std::cout << "\n";
+
+      MatrixAbstract<double>::genInfoBlock("ETAP 5", {
+        "Wybierz działanie, jakie chcesz wykonać na podanych przez Ciebie macierzach:",
+        "1. Chcę dodać do siebie wpisane przeze mnie macierze.",
+        "2. Chcę odjąć od siebie wpisane przeze mnie macierze.",
+        "3. Chcę pomnożyć przez siebie wpisane przeze mnie macierze."
+      });
+
+      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+      std::cout << "\nTwój wybór: ";
+      std::cin >> choice;
+
+    } catch(std::out_of_range& e) {
+      error = true;
+      MatrixAbstract<double>::errorMess(e.what(), hOut);
+    }
 
     if(std::cin.fail() || choice < 1 || choice > 3) {
-      error = true;
-      MatrixAbstract<double>::errorMess("Wybrana przez Ciebie opcja menu nie istnieje!", hOut);
+      throw std::out_of_range("Błąd strumienia wejścia. Wybrana opcja nie istnieje.");
     }
 
   } while(error);

@@ -31,44 +31,51 @@ unsigned short int mathChooseMtrx(MatrixAbstract<T>* obj, HANDLE& hOut) {
   obj->insertMtrx(hOut); /** @skip Wprowadzanie macierzy */
 
   do {
-    error = false;
+    try {
 
-    obj->printMtrx(hOut, true, true); /** @skip Drukowanie macierzy */
+      error = false;
 
-    if(obj->get_Cols() == obj->get_Rows()) { /** @skip Macierz kwadratowa */
-      strArr = {
-        "Wybierz działanie, jakie chcesz wykonać na macierzy:",
-        "1. Chcę wprowadzić drugą macierz w celu wykonania operacji arytmetycznych.",
-        "2. Chcę pomnożyć macierz przez wartość skalarną.",
-        "3. Chcę wyznaczyć macierz sprzężoną z wprowadzonej macierzy.",
-        "4. Chcę wyznaczyć macierz transponowaną z wprowadzonej macierzy.",
-        "5. Chcę obliczyć wyznacznik z wprowadzonej macierzy.",
-        "6. Chcę obliczyć macierz odwrotna z wprowadzonej macierzy."
-      };
-    } else { /** Macierz prostokątna */
-      strArr = {
-        "Wybierz działanie, jakie chcesz wykonać na macierzy:",
-        "1. Chcę wprowadzić drugą macierz w celu wykonania operacji arytmetycznych.",
-        "2. Chcę pomnozyć macierz przez wartość skalarną.",
-        "3. Chcę wyznaczyć macierz sprzężoną z wprowadzonej macierzy.",
-        "4. Chcę wyznaczyć macierz transponowaną z wprowadzonej macierzy.",
-      };
+      obj->printMtrx(hOut, true, true); /** @skip Drukowanie macierzy */
+
+      if(obj->get_Cols() == obj->get_Rows()) { /** @skip Macierz kwadratowa */
+        strArr = {
+          "Wybierz działanie, jakie chcesz wykonać na macierzy:",
+          "1. Chcę wprowadzić drugą macierz w celu wykonania operacji arytmetycznych.",
+          "2. Chcę pomnożyć macierz przez wartość skalarną.",
+          "3. Chcę wyznaczyć macierz sprzężoną z wprowadzonej macierzy.",
+          "4. Chcę wyznaczyć macierz transponowaną z wprowadzonej macierzy.",
+          "5. Chcę obliczyć wyznacznik z wprowadzonej macierzy.",
+          "6. Chcę obliczyć macierz odwrotna z wprowadzonej macierzy."
+        };
+      } else { /** Macierz prostokątna */
+        strArr = {
+          "Wybierz działanie, jakie chcesz wykonać na macierzy:",
+          "1. Chcę wprowadzić drugą macierz w celu wykonania operacji arytmetycznych.",
+          "2. Chcę pomnozyć macierz przez wartość skalarną.",
+          "3. Chcę wyznaczyć macierz sprzężoną z wprowadzonej macierzy.",
+          "4. Chcę wyznaczyć macierz transponowaną z wprowadzonej macierzy.",
+        };
+      }
+
+      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+      std::cout << "\n";
+      MatrixAbstract<double>::genInfoBlock("ETAP 4", strArr);
+
+      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+      std::cout << "\nTwój wybór: ";
+      std::cin >> choice;
+
+    } catch(std::out_of_range& e) {
+      error = true;
+      MatrixAbstract<double>::errorMess(e.what(), hOut);
     }
 
-    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-    std::cout << "\n";
-    MatrixAbstract<double>::genInfoBlock("ETAP 4", strArr);
-
-    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-    std::cout << "\nTwój wybór: ";
-    std::cin >> choice;
-
     if(std::cin.fail() || choice < 1 || choice > strArr.size() - 1) {
-      error = true;
-      MatrixAbstract<double>::errorMess("Wybrana przez Ciebie opcja menu nie istnieje!", hOut);
+      throw std::out_of_range("Błąd strumienia wejścia. Wybrana opcja nie istnieje.");
     }
 
   } while(error);
+
   std::system("cls"); /** @skip czyszczenie konsoli */
   return choice;
 }

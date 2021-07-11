@@ -75,13 +75,8 @@ namespace diagonalMatrixPackage {
       M* diagTab{nullptr};
   };
 
-  #include "src/constructors.tpp" /** @skip Deklaracje konstruktorów */
-  #include "src/pureVirtMethods.tpp" /** @skip Metody przysłaniające metody czysto wirtualne klasy abstrakcyjnej */
-  #include "src/getters.tpp" /** @skip Metody zwracające wartości pól chronionych - gettery */
-  #include "src/privateMethods.tpp" /** @skip Metody prywatne (niedziedziczne) */
-
-  #include "src/mathAndOprts/mathMethods.tpp" /** @skip Operacje arytmetyczne - metody */
-  #include "src/mathAndOprts/friendOprts.tpp" /** @skip Przeciążenia operatorów (funkcje zaprzyjaźnione) */
+  #include "DiagonalMatrix.tpp" /** @skip Deklaracje konstruktorów */
+  #include "../../../../FriendFunctions/friendDiagonal.tpp"
 }
 
 #endif
