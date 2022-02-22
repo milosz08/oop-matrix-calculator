@@ -16,7 +16,6 @@ void mainMenu(HANDLE& hOut) {
   bool error{false};
 
   do {
-    try {
 
       error = false;
 
@@ -67,15 +66,11 @@ void mainMenu(HANDLE& hOut) {
           std::cout << "\nDziękuję za skorzystanie z kalkulatora macierzy. Program zakończył działanie.\n";
           exit(0);
         } default: {
-          throw std::out_of_range("Błąd strumienia wejścia. Wybrana opcja nie istnieje.");
+          error = true;
+          MatrixAbstract<double>::errorMess("Błąd strumienia wejścia. Wybrana opcja nie istnieje.", hOut);
           break;
         }
       }
-
-    } catch(std::out_of_range& e) {
-      error = true;
-      MatrixAbstract<double>::errorMess(e.what(), hOut);
-    }
 
   } while(error);
 }

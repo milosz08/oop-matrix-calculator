@@ -31,7 +31,6 @@ unsigned short int mathSecondMatrix(MatrixAbstract<T>* objF, MatrixAbstract<T>* 
   objS->insertMtrx(hOut); /** @skip Wprowadzanie macierzy */
 
   do {
-    try {
 
       error = false;
 
@@ -61,13 +60,9 @@ unsigned short int mathSecondMatrix(MatrixAbstract<T>* objF, MatrixAbstract<T>* 
       std::cout << "\nTwój wybór: ";
       std::cin >> choice;
 
-    } catch(std::out_of_range& e) {
-      error = true;
-      MatrixAbstract<double>::errorMess(e.what(), hOut);
-    }
-
     if(std::cin.fail() || choice < 1 || choice > 3) {
-      throw std::out_of_range("Błąd strumienia wejścia. Wybrana opcja nie istnieje.");
+      error = true;
+      MatrixAbstract<double>::errorMess("Błąd strumienia wejścia. Wybrana opcja nie istnieje.", hOut);
     }
 
   } while(error);

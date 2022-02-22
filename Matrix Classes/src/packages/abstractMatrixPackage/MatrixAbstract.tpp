@@ -187,7 +187,6 @@ double MatrixAbstract<M>::scalarValuePush(HANDLE& hOut) {
       std::cin.clear();
       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
-
   } while(error);
   return scalarVal;
 }

@@ -33,45 +33,43 @@ unsigned short int* setMtrxSize(HANDLE& hOut, unsigned short int& mtrxType, unsi
   bool error{false};
 
   do {
-    try {
 
-      error = false;
+    error = false;
 
-      std::cout << "\nZapisałem następujace parametry:\n";
-      std::cout << saveMtrxInfo(mtrxType, mtrxValType) << "\n";
+    std::cout << "\nZapisałem następujace parametry:\n";
+    std::cout << saveMtrxInfo(mtrxType, mtrxValType) << "\n";
 
-      MatrixAbstract<double>::genInfoBlock("ETAP 3", {
-        "Podaj wielkość macierzy (w formacie ilość kolumn x ilosc wierszy) dla macierzy",
-        "prostokątnych. Dla macierzy kwadratowych oraz diagonalnych podaj jedynie jeden wymiar.",
-      });
+    MatrixAbstract<double>::genInfoBlock("ETAP 3", {
+      "Podaj wielkość macierzy (w formacie ilość kolumn x ilosc wierszy) dla macierzy",
+      "prostokątnych. Dla macierzy kwadratowych oraz diagonalnych podaj jedynie jeden wymiar.",
+    });
 
-      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
-      MatrixAbstract<double>::genInfoBlock("UWAGA!", {
-        "Jeśli podasz wiecej elementów, zostaną one przeze mnie zignorowane.",
-        "W tym polu możesz podać jedynie liczby całkowite różne od zera."
-      });
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
+    MatrixAbstract<double>::genInfoBlock("UWAGA!", {
+      "Jeśli podasz wiecej elementów, zostaną one przeze mnie zignorowane.",
+      "W tym polu możesz podać jedynie liczby całkowite różne od zera."
+    });
 
-      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-      std::cout << "\nPodaj ";
-      if(mtrxType == 2 || mtrxType == 3) {
-        std::cout << "wielkosc macierzy (tylko jeden wymiar): ";
-        std::cin >> mtrxSizes[0]; /** @skip Wprowadzenie ilości wierszy/kolumn */
-        mtrxSizes[1] = mtrxSizes[0]; /** @skip Zapełnienie 2 komórki taką samą wartością (kwadratowe) */
-      } else {
-        std::cout << "liczbę wierszy i kolumn (w formacie k x w) po spacji: ";
-        std::cin >> mtrxSizes[0] >> mtrxSizes[1]; /** @skip Wprowadzenie ilości kolumn i wierszy */
-      }
-
-      if(mtrxSizes[0] == 0 || mtrxSizes[1] == 0 || mtrxSizes[0] > 20 || mtrxSizes[1] > 20 || std::cin.fail()) {
-        throw std::domain_error("Błąd matematyczny. Podany został nieprawidłowy wymiar macierzy.");
-      }
-
-    } catch(std::domain_error& e) {
-      error = true;
-      MatrixAbstract<double>::errorMess(e.what(), hOut);
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+    std::cout << "\nPodaj ";
+    if(mtrxType == 2 || mtrxType == 3) {
+      std::cout << "wielkosc macierzy (tylko jeden wymiar): ";
+      std::cin >> mtrxSizes[0]; /** @skip Wprowadzenie ilości wierszy/kolumn */
+      mtrxSizes[1] = mtrxSizes[0]; /** @skip Zapełnienie 2 komórki taką samą wartością (kwadratowe) */
+    } else {
+      std::cout << "liczbę wierszy i kolumn (w formacie k x w) po spacji: ";
+      std::cin >> mtrxSizes[0] >> mtrxSizes[1]; /** @skip Wprowadzenie ilości kolumn i wierszy */
     }
 
-  } while (error);
+    if(mtrxSizes[0] == 0 || mtrxSizes[1] == 0 || mtrxSizes[0] > 20 || mtrxSizes[1] > 20 || std::cin.fail()) {
+      error = true;
+      MatrixAbstract<double>::errorMess(
+        "Błąd matematyczny. Podany został nieprawidłowy wymiar macierzy.", hOut
+      );
+    }
+
+  } while(error);
+
   std::system("cls"); /** @skip czyszczenie konsoli */
   return mtrxSizes;
 }

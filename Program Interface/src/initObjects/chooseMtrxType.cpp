@@ -20,34 +20,28 @@ unsigned short int chooseTypeOfMatrix(HANDLE& hOut) {
   bool error{false};
 
   do {
-    try {
+    error = false;
 
-      error = false;
+    MatrixAbstract<double>::genInfoBlock("ETAP 1", {
+      "Wybierz, na jakim typie macierzy chcesz przeprowadzać operacje:",
+      "1. Chcę przeprowadzać operacje na zwykłej macierzy prostokatnej.",
+      "2. Chcę przeprowadzać operacje na zwykłej macierzy kwadratowej.",
+      "3. Chcę przeprowadzać operacje na kwadratowej macierzy diagonalnej."
+    });
 
-      MatrixAbstract<double>::genInfoBlock("ETAP 1", {
-        "Wybierz, na jakim typie macierzy chcesz przeprowadzać operacje:",
-        "1. Chcę przeprowadzać operacje na zwykłej macierzy prostokatnej.",
-        "2. Chcę przeprowadzać operacje na zwykłej macierzy kwadratowej.",
-        "3. Chcę przeprowadzać operacje na kwadratowej macierzy diagonalnej."
-      });
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+    MatrixAbstract<double>::genInfoBlock("INFO", {
+      "Macierz diagonalna to macierz, która poza swoją głowna przekątną (diagonalna)",
+      "posiada wartosci zerowe. Na przekątnej diagonalnej znajdą sie podane przez Ciebie wartosci."
+    });
 
-      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-      MatrixAbstract<double>::genInfoBlock("INFO", {
-        "Macierz diagonalna to macierz, która poza swoją głowna przekątną (diagonalna)",
-        "posiada wartosci zerowe. Na przekątnej diagonalnej znajdą sie podane przez Ciebie wartosci."
-      });
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+    std::cout << "\nTwój wybór: ";
+    std::cin >> choice;
 
-      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-      std::cout << "\nTwój wybór: ";
-      std::cin >> choice;
-
-      if((choice < 1 || choice > 3) || std::cin.fail()) {
-        throw std::out_of_range("Błąd strumienia wejścia. Wybrana opcja nie istnieje.");
-      }
-
-    } catch(std::out_of_range& e) {
+    if((choice < 1 || choice > 3) || std::cin.fail()) {
       error = true;
-      MatrixAbstract<double>::errorMess(e.what(), hOut);
+      MatrixAbstract<double>::errorMess("Błąd strumienia wejścia. Wybrana opcja nie istnieje.", hOut);
     }
 
   } while(error);

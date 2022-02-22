@@ -158,8 +158,8 @@ void DiagonalMatrix<M>::insertMtrx(HANDLE& hOut) {
     if(std::cin.fail()) { /** @skip Jeśli użytkownik nie wpisze porządanych wartości w strumień wejścia */
       SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);
       DiagonalMatrix::genInfoBlock("ERROR!", {
-              "W wprowadzanej przez Ciebie macierzy znalazłem niedozwolone wartości!",
-              "Aby kontyuować wprowadź ponownie swoją macierz."
+        "W wprowadzanej przez Ciebie macierzy znalazłem niedozwolone wartości!",
+        "Aby kontyuować wprowadź ponownie swoją macierz."
       });
 
       SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);

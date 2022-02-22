@@ -38,7 +38,6 @@ DiagonalMatrix<M> operator+(const DiagonalMatrix<M>& mtrxF, const DiagonalMatrix
   return mtrxAdd;
 }
 
-
 /*!
  * @overload Operator odejmowania (-) - macierze diagonalne
  *

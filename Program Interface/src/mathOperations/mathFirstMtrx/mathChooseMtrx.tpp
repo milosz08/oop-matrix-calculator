@@ -31,8 +31,6 @@ unsigned short int mathChooseMtrx(MatrixAbstract<T>* obj, HANDLE& hOut) {
   obj->insertMtrx(hOut); /** @skip Wprowadzanie macierzy */
 
   do {
-    try {
-
       error = false;
 
       obj->printMtrx(hOut, true, true); /** @skip Drukowanie macierzy */
@@ -65,13 +63,9 @@ unsigned short int mathChooseMtrx(MatrixAbstract<T>* obj, HANDLE& hOut) {
       std::cout << "\nTwój wybór: ";
       std::cin >> choice;
 
-    } catch(std::out_of_range& e) {
-      error = true;
-      MatrixAbstract<double>::errorMess(e.what(), hOut);
-    }
-
     if(std::cin.fail() || choice < 1 || choice > strArr.size() - 1) {
-      throw std::out_of_range("Błąd strumienia wejścia. Wybrana opcja nie istnieje.");
+      error = true;
+      MatrixAbstract<double>::errorMess("Błąd strumienia wejścia. Wybrana opcja nie istnieje.", hOut);
     }
 
   } while(error);

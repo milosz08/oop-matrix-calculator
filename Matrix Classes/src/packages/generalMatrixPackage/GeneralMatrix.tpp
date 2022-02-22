@@ -103,14 +103,14 @@ void GeneralMatrix<M>::insertMtrx(HANDLE& hOut) {
 
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
     MatrixAbstract<double>::genInfoBlock("UWAGA!", {
-            "Jeśli podasz więcej elementów, zostaną one przeze mnie zignorowane."
+      "Jeśli podasz więcej elementów, zostaną one przeze mnie zignorowane."
     });
 
     SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
     GeneralMatrix::genInfoBlock("INFO", {
-            "Macierz możesz wpisać zarówno w formie jednoliniowej poziomej lub pionowej tablicy",
-            "lub w wygodnej formie wizualnej macierzy (kolejne elementy należy wypisywać po spacji",
-            "a w przechodzeniu do nowego wiersza należy uzyć klawisza \"enter\")."
+      "Macierz możesz wpisać zarówno w formie jednoliniowej poziomej lub pionowej tablicy",
+      "lub w wygodnej formie wizualnej macierzy (kolejne elementy należy wypisywać po spacji",
+      "a w przechodzeniu do nowego wiersza należy uzyć klawisza \"enter\")."
     });
 
     error = false;
@@ -128,8 +128,8 @@ void GeneralMatrix<M>::insertMtrx(HANDLE& hOut) {
 
       SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);
       MatrixAbstract<double>::genInfoBlock("ERROR!", {
-              "W wprowadzanej przez Ciebie macierzy znalazłem niedozwolone wartości!",
-              "Aby kontyuować wprowadź ponownie swoją macierz."
+        "W wprowadzanej przez Ciebie macierzy znalazłem niedozwolone wartości!",
+        "Aby kontyuować wprowadź ponownie swoją macierz."
       });
 
       SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
