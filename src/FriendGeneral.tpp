@@ -1,5 +1,4 @@
-#include "../Matrix Classes/src/packages/generalMatrixPackage/GeneralMatrix.hpp"
-
+#include "GeneralMatrix.hpp"
 
 /*!
  * @overload Operator dodawania (+)
@@ -17,21 +16,21 @@
  * @return Funkcja zwraca macierz wynikową (obiekt) po dodaniu.
  */
 template<class M>
-GeneralMatrix<M> operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS) {
+GeneralMatrix<M> operator+(const GeneralMatrix<M> &mtrxF, const GeneralMatrix<M> &mtrxS) {
 
-  /** @skip Kopiowanie obiektu */
-  GeneralMatrix<M> mtrxAdd = GeneralMatrix<M>{mtrxF};
+    /** @skip Kopiowanie obiektu */
+    GeneralMatrix<M> mtrxAdd = GeneralMatrix<M>{mtrxF};
 
-  if(mtrxF.mtrxWidth != mtrxS.mtrxWidth && mtrxF.mtrxHeight != mtrxS.mtrxHeight) {
-    throw std::logic_error("Dodawanie do siebie macierzy o różnych wielkościach jest niedozwolone!");
-  } else {
-    for(unsigned short int i = 0; i < mtrxF.mtrxHeight; i++) {
-      for(unsigned short int j = 0; j < mtrxF.mtrxWidth; j++) {
-        mtrxAdd.mtrx[i][j] = mtrxF.mtrx[i][j] + mtrxS.mtrx[i][j];
-      }
+    if (mtrxF.mtrxWidth != mtrxS.mtrxWidth && mtrxF.mtrxHeight != mtrxS.mtrxHeight) {
+        throw std::logic_error("Dodawanie do siebie macierzy o różnych wielkościach jest niedozwolone!");
+    } else {
+        for (unsigned short int i = 0; i < mtrxF.mtrxHeight; i++) {
+            for (unsigned short int j = 0; j < mtrxF.mtrxWidth; j++) {
+                mtrxAdd.mtrx[i][j] = mtrxF.mtrx[i][j] + mtrxS.mtrx[i][j];
+            }
+        }
     }
-  }
-  return mtrxAdd;
+    return mtrxAdd;
 }
 
 
@@ -51,21 +50,21 @@ GeneralMatrix<M> operator+(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>
  * @return Funkcja zwraca macierz wynikową (obiekt) po odjęciu.
  */
 template<class M>
-GeneralMatrix<M> operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS) {
+GeneralMatrix<M> operator-(const GeneralMatrix<M> &mtrxF, const GeneralMatrix<M> &mtrxS) {
 
-  /** @skip Kopiowanie obiektu */
-  GeneralMatrix<M> mtrxSubt = GeneralMatrix<M>{mtrxF};
+    /** @skip Kopiowanie obiektu */
+    GeneralMatrix<M> mtrxSubt = GeneralMatrix<M>{mtrxF};
 
-  if(mtrxF.mtrxWidth != mtrxS.mtrxWidth && mtrxF.mtrxHeight != mtrxS.mtrxHeight) {
-    throw std::logic_error("Odejmowanie od siebie macierzy o różnych wielkościach jest niedozwolone!");
-  } else {
-    for(unsigned short int i = 0; i < mtrxF.mtrxHeight; i++) {
-      for(unsigned short int j = 0; j < mtrxF.mtrxWidth; j++) {
-        mtrxSubt.mtrx[i][j] = mtrxF.mtrx[i][j] - mtrxS.mtrx[i][j];
-      }
+    if (mtrxF.mtrxWidth != mtrxS.mtrxWidth && mtrxF.mtrxHeight != mtrxS.mtrxHeight) {
+        throw std::logic_error("Odejmowanie od siebie macierzy o różnych wielkościach jest niedozwolone!");
+    } else {
+        for (unsigned short int i = 0; i < mtrxF.mtrxHeight; i++) {
+            for (unsigned short int j = 0; j < mtrxF.mtrxWidth; j++) {
+                mtrxSubt.mtrx[i][j] = mtrxF.mtrx[i][j] - mtrxS.mtrx[i][j];
+            }
+        }
     }
-  }
-  return mtrxSubt;
+    return mtrxSubt;
 }
 
 
@@ -86,27 +85,27 @@ GeneralMatrix<M> operator-(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>
  * @return Funkcja zwraca macierz wynikową (obiekt) po odjęciu.
  */
 template<class M>
-GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>& mtrxS) {
+GeneralMatrix<M> operator*(const GeneralMatrix<M> &mtrxF, const GeneralMatrix<M> &mtrxS) {
 
-  /** @skip Kopiowanie obiektu */
-  GeneralMatrix<M> mtrxMult = GeneralMatrix<M>{mtrxF};
+    /** @skip Kopiowanie obiektu */
+    GeneralMatrix<M> mtrxMult = GeneralMatrix<M>{mtrxF};
 
-  if(mtrxF.mtrxWidth != mtrxS.mtrxHeight || mtrxS.mtrxWidth != mtrxF.mtrxHeight) {
-    throw std::logic_error("Podane przez ciebie macierze nie spełniają zasad dot. mnożenia macierzy!");
-  } else {
-    M sum{0};
+    if (mtrxF.mtrxWidth != mtrxS.mtrxHeight || mtrxS.mtrxWidth != mtrxF.mtrxHeight) {
+        throw std::logic_error("Podane przez ciebie macierze nie spełniają zasad dot. mnożenia macierzy!");
+    } else {
+        M sum{0};
 
-    for(unsigned short int i = 0; i < mtrxF.mtrxHeight; i++) {
-      for(unsigned short int j = 0; j < mtrxS.mtrxWidth; j++) {
-        sum = 0;
-        for(unsigned short int k = 0; k < mtrxF.mtrxWidth; k++) {
-          sum += mtrxF.mtrx[i][k] * mtrxS.mtrx[k][j];
-          mtrxMult.mtrx[i][j] = sum;
+        for (unsigned short int i = 0; i < mtrxF.mtrxHeight; i++) {
+            for (unsigned short int j = 0; j < mtrxS.mtrxWidth; j++) {
+                sum = 0;
+                for (unsigned short int k = 0; k < mtrxF.mtrxWidth; k++) {
+                    sum += mtrxF.mtrx[i][k] * mtrxS.mtrx[k][j];
+                    mtrxMult.mtrx[i][j] = sum;
+                }
+            }
         }
-      }
     }
-  }
-  return mtrxMult;
+    return mtrxMult;
 }
 
 
@@ -123,17 +122,17 @@ GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrxF, const GeneralMatrix<M>
  * @return Funkcja zwraca macierz wynikową (obiekt) po odjęciu.
  */
 template<class M>
-GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrx, const double& scalar) {
+GeneralMatrix<M> operator*(const GeneralMatrix<M> &mtrx, const double &scalar) {
 
-  /** @skip Kopiowanie obiektu */
-  GeneralMatrix<M> mtrxScalar = GeneralMatrix<M>{mtrx};
+    /** @skip Kopiowanie obiektu */
+    GeneralMatrix<M> mtrxScalar = GeneralMatrix<M>{mtrx};
 
-  for(unsigned short int i = 0; i < mtrx.mtrxHeight; i++) {
-    for(unsigned short int j = 0; j < mtrx.mtrxWidth; j++) {
-      mtrxScalar.mtrx[i][j] = mtrx.mtrx[i][j] * scalar;
+    for (unsigned short int i = 0; i < mtrx.mtrxHeight; i++) {
+        for (unsigned short int j = 0; j < mtrx.mtrxWidth; j++) {
+            mtrxScalar.mtrx[i][j] = mtrx.mtrx[i][j] * scalar;
+        }
     }
-  }
-  return mtrxScalar;
+    return mtrxScalar;
 }
 
 
@@ -162,29 +161,29 @@ GeneralMatrix<M> operator*(const GeneralMatrix<M>& mtrx, const double& scalar) {
  * @return Funkcja zwraca obliczony wyznacznik w postaci typu wartości na podstawie wzorca M.
  */
 template<class M>
-M detRecursion(unsigned short int mtrxS, unsigned short int nextRow, unsigned short int* colCount, M** mtrx) {
-  M recDet{0}; /** @skip Obliczony wyznacznik */
-  unsigned short int* colRecCount{nullptr}; /** @skip indeksy kolumn przekazywane w rekurencji */
-  unsigned short int mtrxElm{0};
-  signed char sign{1};
+M detRecursion(unsigned short int mtrxS, unsigned short int nextRow, unsigned short int *colCount, M **mtrx) {
+    M recDet{0}; /** @skip Obliczony wyznacznik */
+    unsigned short int *colRecCount{nullptr}; /** @skip indeksy kolumn przekazywane w rekurencji */
+    unsigned short int mtrxElm{0};
+    signed char sign{1};
 
-  if(mtrxS == 1) { /** @skip Jeśli wielkość macierzy potomnej 1 to zakończ rekurencję */
-    return mtrx[nextRow][colCount[0]];
-  } else {
-    colRecCount = new unsigned short int[mtrxS - 1]; /** @skip Macierz potomna pomniejszona o 1 */
+    if (mtrxS == 1) { /** @skip Jeśli wielkość macierzy potomnej 1 to zakończ rekurencję */
+        return mtrx[nextRow][colCount[0]];
+    } else {
+        colRecCount = new unsigned short int[mtrxS - 1]; /** @skip Macierz potomna pomniejszona o 1 */
 
-    for(unsigned short int i = 0; i < mtrxS; i++) {
-      mtrxElm = 0; /** @skip Ustawianie pierwotnej pozycji obsługiwanego elementu */
-      for(unsigned short int j = 0; j < mtrxS - 1; j++) {
-        if(mtrxElm == i) { /** @skip Jeśli element jest taki sam, pomiń */
-          mtrxElm++;
+        for (unsigned short int i = 0; i < mtrxS; i++) {
+            mtrxElm = 0; /** @skip Ustawianie pierwotnej pozycji obsługiwanego elementu */
+            for (unsigned short int j = 0; j < mtrxS - 1; j++) {
+                if (mtrxElm == i) { /** @skip Jeśli element jest taki sam, pomiń */
+                    mtrxElm++;
+                }
+                colRecCount[j] = colCount[mtrxElm++];
+            }
+            recDet += sign * mtrx[nextRow][colCount[i]] * detRecursion<M>(mtrxS - 1, nextRow + 1, colRecCount, mtrx);
+            sign *= -1; /** @skip Odwrócenie znaku */
         }
-        colRecCount[j] = colCount[mtrxElm++];
-      }
-      recDet += sign * mtrx[nextRow][colCount[i]] * detRecursion<M>(mtrxS - 1, nextRow + 1, colRecCount, mtrx);
-      sign *= -1; /** @skip Odwrócenie znaku */
+        delete[] colRecCount; /** @skip Usuwanie tablicy */
     }
-    delete[] colRecCount; /** @skip Usuwanie tablicy */
-  }
-  return recDet;
+    return recDet;
 }

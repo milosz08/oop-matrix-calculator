@@ -1,6 +1,5 @@
 #include "DiagonalMatrix.hpp"
 
-
 using namespace matrixAbstractPackage;
 
 
@@ -16,8 +15,8 @@ using namespace matrixAbstractPackage;
  * @param s - stopień macierzy (ilość kolumn oraz wierszy).
  */
 template<class M>
-DiagonalMatrix<M>::DiagonalMatrix(unsigned short int& s) : MatrixAbstract<M>{s, s} {
-  diagTab = new M[this->mtrxWidth];
+DiagonalMatrix<M>::DiagonalMatrix(unsigned short int &s) : MatrixAbstract<M>{s, s} {
+    diagTab = new M[this->mtrxWidth];
 }
 
 
@@ -34,8 +33,8 @@ DiagonalMatrix<M>::DiagonalMatrix(unsigned short int& s) : MatrixAbstract<M>{s, 
  * @param h - wysokość macierzy (ilośc wierszy).
  */
 template<class M>
-DiagonalMatrix<M>::DiagonalMatrix(unsigned short int& w, unsigned short int& h) : MatrixAbstract<M>{w, h} {
-  diagTab = new M[this->mtrxWidth];
+DiagonalMatrix<M>::DiagonalMatrix(unsigned short int &w, unsigned short int &h) : MatrixAbstract<M>{w, h} {
+    diagTab = new M[this->mtrxWidth];
 }
 
 
@@ -50,7 +49,7 @@ DiagonalMatrix<M>::DiagonalMatrix(unsigned short int& w, unsigned short int& h) 
  * @param mtrxCopy - kopiowany obiekt.
  */
 template<class M>
-DiagonalMatrix<M>::DiagonalMatrix(const DiagonalMatrix<M>& mtrxCopy) : MatrixAbstract<M>{mtrxCopy} {}
+DiagonalMatrix<M>::DiagonalMatrix(const DiagonalMatrix<M> &mtrxCopy) : MatrixAbstract<M>{mtrxCopy} {}
 
 
 /*!
@@ -61,7 +60,7 @@ DiagonalMatrix<M>::DiagonalMatrix(const DiagonalMatrix<M>& mtrxCopy) : MatrixAbs
  */
 template<class M>
 DiagonalMatrix<M>::~DiagonalMatrix() {
-  delete[] diagTab;
+    delete[] diagTab;
 }
 
 
@@ -73,7 +72,7 @@ DiagonalMatrix<M>::~DiagonalMatrix() {
  * @return Getter zwraca tablicę dynamiczną elementów na diagonalnej (przekątnej macierzy diagonalnej).
  */
 template<class M>
-M* DiagonalMatrix<M>::get_DiagTab() const { return diagTab; }
+M *DiagonalMatrix<M>::get_DiagTab() const { return diagTab; }
 
 
 /*!
@@ -90,15 +89,15 @@ M* DiagonalMatrix<M>::get_DiagTab() const { return diagTab; }
  */
 template<class M>
 void DiagonalMatrix<M>::generateDiagMtrx(bool identityMtrx) {
-  for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
-    for(unsigned short int j = 0; j < this->mtrxWidth; j++) {
-      if(i == j) {
-        (!identityMtrx ? this->mtrx[i][j] = this->diagTab[j] : this->mtrx[i][j] = 1);
-      } else {
-        this->mtrx[i][j] = 0;
-      }
+    for (unsigned short int i = 0; i < this->mtrxHeight; i++) {
+        for (unsigned short int j = 0; j < this->mtrxWidth; j++) {
+            if (i == j) {
+                (!identityMtrx ? this->mtrx[i][j] = this->diagTab[j] : this->mtrx[i][j] = 1);
+            } else {
+                this->mtrx[i][j] = 0;
+            }
+        }
     }
-  }
 }
 
 
@@ -113,9 +112,9 @@ void DiagonalMatrix<M>::generateDiagMtrx(bool identityMtrx) {
  */
 template<class M>
 void DiagonalMatrix<M>::mtrxTypeAndSizeInfo() {
-  std::cout << "\nZapisałem następujące informacje na temat macierzy diagonalnej\n";
-  std::cout << "o wymiarach: " << this->mtrxWidth << " x " << this->mtrxHeight;
-  std::cout << ", posiadającej liczbę " << this->mtrxWidth * this->mtrxHeight << " komórek.\n";
+    std::cout << "\nZapisałem następujące informacje na temat macierzy diagonalnej\n";
+    std::cout << "o wymiarach: " << this->mtrxWidth << " x " << this->mtrxHeight;
+    std::cout << ", posiadającej liczbę " << this->mtrxWidth * this->mtrxHeight << " komórek.\n";
 }
 
 
@@ -134,48 +133,48 @@ void DiagonalMatrix<M>::mtrxTypeAndSizeInfo() {
  * @param hOut - uchwyt na wyjście z konsoli (zadeklarowany w funkcji startPrg i przekazywany przez referencję).
  */
 template<class M>
-void DiagonalMatrix<M>::insertMtrx(HANDLE& hOut) {
-  bool error{false}, repeatMess{false};
+void DiagonalMatrix<M>::insertMtrx(HANDLE &hOut) {
+    bool error{false}, repeatMess{false};
 
-  do {
-    error = false;
+    do {
+        error = false;
 
-    mtrxTypeAndSizeInfo();
-    std::cout << "\nAby przejść dalej, podaj kolejne elementy macierzy diagonalnej.\n";
+        mtrxTypeAndSizeInfo();
+        std::cout << "\nAby przejść dalej, podaj kolejne elementy macierzy diagonalnej.\n";
 
-    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
-    DiagonalMatrix::genInfoBlock("UWAGA!", {
-            "Jeśli podasz więcej elementow, zostaną one przeze mnie zignorowane."
-    });
+        SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);
+        DiagonalMatrix::genInfoBlock("UWAGA!", {
+                "Jeśli podasz więcej elementow, zostaną one przeze mnie zignorowane."
+        });
 
-    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-    std::cout << "\nWpisz poniżej" << (!repeatMess ? "" : " ponownie");
-    std::cout << " elemety macierzy diagonalnej (po spacji):\n";
-    for(unsigned short int i = 0; i < this->mtrxWidth; i++) {
-      std::cin >> this->diagTab[i];
-    }
+        SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+        std::cout << "\nWpisz poniżej" << (!repeatMess ? "" : " ponownie");
+        std::cout << " elemety macierzy diagonalnej (po spacji):\n";
+        for (unsigned short int i = 0; i < this->mtrxWidth; i++) {
+            std::cin >> this->diagTab[i];
+        }
 
-    if(std::cin.fail()) { /** @skip Jeśli użytkownik nie wpisze porządanych wartości w strumień wejścia */
-      SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);
-      DiagonalMatrix::genInfoBlock("ERROR!", {
-        "W wprowadzanej przez Ciebie macierzy znalazłem niedozwolone wartości!",
-        "Aby kontyuować wprowadź ponownie swoją macierz."
-      });
+        if (std::cin.fail()) { /** @skip Jeśli użytkownik nie wpisze porządanych wartości w strumień wejścia */
+            SetConsoleTextAttribute(hOut, FOREGROUND_RED | FOREGROUND_INTENSITY);
+            DiagonalMatrix::genInfoBlock("ERROR!", {
+                    "W wprowadzanej przez Ciebie macierzy znalazłem niedozwolone wartości!",
+                    "Aby kontyuować wprowadź ponownie swoją macierz."
+            });
 
-      SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-      MatrixAbstract<M>::sequentialMess(5, "Ponawianie za");
+            SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+            MatrixAbstract<M>::sequentialMess(5, "Ponawianie za");
 
-      std::system("cls");
-      error = repeatMess = true;
-      std::cin.clear(); /** @skip Czyszczenie strumienia wejścia */
-      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::system("cls");
+            error = repeatMess = true;
+            std::cin.clear(); /** @skip Czyszczenie strumienia wejścia */
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-    } else {
-      generateDiagMtrx(false); /** @skip Wstawianie wartości diagonalnej do macierzy */
-      std::system("cls");
-    }
-  } while(error);
-  std::system("cls");
+        } else {
+            generateDiagMtrx(false); /** @skip Wstawianie wartości diagonalnej do macierzy */
+            std::system("cls");
+        }
+    } while (error);
+    std::system("cls");
 }
 
 
@@ -193,19 +192,19 @@ void DiagonalMatrix<M>::insertMtrx(HANDLE& hOut) {
 template<class M>
 DiagonalMatrix<M> DiagonalMatrix<M>::coupledMtrx() {
 
-  /** @skip Kopiowanie macierzy */
-  DiagonalMatrix<M> mtrxCoup = DiagonalMatrix<M>{*this};
+    /** @skip Kopiowanie macierzy */
+    DiagonalMatrix<M> mtrxCoup = DiagonalMatrix<M>{*this};
 
-  for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
-    for(unsigned short int j = 0; j < this->mtrxWidth; j++) {
-      if(i == j) {
-        mtrxCoup.mtrx[i][i] = this->diagTab[i] * -1;
-      } else {
-        mtrxCoup.mtrx[i][j] = 0;
-      }
+    for (unsigned short int i = 0; i < this->mtrxHeight; i++) {
+        for (unsigned short int j = 0; j < this->mtrxWidth; j++) {
+            if (i == j) {
+                mtrxCoup.mtrx[i][i] = this->diagTab[i] * -1;
+            } else {
+                mtrxCoup.mtrx[i][j] = 0;
+            }
+        }
     }
-  }
-  return mtrxCoup;
+    return mtrxCoup;
 }
 
 
@@ -223,19 +222,19 @@ DiagonalMatrix<M> DiagonalMatrix<M>::coupledMtrx() {
 template<class M>
 DiagonalMatrix<M> DiagonalMatrix<M>::transposeMtrx() {
 
-  /** @skip Kopiowanie macierzy */
-  DiagonalMatrix<M> mtrxCoup = DiagonalMatrix<M>{*this};
+    /** @skip Kopiowanie macierzy */
+    DiagonalMatrix<M> mtrxCoup = DiagonalMatrix<M>{*this};
 
-  for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
-    for(unsigned short int j = 0; j < this->mtrxWidth; j++) {
-      if(i == j) {
-        mtrxCoup.mtrx[i][i] = this->diagTab[i];
-      } else {
-        mtrxCoup.mtrx[i][j] = 0;
-      }
+    for (unsigned short int i = 0; i < this->mtrxHeight; i++) {
+        for (unsigned short int j = 0; j < this->mtrxWidth; j++) {
+            if (i == j) {
+                mtrxCoup.mtrx[i][i] = this->diagTab[i];
+            } else {
+                mtrxCoup.mtrx[i][j] = 0;
+            }
+        }
     }
-  }
-  return mtrxCoup;
+    return mtrxCoup;
 }
 
 
@@ -254,17 +253,17 @@ DiagonalMatrix<M> DiagonalMatrix<M>::transposeMtrx() {
  * @return Metoda zwraca wyznacznik (w zależności od wzorca: wartość int lub double).
  */
 template<class M>
-M DiagonalMatrix<M>::determinantMtrx(HANDLE& hOut) {
-  M mtrxDet{1}; /** @skip Końcowy wyznacznik (int/double) */
+M DiagonalMatrix<M>::determinantMtrx(HANDLE &hOut) {
+    M mtrxDet{1}; /** @skip Końcowy wyznacznik (int/double) */
 
-  if(this->mtrxWidth != this->mtrxHeight) { /** Jeśli macierz nie jest kwadratowa */
-    throw std::logic_error("Program nie wspiera obliczania wyznacznika z macierzy która nie jest kwadratowa");
-  } else {
-    for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
-      mtrxDet *= this->diagTab[i];
+    if (this->mtrxWidth != this->mtrxHeight) { /** Jeśli macierz nie jest kwadratowa */
+        throw std::logic_error("Program nie wspiera obliczania wyznacznika z macierzy która nie jest kwadratowa");
+    } else {
+        for (unsigned short int i = 0; i < this->mtrxHeight; i++) {
+            mtrxDet *= this->diagTab[i];
+        }
     }
-  }
-  return mtrxDet;
+    return mtrxDet;
 }
 
 
@@ -282,27 +281,27 @@ M DiagonalMatrix<M>::determinantMtrx(HANDLE& hOut) {
  * @return Metoda zwraca macierz odwrotną (obiekt klasy DiagonalMatrix).
  */
 template<class M>
-DiagonalMatrix<double> DiagonalMatrix<M>::inverseMtrx(HANDLE& hOut) {
+DiagonalMatrix<double> DiagonalMatrix<M>::inverseMtrx(HANDLE &hOut) {
 
-  M detCheck = this->determinantMtrx(hOut);
+    M detCheck = this->determinantMtrx(hOut);
 
-  /** @skip Macierz odwrotna do macierzy pierwotnej - na stałe wartość double */
-  DiagonalMatrix<double> mtrxInvrs = DiagonalMatrix<double>{this->mtrxWidth};
+    /** @skip Macierz odwrotna do macierzy pierwotnej - na stałe wartość double */
+    DiagonalMatrix<double> mtrxInvrs = DiagonalMatrix<double>{this->mtrxWidth};
 
-  if(detCheck == 0) { /** @skip Jeśli wyznacznik jest równy zero - wyjątek */
-    throw std::logic_error("Nie można wyznaczyć macierzy odwrotnej, jeśli wyznacznik równy jest zero");
-  } else {
+    if (detCheck == 0) { /** @skip Jeśli wyznacznik jest równy zero - wyjątek */
+        throw std::logic_error("Nie można wyznaczyć macierzy odwrotnej, jeśli wyznacznik równy jest zero");
+    } else {
 
-    /** @skip Obliczenie i przypisanie kolejnym elementom po diagonalnej wartości odwrotnej */
-    for(unsigned short int i = 0; i < this->mtrxHeight; i++) {
-      for(unsigned short int j = 0; j < this->mtrxWidth; j++) {
-        if(i == j) {
-          mtrxInvrs.get_Mtrx()[i][i] = 1 / this->diagTab[i];
-        } else {
-          mtrxInvrs.get_Mtrx()[i][j] = 0;
+        /** @skip Obliczenie i przypisanie kolejnym elementom po diagonalnej wartości odwrotnej */
+        for (unsigned short int i = 0; i < this->mtrxHeight; i++) {
+            for (unsigned short int j = 0; j < this->mtrxWidth; j++) {
+                if (i == j) {
+                    mtrxInvrs.get_Mtrx()[i][i] = 1 / this->diagTab[i];
+                } else {
+                    mtrxInvrs.get_Mtrx()[i][j] = 0;
+                }
+            }
         }
-      }
     }
-  }
-  return mtrxInvrs;
+    return mtrxInvrs;
 }

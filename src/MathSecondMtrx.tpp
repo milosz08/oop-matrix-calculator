@@ -1,4 +1,4 @@
-#include "../../interfaceDecl.hpp"
+#include "InterfaceDecl.hpp"
 
 
 /*!
@@ -17,37 +17,39 @@
  * @param hOut - uchwyt na wyjście z konsoli (zadeklarowany w funkcji startPrg i przekazywany przez referencję).
  */
 template<class M>
-void secondMtrxMath(unsigned short int& choose, M& objF, M& objS, HANDLE& hOut) {
-  switch(choose) {
-    case 1: { /** @skip Dodawanie macierzy */
-      M objAdd = objF + objS;
+void secondMtrxMath(unsigned short int &choose, M &objF, M &objS, HANDLE &hOut) {
+    switch (choose) {
+        case 1: { /** @skip Dodawanie macierzy */
+            M objAdd = objF + objS;
 
-      secondMtrxMathInfo(objF, objS, objAdd, hOut, {
-        "Dodanie do siebie dwóch macierzy pierwotnych przebiegło pomyślnie.",
-        "po dodaniu do niej drugiej macierzy pierwotnej"
-      });
+            secondMtrxMathInfo(objF, objS, objAdd, hOut, {
+                    "Dodanie do siebie dwóch macierzy pierwotnych przebiegło pomyślnie.",
+                    "po dodaniu do niej drugiej macierzy pierwotnej"
+            });
 
-      break;
-    } case 2: { /** @skip Odejmowanie macierzy */
-      M objSub = objF - objS;
+            break;
+        }
+        case 2: { /** @skip Odejmowanie macierzy */
+            M objSub = objF - objS;
 
-      secondMtrxMathInfo(objF, objS, objSub, hOut, {
-        "Odjęcie od siebie dwóch macierzy pierwotnych przebiegło pomyślnie.",
-        "po odjęciu od niej drugiej macierzy pierwotnej"
-      });
+            secondMtrxMathInfo(objF, objS, objSub, hOut, {
+                    "Odjęcie od siebie dwóch macierzy pierwotnych przebiegło pomyślnie.",
+                    "po odjęciu od niej drugiej macierzy pierwotnej"
+            });
 
-      break;
-    } case 3: { /** @skip Mnożenie macierzy */
-      M objMlt = objF * objS;
+            break;
+        }
+        case 3: { /** @skip Mnożenie macierzy */
+            M objMlt = objF * objS;
 
-      secondMtrxMathInfo(objF, objS, objMlt, hOut, {
-        "Pomnożenie przez siebie dwóch macierzy pierwotnych przebiegło pomyślnie.",
-        "po pomnożeniu przez nią drugiej macierzy pierwotnej"
-      });
+            secondMtrxMathInfo(objF, objS, objMlt, hOut, {
+                    "Pomnożenie przez siebie dwóch macierzy pierwotnych przebiegło pomyślnie.",
+                    "po pomnożeniu przez nią drugiej macierzy pierwotnej"
+            });
 
-      break;
+            break;
+        }
     }
-  }
 }
 
 
@@ -75,20 +77,20 @@ void secondMtrxMath(unsigned short int& choose, M& objF, M& objS, HANDLE& hOut) 
  * @param infMess - wektor typu string reprezentujący przekazywane wiadomości wstawiane dynamicznie.
  */
 template<class M>
-void secondMtrxMathInfo(M& objF, M& objS, M& objFinal, HANDLE& hOut, std::vector<std::string>infMess) {
+void secondMtrxMathInfo(M &objF, M &objS, M &objFinal, HANDLE &hOut, std::vector<std::string> infMess) {
 
-  SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
-  MatrixAbstract<double>::genInfoBlock("SUKCES!", { infMess[0],
-    "Poniżej wyświetlam dwie macierze pierwotne i macierz wynikową."
-  });
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+    MatrixAbstract<double>::genInfoBlock("SUKCES!", {infMess[0],
+                                                     "Poniżej wyświetlam dwie macierze pierwotne i macierz wynikową."
+    });
 
-  SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
-  std::cout << "\nPierwsza macierz pierwotna:\n\n";
-  objF.printMtrx(hOut, false, true);
+    SetConsoleTextAttribute(hOut, FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_RED);
+    std::cout << "\nPierwsza macierz pierwotna:\n\n";
+    objF.printMtrx(hOut, false, true);
 
-  std::cout << "\n" << infMess[1] << "\n\n";
-  objS.printMtrx(hOut, false, true);
+    std::cout << "\n" << infMess[1] << "\n\n";
+    objS.printMtrx(hOut, false, true);
 
-  std::cout << "\ndała nastepujacą macierz wynikową:\n\n";
-  objFinal.printMtrx(hOut, false, true);
+    std::cout << "\ndała nastepujacą macierz wynikową:\n\n";
+    objFinal.printMtrx(hOut, false, true);
 }

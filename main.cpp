@@ -1,4 +1,5 @@
-#include "Program Interface/src/interfaceDecl.hpp"
+#include "src/InterfaceDecl.hpp"
+
 
 /*!
  * @title KALKULATOR MACIERZY
@@ -36,9 +37,9 @@
  *          + Transponowanie macierzy.<br>
  */
 int main() {
-  SetConsoleOutputCP(CP_UTF8); /** @skip Polskie znaki w konsoli */
+    SetConsoleOutputCP(CP_UTF8); /** @skip Polskie znaki w konsoli */
 
-  startPrg();
+    startPrg();
 
-  return 0;
+    return 0;
 }
