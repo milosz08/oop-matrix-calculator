@@ -1,10 +1,10 @@
 # Matrix Calculator
 
-## Task topic
-Rectangular matrices, dynamically assigned memory, verification dimensions during operation, basic actions such as adding, Subtraction, multiplication, calculation of the indicator. In addition to the basic actions on matrices should: Reverse Matrix, Matrix Transposed, etc. Benchmarks are mandatory.
+## Assumptions
+Rectangular matrices, dynamically allocated memory, checking dimensions during operations, basic operations like addition subtraction, multiplication, calculation of determinant. In addition to basic matrix operations, you should: determine the inverse matrix, transposed matrix, etc. It is mandatory to use C++ templates.
 
 ## Author
-Program by Miłosz Gilga on the subject **Computer Programming** with use of C++ objectivity elements. Faculty of Electrical Engineering, Silesian University of Technology, Gliwice 2021.
+Created by Miłosz Gilga on the subject **Computer Programming** with use of C++ OOP paradigms. Faculty of Electrical Engineering, Silesian University of Technology, Gliwice 2021.
 
 ## Supported mathematical operations
 * Calculation of the “n” elementary matrix determinant (square matrices only),
@@ -14,8 +14,6 @@ Program by Miłosz Gilga on the subject **Computer Programming** with use of C++
 * Multiplication of the matrix by the scalar value,
 * Transpose a matrix.
 
-## Start program
-This program can be started from a file `PK_Matrix_Calculator.exe` is in the catalogue
-`../cmake-build-debug/PK_Matrix_Calculator.exe`. This program is a console program.
-Full support for Windows 10 (v20H2) 64-bit. Program not tested on systems
-Linux and macOS.
+## Launch application
+This application can be started from a file `PK_Matrix_Calculator.exe` is in the `/cmake-build-debug/PK_Matrix_Calculator.exe` directory. <br>
+Full support for Windows 10 (v20H2) 64-bit.
