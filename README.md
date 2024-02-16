@@ -14,4 +14,4 @@ Rectangular matrices, dynamically allocated memory, checking dimensions during o
 Created by Miłosz Gilga. If you have any questions about the application send message: personal@miloszgilga.pl.
 
 ## License
-This program is on GNU-GPL 3.0 license.
+This program is on MIT license.
