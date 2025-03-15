@@ -11,7 +11,7 @@ Rectangular matrices, dynamically allocated memory, checking dimensions during o
 * Transpose a matrix.
 
 ## Author
-Created by Miłosz Gilga. If you have any questions about the application send message: personal@miloszgilga.pl.
+Created by Miłosz Gilga. If you have any questions about the application send message: [miloszgilga@gmail.com](mailto:miloszgilga@gmail.com).
 
 ## License
 This program is on GNU-GPL 3.0 license.
